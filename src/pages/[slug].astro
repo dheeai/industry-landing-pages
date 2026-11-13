@@ -40,7 +40,16 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
   <section class="sample-section wrap" id="sample">
     <div class="sample-heading"><div><p class="eyebrow">A short-form product story</p><h2>{page.video.title}</h2></div><p>{page.video.description}</p></div>
     <div class:list={['sample-frame', page.video.videoUrl ? 'has-video' : 'concept-mode']}>
-      {page.video.videoUrl ? <video controls playsinline preload="metadata" aria-label={page.video.title}>
+      {page.video.videoUrl ? <video
+        controls={!page.video.autoplayOnScroll}
+        muted={page.video.autoplayOnScroll}
+        loop={page.video.autoplayOnScroll}
+        playsinline
+        preload="metadata"
+        poster={publicAsset(page.video.poster)}
+        aria-label={page.video.title}
+        data-scroll-autoplay={page.video.autoplayOnScroll ? '' : undefined}
+      >
         <source src={publicAsset(page.video.videoUrl)} />
         {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
         Your browser does not support embedded video.
@@ -198,6 +207,15 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         }
       }), { threshold: 0.14 });
       revealItems.forEach((item) => observer.observe(item));
+    }
+    const scrollVideos = [...document.querySelectorAll<HTMLVideoElement>('video[data-scroll-autoplay]')];
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const videoObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) void video.play().catch(() => {});
+        else video.pause();
+      }), { threshold: 0.35 });
+      scrollVideos.forEach((video) => videoObserver.observe(video));
     }
     const updateActiveLink = () => {
       const sections = ['first-response', 'applications', 'journey', 'sample'].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
