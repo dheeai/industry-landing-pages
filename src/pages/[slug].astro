@@ -211,12 +211,6 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
       revealItems.forEach((item) => observer.observe(item));
     }
     const scrollVideos = [...document.querySelectorAll<HTMLVideoElement>('video[data-scroll-autoplay]')];
-    let pageInteracted = false;
-    const isVideoInView = (video: HTMLVideoElement) => {
-      const bounds = video.getBoundingClientRect();
-      const visibleHeight = Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, 0);
-      return visibleHeight / Math.max(bounds.height, 1) >= 0.35;
-    };
     const attemptSoundOnPlayback = (video: HTMLVideoElement) => {
       const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
       void video.play().then(() => { if (startButton) startButton.hidden = true; }).catch(() => { if (startButton) startButton.hidden = false; });
@@ -233,23 +227,11 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
       });
       if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) showSoundStart();
     });
-    const registerPageInteraction = () => {
-      if (pageInteracted) return;
-      pageInteracted = true;
-      scrollVideos.filter(isVideoInView).forEach(attemptSoundOnPlayback);
-    };
-    document.addEventListener('pointerdown', registerPageInteraction, { capture: true, passive: true });
-    document.addEventListener('keydown', registerPageInteraction, { capture: true });
-    document.addEventListener('wheel', registerPageInteraction, { capture: true, passive: true });
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const videoObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
         if (entry.isIntersecting) {
-          if (pageInteracted) attemptSoundOnPlayback(video);
-          else {
-            const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
-            if (startButton) startButton.hidden = false;
-          }
+          attemptSoundOnPlayback(video);
         }
         else video.pause();
       }), { threshold: 0.35 });
