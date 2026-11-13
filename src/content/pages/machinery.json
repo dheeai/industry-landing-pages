@@ -15,35 +15,75 @@
     "secondary": { "label": "Talk through your machine", "href": "#contact" }
   },
   "concept": {
-    "title": "From interest to understanding",
-    "steps": ["See the machine in context", "Understand how it works", "Know what to do next"],
-    "body": "A focused visual story can help a prospective customer move from a technical question to a useful conversation. The same clarity can support onboarding and service after the sale."
+    "eyebrow": "Video is not the pitch. It is the bridge.",
+    "title": "Give the customer a clearer way in.",
+    "steps": ["Interest", "Understanding", "Continuation"],
+    "body": "Start with the machinery question a buyer already has. Show one useful product story, then continue the conversation with the technical detail and expertise the project needs."
+  },
+  "research": {
+    "value": "62%",
+    "body": "of the buying journey happens online before technical buyers contact sales.",
+    "source": { "label": "2026 engineer research", "href": "https://www.trewmarketing.com/state-of-marketing-to-engineers-research-report" }
+  },
+  "journey": {
+    "eyebrow": "One machine, one useful story",
+    "title": "Follow the part.",
+    "emphasis": "Understand the process.",
+    "body": "A short explainer gives a customer a clear thread to follow: what goes in, what happens inside, and what comes out. That makes a complex machine easier to discuss.",
+    "steps": [
+      { "tab": "The input", "zone": "IN", "title": "Start with one part.", "copy": "Show the product entering the line, so the viewer has a familiar point to follow." },
+      { "tab": "The process", "zone": "PROCESS", "title": "Make the middle visible.", "copy": "Reveal the sequence inside the machine and explain the transformation in plain language." },
+      { "tab": "The outcome", "zone": "OUT", "title": "Finish with the result.", "copy": "Show what comes out and give the customer a clearer next question for your team." }
+    ]
+  },
+  "response": {
+    "eyebrow": "Before and after the first reply",
+    "title": "Make the first response useful.",
+    "body": "A short explainer can give a prospect product context while an applications expert prepares to discuss the specific line, material or configuration.",
+    "beforeLabel": "THE HOLDING REPLY",
+    "beforeMessage": "Thanks for your enquiry. A specialist will be in touch.",
+    "beforeNote": "The customer still has to wait for product context.",
+    "tabs": [
+      { "label": "Fit & application", "question": "How could this machine fit into our production line?", "answer": "Here’s a short overview of the machine’s role in a production workflow. Share your line details and our applications team can help check the fit.", "asset": "Where the machine fits" },
+      { "label": "How it works", "question": "What happens to the part as it moves through the machine?", "answer": "This walkthrough follows one part through the key stages. Our product team can then go deeper on the process details for your configuration.", "asset": "Follow one part through the process" },
+      { "label": "Getting started", "question": "What should our operators understand first?", "answer": "Here’s an orientation to the machine and the first steps for a new user. Your team’s approved operating and safety instructions remain the source of record.", "asset": "A first look for new operators" }
+    ]
   },
   "trigger": {
     "eyebrow": "A timely reason to improve the experience",
     "title": "Digital instructions are becoming part of the machinery conversation.",
-    "body": "The EU Machinery Regulation (EU) 2023/1230 applies from 20 January 2027. It permits instructions in digital form under specified conditions and retains requirements around access, download, printing and paper instructions on request. Video can help explain a machine, but it does not replace the required instructions or create compliance by itself.",
-    "dateLabel": "Applies from 20 January 2027",
+    "body": "From 20 January 2027, the EU Machinery Regulation (EU) 2023/1230 allows instructions for use to be supplied digitally if its conditions are met. They must clearly identify the model, be accessible, downloadable and printable, and stay online for the machine’s expected lifetime and at least 10 years. Paper instructions can be requested at purchase; essential safety information for non-professional use has additional paper requirements. Video can support understanding, but it does not replace required instructions or establish compliance.",
+    "dateStamp": "20 / 01",
+    "dateLabel": "2027 · EU MACHINERY REGULATION",
     "source": { "label": "Read the regulation on EUR-Lex", "href": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng" }
+  },
+  "comparison": {
+    "title": "A useful first reply can begin before the meeting.",
+    "body": "An illustrative comparison of a text-led first touch and a visual product story. It names no competitors and makes no performance guarantee.",
+    "leftTitle": "Typical first touch",
+    "leftItems": ["A written acknowledgement confirms the enquiry", "Product context waits for the next conversation", "The buyer reads or describes the question in text"],
+    "rightTitle": "With a DHEE video bridge",
+    "rightItems": ["Share a reviewed explainer with the first reply", "Show one machine workflow or application visually", "Continue with an expert for fit and configuration"],
+    "note": "Keep specifications, drawings, manuals and safety information as the source of record. A video adds context alongside them."
   },
   "useCases": [
     {
       "number": "01",
-      "title": "Help a buyer picture the fit",
-      "body": "Show the machine in its working context, explain the value of key capabilities and give sales teams a clear visual to use in early conversations.",
-      "tag": "Before the enquiry"
+      "title": "Answer an inbound lead",
+      "body": "Respond to a first enquiry with a short explainer connected to the question. Give the prospect product context while an applications expert prepares to discuss the specifics.",
+      "tag": "Inbound lead"
     },
     {
       "number": "02",
-      "title": "Make a proposal easier to grasp",
-      "body": "Turn a complex configuration or process into a concise walkthrough that helps stakeholders understand what is being proposed and why it matters.",
-      "tag": "During evaluation"
+      "title": "Keep a WhatsApp conversation moving",
+      "body": "When someone asks how a process works, share a focused visual answer that is easier to revisit than a long text explanation. Let the product team handle fit and engineering details.",
+      "tag": "WhatsApp chat"
     },
     {
       "number": "03",
-      "title": "Support the handover after purchase",
-      "body": "Create product-specific explainers for orientation, routine workflows and service context, alongside the official manuals and safety information.",
-      "tag": "After the sale"
+      "title": "Give a proposal a visual companion",
+      "body": "Pair a proposal with a short walkthrough of the machine or configuration under discussion. Use it to frame the next technical meeting, not to replace the specifications.",
+      "tag": "Outbound proposal"
     }
   ],
   "video": {
@@ -56,21 +96,24 @@
   },
   "library": {
     "title": "Build a useful library, one machine at a time.",
-    "body": "Start with the questions your sales, onboarding or service teams hear most. Each short piece can have one clear job and point people to the next useful resource.",
+    "body": "Build reusable explainers for your product categories, starting with the questions sales, onboarding and service teams hear most. Add a prospect-specific cut when an important application or proposal needs one.",
     "items": [
-      { "number": "01", "title": "Product overview", "detail": "What it does, where it fits and who it is for." },
-      { "number": "02", "title": "Workflow walkthrough", "detail": "How the process moves from input to output." },
-      { "number": "03", "title": "Feature explainer", "detail": "A closer look at one capability or configuration." },
-      { "number": "04", "title": "Getting started", "detail": "A clear first orientation for a new customer." }
+      { "number": "01", "title": "Product overview", "detail": "What it does, where it fits and who it is for.", "poster": "/images/machinery-concept.svg", "alt": "Fictional modular machinery concept, used as an illustrative thumbnail." },
+      { "number": "02", "title": "Workflow walkthrough", "detail": "How the process moves from input to output.", "poster": "/images/machinery-concept.svg", "alt": "Concept illustration of a production workflow moving through a machine." },
+      { "number": "03", "title": "Feature explainer", "detail": "A closer look at one capability or configuration.", "poster": "/images/machinery-concept.svg", "alt": "Fictional industrial machine concept, representing a focused feature explainer." },
+      { "number": "04", "title": "Getting started", "detail": "A clear first orientation for a new customer.", "poster": "/images/machinery-concept.svg", "alt": "Concept illustration for a first orientation to machinery." }
     ]
   },
   "process": {
-    "title": "A clear path from machine to story",
+    "title": "Seven steps from brief to finished visual",
     "steps": [
-      { "number": "01", "title": "Choose the audience and moment" },
-      { "number": "02", "title": "Shape the story with your product experts" },
-      { "number": "03", "title": "Create and review the visual" },
-      { "number": "04", "title": "Publish it where customers need it" }
+      { "number": "01", "title": "Brief and research the audience" },
+      { "number": "02", "title": "Collect brand and product references" },
+      { "number": "03", "title": "Analyse the market and competitors" },
+      { "number": "04", "title": "Storyboard the idea" },
+      { "number": "05", "title": "Write the script and plan audio" },
+      { "number": "06", "title": "Build visuals, graphics and cutdowns" },
+      { "number": "07", "title": "Review claims, captions and final QA" }
     ]
   },
   "faqs": [
@@ -80,7 +123,7 @@
     },
     {
       "question": "Can digital instructions replace paper instructions?",
-      "answer": "The regulation permits digital instructions if its conditions are met, including that users can access, download and print them. A manufacturer must provide paper instructions free of charge on request, within the regulation's stated period. Machinery intended for non-professional users also has additional paper-instruction requirements for the relevant safety information. Confirm the requirements for your product with your compliance team."
+      "answer": "The regulation permits digital instructions if its conditions are met: users must be able to access, download, save and print them, and the instructions must remain online for the expected lifetime of the machine and at least 10 years. If requested at purchase, paper instructions must be provided free within one month. Essential safety information for non-professional users has additional paper requirements. Confirm the application with your compliance team."
     },
     {
       "question": "What should the sample video show?",
@@ -89,12 +132,20 @@
     {
       "question": "Can the same story support sales and customer education?",
       "answer": "The core product story can be adapted for different moments. A sales overview, a setup orientation and a service explainer should each be shaped for their audience and purpose."
+    },
+    {
+      "question": "How do you keep a machinery visual accurate?",
+      "answer": "Start with approved product references and have product experts review the storyboard and final visual. For closer machinery fidelity, request CAD or measurement data where available; never promise engineering accuracy from a few photographs alone."
+    },
+    {
+      "question": "Where can a short explainer be used?",
+      "answer": "A reviewed cut can be shared in an email or chat, paired with a proposal, shown at an event or embedded on a product page. Platform-specific crops and captions should be prepared for each use."
     }
   ],
   "cta": {
     "title": "Which machine should we make clearer first?",
     "body": "Bring one product, one audience and one question your team hears often. We can use that to shape a focused first story.",
-    "primary": { "label": "Start a conversation", "href": "mailto:Gayathri@Dhee.Studio?subject=Machinery%20product%20story" },
+    "calendar": { "label": "Choose a time", "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true" },
     "email": { "label": "Email the DHEE team", "href": "mailto:Gayathri@Dhee.Studio" }
   },
   "footer": {

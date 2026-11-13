@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import type { LandingPage as PageData } from '../content/schema';
 const { page } = Astro.props as { page: PageData };
+const publicAsset = (path: string) => path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 const isExternal = (href: string) => href.startsWith('http');
 ---
 <!doctype html>
@@ -16,16 +17,20 @@ const isExternal = (href: string) => href.startsWith('http');
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header wrap">
-      <a class="wordmark" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><span class="wordmark-mark">D</span><span>DHEE<span class="wordmark-period">.</span></span></a>
+      <a class="wordmark" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><img class="wordmark-mark" src={publicAsset('/images/dhee-mark-black.png')} alt="" /><span>DHEE<span class="wordmark-period">.</span></span></a>
       <nav aria-label="Main navigation" class="desktop-nav">
-        <a href="#why">Why now</a><a href="#journey">How it works</a><a href="#applications">Applications</a><a href="#sample">Sample</a>
+        <a href="#first-response">First response</a><a href="#applications">Applications</a><a href="#journey">How it works</a><a href="#sample">Sample</a>
       </nav>
+      <details class="mobile-nav">
+        <summary aria-label="Open page navigation">Menu <span aria-hidden="true">＋</span></summary>
+        <nav aria-label="Mobile navigation"><a href="#first-response">First response</a><a href="#applications">Applications</a><a href="#journey">How it works</a><a href="#sample">Sample</a></nav>
+      </details>
       <a class="header-cta" href={page.hero.secondary.href}>Talk to DHEE <span aria-hidden="true">↗</span></a>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer">
       <div class="wrap footer-main">
-        <a class="wordmark footer-brand" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><span class="wordmark-mark">D</span><span>DHEE<span class="wordmark-period">.</span></span></a>
+        <a class="wordmark footer-brand" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><img class="wordmark-mark" src={publicAsset('/images/dhee-mark-white.png')} alt="" /><span>DHEE<span class="wordmark-period">.</span></span></a>
         <p>{page.footer.disclosure}</p>
         <a href={page.cta.email.href}>{page.cta.email.label} <span aria-hidden="true">↗</span></a>
       </div>

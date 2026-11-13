@@ -32,14 +32,19 @@ Astro writes the deployable site to `dist/`.
 4. Add approved imagery under `public/images/` and point `video.poster` to it. If approved footage is available, set `video.videoUrl` and `video.captionsUrl`; until then, the storyboard poster and transcript remain visible.
 5. Run `npm run build`; Astro creates a matching `dist/<slug>/` route.
 
-The shared page renderer and layout live in `src/pages/[slug].astro` and `src/layouts/LandingPage.astro`. The visual system is in `src/styles/global.css`.
+The shared page renderer and layout live in `src/pages/[slug].astro` and `src/layouts/LandingPage.astro`. The visual system is in `src/styles/global.css`. The machinery page content is config-driven, including the research note, regulatory trigger, before/after response example, three sales moments, interactive workflow, comparison, sample, library, seven-step process, FAQ and calendar CTA. Add a new page by copying its JSON config and replacing its audience, facts, examples, language and approved media.
+
+The DHEE mark in the header and footer is copied from the existing `dheeai/dhee-website` brand assets. The machinery illustration and copy are specific to this page; no client or competitor logos are used.
 
 ## Before publishing
 
 - Replace the concept illustration and storyboard copy with DHEE-approved machine footage and product-expert-reviewed language.
+- Complete and review the 60-second machinery sample, then add a web-ready encoded video, poster and captions under `public/` before enabling `videoUrl` in the config.
 - Complete the video portfolio and create the LinkedIn and WhatsApp cuts called for in the brief.
+- Add the approved EN/DE/IT/FR/NL configs after human review of translations.
+- Configure consent-based or cookieless analytics for page views, scroll depth, sample playback and CTA clicks after the domain and privacy destination are approved. No tracking script is currently loaded.
 - Confirm the booking destination and contact details with DHEE. The current CTA uses the contact email shown on the existing DHEE page.
-- Confirm DHEE brand assets, colors and typography. The current page uses a lightweight editorial palette and a text wordmark as a visual direction.
+- Confirm DHEE brand colors and typography. The DHEE logo mark comes from the existing website; the page uses an editorial palette and system fonts until an approved brand type and color specification is supplied.
 - Review all product, safety and regulatory statements with the relevant DHEE and customer experts. The page states that explanatory video does not replace required instructions.
 - Update `site` and `base` in `astro.config.mjs` if the repository or production domain changes.
 - Add DHEE's approved privacy-policy destination before collecting analytics or adding a privacy link.
