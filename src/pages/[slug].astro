@@ -106,7 +106,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         <div class="sample-bottom"><span>FROM PRODUCT DETAIL TO BIG PICTURE</span><span>{page.video.duration}</span></div>
       </>}
     </div>
-    <details class="transcript"><summary>Read the sample storyboard</summary><ol>{page.video.transcript.map((line) => <li>{line}</li>)}</ol></details>
+    <details class="transcript"><summary>{page.video.videoUrl ? 'Read the English transcript' : 'Read the sample storyboard'}</summary><ol>{page.video.transcript.map((line) => <li>{line}</li>)}</ol></details>
   </section>
 
   <section class="comparison-section">

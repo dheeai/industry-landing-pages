@@ -88,10 +88,12 @@
   ],
   "video": {
     "title": "How a machine works, in 60 seconds",
-    "description": "Sample 01 from the machinery portfolio: a fictional machine, explained by following one workpiece from input to output. The concept storyboard is shown until the generated video is approved.",
+    "description": "Sample 01: an English narrated, AI-assisted concept film following one workpiece through a fictional machine, from input to output. The machine is illustrative, not a real product or engineering reference.",
     "duration": "01:00",
     "poster": "/images/machinery-concept.svg",
-    "label": "Concept visual · sample in development",
+    "label": "Fictional concept sample · English narration",
+    "videoUrl": "/videos/machinery-sample-01.mp4",
+    "captionsUrl": "/videos/machinery-sample-01.en.vtt",
     "transcript": ["A machine is easier to understand when you can follow the work. Start with one part entering the line.", "Inside, a sequence of stages turns a complicated system into a process you can see.", "The important story is how the work moves from one stage to the next: what comes in, what happens in between, and what comes out.", "When customers can follow that sequence, they have a clearer way to understand where the machine fits and what to ask next.", "DHEE helps industrial teams make complex products easier to understand. Start with one machine and one clear story."]
   },
   "library": {
