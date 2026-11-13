@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import type { LandingPage as PageData } from '../content/schema';
+const { page } = Astro.props as { page: PageData };
+const isExternal = (href: string) => href.startsWith('http');
+---
+<!doctype html>
+<html lang={page.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={page.seo.description} />
+    <meta name="theme-color" content="#f2f1ec" />
+    <title>{page.seo.title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><span class="wordmark-mark">D</span><span>DHEE<span class="wordmark-period">.</span></span></a>
+      <nav aria-label="Main navigation" class="desktop-nav">
+        <a href="#why">Why now</a><a href="#journey">How it works</a><a href="#applications">Applications</a><a href="#sample">Sample</a>
+      </nav>
+      <a class="header-cta" href={page.hero.secondary.href}>Talk to DHEE <span aria-hidden="true">↗</span></a>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="wrap footer-main">
+        <a class="wordmark footer-brand" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><span class="wordmark-mark">D</span><span>DHEE<span class="wordmark-period">.</span></span></a>
+        <p>{page.footer.disclosure}</p>
+        <a href={page.cta.email.href}>{page.cta.email.label} <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {page.footer.copyright}</span><span>Made for clearer product stories.</span></div>
+    </footer>
+  </body>
+</html>

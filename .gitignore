@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# Keep the DHEE generation project and intermediate assets out of the website
+# repository. Add only reviewed web-ready samples under public/videos/.
+videos/**
+!videos/01-machine-working-principle/
+!videos/01-machine-working-principle/storyboard.md

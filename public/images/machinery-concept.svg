@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="t d">
+  <title id="t">Concept illustration of an industrial machine</title>
+  <desc id="d">Abstract modular production line with a large machine enclosure, conveyor, control screen and orange workflow highlights.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9e9df"/><stop offset="1" stop-color="#cbd4c9"/></linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#f6f4ed"/><stop offset="1" stop-color="#bfc9bf"/></linearGradient>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#344d41"/><stop offset="1" stop-color="#1b3028"/></linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#738174" stroke-opacity=".12"/></pattern>
+    <filter id="shadow" x="-.2" y="-.25" width="1.4" height="1.5"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/><rect width="1200" height="760" fill="url(#grid)"/>
+  <path d="M0 594 1200 501v259H0Z" fill="#738273" opacity=".16"/>
+  <ellipse cx="586" cy="606" rx="428" ry="52" fill="#203a2f" opacity=".2" filter="url(#shadow)"/>
+  <g stroke="#344b40" stroke-width="4" stroke-linejoin="round">
+    <path d="m194 254 494-60 160 70-502 75Z" fill="#b8c4b8"/>
+    <path d="m194 254 0 254 152 69V339Z" fill="url(#shade)"/>
+    <path d="m346 339 502-75v254l-502 64Z" fill="url(#metal)"/>
+    <path d="m848 264 92 43v251l-92-40Z" fill="#aab8ab"/>
+    <path d="m235 281 88 43v214l-88-40Z" fill="#f2f0e7"/>
+    <path d="m370 357 258-40v157l-258 39Z" fill="#29483b"/>
+    <path d="m391 378 217-33v111l-217 33Z" fill="#dbe4d9" stroke="#92a394"/>
+    <path d="m429 401 142-22v55l-142 22Z" fill="#ed6842" stroke="none"/>
+    <path d="m652 348 150-22v132l-150 23Z" fill="#e6e8df"/>
+    <path d="m674 373 106-16v8l-106 16Zm0 21 76-11v8l-76 12Zm0 21 89-14v8l-89 14Z" fill="#718277" stroke="none"/>
+    <path d="m263 520 0 56 72 34v-55Zm526 26v-60l60 26v60Zm-421 63v-51l84-11v57Zm123-17v-50l85-11v51Z" fill="#536d5d"/>
+    <path d="M143 572h757l104 53H249Z" fill="#43594d"/>
+    <path d="M249 625h755v24H249Z" fill="#263e32"/>
+    <path d="m153 567 102-9 132 53-104 11Z" fill="#ed6842" stroke="none"/>
+    <path d="M205 592h45m25 0h45m25 0h45" stroke="#f2bd9f" stroke-width="5"/>
+    <path d="m512 509 0 63m220-92v72" stroke="#ed6842" stroke-width="7" stroke-dasharray="3 14"/>
+    <path d="m491 548 20 24 18-29m183-18 23 24 21-30" fill="none" stroke="#ed6842" stroke-width="6"/>
+    <path d="M258 250v-58m24 55v-71m24 68v-78m24 75v-82" stroke="#718477" stroke-width="3"/>
+    <path d="m269 192 45-5 41 18-46 6Z" fill="#ed6842" stroke="none"/>
+    <circle cx="772" cy="526" r="6" fill="#ed6842" stroke="none"/><circle cx="475" cy="560" r="6" fill="#ed6842" stroke="none"/>
+  </g>
+  <g fill="none" stroke="#ed6842" stroke-width="2" opacity=".8"><path d="M151 470h-64v-68h104"/><circle cx="191" cy="402" r="5" fill="#ed6842"/><path d="M913 347h89v-88h-92"/><circle cx="910" cy="259" r="5" fill="#ed6842"/></g>
+  <g fill="#53685b" font-family="monospace" font-size="12" letter-spacing="2"><text x="50" y="385">MATERIAL IN</text><text x="1009" y="244">PROCESS VIEW</text><text x="888" y="691">CONCEPT / 01</text></g>
+  <g stroke="#627467" stroke-width="1" opacity=".5"><path d="M66 675h213m-213 12h139M920 688h220"/></g>
+</svg>
