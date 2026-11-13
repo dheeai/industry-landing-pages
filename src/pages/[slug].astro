@@ -42,7 +42,6 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
     <div class:list={['sample-frame', page.video.videoUrl ? 'has-video' : 'concept-mode']}>
       {page.video.videoUrl ? <video
         controls={!page.video.autoplayOnScroll}
-        muted={page.video.autoplayOnScroll}
         loop={page.video.autoplayOnScroll}
         playsinline
         preload="metadata"
@@ -54,6 +53,9 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
         Your browser does not support embedded video.
       </video> : <img src={publicAsset(page.video.poster)} alt="Concept poster: an industrial machine in a clean factory bay, with its workflow highlighted" loading="lazy" />}
+      {page.video.videoUrl && page.video.autoplayOnScroll && <button class="video-sound-start" type="button" hidden aria-label={`Play ${page.video.title} with sound`}>
+        <span aria-hidden="true">▶</span> Play with sound
+      </button>}
       {!page.video.videoUrl && <>
         <div class="sample-topline"><span>{page.video.label}</span><span>DHEE / MOTION STUDY</span></div>
         <div class="sample-center"><span class="play-mark" aria-hidden="true">▶</span><span>60-SECOND STORYBOARD</span></div>
@@ -209,10 +211,46 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
       revealItems.forEach((item) => observer.observe(item));
     }
     const scrollVideos = [...document.querySelectorAll<HTMLVideoElement>('video[data-scroll-autoplay]')];
+    let pageInteracted = false;
+    const isVideoInView = (video: HTMLVideoElement) => {
+      const bounds = video.getBoundingClientRect();
+      const visibleHeight = Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, 0);
+      return visibleHeight / Math.max(bounds.height, 1) >= 0.35;
+    };
+    const attemptSoundOnPlayback = (video: HTMLVideoElement) => {
+      const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
+      void video.play().then(() => { if (startButton) startButton.hidden = true; }).catch(() => { if (startButton) startButton.hidden = false; });
+    };
+    scrollVideos.forEach((video) => {
+      const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
+      if (!startButton) return;
+      const showSoundStart = () => { startButton.hidden = false; };
+      const hideSoundStart = () => { startButton.hidden = true; };
+      video.addEventListener('play', hideSoundStart);
+      startButton.addEventListener('click', () => {
+        video.muted = false;
+        void video.play().then(hideSoundStart).catch(showSoundStart);
+      });
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) showSoundStart();
+    });
+    const registerPageInteraction = () => {
+      if (pageInteracted) return;
+      pageInteracted = true;
+      scrollVideos.filter(isVideoInView).forEach(attemptSoundOnPlayback);
+    };
+    document.addEventListener('pointerdown', registerPageInteraction, { capture: true, passive: true });
+    document.addEventListener('keydown', registerPageInteraction, { capture: true });
+    document.addEventListener('wheel', registerPageInteraction, { capture: true, passive: true });
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const videoObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting) void video.play().catch(() => {});
+        if (entry.isIntersecting) {
+          if (pageInteracted) attemptSoundOnPlayback(video);
+          else {
+            const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
+            if (startButton) startButton.hidden = false;
+          }
+        }
         else video.pause();
       }), { threshold: 0.35 });
       scrollVideos.forEach((video) => videoObserver.observe(video));
