@@ -166,7 +166,8 @@
       "This illustrative preview opens a conversation about process fit and scale."
     ],
     "videoUrl": "/videos/multiply-labs-story-preview.mp4",
-    "captionsUrl": "/videos/multiply-labs-story-preview.en.vtt"
+    "captionsUrl": "/videos/multiply-labs-story-preview.en.vtt",
+    "autoplayOnScroll": true
   },
   "library": {
     "title": "Build from the story buyers need next.",

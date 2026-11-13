@@ -15,7 +15,7 @@ export type LandingPage = {
   comparison: { title: string; body: string; leftTitle: string; leftItems: string[]; rightTitle: string; rightItems: string[]; note: string };
   applications?: { eyebrow: string; title: string; emphasis: string; body: string };
   useCases: Array<{ number: string; title: string; body: string; tag: string }>;
-  video: { title: string; description: string; duration: string; poster: string; label: string; videoUrl?: string; captionsUrl?: string; transcript: string[] };
+  video: { title: string; description: string; duration: string; poster: string; label: string; videoUrl?: string; captionsUrl?: string; autoplayOnScroll?: boolean; transcript: string[] };
   library: { title: string; body: string; items: Array<{ number: string; title: string; detail: string; poster: string; alt: string }> };
   faqTitle?: { eyebrow: string; title: string; emphasis: string };
   process: { title: string; steps: Array<{ number: string; title: string }> };
