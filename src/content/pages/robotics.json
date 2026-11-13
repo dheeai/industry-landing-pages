@@ -1,0 +1,281 @@
+{
+  "slug": "robotics",
+  "segment": "Robotics and physical-AI teams",
+  "language": "en",
+  "seo": {
+    "title": "Show the robot’s job before hardware | DHEE",
+    "description": "Help buyers and stakeholders understand a robotics use case with a clear, illustrative product story before a hardware decision."
+  },
+  "hero": {
+    "eyebrow": "For robotics and physical-AI teams",
+    "title": "Show the robot’s job",
+    "emphasis": "before the hardware decision.",
+    "body": "Turn a robotics use case into a story people can follow: the task, the environment, the robot’s role and the question to validate next.",
+    "primary": {
+      "label": "Explore the concept",
+      "href": "#sample"
+    },
+    "secondary": {
+      "label": "Talk through a use case",
+      "href": "#contact"
+    },
+    "image": "/images/robotics-hero.svg",
+    "imageAlt": "Illustrative robot arm and mobile robot working in a clean concept environment; not a validated simulation.",
+    "artTopLabel": "FIELD NOTE / 02",
+    "artStamp": "ROBOTICS / 02",
+    "artInput": "A task to explore",
+    "artOutput": "A question to validate",
+    "edition": "002"
+  },
+  "concept": {
+    "eyebrow": "Make the idea visible before the build.",
+    "title": "Give the team something concrete to review.",
+    "steps": [
+      "Task",
+      "Visualise",
+      "Validate"
+    ],
+    "body": "A focused visual demo can help a buyer, operator or internal team discuss what a robot is meant to do. It can clarify the proposed workflow and surface questions for engineering—without claiming to prove performance or replace simulation."
+  },
+  "research": {
+    "value": "1 task",
+    "body": "Start with one clearly bounded robot task and the decision the viewer needs to make.",
+    "source": {
+      "label": "See the example flow",
+      "href": "#journey"
+    }
+  },
+  "journey": {
+    "eyebrow": "From task brief to next decision",
+    "title": "Follow the robot’s job.",
+    "emphasis": "See the workflow take shape.",
+    "body": "A good first demo keeps the use case specific: what the robot encounters, what action it takes and what the team still needs to validate.",
+    "storyLabel": "ONE ROBOT TASK / THREE CLEAR MOMENTS",
+    "steps": [
+      {
+        "tab": "Define the task",
+        "zone": "TASK & ENVIRONMENT",
+        "title": "Start with the work to be done.",
+        "copy": "Name the task, the setting and the people or systems around it. A clear boundary keeps the story useful and avoids implying the robot can do more than intended.",
+        "image": "/images/robotics-task.svg",
+        "imageAlt": "Illustrative mobile robot approaching a marked work area in a warehouse concept scene."
+      },
+      {
+        "tab": "Show the sequence",
+        "zone": "ROBOT IN ACTION",
+        "title": "Make the intended interaction visible.",
+        "copy": "Show the approach, interaction and handoff as a concept sequence. Use approved product references and label assumptions so reviewers can separate the story from verified capability.",
+        "image": "/images/robotics-action.svg",
+        "imageAlt": "Illustrative robotic arm handling a tote at a work cell; concept visualization, not performance evidence."
+      },
+      {
+        "tab": "Set the next check",
+        "zone": "VALIDATION QUESTIONS",
+        "title": "End with what the team must confirm.",
+        "copy": "Turn open questions into a next step: environment constraints, safety review, cycle-time targets, integration needs or a simulation and hardware test.",
+        "image": "/images/robotics-validate.svg",
+        "imageAlt": "Illustrative engineering review board showing a robot task, boundary markers and validation checklist."
+      }
+    ]
+  },
+  "response": {
+    "eyebrow": "Before and after the first reply",
+    "title": "Make the first robotics conversation specific.",
+    "body": "A visual concept can help a prospect react to one proposed task while your team checks feasibility, integration and safety requirements.",
+    "beforeLabel": "THE HOLDING REPLY",
+    "beforeMessage": "Thanks for your enquiry. A specialist will be in touch.",
+    "beforeNote": "The team has not yet made the use case concrete.",
+    "tabs": [
+      {
+        "label": "Task fit",
+        "question": "Could a robot handle this task in our space?",
+        "answer": "Here is an illustrative sequence for the task and setting you described. Share the site constraints and our team can identify what needs a feasibility review.",
+        "asset": "A task concept to review"
+      },
+      {
+        "label": "Workflow",
+        "question": "How would the robot fit into our current process?",
+        "answer": "This concept shows a possible handoff and workflow boundary. Your team can review the actual interfaces, timing and integration requirements with us.",
+        "asset": "A workflow concept"
+      },
+      {
+        "label": "Next steps",
+        "question": "What do we need to validate before choosing hardware?",
+        "answer": "Start with the task, environment, payload and operating constraints. We can help frame the visual brief; engineering validation and safety review remain essential.",
+        "asset": "A validation question list"
+      }
+    ]
+  },
+  "trigger": {
+    "eyebrow": "A timely reason to improve the experience",
+    "title": "Digital instructions are becoming part of the machinery conversation.",
+    "body": "From 20 January 2027, the EU Machinery Regulation (EU) 2023/1230 allows instructions for use to be supplied digitally if its conditions are met. They must clearly identify the model, be accessible, downloadable and printable, and stay online for the machine’s expected lifetime and at least 10 years. Paper instructions can be requested at purchase; essential safety information for non-professional use has additional paper requirements. Video can support understanding, but it does not replace required instructions or establish compliance.",
+    "dateStamp": "20 / 01",
+    "dateLabel": "2027 · EU MACHINERY REGULATION",
+    "source": {
+      "label": "Read the regulation on EUR-Lex",
+      "href": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng"
+    }
+  },
+  "comparison": {
+    "title": "Build understanding before the technical deep dive.",
+    "body": "An illustrative comparison of a text-only first touch and a visual use-case story. It does not claim the proposed robot can perform the task.",
+    "leftTitle": "Typical first touch",
+    "leftItems": [
+      "A prospect describes the task in a call or email",
+      "Stakeholders may picture different workflows",
+      "Key constraints emerge later in the discussion"
+    ],
+    "rightTitle": "With a DHEE visual bridge",
+    "rightItems": [
+      "Show one clearly bounded task concept",
+      "Give stakeholders a shared sequence to react to",
+      "Turn unknowns into engineering questions"
+    ],
+    "note": "Concept film is for communication. It is not a digital twin, validated simulation, safety case or guarantee of robot performance."
+  },
+  "useCases": [
+    {
+      "number": "01",
+      "title": "Explain a proposed task",
+      "body": "Show the job, environment and intended sequence so a prospect can react to a concrete use case before a hardware discussion.",
+      "tag": "Use-case demo"
+    },
+    {
+      "number": "02",
+      "title": "Align stakeholders early",
+      "body": "Give operations, engineering and leadership a shared visual to discuss workflow assumptions, integration points and open questions.",
+      "tag": "Team alignment"
+    },
+    {
+      "number": "03",
+      "title": "Support a robotics proposal",
+      "body": "Pair a proposal with a concise concept story that explains the intended role of the system and frames the next technical review.",
+      "tag": "Proposal companion"
+    }
+  ],
+  "video": {
+    "title": "A robot task, made easier to discuss",
+    "description": "Sample 02: a 30-second English-narrated, AI-assisted concept film following one mobile robot task from approach to line-side delivery. Illustrative only; it is not a validated simulation, product or performance result.",
+    "duration": "00:30",
+    "poster": "/images/robotics-poster.svg",
+    "label": "Illustrative concept · not a validated simulation",
+    "transcript": [
+      "A useful robotics conversation starts with one clearly defined job.",
+      "Show the environment, the intended sequence and where a person or system connects.",
+      "Then make the open questions visible: constraints, integration, safety and validation.",
+      "A concept video helps teams discuss the idea. Engineering review and testing establish what the robot can do."
+    ],
+    "videoUrl": "/videos/robotics-sample-02.mp4",
+    "captionsUrl": "/videos/robotics-sample-02.en.vtt"
+  },
+  "library": {
+    "title": "Build a robotics story library around real questions.",
+    "body": "Start with the questions buyers and deployment teams raise most. Keep each story focused on one task, one audience and one next decision.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Task concept",
+        "detail": "Show the environment, task boundary and intended robot role.",
+        "poster": "/images/robotics-task.svg",
+        "alt": "Illustrative mobile robot at a marked warehouse task area."
+      },
+      {
+        "number": "02",
+        "title": "Workflow handoff",
+        "detail": "Make the proposed interaction between robot, people and process visible.",
+        "poster": "/images/robotics-action.svg",
+        "alt": "Illustrative robotic arm at a material handoff cell."
+      },
+      {
+        "number": "03",
+        "title": "Deployment questions",
+        "detail": "Frame the constraints the engineering team needs to evaluate.",
+        "poster": "/images/robotics-validate.svg",
+        "alt": "Illustrative checklist for engineering review of a robotics concept."
+      },
+      {
+        "number": "04",
+        "title": "Product orientation",
+        "detail": "Introduce the system’s intended role and route to a technical conversation.",
+        "poster": "/images/robotics-hero.svg",
+        "alt": "Illustrative robot arm and mobile robot in a clean concept workspace."
+      }
+    ]
+  },
+  "process": {
+    "title": "From robotics brief to reviewed concept",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Define the task and audience"
+      },
+      {
+        "number": "02",
+        "title": "Collect approved robot and environment references"
+      },
+      {
+        "number": "03",
+        "title": "Separate verified details from assumptions"
+      },
+      {
+        "number": "04",
+        "title": "Storyboard the use-case sequence"
+      },
+      {
+        "number": "05",
+        "title": "Review script and technical claims"
+      },
+      {
+        "number": "06",
+        "title": "Create visual, captions and cutdowns"
+      },
+      {
+        "number": "07",
+        "title": "Run engineering and final QA review"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Does a concept video prove the robot can do the task?",
+      "answer": "No. A concept video communicates an intended use case. It is not a validated simulation, test result, safety case or guarantee of performance."
+    },
+    {
+      "question": "What does “demo before hardware” mean here?",
+      "answer": "It means making the proposed task and workflow easier to discuss before a hardware decision. It does not mean replacing feasibility work, simulation, testing or an engineering review."
+    },
+    {
+      "question": "What should we provide for a first concept?",
+      "answer": "A task description, intended environment, approved product images or models, known constraints, target audience, brand references and any claims the technical team has approved."
+    },
+    {
+      "question": "Can the story use a real robot or product?",
+      "answer": "Yes, when you provide approved references and your team reviews the storyboard and final output. If references are incomplete, the visuals should be labeled as illustrative."
+    },
+    {
+      "question": "Can it show safety behavior or cycle time?",
+      "answer": "Only when the behavior and numbers are supported by approved product data and reviewed by your engineering and safety teams. A concept visual alone cannot establish compliance or performance."
+    },
+    {
+      "question": "Who handles revisions and production?",
+      "answer": "DHEE can prepare the page and video concept, review it with your team and manage agreed revisions. The current offer is a managed production workflow, not a client-operated generation account."
+    }
+  ],
+  "cta": {
+    "title": "Which robot task should we make clear first?",
+    "body": "Bring one use case, the intended audience and the question your team needs to answer next. We can shape a focused concept for review.",
+    "calendar": {
+      "label": "Choose a time",
+      "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
+    },
+    "email": {
+      "label": "Email the DHEE team",
+      "href": "mailto:Gayathri@Dhee.Studio"
+    }
+  },
+  "footer": {
+    "disclosure": "Robotics visuals on this page are illustrative concepts, not validated simulations or claims of performance. Product capability, integration, safety and compliance require review by qualified engineering teams.",
+    "copyright": "DHEE Studio"
+  }
+}

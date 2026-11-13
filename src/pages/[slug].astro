@@ -15,7 +15,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
 <LandingPage page={page}>
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="eyebrow-dot"></span>{page.hero.eyebrow}<span class="hero-edition">DHEE / INDUSTRY STORIES 001</span></p>
+      <p class="eyebrow"><span class="eyebrow-dot"></span>{page.hero.eyebrow}<span class="hero-edition">DHEE / INDUSTRY STORIES {page.hero.edition ?? '001'}</span></p>
       <h1>{page.hero.title}<br /><em>{page.hero.emphasis}</em></h1>
       <p class="hero-body">{page.hero.body}</p>
       <div class="hero-actions">
@@ -25,14 +25,14 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
       <div class="hero-note"><span class="note-icon">✳</span><span>One clear story.<br /><strong>More confident decisions.</strong></span></div>
       <div class="hero-research"><strong>{page.research.value}</strong><span>{page.research.body}<a href={page.research.source.href} target="_blank" rel="noreferrer">{page.research.source.label} ↗</a></span></div>
     </div>
-    <div class="hero-art" aria-label="Illustration of a modular industrial machine and its workflow">
+      <div class="hero-art" aria-label={page.hero.imageAlt ?? 'Illustration of a product and its workflow'}>
       <div class="art-grid" aria-hidden="true"></div>
-      <div class="art-label art-label-top"><span>FIELD NOTE / 01</span><span>PRODUCT STORY</span></div>
-      <img src={publicAsset('/images/industrial-machine-hero.jpg')} alt="Fictional modular production machine in a bright workshop" fetchpriority="high" />
+        <div class="art-label art-label-top"><span>{page.hero.artTopLabel ?? 'FIELD NOTE / 01'}</span><span>PRODUCT STORY</span></div>
+        <img src={publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg')} alt={page.hero.imageAlt ?? 'Fictional modular production machine in a bright workshop'} fetchpriority="high" />
       <div class="art-orbit art-orbit-one" aria-hidden="true"></div><div class="art-orbit art-orbit-two" aria-hidden="true"></div>
-      <div class="art-callout art-callout-in"><span>01 / INPUT</span><strong>One part enters</strong></div>
-      <div class="art-callout art-callout-out"><span>03 / OUTPUT</span><strong>Clear result</strong></div>
-      <div class="art-stamp"><span>BUILT FOR</span><strong>REAL<br />WORK</strong><span>MACHINERY / 01</span></div>
+        <div class="art-callout art-callout-in"><span>01 / INPUT</span><strong>{page.hero.artInput ?? 'One part enters'}</strong></div>
+        <div class="art-callout art-callout-out"><span>03 / OUTPUT</span><strong>{page.hero.artOutput ?? 'Clear result'}</strong></div>
+        <div class="art-stamp"><span>BUILT FOR</span><strong>REAL<br />WORK</strong><span>{page.hero.artStamp ?? 'MACHINERY / 01'}</span></div>
       <div class="art-caption"><span class="pulse"></span>MAKE THE COMPLEX, CLEAR</div>
     </div>
   </section>
@@ -70,7 +70,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         <p class="eyebrow"><span class="eyebrow-dot"></span>{page.response.eyebrow}</p>
         <h2>{page.response.title}</h2>
         <p>{page.response.body}</p>
-        <div class="reply-options" role="tablist" aria-label="Choose a sample machinery buyer question">
+        <div class="reply-options" role="tablist" aria-label="Choose a sample buyer question">
           {page.response.tabs.map((item, i) => <button class:list={['reply-tab', i === 0 && 'is-active']} type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-reply-tab={i} data-reply-question={item.question} data-reply-answer={item.answer} data-reply-asset={item.asset}><span>0{i + 1}</span> {item.label}</button>)}
         </div>
       </div>
@@ -101,7 +101,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         {page.journey.steps.map((step, i) => <button class:list={['journey-tab', i === 0 && 'is-active']} type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-story-tab={i} data-story-title={step.title} data-story-copy={step.copy}><span>0{i + 1}</span> {step.tab}</button>)}
       </div></div>
       <div class="journey-visual" aria-live="polite">
-        <div class="journey-topline"><span>ONE WORKPIECE / THREE CLEAR MOMENTS</span><span class="journey-counter">01 / 03</span></div>
+        <div class="journey-topline"><span>{page.journey.storyLabel ?? 'ONE WORKPIECE / THREE CLEAR MOMENTS'}</span><span class="journey-counter">01 / 03</span></div>
         <div class="journey-stage">
           {page.journey.steps.map((step, i) => <figure class:list={['journey-scene', i === 0 && 'is-active']} data-story-image={i} aria-hidden={i === 0 ? 'false' : 'true'}>
             <img src={publicAsset(step.image)} alt={step.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
@@ -133,7 +133,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
 
   <section class="faq-section wrap"><div class="faq-intro"><p class="eyebrow">Good questions, straight answers</p><h2>Before we make<br /><em>the first frame.</em></h2></div><div class="faq-list">{page.faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
-  <section class="final-cta" id="contact"><div class="wrap cta-inner"><div class="cta-kicker">DHEE / INDUSTRY STORIES <span>—</span> 001</div><h2>{page.cta.title}</h2><p>{page.cta.body}</p><div class="hero-actions"><a class="button button-light" href={page.cta.calendar.href} {...ext(page.cta.calendar.href)}>{page.cta.calendar.label}<span aria-hidden="true">↗</span></a><a class="cta-email" href={page.cta.email.href}>{page.cta.email.label}</a></div><span class="cta-orbit" aria-hidden="true">D</span></div></section>
+  <section class="final-cta" id="contact"><div class="wrap cta-inner"><div class="cta-kicker">DHEE / INDUSTRY STORIES <span>—</span> {page.hero.edition ?? '001'}</div><h2>{page.cta.title}</h2><p>{page.cta.body}</p><div class="hero-actions"><a class="button button-light" href={page.cta.calendar.href} {...ext(page.cta.calendar.href)}>{page.cta.calendar.label}<span aria-hidden="true">↗</span></a><a class="cta-email" href={page.cta.email.href}>{page.cta.email.label}</a></div><span class="cta-orbit" aria-hidden="true">D</span></div></section>
   <script>
     const journey = document.querySelector<HTMLElement>('.journey-section');
     const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-story-tab]')];

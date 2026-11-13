@@ -4,10 +4,10 @@ export type LandingPage = {
   segment: string;
   language: string;
   seo: { title: string; description: string };
-  hero: { eyebrow: string; title: string; emphasis: string; body: string; primary: Link; secondary: Link };
+  hero: { eyebrow: string; title: string; emphasis: string; body: string; primary: Link; secondary: Link; image?: string; imageAlt?: string; artTopLabel?: string; artStamp?: string; artInput?: string; artOutput?: string; edition?: string };
   concept: { eyebrow: string; title: string; steps: string[]; body: string };
   research: { value: string; body: string; source: Link };
-  journey: { eyebrow: string; title: string; emphasis: string; body: string; steps: Array<{ tab: string; zone: string; title: string; copy: string; image: string; imageAlt: string }> };
+  journey: { eyebrow: string; title: string; emphasis: string; body: string; storyLabel?: string; steps: Array<{ tab: string; zone: string; title: string; copy: string; image: string; imageAlt: string }> };
   response: { eyebrow: string; title: string; body: string; beforeLabel: string; beforeMessage: string; beforeNote: string; tabs: Array<{ label: string; question: string; answer: string; asset: string }> };
   trigger?: { eyebrow: string; title: string; body: string; dateStamp: string; dateLabel: string; source: Link };
   comparison: { title: string; body: string; leftTitle: string; leftItems: string[]; rightTitle: string; rightItems: string[]; note: string };

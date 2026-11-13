@@ -11,19 +11,32 @@
     "title": "Make complex machinery",
     "emphasis": "easier to understand.",
     "body": "Give every buyer, operator and service team a clearer way to see what your machine does, how it fits their work and what to do next.",
-    "primary": { "label": "Explore a sample", "href": "#sample" },
-    "secondary": { "label": "Talk through your machine", "href": "#contact" }
+    "primary": {
+      "label": "Explore a sample",
+      "href": "#sample"
+    },
+    "secondary": {
+      "label": "Talk through your machine",
+      "href": "#contact"
+    }
   },
   "concept": {
     "eyebrow": "Video is not the pitch. It is the bridge.",
     "title": "Give the customer a clearer way in.",
-    "steps": ["Interest", "Understanding", "Continuation"],
+    "steps": [
+      "Interest",
+      "Understanding",
+      "Continuation"
+    ],
     "body": "Start with the machinery question a buyer already has. Show one useful product story, then continue the conversation with the technical detail and expertise the project needs."
   },
   "research": {
     "value": "62%",
     "body": "of the buying journey happens online before technical buyers contact sales.",
-    "source": { "label": "2026 engineer research", "href": "https://www.trewmarketing.com/state-of-marketing-to-engineers-research-report" }
+    "source": {
+      "label": "2026 engineer research",
+      "href": "https://www.trewmarketing.com/state-of-marketing-to-engineers-research-report"
+    }
   },
   "journey": {
     "eyebrow": "One machine, one useful story",
@@ -31,9 +44,30 @@
     "emphasis": "Understand the process.",
     "body": "A short explainer gives a customer a clear thread to follow: what goes in, what happens inside, and what comes out. That makes a complex machine easier to discuss.",
     "steps": [
-      { "tab": "The input", "zone": "MATERIAL IN", "title": "Start with the incoming part.", "copy": "A familiar workpiece gives the viewer something concrete to follow as it enters the production line.", "image": "/images/machinery-input.jpg", "imageAlt": "Orange metal workpiece arriving on a conveyor at a fictional modular machine." },
-      { "tab": "The process", "zone": "IN THE MACHINE", "title": "Reveal the transformation.", "copy": "Make the hidden middle visible: show where the part moves, what changes, and how each stage connects.", "image": "/images/machinery-process.jpg", "imageAlt": "Orange workpiece moving through a protected station inside a fictional modular machine." },
-      { "tab": "The outcome", "zone": "FINISHED PART", "title": "End with a result the buyer can see.", "copy": "Close on the finished component, then connect the story to the product question a customer should ask next.", "image": "/images/machinery-outcome.jpg", "imageAlt": "Finished orange precision component on an inspection tray beside a fictional modular machine." }
+      {
+        "tab": "The input",
+        "zone": "MATERIAL IN",
+        "title": "Start with the incoming part.",
+        "copy": "A familiar workpiece gives the viewer something concrete to follow as it enters the production line.",
+        "image": "/images/machinery-input.jpg",
+        "imageAlt": "Orange metal workpiece arriving on a conveyor at a fictional modular machine."
+      },
+      {
+        "tab": "The process",
+        "zone": "IN THE MACHINE",
+        "title": "Reveal the transformation.",
+        "copy": "Make the hidden middle visible: show where the part moves, what changes, and how each stage connects.",
+        "image": "/images/machinery-process.jpg",
+        "imageAlt": "Orange workpiece moving through a protected station inside a fictional modular machine."
+      },
+      {
+        "tab": "The outcome",
+        "zone": "FINISHED PART",
+        "title": "End with a result the buyer can see.",
+        "copy": "Close on the finished component, then connect the story to the product question a customer should ask next.",
+        "image": "/images/machinery-outcome.jpg",
+        "imageAlt": "Finished orange precision component on an inspection tray beside a fictional modular machine."
+      }
     ]
   },
   "response": {
@@ -44,9 +78,24 @@
     "beforeMessage": "Thanks for your enquiry. A specialist will be in touch.",
     "beforeNote": "The customer still has to wait for product context.",
     "tabs": [
-      { "label": "Fit & application", "question": "How could this machine fit into our production line?", "answer": "Here’s a short overview of the machine’s role in a production workflow. Share your line details and our applications team can help check the fit.", "asset": "Where the machine fits" },
-      { "label": "How it works", "question": "What happens to the part as it moves through the machine?", "answer": "This walkthrough follows one part through the key stages. Our product team can then go deeper on the process details for your configuration.", "asset": "Follow one part through the process" },
-      { "label": "Getting started", "question": "What should our operators understand first?", "answer": "Here’s an orientation to the machine and the first steps for a new user. Your team’s approved operating and safety instructions remain the source of record.", "asset": "A first look for new operators" }
+      {
+        "label": "Fit & application",
+        "question": "How could this machine fit into our production line?",
+        "answer": "Here’s a short overview of the machine’s role in a production workflow. Share your line details and our applications team can help check the fit.",
+        "asset": "Where the machine fits"
+      },
+      {
+        "label": "How it works",
+        "question": "What happens to the part as it moves through the machine?",
+        "answer": "This walkthrough follows one part through the key stages. Our product team can then go deeper on the process details for your configuration.",
+        "asset": "Follow one part through the process"
+      },
+      {
+        "label": "Getting started",
+        "question": "What should our operators understand first?",
+        "answer": "Here’s an orientation to the machine and the first steps for a new user. Your team’s approved operating and safety instructions remain the source of record.",
+        "asset": "A first look for new operators"
+      }
     ]
   },
   "trigger": {
@@ -55,15 +104,26 @@
     "body": "From 20 January 2027, the EU Machinery Regulation (EU) 2023/1230 allows instructions for use to be supplied digitally if its conditions are met. They must clearly identify the model, be accessible, downloadable and printable, and stay online for the machine’s expected lifetime and at least 10 years. Paper instructions can be requested at purchase; essential safety information for non-professional use has additional paper requirements. Video can support understanding, but it does not replace required instructions or establish compliance.",
     "dateStamp": "20 / 01",
     "dateLabel": "2027 · EU MACHINERY REGULATION",
-    "source": { "label": "Read the regulation on EUR-Lex", "href": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng" }
+    "source": {
+      "label": "Read the regulation on EUR-Lex",
+      "href": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng"
+    }
   },
   "comparison": {
     "title": "A useful first reply can begin before the meeting.",
     "body": "An illustrative comparison of a text-led first touch and a visual product story. It names no competitors and makes no performance guarantee.",
     "leftTitle": "Typical first touch",
-    "leftItems": ["A written acknowledgement confirms the enquiry", "Product context waits for the next conversation", "The buyer reads or describes the question in text"],
+    "leftItems": [
+      "A written acknowledgement confirms the enquiry",
+      "Product context waits for the next conversation",
+      "The buyer reads or describes the question in text"
+    ],
     "rightTitle": "With a DHEE video bridge",
-    "rightItems": ["Share a reviewed explainer with the first reply", "Show one machine workflow or application visually", "Continue with an expert for fit and configuration"],
+    "rightItems": [
+      "Share a reviewed explainer with the first reply",
+      "Show one machine workflow or application visually",
+      "Continue with an expert for fit and configuration"
+    ],
     "note": "Keep specifications, drawings, manuals and safety information as the source of record. A video adds context alongside them."
   },
   "useCases": [
@@ -87,35 +147,86 @@
     }
   ],
   "video": {
-    "title": "How a machine works, in 60 seconds",
+    "title": "How a machine works, in under a minute",
     "description": "Sample 01: an English narrated, AI-assisted concept film following one workpiece through a fictional machine, from input to output. The machine is illustrative, not a real product or engineering reference.",
     "duration": "01:00",
     "poster": "/images/machinery-concept.svg",
     "label": "Fictional concept sample · English narration",
     "videoUrl": "/videos/machinery-sample-01.mp4",
     "captionsUrl": "/videos/machinery-sample-01.en.vtt",
-    "transcript": ["A machine is easier to understand when you can follow the work. Start with one part entering the line.", "Inside, a sequence of stages turns a complicated system into a process you can see.", "The important story is how the work moves from one stage to the next: what comes in, what happens in between, and what comes out.", "When customers can follow that sequence, they have a clearer way to understand where the machine fits and what to ask next.", "DHEE helps industrial teams make complex products easier to understand. Start with one machine and one clear story."]
+    "transcript": [
+      "A machine is easier to understand when you can follow the work. Start with one part entering the line.",
+      "Inside, a sequence of stages turns a complicated system into a process you can see.",
+      "The important story is how the work moves from one stage to the next: what comes in, what happens in between, and what comes out.",
+      "When customers can follow that sequence, they have a clearer way to understand where the machine fits and what to ask next.",
+      "DHEE helps industrial teams make complex products easier to understand. Start with one machine and one clear story."
+    ]
   },
   "library": {
     "title": "Build a useful library, one machine at a time.",
     "body": "Build reusable explainers for your product categories, starting with the questions sales, onboarding and service teams hear most. Add a prospect-specific cut when an important application or proposal needs one.",
     "items": [
-      { "number": "01", "title": "Product overview", "detail": "What it does, where it fits and who it is for.", "poster": "/images/industrial-machine-hero.jpg", "alt": "Fictional modular production machine in a bright workshop." },
-      { "number": "02", "title": "Workflow walkthrough", "detail": "How the process moves from input to output.", "poster": "/images/machinery-input.jpg", "alt": "A metal workpiece arriving at a production machine." },
-      { "number": "03", "title": "Feature explainer", "detail": "A closer look at one capability or configuration.", "poster": "/images/machinery-process.jpg", "alt": "A workpiece inside a protected machine station." },
-      { "number": "04", "title": "Getting started", "detail": "A clear first orientation for a new customer.", "poster": "/images/machinery-outcome.jpg", "alt": "A finished metal component on an inspection tray." }
+      {
+        "number": "01",
+        "title": "Product overview",
+        "detail": "What it does, where it fits and who it is for.",
+        "poster": "/images/industrial-machine-hero.jpg",
+        "alt": "Fictional modular production machine in a bright workshop."
+      },
+      {
+        "number": "02",
+        "title": "Workflow walkthrough",
+        "detail": "How the process moves from input to output.",
+        "poster": "/images/machinery-input.jpg",
+        "alt": "A metal workpiece arriving at a production machine."
+      },
+      {
+        "number": "03",
+        "title": "Feature explainer",
+        "detail": "A closer look at one capability or configuration.",
+        "poster": "/images/machinery-process.jpg",
+        "alt": "A workpiece inside a protected machine station."
+      },
+      {
+        "number": "04",
+        "title": "Getting started",
+        "detail": "A clear first orientation for a new customer.",
+        "poster": "/images/machinery-outcome.jpg",
+        "alt": "A finished metal component on an inspection tray."
+      }
     ]
   },
   "process": {
     "title": "Seven steps from brief to finished visual",
     "steps": [
-      { "number": "01", "title": "Brief and research the audience" },
-      { "number": "02", "title": "Collect brand and product references" },
-      { "number": "03", "title": "Analyse the market and competitors" },
-      { "number": "04", "title": "Storyboard the idea" },
-      { "number": "05", "title": "Write the script and plan audio" },
-      { "number": "06", "title": "Build visuals, graphics and cutdowns" },
-      { "number": "07", "title": "Review claims, captions and final QA" }
+      {
+        "number": "01",
+        "title": "Brief and research the audience"
+      },
+      {
+        "number": "02",
+        "title": "Collect brand and product references"
+      },
+      {
+        "number": "03",
+        "title": "Analyse the market and competitors"
+      },
+      {
+        "number": "04",
+        "title": "Storyboard the idea"
+      },
+      {
+        "number": "05",
+        "title": "Write the script and plan audio"
+      },
+      {
+        "number": "06",
+        "title": "Build visuals, graphics and cutdowns"
+      },
+      {
+        "number": "07",
+        "title": "Review claims, captions and final QA"
+      }
     ]
   },
   "faqs": [
@@ -147,8 +258,14 @@
   "cta": {
     "title": "Which machine should we make clearer first?",
     "body": "Bring one product, one audience and one question your team hears often. We can use that to shape a focused first story.",
-    "calendar": { "label": "Choose a time", "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true" },
-    "email": { "label": "Email the DHEE team", "href": "mailto:Gayathri@Dhee.Studio" }
+    "calendar": {
+      "label": "Choose a time",
+      "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
+    },
+    "email": {
+      "label": "Email the DHEE team",
+      "href": "mailto:Gayathri@Dhee.Studio"
+    }
   },
   "footer": {
     "disclosure": "Concept visuals are AI-assisted and fictional. Video supports product understanding; it does not replace legally required instructions, safety information or product-specific compliance review.",
