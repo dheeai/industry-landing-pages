@@ -1,0 +1,327 @@
+{
+  "slug": "ml-7f4q9c2",
+  "segment": "Multiply Labs · Product story preview",
+  "language": "en",
+  "seo": {
+    "title": "Multiply Labs | A clearer story for robotic biomanufacturing",
+    "description": "A tailored product story preview for Multiply Labs’ robotic biomanufacturing platform, designed to set up a focused conversation about instruments, process fit and scale.",
+    "noindex": true
+  },
+  "hero": {
+    "eyebrow": "MULTIPLY LABS · PRODUCT STORY PREVIEW",
+    "title": "Your process.",
+    "emphasis": "Robotics built around it.",
+    "body": "Four robotic arms. Twelve modular instrument towers. A system designed around the GMP instruments teams already use. This focused story makes the platform easier to understand before a conversation about process fit and scale.",
+    "primary": {
+      "label": "Watch the 25-second story",
+      "href": "#sample"
+    },
+    "secondary": {
+      "label": "Explore the platform story",
+      "href": "#journey"
+    },
+    "image": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
+    "imageAlt": "Multiply Labs product image showing four robotic arms operating inside a modular robotic cluster; image from the company product page.",
+    "artTopLabel": "MULTIPLY LABS / PLATFORM",
+    "artStamp": "12 MODULES",
+    "artInput": "Existing GMP instruments",
+    "artOutput": "Process records",
+    "edition": "003",
+    "artStampTop": "4 ROBOTIC ARMS",
+    "artStampLabel": "UNDER 600 SQ FT",
+    "note": "Built around the instruments.",
+    "noteEmphasis": "Designed for your process."
+  },
+  "concept": {
+    "eyebrow": "A complex platform, made easier to follow.",
+    "title": "Give each stakeholder the same clear starting point.",
+    "steps": [
+      "Understand",
+      "Visualise",
+      "Discuss"
+    ],
+    "body": "Show the system at a glance, then let Multiply Labs’ team take the conversation into the prospect’s instruments, therapy and scale goals."
+  },
+  "research": {
+    "value": "4 + 12",
+    "body": "Four robotic arms and twelve modular instrument towers in a cluster under 600 sq ft, according to Multiply Labs.",
+    "source": {
+      "label": "See the product details",
+      "href": "https://www.multiplylabs.com/product"
+    }
+  },
+  "journey": {
+    "eyebrow": "Three parts of the platform story",
+    "title": "Start with the instruments.",
+    "emphasis": "Follow the process through.",
+    "body": "Connect what a buyer already knows—their equipment and process—to the role of robotics and the information captured for review.",
+    "storyLabel": "INSTRUMENTS / EXECUTION / RECORDS",
+    "navigationLabel": "Follow the cluster from instruments to process records",
+    "steps": [
+      {
+        "tab": "Existing GMP instruments",
+        "zone": "INSTRUMENT COMPATIBILITY",
+        "title": "Start with familiar equipment.",
+        "copy": "Multiply Labs lists integrations and examples including Rotea, Dynacellect and Heracell VIOS. Use one relevant example to show how robotic touchpoints can fit around the instruments a prospect already uses.",
+        "image": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
+        "imageAlt": "Multiply Labs product image of its four-arm robotic cluster; public product imagery, illustrative in this story."
+      },
+      {
+        "tab": "Robotic execution",
+        "zone": "COORDINATED OPERATIONS",
+        "title": "Show the system’s role.",
+        "copy": "Four robotic arms coordinate tasks such as liquid handling, dispensing and transfers inside the cluster. Keep the animation at platform level; confirm any customer-specific sequence with the technical team.",
+        "image": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-robot-hold-syringe-1-1280w.webp",
+        "imageAlt": "Multiply Labs product image showing a robotic arm holding a syringe inside its cluster."
+      },
+      {
+        "tab": "Process data",
+        "zone": "SOFTWARE / QUALITY RECORDS",
+        "title": "Close with the information trail.",
+        "copy": "The Process Creator App helps scientists build and modify processes. Multiply Labs says its software captures process data and sends electronic records into quality workflows.",
+        "image": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-hmi-interaction-1280w.webp",
+        "imageAlt": "Multiply Labs product image of an operator using an interface at the robotic cluster."
+      }
+    ]
+  },
+  "response": {
+    "eyebrow": "A useful first conversation",
+    "title": "Answer the big question before the technical deep dive.",
+    "body": "Use one clear visual to orient commercial, process and quality stakeholders. Then tailor the walkthrough to a prospect’s equipment, manufacturing protocol and requirements.",
+    "beforeLabel": "THE FIRST QUESTION",
+    "beforeMessage": "How would this work with the process we already run?",
+    "beforeNote": "Start with their instruments, process and scale goals.",
+    "videoDuration": "00:25",
+    "tabs": [
+      {
+        "label": "Existing equipment",
+        "question": "Will the cluster work with our GMP instruments?",
+        "answer": "Multiply Labs says its cluster is designed around instruments teams already use. A tailored technical walkthrough can assess a prospect’s specific equipment and touchpoints.",
+        "asset": "Instrument compatibility overview"
+      },
+      {
+        "label": "Process execution",
+        "question": "What parts of our process can be automated?",
+        "answer": "The platform is built to orchestrate robotic work around manufacturing instruments. The product team can map relevant unit operations to a prospect’s actual process.",
+        "asset": "Process and unit-operations story"
+      },
+      {
+        "label": "Records and quality",
+        "question": "How are process records captured?",
+        "answer": "Multiply Labs describes software that collects process data and delivers electronic records into quality workflows. The quality team can discuss the details and fit.",
+        "asset": "Process data and records overview"
+      }
+    ],
+    "assetLabel": "ENGLISH VOICEOVER · 00:25"
+  },
+  "comparison": {
+    "title": "Make the platform easier to picture.",
+    "body": "The story format: establish the system-level context first, then use the live discussion to explore a specific manufacturing process.",
+    "leftTitle": "Start with the walkthrough",
+    "leftItems": [
+      "Introduce the platform from scratch",
+      "Re-establish context for each stakeholder",
+      "Move between architecture and detailed fit"
+    ],
+    "rightTitle": "Set context with a visual",
+    "rightItems": [
+      "Give the team a shared platform overview",
+      "Show instruments, robotics and records in sequence",
+      "Reserve meeting time for fit and technical questions"
+    ],
+    "note": "Suggested sales communication, not a claim of measured impact. This preview uses public product imagery and illustrative generated motion; it does not depict an approved customer workflow."
+  },
+  "useCases": [
+    {
+      "number": "01",
+      "title": "Prepare a tailored walkthrough",
+      "body": "Give a prospect a concise view of the cluster before discussing therapy type, current instruments and manufacturing goals.",
+      "tag": "COMMERCIAL"
+    },
+    {
+      "number": "02",
+      "title": "Explain instrument fit",
+      "body": "Use listed instrument examples to make the compatibility story concrete, then confirm the prospect’s actual equipment with Multiply Labs.",
+      "tag": "PROCESS / ENGINEERING"
+    },
+    {
+      "number": "03",
+      "title": "Frame the data conversation",
+      "body": "Introduce process capture and electronic records, then bring quality and validation questions to the right product experts.",
+      "tag": "QUALITY / OPERATIONS"
+    }
+  ],
+  "video": {
+    "title": "A clearer first look at the robotic cluster",
+    "description": "A concise, English-narrated overview built from Multiply Labs’ published product facts and public product imagery. The generated motion is illustrative; it is not a recording or simulation of the company’s equipment or process.",
+    "duration": "00:25",
+    "poster": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
+    "label": "MULTIPLY LABS / PRODUCT STORY PREVIEW",
+    "transcript": [
+      "Four robotic arms.",
+      "Twelve modular instrument towers.",
+      "Under six hundred square feet.",
+      "Multiply Labs says its cluster is designed to work with GMP instruments teams already use.",
+      "Its software translates protocols into robotic execution and captures process records for quality review.",
+      "This illustrative preview opens a conversation about process fit and scale."
+    ],
+    "videoUrl": "/videos/multiply-labs-story-preview.mp4",
+    "captionsUrl": "/videos/multiply-labs-story-preview.en.vtt"
+  },
+  "library": {
+    "title": "Build from the story buyers need next.",
+    "body": "These are proposed follow-on story directions, not finished videos. Each one can be developed from approved product references and reviewed technical claims.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Cluster at a glance",
+        "detail": "Explain the four-arm system, modular towers and footprint.",
+        "poster": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
+        "alt": "Public Multiply Labs product image showing the four-arm robotic cluster."
+      },
+      {
+        "number": "02",
+        "title": "Instrument compatibility",
+        "detail": "Show how robotic touchpoints relate to equipment teams already use.",
+        "poster": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-robot-hold-syringe-1-1280w.webp",
+        "alt": "Public Multiply Labs product image showing a robotic arm holding a syringe."
+      },
+      {
+        "number": "03",
+        "title": "Process Creator App",
+        "detail": "Introduce how scientists can build and modify a manufacturing process.",
+        "poster": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-hmi-interaction-1280w.webp",
+        "alt": "Public Multiply Labs product image showing an operator using its interface."
+      },
+      {
+        "number": "04",
+        "title": "Process records",
+        "detail": "Frame how execution data connects to quality review workflows.",
+        "poster": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-hmi-interaction-1280w.webp",
+        "alt": "Public Multiply Labs product image showing an operator using its interface."
+      }
+    ]
+  },
+  "process": {
+    "title": "A review path built around your platform",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Pick one buyer and question"
+      },
+      {
+        "number": "02",
+        "title": "Use approved product references"
+      },
+      {
+        "number": "03",
+        "title": "Check each technical claim"
+      },
+      {
+        "number": "04",
+        "title": "Storyboard the platform story"
+      },
+      {
+        "number": "05",
+        "title": "Review with product experts"
+      },
+      {
+        "number": "06",
+        "title": "Create voice, captions and cutdowns"
+      },
+      {
+        "number": "07",
+        "title": "Approve the final share version"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Is the generated video a recording of Multiply Labs’ robot?",
+      "answer": "No. The motion is AI-generated and illustrative. The page uses public product photography separately as product reference; the video does not show the actual equipment or a verified manufacturing sequence."
+    },
+    {
+      "question": "Are the product facts from Multiply Labs?",
+      "answer": "Yes. The details on this page are based on Multiply Labs’ public product and funding pages. Any customer-specific workflow, performance figure or regulatory wording should be confirmed by the company before external publication."
+    },
+    {
+      "question": "Why make a short story before a walkthrough?",
+      "answer": "It can give commercial, process and quality stakeholders the same starting picture, so the walkthrough can focus on their instruments, process and scale questions."
+    },
+    {
+      "question": "What is the current preview based on?",
+      "answer": "Publicly available Multiply Labs product information and imagery, plus generated illustrative motion and an English voice-over. It has not been commissioned or approved by Multiply Labs."
+    },
+    {
+      "question": "What would a final customer-approved version need?",
+      "answer": "A confirmed audience and use case, approved visual references, technical review of the script, and final sign-off from the relevant product, engineering and quality stakeholders."
+    }
+  ],
+  "cta": {
+    "title": "Choose the first buyer story to build on.",
+    "body": "A focused next step: select one audience and one platform question, then review the storyboard, voice and visuals with your product team.",
+    "calendar": {
+      "label": "Discuss a product story",
+      "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
+    },
+    "email": {
+      "label": "Email the DHEE team",
+      "href": "mailto:Gayathri@Dhee.Studio"
+    }
+  },
+  "footer": {
+    "disclosure": "Independent product story preview based on Multiply Labs’ public materials. Generated motion is illustrative and is not a product demo or verified process.",
+    "copyright": "DHEE Studio"
+  },
+  "applications": {
+    "eyebrow": "One platform. Different buyer questions.",
+    "title": "Help each team see",
+    "emphasis": "the part that matters to them.",
+    "body": "Give commercial, process engineering and quality stakeholders a common overview—then let each team go deeper on its own questions."
+  },
+  "trigger": {
+    "eyebrow": "A timely company update",
+    "dateStamp": "$75M",
+    "dateLabel": "SERIES B · 06 OCT 2026",
+    "title": "A platform story for the next stage of scale.",
+    "body": "Multiply Labs announced $75 million in Series B funding to expand manufacturing capacity and advance its product roadmap as it moves from clinical-stage deployments toward commercial-scale production. This preview focuses on the system story behind that next stage.",
+    "source": {
+      "label": "Read the company announcement",
+      "href": "https://www.multiplylabs.com/press/series-b-2026"
+    }
+  },
+  "metrics": {
+    "eyebrow": "Multiply Labs’ published figures",
+    "title": "Put the stated outcomes in context.",
+    "body": "These are company-reported platform figures from Multiply Labs’ product page; include them with their original context in any final client-approved version.",
+    "source": {
+      "label": "Source: Multiply Labs product page",
+      "href": "https://www.multiplylabs.com/product"
+    },
+    "items": [
+      {
+        "value": "74%",
+        "label": "cost reduction per dose"
+      },
+      {
+        "value": "Up to 100×",
+        "label": "throughput per sq ft"
+      },
+      {
+        "value": "90%",
+        "label": "of cleanroom steps automated"
+      }
+    ]
+  },
+  "navigation": {
+    "response": "Buyer questions",
+    "applications": "Who it helps",
+    "journey": "Platform story",
+    "sample": "Watch the video"
+  },
+  "faqTitle": {
+    "eyebrow": "Useful before a technical walkthrough",
+    "title": "A few useful questions",
+    "emphasis": "to start with."
+  }
+}

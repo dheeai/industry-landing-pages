@@ -22,7 +22,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         <a class="button button-dark" href={page.hero.primary.href}>{page.hero.primary.label}<span aria-hidden="true">↗</span></a>
         <a class="text-link" href={page.hero.secondary.href}>{page.hero.secondary.label}<span aria-hidden="true">→</span></a>
       </div>
-      <div class="hero-note"><span class="note-icon">✳</span><span>One clear story.<br /><strong>More confident decisions.</strong></span></div>
+      <div class="hero-note"><span class="note-icon">✳</span><span>{page.hero.note ?? 'One clear story.'}<br /><strong>{page.hero.noteEmphasis ?? 'More confident decisions.'}</strong></span></div>
       <div class="hero-research"><strong>{page.research.value}</strong><span>{page.research.body}<a href={page.research.source.href} target="_blank" rel="noreferrer">{page.research.source.label} ↗</a></span></div>
     </div>
       <div class="hero-art" aria-label={page.hero.imageAlt ?? 'Illustration of a product and its workflow'}>
@@ -32,7 +32,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
       <div class="art-orbit art-orbit-one" aria-hidden="true"></div><div class="art-orbit art-orbit-two" aria-hidden="true"></div>
         <div class="art-callout art-callout-in"><span>01 / INPUT</span><strong>{page.hero.artInput ?? 'One part enters'}</strong></div>
         <div class="art-callout art-callout-out"><span>03 / OUTPUT</span><strong>{page.hero.artOutput ?? 'Clear result'}</strong></div>
-        <div class="art-stamp"><span>BUILT FOR</span><strong>REAL<br />WORK</strong><span>{page.hero.artStamp ?? 'MACHINERY / 01'}</span></div>
+        <div class="art-stamp"><span>{page.hero.artStampTop ?? 'BUILT FOR'}</span><strong>{page.hero.artStamp ?? <>REAL<br />WORK</>}</strong><span>{page.hero.artStampLabel ?? 'MACHINERY / 01'}</span></div>
       <div class="art-caption"><span class="pulse"></span>MAKE THE COMPLEX, CLEAR</div>
     </div>
   </section>
@@ -40,7 +40,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
   <section class="sample-section wrap" id="sample">
     <div class="sample-heading"><div><p class="eyebrow">A short-form product story</p><h2>{page.video.title}</h2></div><p>{page.video.description}</p></div>
     <div class:list={['sample-frame', page.video.videoUrl ? 'has-video' : 'concept-mode']}>
-      {page.video.videoUrl ? <video controls autoplay muted loop playsinline preload="auto" aria-label={page.video.title}>
+      {page.video.videoUrl ? <video controls playsinline preload="metadata" aria-label={page.video.title}>
         <source src={publicAsset(page.video.videoUrl)} />
         {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
         Your browser does not support embedded video.
@@ -64,6 +64,11 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
     <div class="trigger-copy"><h2>{page.trigger.title}</h2><p>{page.trigger.body}</p><a class="light-link" href={page.trigger.source.href} {...ext(page.trigger.source.href)}>{page.trigger.source.label}<span aria-hidden="true">↗</span></a></div>
   </div></section>}
 
+  {page.metrics && <section class="metrics-band"><div class="wrap metrics-layout">
+    <div class="metrics-intro"><p class="eyebrow">{page.metrics.eyebrow}</p><h2>{page.metrics.title}</h2><p>{page.metrics.body}</p><a href={page.metrics.source.href} {...ext(page.metrics.source.href)}>{page.metrics.source.label}<span aria-hidden="true"> ↗</span></a></div>
+    <div class="metrics-grid">{page.metrics.items.map((item) => <article class="metric-card"><strong>{item.value}</strong><span>{item.label}</span></article>)}</div>
+  </div></section>}
+
   <section class="reply-section" id="first-response" data-reply-step="0">
     <div class="wrap reply-layout">
       <div class="reply-intro">
@@ -83,7 +88,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
           <p class="chat-bubble chat-question" data-reply-question>{page.response.tabs[0]?.question}</p>
           <div class="chat-label chat-label-company">MANUFACTURER <span>HELPFUL FIRST RESPONSE</span></div>
           <p class="chat-bubble chat-answer" data-reply-answer>{page.response.tabs[0]?.answer}</p>
-          <div class="reply-asset"><span class="reply-play" aria-hidden="true">▶</span><div><strong data-reply-asset>{page.response.tabs[0]?.asset}</strong><small>PRODUCT EXPLAINER · SAMPLE IDEA</small></div><span class="reply-duration">00:45</span></div>
+          <div class="reply-asset"><span class="reply-play" aria-hidden="true">▶</span><div><strong data-reply-asset>{page.response.tabs[0]?.asset}</strong><small>{page.response.assetLabel ?? 'PRODUCT EXPLAINER · SAMPLE IDEA'}</small></div><span class="reply-duration">{page.response.videoDuration ?? '00:45'}</span></div>
         </div>
         <div class="reply-foot"><span><b>01</b> ANSWER THE QUESTION VISUALLY</span><span>02 <i>→</i> CONTINUE WITH AN EXPERT</span></div>
       </div>
@@ -91,13 +96,13 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
   </section>
 
   <section class="usecases" id="applications"><div class="wrap">
-    <div class="usecase-heading"><div><p class="eyebrow">Where a clear story helps</p><h2>Useful across<br /><em>the whole journey.</em></h2></div><p>One machine can raise different questions at every stage. Give each moment its own focused explanation.</p></div>
+    <div class="usecase-heading"><div><p class="eyebrow">{page.applications?.eyebrow ?? 'Where a clear story helps'}</p><h2>{page.applications?.title ?? 'Useful across'}<br /><em>{page.applications?.emphasis ?? 'the whole journey.'}</em></h2></div><p>{page.applications?.body ?? 'One machine can raise different questions at every stage. Give each moment its own focused explanation.'}</p></div>
     <div class="usecase-list">{page.useCases.map((item) => <article class="usecase-row"><span class="usecase-number">{item.number}</span><div class="usecase-title"><span class="tag">{item.tag}</span><h3>{item.title}</h3></div><p>{item.body}</p><span class="row-arrow" aria-hidden="true">↗</span></article>)}</div>
   </div></section>
 
   <section class="journey-section" id="journey" data-story-step="0">
-    <div class="wrap journey-layout">
-      <div class="journey-intro"><p class="eyebrow"><span class="eyebrow-dot"></span>{page.journey.eyebrow}</p><h2>{page.journey.title}<br /><em>{page.journey.emphasis}</em></h2><p>{page.journey.body}</p><div class="journey-controls" role="tablist" aria-label="Follow the workpiece through the machine">
+      <div class="wrap journey-layout">
+      <div class="journey-intro"><p class="eyebrow"><span class="eyebrow-dot"></span>{page.journey.eyebrow}</p><h2>{page.journey.title}<br /><em>{page.journey.emphasis}</em></h2><p>{page.journey.body}</p><div class="journey-controls" role="tablist" aria-label={page.journey.navigationLabel ?? 'Follow the workpiece through the machine'}>
         {page.journey.steps.map((step, i) => <button class:list={['journey-tab', i === 0 && 'is-active']} type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-story-tab={i} data-story-title={step.title} data-story-copy={step.copy}><span>0{i + 1}</span> {step.tab}</button>)}
       </div></div>
       <div class="journey-visual" aria-live="polite">
@@ -127,11 +132,11 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
     </div>
   </section>
 
-  <section class="library-section"><div class="wrap library-layout"><div class="library-intro"><p class="eyebrow">A growing product library</p><h2>{page.library.title}</h2><p>{page.library.body}</p><a class="text-link" href="#contact">Plan your first story <span aria-hidden="true">→</span></a></div><div class="library-items">{page.library.items.map((item, i) => <article class:list={['library-card', `library-card-${i + 1}`]}><div class="library-thumb"><img src={publicAsset(item.poster)} alt={item.alt} loading="lazy" /><span class="library-thumb-index">STORY / {item.number}</span><span class="library-thumb-play" aria-hidden="true">▶</span><span class="library-thumb-line"></span></div><div class="library-card-copy"><span class="library-card-number">{item.number} / PRODUCT VIDEO</span><h3>{item.title}</h3><p>{item.detail}</p></div><span class="library-arrow" aria-hidden="true">↗</span></article>)}</div></div></section>
+  <section class="library-section"><div class="wrap library-layout"><div class="library-intro"><p class="eyebrow">Potential next stories</p><h2>{page.library.title}</h2><p>{page.library.body}</p><a class="text-link" href="#contact">Plan your first story <span aria-hidden="true">→</span></a></div><div class="library-items">{page.library.items.map((item, i) => <article class:list={['library-card', `library-card-${i + 1}`]}><div class="library-thumb"><img src={publicAsset(item.poster)} alt={item.alt} loading="lazy" /><span class="library-thumb-index">STORY / {item.number}</span><span class="library-thumb-play" aria-hidden="true">{item.number}</span><span class="library-thumb-line"></span></div><div class="library-card-copy"><span class="library-card-number">{item.number} / STORY DIRECTION</span><h3>{item.title}</h3><p>{item.detail}</p></div><span class="library-arrow" aria-hidden="true">↗</span></article>)}</div></div></section>
 
   <section class="process-section wrap"><div class="process-heading"><p class="eyebrow">From product to page</p><h2>{page.process.title}</h2></div><div class="process-steps">{page.process.steps.map((step, i) => <article><span class="process-number">{step.number}</span><span class="process-line"></span><h3>{step.title}</h3></article>)}</div></section>
 
-  <section class="faq-section wrap"><div class="faq-intro"><p class="eyebrow">Good questions, straight answers</p><h2>Before we make<br /><em>the first frame.</em></h2></div><div class="faq-list">{page.faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></section>
+  <section class="faq-section wrap"><div class="faq-intro"><p class="eyebrow">{page.faqTitle?.eyebrow ?? 'Good questions, straight answers'}</p><h2>{page.faqTitle?.title ?? 'Before we make'}<br /><em>{page.faqTitle?.emphasis ?? 'the first frame.'}</em></h2></div><div class="faq-list">{page.faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
   <section class="final-cta" id="contact"><div class="wrap cta-inner"><div class="cta-kicker">DHEE / INDUSTRY STORIES <span>—</span> {page.hero.edition ?? '001'}</div><h2>{page.cta.title}</h2><p>{page.cta.body}</p><div class="hero-actions"><a class="button button-light" href={page.cta.calendar.href} {...ext(page.cta.calendar.href)}>{page.cta.calendar.label}<span aria-hidden="true">↗</span></a><a class="cta-email" href={page.cta.email.href}>{page.cta.email.label}</a></div><span class="cta-orbit" aria-hidden="true">D</span></div></section>
   <script>
@@ -167,9 +172,9 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
     }));
     const reply = document.querySelector<HTMLElement>('.reply-section');
     const replyTabs = [...document.querySelectorAll<HTMLButtonElement>('[data-reply-tab]')];
-    const replyQuestion = document.querySelector<HTMLElement>('[data-reply-question]');
-    const replyAnswer = document.querySelector<HTMLElement>('[data-reply-answer]');
-    const replyAsset = document.querySelector<HTMLElement>('[data-reply-asset]');
+    const replyQuestion = document.querySelector<HTMLElement>('.chat-question');
+    const replyAnswer = document.querySelector<HTMLElement>('.chat-answer');
+    const replyAsset = document.querySelector<HTMLElement>('.reply-asset [data-reply-asset]');
     replyTabs.forEach((tab) => tab.addEventListener('click', () => {
       const step = Number(tab.dataset.replyTab);
       if (!tab.dataset.replyQuestion || !tab.dataset.replyAnswer || !tab.dataset.replyAsset) return;
