@@ -5,6 +5,9 @@ import type { LandingPage as PageData } from '../content/schema';
 const { page } = Astro.props as { page: PageData };
 const publicAsset = (path: string) => path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 const isExternal = (href: string) => href.startsWith('http');
+const nav = page.navigation ?? { response: 'First response', applications: 'Applications', journey: 'How it works', sample: 'Sample' };
+const canonicalUrl = new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/${page.slug}/`, Astro.site).toString();
+const shareImage = page.hero.image?.startsWith('http') ? page.hero.image : new URL(publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg'), Astro.site).toString();
 ---
 <!doctype html>
 <html lang={page.language}>
@@ -12,6 +15,17 @@ const isExternal = (href: string) => href.startsWith('http');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={page.seo.description} />
+    {page.seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={page.seo.title} />
+    <meta property="og:description" content={page.seo.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={shareImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={page.seo.title} />
+    <meta name="twitter:description" content={page.seo.description} />
+    <meta name="twitter:image" content={shareImage} />
     <meta name="theme-color" content="#f2f1ec" />
     <title>{page.seo.title}</title>
     <link rel="icon" type="image/png" href={publicAsset('/images/dhee-mark-black.png')} />
@@ -22,13 +36,13 @@ const isExternal = (href: string) => href.startsWith('http');
     <header class="site-header wrap">
       <a class="wordmark" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><img class="wordmark-mark" src={publicAsset('/images/dhee-mark-black.png')} alt="" /><span>DHEE<span class="wordmark-period">.</span></span></a>
       <nav aria-label="Main navigation" class="desktop-nav">
-        <a href="#first-response">First response</a><a href="#applications">Applications</a><a href="#journey">How it works</a><a href="#sample">Sample</a>
+        <a href="#first-response">{nav.response}</a><a href="#applications">{nav.applications}</a><a href="#journey">{nav.journey}</a><a href="#sample">{nav.sample}</a>
       </nav>
       <details class="mobile-nav">
         <summary aria-label="Open page navigation">Menu <span aria-hidden="true">＋</span></summary>
-        <nav aria-label="Mobile navigation"><a href="#first-response">First response</a><a href="#applications">Applications</a><a href="#journey">How it works</a><a href="#sample">Sample</a></nav>
+        <nav aria-label="Mobile navigation"><a href="#first-response">{nav.response}</a><a href="#applications">{nav.applications}</a><a href="#journey">{nav.journey}</a><a href="#sample">{nav.sample}</a></nav>
       </details>
-      <a class="header-cta" href={page.hero.secondary.href}>Talk to DHEE <span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#contact">Talk to DHEE <span aria-hidden="true">↗</span></a>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer">
