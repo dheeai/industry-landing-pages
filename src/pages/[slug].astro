@@ -95,7 +95,7 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
   <section class="sample-section wrap" id="sample">
     <div class="sample-heading"><div><p class="eyebrow">A short-form product story</p><h2>{page.video.title}</h2></div><p>{page.video.description}</p></div>
     <div class:list={['sample-frame', page.video.videoUrl ? 'has-video' : 'concept-mode']}>
-      {page.video.videoUrl ? <video controls preload="none" poster={publicAsset(page.video.poster)} aria-label={page.video.title}>
+      {page.video.videoUrl ? <video controls autoplay muted loop playsinline preload="auto" aria-label={page.video.title}>
         <source src={publicAsset(page.video.videoUrl)} />
         {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
         Your browser does not support embedded video. Read the storyboard transcript below.
