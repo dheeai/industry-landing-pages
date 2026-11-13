@@ -7,7 +7,7 @@ export type LandingPage = {
   hero: { eyebrow: string; title: string; emphasis: string; body: string; primary: Link; secondary: Link };
   concept: { eyebrow: string; title: string; steps: string[]; body: string };
   research: { value: string; body: string; source: Link };
-  journey: { eyebrow: string; title: string; emphasis: string; body: string; steps: Array<{ tab: string; zone: string; title: string; copy: string }> };
+  journey: { eyebrow: string; title: string; emphasis: string; body: string; steps: Array<{ tab: string; zone: string; title: string; copy: string; image: string; imageAlt: string }> };
   response: { eyebrow: string; title: string; body: string; beforeLabel: string; beforeMessage: string; beforeNote: string; tabs: Array<{ label: string; question: string; answer: string; asset: string }> };
   trigger?: { eyebrow: string; title: string; body: string; dateStamp: string; dateLabel: string; source: Link };
   comparison: { title: string; body: string; leftTitle: string; leftItems: string[]; rightTitle: string; rightItems: string[]; note: string };
@@ -31,6 +31,7 @@ export function validateLandingPage(page: unknown): asserts page is LandingPage 
   if (!Array.isArray(candidate.useCases) || candidate.useCases.length !== 3) throw new Error(`Landing page "${candidate.slug}" must define exactly three use cases.`);
   if (!Array.isArray(candidate.process?.steps) || candidate.process.steps.length !== 7) throw new Error(`Landing page "${candidate.slug}" must define the seven production steps from the brief.`);
   if (!Array.isArray(candidate.journey?.steps) || candidate.journey.steps.length !== 3) throw new Error(`Landing page "${candidate.slug}" must define three machine-story steps.`);
+  if (candidate.journey.steps.some((step) => !step.image || !step.imageAlt)) throw new Error(`Landing page "${candidate.slug}" needs a visual and alt text for every machine-story step.`);
   if (!Array.isArray(candidate.response?.tabs) || candidate.response.tabs.length !== 3) throw new Error(`Landing page "${candidate.slug}" must define three example first-response questions.`);
   if (!candidate.video?.poster || !candidate.video?.transcript?.length) throw new Error(`Landing page "${candidate.slug}" needs a poster and text alternative for its sample video.`);
   if (!Array.isArray(candidate.library?.items) || candidate.library.items.some((item) => !item.poster || !item.alt)) throw new Error(`Landing page "${candidate.slug}" needs an image and alternative text for every library card.`);

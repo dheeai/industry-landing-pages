@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/experience.css';
 import type { LandingPage as PageData } from '../content/schema';
 const { page } = Astro.props as { page: PageData };
 const publicAsset = (path: string) => path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
@@ -13,6 +14,8 @@ const isExternal = (href: string) => href.startsWith('http');
     <meta name="description" content={page.seo.description} />
     <meta name="theme-color" content="#f2f1ec" />
     <title>{page.seo.title}</title>
+    <link rel="icon" type="image/png" href={publicAsset('/images/dhee-mark-black.png')} />
+    <link rel="apple-touch-icon" href={publicAsset('/images/dhee-mark-black.png')} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

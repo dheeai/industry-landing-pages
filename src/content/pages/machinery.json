@@ -31,9 +31,9 @@
     "emphasis": "Understand the process.",
     "body": "A short explainer gives a customer a clear thread to follow: what goes in, what happens inside, and what comes out. That makes a complex machine easier to discuss.",
     "steps": [
-      { "tab": "The input", "zone": "IN", "title": "Start with one part.", "copy": "Show the product entering the line, so the viewer has a familiar point to follow." },
-      { "tab": "The process", "zone": "PROCESS", "title": "Make the middle visible.", "copy": "Reveal the sequence inside the machine and explain the transformation in plain language." },
-      { "tab": "The outcome", "zone": "OUT", "title": "Finish with the result.", "copy": "Show what comes out and give the customer a clearer next question for your team." }
+      { "tab": "The input", "zone": "MATERIAL IN", "title": "Start with the incoming part.", "copy": "A familiar workpiece gives the viewer something concrete to follow as it enters the production line.", "image": "/images/machinery-input.jpg", "imageAlt": "Orange metal workpiece arriving on a conveyor at a fictional modular machine." },
+      { "tab": "The process", "zone": "IN THE MACHINE", "title": "Reveal the transformation.", "copy": "Make the hidden middle visible: show where the part moves, what changes, and how each stage connects.", "image": "/images/machinery-process.jpg", "imageAlt": "Orange workpiece moving through a protected station inside a fictional modular machine." },
+      { "tab": "The outcome", "zone": "FINISHED PART", "title": "End with a result the buyer can see.", "copy": "Close on the finished component, then connect the story to the product question a customer should ask next.", "image": "/images/machinery-outcome.jpg", "imageAlt": "Finished orange precision component on an inspection tray beside a fictional modular machine." }
     ]
   },
   "response": {
@@ -100,10 +100,10 @@
     "title": "Build a useful library, one machine at a time.",
     "body": "Build reusable explainers for your product categories, starting with the questions sales, onboarding and service teams hear most. Add a prospect-specific cut when an important application or proposal needs one.",
     "items": [
-      { "number": "01", "title": "Product overview", "detail": "What it does, where it fits and who it is for.", "poster": "/images/machinery-concept.svg", "alt": "Fictional modular machinery concept, used as an illustrative thumbnail." },
-      { "number": "02", "title": "Workflow walkthrough", "detail": "How the process moves from input to output.", "poster": "/images/machinery-concept.svg", "alt": "Concept illustration of a production workflow moving through a machine." },
-      { "number": "03", "title": "Feature explainer", "detail": "A closer look at one capability or configuration.", "poster": "/images/machinery-concept.svg", "alt": "Fictional industrial machine concept, representing a focused feature explainer." },
-      { "number": "04", "title": "Getting started", "detail": "A clear first orientation for a new customer.", "poster": "/images/machinery-concept.svg", "alt": "Concept illustration for a first orientation to machinery." }
+      { "number": "01", "title": "Product overview", "detail": "What it does, where it fits and who it is for.", "poster": "/images/industrial-machine-hero.jpg", "alt": "Fictional modular production machine in a bright workshop." },
+      { "number": "02", "title": "Workflow walkthrough", "detail": "How the process moves from input to output.", "poster": "/images/machinery-input.jpg", "alt": "A metal workpiece arriving at a production machine." },
+      { "number": "03", "title": "Feature explainer", "detail": "A closer look at one capability or configuration.", "poster": "/images/machinery-process.jpg", "alt": "A workpiece inside a protected machine station." },
+      { "number": "04", "title": "Getting started", "detail": "A clear first orientation for a new customer.", "poster": "/images/machinery-outcome.jpg", "alt": "A finished metal component on an inspection tray." }
     ]
   },
   "process": {

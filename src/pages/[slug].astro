@@ -28,13 +28,30 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
     <div class="hero-art" aria-label="Illustration of a modular industrial machine and its workflow">
       <div class="art-grid" aria-hidden="true"></div>
       <div class="art-label art-label-top"><span>FIELD NOTE / 01</span><span>PRODUCT STORY</span></div>
-      <img src={publicAsset('/images/machinery-concept.svg')} alt="Illustrated concept of a modular industrial machine and its workflow" fetchpriority="high" />
+      <img src={publicAsset('/images/industrial-machine-hero.jpg')} alt="Fictional modular production machine in a bright workshop" fetchpriority="high" />
       <div class="art-orbit art-orbit-one" aria-hidden="true"></div><div class="art-orbit art-orbit-two" aria-hidden="true"></div>
       <div class="art-callout art-callout-in"><span>01 / INPUT</span><strong>One part enters</strong></div>
       <div class="art-callout art-callout-out"><span>03 / OUTPUT</span><strong>Clear result</strong></div>
       <div class="art-stamp"><span>BUILT FOR</span><strong>REAL<br />WORK</strong><span>MACHINERY / 01</span></div>
       <div class="art-caption"><span class="pulse"></span>MAKE THE COMPLEX, CLEAR</div>
     </div>
+  </section>
+
+  <section class="sample-section wrap" id="sample">
+    <div class="sample-heading"><div><p class="eyebrow">A short-form product story</p><h2>{page.video.title}</h2></div><p>{page.video.description}</p></div>
+    <div class:list={['sample-frame', page.video.videoUrl ? 'has-video' : 'concept-mode']}>
+      {page.video.videoUrl ? <video controls autoplay muted loop playsinline preload="auto" aria-label={page.video.title}>
+        <source src={publicAsset(page.video.videoUrl)} />
+        {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
+        Your browser does not support embedded video. Read the storyboard transcript below.
+      </video> : <img src={publicAsset(page.video.poster)} alt="Concept poster: an industrial machine in a clean factory bay, with its workflow highlighted" loading="lazy" />}
+      {!page.video.videoUrl && <>
+        <div class="sample-topline"><span>{page.video.label}</span><span>DHEE / MOTION STUDY</span></div>
+        <div class="sample-center"><span class="play-mark" aria-hidden="true">▶</span><span>60-SECOND STORYBOARD</span></div>
+        <div class="sample-bottom"><span>FROM PRODUCT DETAIL TO BIG PICTURE</span><span>{page.video.duration}</span></div>
+      </>}
+    </div>
+    <details class="transcript"><summary>{page.video.videoUrl ? 'Read the English transcript' : 'Read the sample storyboard'}</summary><ol>{page.video.transcript.map((line) => <li>{line}</li>)}</ol></details>
   </section>
 
   <section class="principle-band" aria-label="How a product story helps">
@@ -85,28 +102,18 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         {page.journey.steps.map((step, i) => <button class:list={['journey-tab', i === 0 && 'is-active']} type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-story-tab={i} data-story-title={step.title} data-story-copy={step.copy}><span>0{i + 1}</span> {step.tab}</button>)}
       </div></div>
       <div class="journey-visual" aria-live="polite">
-        <div class="journey-topline"><span>THE CUSTOMER'S VIEW</span><span class="journey-counter">01 / 03</span></div>
-        <div class="journey-machine">{page.journey.steps.map((step, i) => <span class:list={['machine-zone', `zone-${['one','two','three'][i]}`]}>{step.zone}</span>)}<span class="workpiece"></span><span class="workpiece-trail"></span></div>
+        <div class="journey-topline"><span>ONE WORKPIECE / THREE CLEAR MOMENTS</span><span class="journey-counter">01 / 03</span></div>
+        <div class="journey-stage">
+          {page.journey.steps.map((step, i) => <figure class:list={['journey-scene', i === 0 && 'is-active']} data-story-image={i} aria-hidden={i === 0 ? 'false' : 'true'}>
+            <img src={publicAsset(step.image)} alt={step.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
+            <figcaption><span>0{i + 1} / {step.zone}</span><b>{step.tab}</b></figcaption>
+          </figure>)}
+          <div class="journey-image-wash" aria-hidden="true"></div>
+          <div class="journey-route" aria-hidden="true"><span class="route-line"></span>{page.journey.steps.map((step, i) => <span class:list={['route-stop', i === 0 && 'is-active']} data-route-stop={i}><i></i><b>0{i + 1}</b></span>)}</div>
+        </div>
         <div class="journey-caption"><span class="journey-caption-index">01</span><div><h3 data-story-title>{page.journey.steps[0]?.title}</h3><p data-story-copy>{page.journey.steps[0]?.copy}</p></div><span class="journey-next" aria-hidden="true">↗</span></div>
       </div>
     </div>
-  </section>
-
-  <section class="sample-section wrap" id="sample">
-    <div class="sample-heading"><div><p class="eyebrow">A short-form product story</p><h2>{page.video.title}</h2></div><p>{page.video.description}</p></div>
-    <div class:list={['sample-frame', page.video.videoUrl ? 'has-video' : 'concept-mode']}>
-      {page.video.videoUrl ? <video controls autoplay muted loop playsinline preload="auto" aria-label={page.video.title}>
-        <source src={publicAsset(page.video.videoUrl)} />
-        {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
-        Your browser does not support embedded video. Read the storyboard transcript below.
-      </video> : <img src={publicAsset(page.video.poster)} alt="Concept poster: an industrial machine in a clean factory bay, with its workflow highlighted" loading="lazy" />}
-      {!page.video.videoUrl && <>
-        <div class="sample-topline"><span>{page.video.label}</span><span>DHEE / MOTION STUDY</span></div>
-        <div class="sample-center"><span class="play-mark" aria-hidden="true">▶</span><span>60-SECOND STORYBOARD</span></div>
-        <div class="sample-bottom"><span>FROM PRODUCT DETAIL TO BIG PICTURE</span><span>{page.video.duration}</span></div>
-      </>}
-    </div>
-    <details class="transcript"><summary>{page.video.videoUrl ? 'Read the English transcript' : 'Read the sample storyboard'}</summary><ol>{page.video.transcript.map((line) => <li>{line}</li>)}</ol></details>
   </section>
 
   <section class="comparison-section">
@@ -135,6 +142,9 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
     const copy = document.querySelector<HTMLElement>('[data-story-copy]');
     const counter = document.querySelector<HTMLElement>('.journey-counter');
     const index = document.querySelector<HTMLElement>('.journey-caption-index');
+    const caption = document.querySelector<HTMLElement>('.journey-caption');
+    const scenes = [...document.querySelectorAll<HTMLElement>('[data-story-image]')];
+    const stops = [...document.querySelectorAll<HTMLElement>('[data-route-stop]')];
     tabs.forEach((tab) => tab.addEventListener('click', () => {
       const step = Number(tab.dataset.storyTab);
       journey?.setAttribute('data-story-step', String(step));
@@ -143,6 +153,14 @@ const publicAsset = (path: string) => path.startsWith('http') ? path : `${import
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-selected', String(active));
       });
+      scenes.forEach((scene, sceneIndex) => {
+        const active = sceneIndex === step;
+        scene.classList.toggle('is-active', active);
+        scene.setAttribute('aria-hidden', String(!active));
+      });
+      stops.forEach((stop, stopIndex) => stop.classList.toggle('is-active', stopIndex === step));
+      caption?.classList.add('is-changing');
+      window.setTimeout(() => caption?.classList.remove('is-changing'), 140);
       if (title) title.textContent = tab.dataset.storyTitle ?? '';
       if (copy) copy.textContent = tab.dataset.storyCopy ?? '';
       if (counter) counter.textContent = `0${step + 1} / 03`;
