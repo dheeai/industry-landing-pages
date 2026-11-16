@@ -1,0 +1,285 @@
+{
+  "slug": "partner-template",
+  "pageType": "E",
+  "segment": "Channel partners · concept template",
+  "language": "en",
+  "seo": {
+    "title": "A video layer for partner service lines | DHEE",
+    "description": "A concept page for consultancies, system integrators and compliance partners exploring reusable video explainers for their services.",
+    "noindex": true
+  },
+  "hero": {
+    "eyebrow": "PAGE TYPE E · CHANNEL PARTNER CONCEPT",
+    "title": "Make every service line",
+    "emphasis": "easier to explain.",
+    "body": "Give consultancy, integration and compliance teams a reusable visual way to introduce their services, answer recurring questions and continue into expert-led work.",
+    "primary": {
+      "label": "Explore a sample",
+      "href": "#sample"
+    },
+    "secondary": {
+      "label": "Discuss a partnership",
+      "href": "#contact"
+    },
+    "note": "A visual layer for your expertise.",
+    "noteEmphasis": "Built around your service lines.",
+    "artTopLabel": "PARTNER / SERVICE LINE",
+    "artStamp": "EXPERTISE",
+    "artStampTop": "CLIENT FIRST",
+    "artStampLabel": "CHANNEL PARTNER / E",
+    "artInput": "Client question",
+    "artOutput": "Expert next step"
+  },
+  "concept": {
+    "eyebrow": "Video is the bridge into partner expertise.",
+    "title": "Help clients see where to begin.",
+    "steps": [
+      "Discover",
+      "Understand",
+      "Continue"
+    ],
+    "body": "Use a focused explainer to make a service easier to understand, then connect the client with the specialist who can guide the details."
+  },
+  "research": {
+    "value": "3 MOMENTS",
+    "body": "Introduce a service, answer a recurring question, and support the next expert conversation.",
+    "source": {
+      "label": "Explore partner use cases",
+      "href": "#applications"
+    }
+  },
+  "journey": {
+    "eyebrow": "One service line, one useful story",
+    "title": "Make the offer clear.",
+    "emphasis": "Open the right conversation.",
+    "body": "Start with a client need, show how a service can help, then make the next step with a partner specialist clear.",
+    "steps": [
+      {
+        "tab": "Client need",
+        "zone": "THE QUESTION",
+        "title": "Begin with the client’s question.",
+        "copy": "Name a common situation where a partner’s service can help. Keep the example general until a real client context is approved.",
+        "image": "/images/machinery-input.jpg",
+        "imageAlt": "Illustrative workpiece representing a client need; fictional industrial visual."
+      },
+      {
+        "tab": "Service value",
+        "zone": "THE OFFER",
+        "title": "Make the service easier to picture.",
+        "copy": "Show the steps, expertise or deliverable a client can expect, using service details approved by the partner.",
+        "image": "/images/machinery-process.jpg",
+        "imageAlt": "Illustrative process visual representing a service workflow."
+      },
+      {
+        "tab": "Next step",
+        "zone": "CONTINUE",
+        "title": "Connect the story to an expert.",
+        "copy": "Use the visual to frame a focused consultation, assessment or implementation discussion.",
+        "image": "/images/machinery-outcome.jpg",
+        "imageAlt": "Illustrative outcome visual representing a next-step conversation."
+      }
+    ],
+    "storyLabel": "CLIENT QUESTION / SERVICE / NEXT STEP",
+    "navigationLabel": "Follow the partner service story"
+  },
+  "response": {
+    "eyebrow": "Answer the first service question",
+    "title": "Give the client a useful starting point.",
+    "body": "A reusable explainer can introduce the service while a partner specialist prepares to discuss the client’s real requirements.",
+    "beforeLabel": "THE HOLDING REPLY",
+    "beforeMessage": "Can you explain what this service includes?",
+    "beforeNote": "A visual overview can set the context before the expert call.",
+    "tabs": [
+      {
+        "label": "Service fit",
+        "question": "Would this service fit our situation?",
+        "answer": "Here is a concise overview of the service and the questions it helps address. A partner specialist can assess your specific context.",
+        "asset": "Service overview"
+      },
+      {
+        "label": "How it works",
+        "question": "What happens during the engagement?",
+        "answer": "This story outlines the typical stages at a high level. The partner team can confirm scope, responsibilities and timing for your case.",
+        "asset": "Engagement walkthrough"
+      },
+      {
+        "label": "Next step",
+        "question": "Who should we speak with about our requirements?",
+        "answer": "Share the area you are exploring and we can connect you with the relevant service specialist.",
+        "asset": "Choose the right specialist"
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Make partner expertise easier to enter.",
+    "body": "A concept comparison of text-only service introductions and a reusable visual starting point. It makes no claim about partner performance.",
+    "leftTitle": "Service described in text",
+    "leftItems": [
+      "Clients must infer the process",
+      "Repeated questions need fresh explanations",
+      "The next specialist conversation starts without shared context"
+    ],
+    "rightTitle": "A video bridge to expertise",
+    "rightItems": [
+      "Show the service path visually",
+      "Reuse an approved overview across channels",
+      "Continue with the right partner specialist"
+    ],
+    "note": "A video overview supports the partner’s expertise; it does not replace advice, assessment or compliance work."
+  },
+  "useCases": [
+    {
+      "number": "01",
+      "title": "Introduce a service line",
+      "body": "Give a prospect a concise overview of what a consultancy or partner team offers before a discovery conversation.",
+      "tag": "Service introduction"
+    },
+    {
+      "number": "02",
+      "title": "Answer a recurring client question",
+      "body": "Share an approved explainer in email or chat, then bring a specialist into the conversation for client-specific advice.",
+      "tag": "Client education"
+    },
+    {
+      "number": "03",
+      "title": "Support a joint proposal",
+      "body": "Pair a proposal with a visual explanation of the partner’s role, deliverables and handoff points.",
+      "tag": "Co-marketing"
+    }
+  ],
+  "video": {
+    "title": "Example product explainer: follow a machine process",
+    "description": "A generic machinery explainer is included as a format example. It does not depict a partner’s service, client work or validated process.",
+    "duration": "00:47",
+    "poster": "/images/machinery-concept.svg",
+    "label": "Fictional concept sample · English narration",
+    "videoUrl": "/videos/machinery-sample-01.mp4",
+    "captionsUrl": "/videos/machinery-sample-01.en.vtt",
+    "transcript": [
+      "A machine is easier to understand when you can follow the work. Start with one part entering the line.",
+      "Inside, a sequence of stages turns a complicated system into a process you can see.",
+      "The important story is how the work moves from one stage to the next: what comes in, what happens in between, and what comes out.",
+      "When customers can follow that sequence, they have a clearer way to understand where the machine fits and what to ask next."
+    ]
+  },
+  "library": {
+    "title": "A small library for every service line.",
+    "body": "A concept structure for partners to introduce services, explain common processes and support joint customer conversations.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Service overview",
+        "detail": "Who the service helps and the challenge it addresses.",
+        "poster": "/images/industrial-machine-hero.jpg",
+        "alt": "Illustrative industrial service context; fictional machinery image."
+      },
+      {
+        "number": "02",
+        "title": "How the engagement works",
+        "detail": "The stages, roles and handoffs at a high level.",
+        "poster": "/images/machinery-input.jpg",
+        "alt": "Illustrative process image for a partner service concept."
+      },
+      {
+        "number": "03",
+        "title": "Client readiness",
+        "detail": "What information helps the first expert discussion.",
+        "poster": "/images/machinery-process.jpg",
+        "alt": "Illustrative workflow image for a partner service concept."
+      },
+      {
+        "number": "04",
+        "title": "Joint proposal companion",
+        "detail": "A visual introduction to a shared service offer.",
+        "poster": "/images/machinery-outcome.jpg",
+        "alt": "Illustrative output image for a partner service concept."
+      }
+    ]
+  },
+  "process": {
+    "title": "Seven steps from brief to finished visual",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Brief and research the audience"
+      },
+      {
+        "number": "02",
+        "title": "Collect brand and product references"
+      },
+      {
+        "number": "03",
+        "title": "Analyse the market and competitors"
+      },
+      {
+        "number": "04",
+        "title": "Storyboard the idea"
+      },
+      {
+        "number": "05",
+        "title": "Write the script and plan audio"
+      },
+      {
+        "number": "06",
+        "title": "Build visuals, graphics and cutdowns"
+      },
+      {
+        "number": "07",
+        "title": "Review claims, captions and final QA"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Who is this page type for?",
+      "answer": "It is a starting template for consultancies, system integrators and compliance or software partners that explain multiple service lines."
+    },
+    {
+      "question": "Does a video replace a partner’s advice or deliverables?",
+      "answer": "No. It can introduce a service and set context; client-specific advice and formal deliverables remain with the qualified partner team."
+    },
+    {
+      "question": "Can the same explainer be used by both teams?",
+      "answer": "A jointly reviewed overview can support shared outreach, proposals and client education, subject to both organizations approving the content and brand use."
+    },
+    {
+      "question": "What must be confirmed before sharing a partner page?",
+      "answer": "Confirm the partner’s services, audience, brand permissions, claims, contact destination and any client-specific examples with the partner owner."
+    }
+  ],
+  "cta": {
+    "title": "Which service line should we explain first?",
+    "body": "Choose one partner audience and one recurring client question. We can shape a concise concept around the next conversation.",
+    "calendar": {
+      "label": "Discuss a partnership",
+      "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
+    },
+    "email": {
+      "label": "Email the DHEE team",
+      "href": "mailto:Gayathri@Dhee.Studio"
+    }
+  },
+  "footer": {
+    "disclosure": "Concept page for a generic channel partner. It uses fictional industrial imagery and does not describe an existing partner or promise business results.",
+    "copyright": "DHEE Studio"
+  },
+  "applications": {
+    "eyebrow": "Three useful partner moments",
+    "title": "Support",
+    "emphasis": "the shared client journey.",
+    "body": "Introduce an offer, answer a recurring question and give a proposal a clear visual companion."
+  },
+  "ui": {
+    "headerCta": "Discuss a partnership",
+    "conversation": "EXAMPLE CLIENT CONVERSATION",
+    "conversationType": "PARTNER EDUCATION / 01",
+    "manufacturer": "PARTNER TEAM",
+    "libraryEyebrow": "A service line library",
+    "libraryCta": "Plan a partner story"
+  },
+  "faqTitle": {
+    "eyebrow": "A practical partner concept",
+    "title": "Before we make",
+    "emphasis": "a shared story."
+  }
+}

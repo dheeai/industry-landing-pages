@@ -1,5 +1,6 @@
 {
   "slug": "ml-7f4q9c2",
+  "pageType": "B",
   "segment": "Multiply Labs · Product story preview",
   "language": "en",
   "seo": {
@@ -11,7 +12,7 @@
     "eyebrow": "MULTIPLY LABS · PRODUCT STORY PREVIEW",
     "title": "Your process.",
     "emphasis": "Robotics built around it.",
-    "body": "Four robotic arms. Twelve modular instrument towers. A system designed around the GMP instruments teams already use. This focused story makes the platform easier to understand before a conversation about process fit and scale.",
+    "body": "Four robotic arms. A modular cluster built around the GMP instruments teams already use. This focused story makes the platform easier to understand before a conversation about process fit and scale.",
     "primary": {
       "label": "Watch the 25-second story",
       "href": "#sample"
@@ -23,7 +24,7 @@
     "image": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
     "imageAlt": "Multiply Labs product image showing four robotic arms operating inside a modular robotic cluster; image from the company product page.",
     "artTopLabel": "MULTIPLY LABS / PLATFORM",
-    "artStamp": "12 MODULES",
+    "artStamp": "MODULAR SYSTEM",
     "artInput": "Existing GMP instruments",
     "artOutput": "Process records",
     "edition": "003",
@@ -43,8 +44,8 @@
     "body": "Show the system at a glance, then let Multiply Labs’ team take the conversation into the prospect’s instruments, therapy and scale goals."
   },
   "research": {
-    "value": "4 + 12",
-    "body": "Four robotic arms and twelve modular instrument towers in a cluster under 600 sq ft, according to Multiply Labs.",
+    "value": "4 ARMS",
+    "body": "Multiply Labs describes a cluster with four robotic arms and a modular instrument system in a footprint under 600 sq ft. Its product page also describes configurations of up to 24 instrument modules; confirm the exact configuration before using a module count for a specific prospect.",
     "source": {
       "label": "See the product details",
       "href": "https://www.multiplylabs.com/product"
@@ -271,7 +272,7 @@
     }
   },
   "footer": {
-    "disclosure": "Independent product story preview based on Multiply Labs’ public materials. Generated motion is illustrative and is not a product demo or verified process.",
+    "disclosure": "Independent concept based on Multiply Labs’ public materials; not commissioned, approved or endorsed by Multiply Labs. AI-generated motion is illustrative and is not a product demo or verified process.",
     "copyright": "DHEE Studio"
   },
   "applications": {
@@ -319,6 +320,37 @@
     "applications": "Who it helps",
     "journey": "Platform story",
     "sample": "Watch the video"
+  },
+  "ui": {
+    "menu": "Menu",
+    "headerCta": "Talk to DHEE",
+    "sampleEyebrow": "A short-form product story",
+    "conversation": "EXAMPLE CONVERSATION",
+    "conversationType": "PRODUCT EDUCATION / 01",
+    "prospect": "PROSPECT",
+    "exampleQuestion": "EXAMPLE QUESTION",
+    "manufacturer": "MANUFACTURER",
+    "helpfulFirstResponse": "HELPFUL FIRST RESPONSE",
+    "instead": "INSTEAD",
+    "answerVisually": "ANSWER THE QUESTION VISUALLY",
+    "continueWithExpert": "CONTINUE WITH AN EXPERT",
+    "comparisonEyebrow": "A bridge, not a replacement",
+    "libraryEyebrow": "Potential next stories",
+    "libraryCta": "Plan your first story",
+    "storyDirection": "STORY DIRECTION",
+    "processEyebrow": "FROM PRODUCT TO PAGE",
+    "footerLine": "Made for clearer product stories.",
+    "analyticsTitle": "Help us understand this page",
+    "analyticsBody": "Optional analytics measure page use and video engagement. They load only if you accept. See our privacy notice.",
+    "privacyLabel": "Privacy",
+    "settingsLabel": "Cookie settings",
+    "rejectLabel": "Reject",
+    "acceptLabel": "Accept analytics",
+    "productStoryLabel": "PRODUCT STORY",
+    "artCaption": "MAKE THE COMPLEX, CLEAR",
+    "bridgeLabel": "DHEE / THE BRIDGE",
+    "sampleQuestionLabel": "Choose a sample buyer question",
+    "noteLabel": "NOTE"
   },
   "faqTitle": {
     "eyebrow": "Useful before a technical walkthrough",

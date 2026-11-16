@@ -34,6 +34,28 @@
 @keyframes rise-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes art-in{from{opacity:0;transform:perspective(1100px) rotateY(-8deg) translateY(15px)}to{opacity:1;transform:perspective(1100px) rotateY(-3deg) translateY(0)}}@keyframes machine-drift{from{transform:scale(1.015) translate3d(-.7%,.5%,0)}to{transform:scale(1.07) translate3d(.7%,-.6%,0)}}@keyframes orbit-turn{to{transform:rotate(360deg)}}@keyframes float-card{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media(max-width:900px){.hero{min-height:0}.hero-art{min-height:430px}.journey-layout{grid-template-columns:1fr;gap:42px}.journey-intro{max-width:700px}.journey-visual{max-width:760px;width:100%;margin:auto}}
 @media(max-width:620px){.hero{padding-block:43px 55px}.hero-art{min-height:320px;transform:none;border-radius:3px}.art-grid{background-size:32px 32px}.art-orbit-one{width:84%;left:8%;top:9%}.art-orbit-two{width:104%;left:-2%;top:-1%}.art-callout{padding:8px 10px}.art-callout span{font-size:7px}.art-callout strong{font-size:9px}.art-callout-in{left:3%;top:35%}.art-callout-out{right:3%;bottom:29%}.journey-section{padding:68px 0 76px}.journey-layout{gap:30px}.journey-intro h2{font-size:42px}.journey-intro>p:not(.eyebrow){font-size:12px}.journey-tab{padding:12px;font-size:11px}.journey-visual{min-height:365px;padding:14px 12px}.journey-machine{height:230px;grid-template-columns:.75fr 1.4fr .75fr}.machine-zone{height:80px;font-size:7px}.zone-two{height:130px}.workpiece{width:14px;height:13px}.journey-caption{grid-template-columns:25px 1fr 16px;gap:10px}.journey-caption h3{font-size:15px}.journey-caption p{font-size:10px}}
+
+.footer-links{display:flex;flex-direction:column;align-items:flex-end;gap:9px;font-size:11px}
+.footer-links a span{color:#f19a7a;margin-left:6px}
+.privacy-settings{border:0;padding:0;background:none;color:#aebdb2;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.privacy-settings:focus-visible,.analytics-consent button:focus-visible{outline:2px solid #f19a7a;outline-offset:3px}
+.analytics-consent{position:fixed;z-index:100;left:20px;right:20px;bottom:20px;max-width:760px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 20px;background:#17241e;color:#f5f4ee;border:1px solid #42544a;box-shadow:0 12px 40px #0003}
+.analytics-consent[hidden]{display:none}
+.analytics-consent strong{display:block;font-size:14px;margin-bottom:6px}
+.analytics-consent p{font-size:11px;line-height:1.55;color:#bdc9c0;margin:0;max-width:450px}
+.analytics-consent a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.analytics-consent-actions{display:flex;gap:8px;flex-shrink:0}
+.analytics-consent button{min-height:38px;border:1px solid #84958a;padding:0 12px;background:transparent;color:#fff;font:600 11px var(--display);cursor:pointer}
+.analytics-consent button[data-consent-accept]{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+@media(max-width:620px){.footer-links{align-items:flex-start}.analytics-consent{left:10px;right:10px;bottom:10px;display:block;padding:16px}.analytics-consent-actions{margin-top:14px}.analytics-consent button{flex:1}}
+.language-switcher{position:relative;font:10px var(--mono);letter-spacing:.04em;color:#56625a;z-index:10}
+.language-switcher summary{list-style:none;cursor:pointer;border:1px solid #b8c0b8;padding:11px 12px;min-width:54px;text-align:center}
+.language-switcher summary::-webkit-details-marker{display:none}
+.language-switcher summary span{margin-left:6px;color:var(--orange)}
+.language-switcher nav{position:absolute;right:0;top:calc(100% + 6px);min-width:100px;padding:5px;background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px #18251f20;display:grid}
+.language-switcher nav a{padding:9px 10px}
+.language-switcher nav a:hover,.language-switcher nav a[aria-current="page"]{background:#e1e5dc;color:var(--green)}
+@media(max-width:620px){.language-switcher{margin-left:auto;margin-right:10px}.language-switcher summary{padding:9px 10px}}
 @media(prefers-reduced-motion:reduce){.hero-copy,.hero-art,.art-orbit,.art-callout,.hero-art img{animation:none!important}.motion-ready{opacity:1;transform:none;transition:none}.workpiece,.workpiece-trail{transition:none}}
 
 /* Reference-led art direction: cinematic contrast, editorial scale, and useful motion. */

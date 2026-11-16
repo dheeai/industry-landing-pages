@@ -5,12 +5,15 @@ import type { LandingPage as PageData } from '../content/schema';
 const { page } = Astro.props as { page: PageData };
 const publicAsset = (path: string) => path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 const isExternal = (href: string) => href.startsWith('http');
+const privacyUrl = import.meta.env.PUBLIC_PRIVACY_URL;
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const analyticsEnabled = Boolean(privacyUrl && plausibleDomain);
 const nav = page.navigation ?? { response: 'First response', applications: 'Applications', journey: 'How it works', sample: 'Sample' };
 const canonicalUrl = new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/${page.slug}/`, Astro.site).toString();
 const shareImage = page.hero.image?.startsWith('http') ? page.hero.image : new URL(publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg'), Astro.site).toString();
 ---
 <!doctype html>
-<html lang={page.language}>
+<html lang={page.language} data-page-slug={page.slug} data-page-type={page.pageType}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,20 +41,105 @@ const shareImage = page.hero.image?.startsWith('http') ? page.hero.image : new U
       <nav aria-label="Main navigation" class="desktop-nav">
         <a href="#first-response">{nav.response}</a><a href="#applications">{nav.applications}</a><a href="#journey">{nav.journey}</a><a href="#sample">{nav.sample}</a>
       </nav>
+      {page.languageVariants?.length > 1 && <details class="language-switcher">
+        <summary aria-label={page.languageLabel ?? 'Language'}>{page.language.toUpperCase()} <span aria-hidden="true">⌄</span></summary>
+        <nav aria-label={page.languageLabel ?? 'Language'}>{page.languageVariants.map((option) => <a href={`${import.meta.env.BASE_URL}${option.slug}/`} aria-current={option.language === page.language ? 'page' : undefined} data-analytics={option.language === page.language ? undefined : 'language_switch'} data-language={option.language}>{option.label}</a>)}</nav>
+      </details>}
       <details class="mobile-nav">
-        <summary aria-label="Open page navigation">Menu <span aria-hidden="true">＋</span></summary>
+        <summary aria-label={page.ui?.menu ?? 'Menu'}>{page.ui?.menu ?? 'Menu'} <span aria-hidden="true">＋</span></summary>
         <nav aria-label="Mobile navigation"><a href="#first-response">{nav.response}</a><a href="#applications">{nav.applications}</a><a href="#journey">{nav.journey}</a><a href="#sample">{nav.sample}</a></nav>
       </details>
-      <a class="header-cta" href="#contact">Talk to DHEE <span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#contact">{page.ui?.headerCta ?? 'Talk to DHEE'} <span aria-hidden="true">↗</span></a>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer">
       <div class="wrap footer-main">
         <a class="wordmark footer-brand" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><img class="wordmark-mark" src={publicAsset('/images/dhee-mark-white.png')} alt="" /><span>DHEE<span class="wordmark-period">.</span></span></a>
         <p>{page.footer.disclosure}</p>
-        <a href={page.cta.email.href}>{page.cta.email.label} <span aria-hidden="true">↗</span></a>
+        <div class="footer-links">
+          <a href={page.cta.email.href} data-analytics="email_click">{page.cta.email.label} <span aria-hidden="true">↗</span></a>
+          {privacyUrl && <a href={privacyUrl} target="_blank" rel="noreferrer">{page.ui?.privacyLabel ?? 'Privacy'}</a>}
+          {analyticsEnabled && <button class="privacy-settings" type="button" data-analytics-settings>{page.ui?.settingsLabel ?? 'Cookie settings'}</button>}
+        </div>
       </div>
-      <div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {page.footer.copyright}</span><span>Made for clearer product stories.</span></div>
+      <div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {page.footer.copyright}</span><span>{page.ui?.footerLine ?? 'Made for clearer product stories.'}</span></div>
     </footer>
+    {analyticsEnabled && <>
+      <div class="analytics-consent" data-analytics-consent hidden role="dialog" aria-modal="false" aria-labelledby="analytics-consent-title">
+        <div><strong id="analytics-consent-title">{page.ui?.analyticsTitle ?? 'Help us understand this page'}</strong><p>{page.ui?.analyticsBody ?? 'Optional analytics measure page use and video engagement.'} <a href={privacyUrl} target="_blank" rel="noreferrer">{page.ui?.privacyLabel ?? 'Privacy'}</a>.</p></div>
+        <div class="analytics-consent-actions"><button type="button" data-consent-reject>{page.ui?.rejectLabel ?? 'Reject'}</button><button type="button" data-consent-accept>{page.ui?.acceptLabel ?? 'Accept analytics'}</button></div>
+      </div>
+      <div data-analytics-config data-domain={plausibleDomain} hidden></div>
+      <script is:inline>
+        (() => {
+          const key = 'dhee-analytics-consent';
+          const banner = document.querySelector('[data-analytics-consent]');
+          const config = document.querySelector('[data-analytics-config]');
+          let loaded = false;
+          const loadAnalytics = () => {
+            if (loaded || !config?.dataset.domain) return;
+            loaded = true;
+            const script = document.createElement('script');
+            script.defer = true;
+            script.src = 'https://plausible.io/js/script.js';
+            script.dataset.domain = config.dataset.domain;
+            document.head.append(script);
+          };
+          const campaignProps = () => {
+            const params = new URLSearchParams(window.location.search);
+            const props = {
+              page_slug: document.documentElement.dataset.pageSlug || 'unknown',
+              language: document.documentElement.lang || 'unknown'
+            };
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((name) => {
+              const value = params.get(name);
+              if (value) props[name] = value.slice(0, 120);
+            });
+            return props;
+          };
+          const track = (event, props = {}) => {
+            if (localStorage.getItem(key) === 'accepted') window.plausible?.(event, { props: { ...campaignProps(), ...props } });
+          };
+          const showBanner = () => { if (banner) banner.hidden = false; };
+          const closeBanner = () => { if (banner) banner.hidden = true; };
+          const consent = localStorage.getItem(key);
+          if (consent === 'accepted') loadAnalytics();
+          else if (consent !== 'rejected') showBanner();
+          document.querySelector('[data-consent-accept]')?.addEventListener('click', () => {
+            localStorage.setItem(key, 'accepted'); closeBanner(); loadAnalytics();
+          });
+          document.querySelector('[data-consent-reject]')?.addEventListener('click', () => {
+            localStorage.setItem(key, 'rejected'); closeBanner();
+          });
+          document.querySelector('[data-analytics-settings]')?.addEventListener('click', showBanner);
+          document.querySelectorAll('[data-analytics]').forEach((element) => element.addEventListener('click', () => track(element.dataset.analytics, element.dataset.language ? { target_language: element.dataset.language } : {})));
+          const seenDepths = new Set();
+          const watchScroll = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            if (max <= 0) return;
+            const depth = Math.floor((window.scrollY / max) * 100);
+            [25, 50, 75, 100].forEach((threshold) => {
+              if (depth >= threshold && !seenDepths.has(threshold)) {
+                seenDepths.add(threshold); track('scroll_depth', { percent: threshold });
+              }
+            });
+          };
+          window.addEventListener('scroll', watchScroll, { passive: true });
+          document.querySelectorAll('video').forEach((video) => {
+            const seen = new Set();
+            video.addEventListener('play', () => track('video_play'));
+            video.addEventListener('timeupdate', () => {
+              if (!video.duration) return;
+              const percent = Math.floor((video.currentTime / video.duration) * 100);
+              [25, 50, 100].forEach((threshold) => {
+                if (percent >= threshold && !seen.has(threshold)) {
+                  seen.add(threshold); track('video_watch', { percent: threshold });
+                }
+              });
+            });
+          });
+        })();
+      </script>
+    </>}
   </body>
 </html>

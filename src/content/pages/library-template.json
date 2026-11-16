@@ -1,0 +1,277 @@
+{
+  "slug": "library-template",
+  "pageType": "C",
+  "segment": "Product library · concept template",
+  "language": "en",
+  "seo": {
+    "title": "A reusable video library for every product line | DHEE",
+    "description": "A concept page showing how product, setup, safety and service explainers can be organized into one useful customer library.",
+    "noindex": true
+  },
+  "hero": {
+    "eyebrow": "PAGE TYPE C · PRODUCT LIBRARY CONCEPT",
+    "title": "One useful video library",
+    "emphasis": "for every product line.",
+    "body": "Organize clear, reusable explainers around the products and questions your customers come back to most. Start with the categories teams need, then add a tailored story for an important application.",
+    "primary": {
+      "label": "Browse the story library",
+      "href": "#library"
+    },
+    "secondary": {
+      "label": "Plan a library",
+      "href": "#contact"
+    },
+    "note": "Start with the questions.",
+    "noteEmphasis": "Build the library around them.",
+    "artTopLabel": "PRODUCT LIBRARY / CATEGORY",
+    "artStamp": "PRODUCT",
+    "artStampTop": "ONE CLEAR STORY",
+    "artStampLabel": "LIBRARY / C",
+    "artInput": "Customer question",
+    "artOutput": "Relevant explainer"
+  },
+  "concept": {
+    "eyebrow": "A product library that grows with the range",
+    "title": "Make the next useful answer easy to find.",
+    "steps": [
+      "Interest",
+      "Understanding",
+      "Continuation"
+    ],
+    "body": "Give customers, sales and service teams a clear starting point across products, workflows and support moments."
+  },
+  "research": {
+    "value": "01 LIBRARY",
+    "body": "A clear structure helps customers find the product story that fits their question.",
+    "source": {
+      "label": "Explore the categories",
+      "href": "#library"
+    }
+  },
+  "journey": {
+    "eyebrow": "From category to customer question",
+    "title": "Find the right story.",
+    "emphasis": "Continue with an expert.",
+    "body": "Organize the library around what people need to understand: the product, the workflow and the next step.",
+    "steps": [
+      {
+        "tab": "Choose a category",
+        "zone": "PRODUCT FAMILY",
+        "title": "Start with the right product family.",
+        "copy": "Group the product range into categories customers and teams can recognize.",
+        "image": "/images/machinery-input.jpg",
+        "imageAlt": "Illustrative fictional production machine used as a generic product category visual."
+      },
+      {
+        "tab": "Find an explainer",
+        "zone": "CUSTOMER QUESTION",
+        "title": "Match the story to the question.",
+        "copy": "Offer a short, reviewed explanation for the use, workflow or support question at hand.",
+        "image": "/images/machinery-process.jpg",
+        "imageAlt": "Illustrative process inside a fictional machine, used as a product explainer visual."
+      },
+      {
+        "tab": "Continue with support",
+        "zone": "NEXT STEP",
+        "title": "Make the next useful step clear.",
+        "copy": "Connect the explainer to approved documentation or a product expert who can handle specifics.",
+        "image": "/images/machinery-outcome.jpg",
+        "imageAlt": "Illustrative finished part representing a next step after viewing a product story."
+      }
+    ],
+    "storyLabel": "CATEGORY / EXPLAINER / NEXT STEP",
+    "navigationLabel": "Follow a customer from a library category to a helpful story"
+  },
+  "response": {
+    "eyebrow": "A useful first response",
+    "title": "Share the right explainer sooner.",
+    "body": "Give teams a small, organized collection they can use when a buyer, operator or service contact asks a familiar question.",
+    "beforeLabel": "THE HOLDING REPLY",
+    "beforeMessage": "Which video should I send for this question?",
+    "beforeNote": "A clear category makes the next answer easier to find.",
+    "tabs": [
+      {
+        "label": "Product overview",
+        "question": "Which product is right for this application?",
+        "answer": "Start with a short product overview, then bring in an expert to check the application and configuration.",
+        "asset": "Product overview"
+      },
+      {
+        "label": "Setup",
+        "question": "What should our team do before first use?",
+        "answer": "Share the approved setup orientation for the relevant product. Keep the official manual and safety instructions as the source of record.",
+        "asset": "Getting started"
+      },
+      {
+        "label": "Service",
+        "question": "Where can we find the maintenance walkthrough?",
+        "answer": "Choose the service story for the product family, then connect with the service team for model-specific guidance.",
+        "asset": "Service and maintenance"
+      }
+    ]
+  },
+  "comparison": {
+    "title": "A clear library makes useful stories easier to reuse.",
+    "body": "A concept comparison of scattered product explanations and an organized library. It makes no customer outcome or performance claim.",
+    "leftTitle": "Stories spread across channels",
+    "leftItems": [
+      "Teams search for the right explainer",
+      "Similar questions get answered from scratch",
+      "Customers may not know what to watch next"
+    ],
+    "rightTitle": "One organized video library",
+    "rightItems": [
+      "Group explainers by product and need",
+      "Reuse reviewed stories across channels",
+      "Make the next helpful topic easy to find"
+    ],
+    "note": "Keep current manuals, specifications and safety instructions authoritative; short videos add context."
+  },
+  "useCases": [
+    {
+      "number": "01",
+      "title": "Help buyers compare products",
+      "body": "Group concise overviews by product family so a buyer can understand the choices before a tailored technical conversation.",
+      "tag": "Product discovery"
+    },
+    {
+      "number": "02",
+      "title": "Orient new customers",
+      "body": "Give onboarding teams a consistent first explanation, then point customers to the approved documentation for their model.",
+      "tag": "Onboarding"
+    },
+    {
+      "number": "03",
+      "title": "Support service conversations",
+      "body": "Share a relevant maintenance or troubleshooting explainer as a starting point for a service discussion.",
+      "tag": "Service"
+    }
+  ],
+  "video": {
+    "title": "How a machine works, in under a minute",
+    "description": "Sample 01: an English narrated, AI-assisted concept film following one workpiece through a fictional machine, from input to output. The machine is illustrative, not a real product or engineering reference.",
+    "duration": "00:47",
+    "poster": "/images/machinery-concept.svg",
+    "label": "Fictional concept sample · English narration",
+    "videoUrl": "/videos/machinery-sample-01.mp4",
+    "captionsUrl": "/videos/machinery-sample-01.en.vtt",
+    "transcript": [
+      "A machine is easier to understand when you can follow the work. Start with one part entering the line.",
+      "Inside, a sequence of stages turns a complicated system into a process you can see.",
+      "The important story is how the work moves from one stage to the next: what comes in, what happens in between, and what comes out.",
+      "When customers can follow that sequence, they have a clearer way to understand where the machine fits and what to ask next."
+    ]
+  },
+  "library": {
+    "title": "A story for each customer need.",
+    "body": "A concept library structure that can be adapted to a company’s real product range. Each story should use approved product references and reviewed claims.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Product overview",
+        "detail": "What it does, who it is for and where it fits.",
+        "poster": "/images/industrial-machine-hero.jpg",
+        "alt": "Fictional modular production machine used as an illustrative concept."
+      },
+      {
+        "number": "02",
+        "title": "Setup and onboarding",
+        "detail": "A first orientation for a new operator or customer.",
+        "poster": "/images/machinery-input.jpg",
+        "alt": "Illustrative workpiece arriving at a fictional production machine."
+      },
+      {
+        "number": "03",
+        "title": "Safety and use",
+        "detail": "An approved explanation that supports, but never replaces, official instructions.",
+        "poster": "/images/machinery-process.jpg",
+        "alt": "Illustrative fictional machine process; not a safety instruction."
+      },
+      {
+        "number": "04",
+        "title": "Maintenance and service",
+        "detail": "A focused service story for a confirmed product and model.",
+        "poster": "/images/machinery-outcome.jpg",
+        "alt": "Illustrative finished component beside a fictional production machine."
+      }
+    ]
+  },
+  "process": {
+    "title": "Seven steps from brief to finished visual",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Brief and research the audience"
+      },
+      {
+        "number": "02",
+        "title": "Collect brand and product references"
+      },
+      {
+        "number": "03",
+        "title": "Analyse the market and competitors"
+      },
+      {
+        "number": "04",
+        "title": "Storyboard the idea"
+      },
+      {
+        "number": "05",
+        "title": "Write the script and plan audio"
+      },
+      {
+        "number": "06",
+        "title": "Build visuals, graphics and cutdowns"
+      },
+      {
+        "number": "07",
+        "title": "Review claims, captions and final QA"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "What belongs in a product video library?",
+      "answer": "Start with recurring customer questions: product overviews, workflow explainers, setup orientations and service topics. Use product-approved references and keep each story focused."
+    },
+    {
+      "question": "Can a short video replace a manual or safety instructions?",
+      "answer": "No. Videos can help explain a product or workflow, but approved manuals, safety information and formal instructions remain authoritative."
+    },
+    {
+      "question": "How should categories be organized?",
+      "answer": "Use categories customers recognize, such as product family, application or customer task. Test the structure with sales, onboarding and service teams."
+    },
+    {
+      "question": "Can the same video be used in sales and support?",
+      "answer": "Some general explainers may work across moments. Setup, safety and maintenance content should be specific to its audience, product and approved instructions."
+    }
+  ],
+  "cta": {
+    "title": "Which product category should we start with?",
+    "body": "Choose one customer group and one recurring question. We can shape the first library category around that need.",
+    "calendar": {
+      "label": "Plan a library",
+      "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
+    },
+    "email": {
+      "label": "Email the DHEE team",
+      "href": "mailto:Gayathri@Dhee.Studio"
+    }
+  },
+  "footer": {
+    "disclosure": "Concept page using fictional machinery imagery. Any final library should use approved product assets and expert-reviewed claims.",
+    "copyright": "DHEE Studio"
+  },
+  "applications": {
+    "eyebrow": "A library for the full customer journey",
+    "title": "Useful across",
+    "emphasis": "sales, onboarding and service.",
+    "body": "Organize videos around the jobs teams need to do: introduce a product, orient a customer and support a service conversation."
+  },
+  "faqTitle": {
+    "eyebrow": "A practical product library",
+    "title": "Before we build",
+    "emphasis": "the first category."
+  }
+}
