@@ -9,11 +9,11 @@ export type LandingPage = {
   languageLabel?: string;
   localeReview?: 'draft-machine-translation' | 'human-reviewed';
   ui?: Record<string, string>;
-  navigation?: { response: string; applications: string; journey: string; sample: string };
+  navigation?: { response: string; applications: string; journey: string; sample: string; studio?: string };
   seo: { title: string; description: string; noindex?: boolean };
   hero: { eyebrow: string; title: string; emphasis: string; body: string; primary: Link; secondary: Link; image?: string; imageAlt?: string; artTopLabel?: string; artStamp?: string; artStampLabel?: string; artStampTop?: string; artInput?: string; artOutput?: string; note?: string; noteEmphasis?: string; edition?: string };
   concept: { eyebrow: string; title: string; steps: string[]; body: string };
-  research: { value: string; body: string; source: Link };
+  research: { value: string; body: string; source: Link; items?: Array<{ value: string; label: string }> };
   journey: { eyebrow: string; title: string; emphasis: string; body: string; storyLabel?: string; navigationLabel?: string; steps: Array<{ tab: string; zone: string; title: string; copy: string; image: string; imageAlt: string }> };
   response: { eyebrow: string; title: string; body: string; beforeLabel: string; beforeMessage: string; beforeNote: string; videoDuration?: string; assetLabel?: string; tabs: Array<{ label: string; question: string; answer: string; asset: string }> };
   trigger?: { eyebrow: string; title: string; body: string; dateStamp: string; dateLabel: string; source: Link };
@@ -28,6 +28,7 @@ export type LandingPage = {
   faqs: Array<{ question: string; answer: string }>;
   cta: { title: string; body: string; calendar: Link; email: Link };
   footer: { disclosure: string; copyright: string };
+  studio?: { eyebrow: string; title: string; body: string; steps: Array<{ number: string; title: string; body: string }>; inputsLabel: string; inputs: string; outputsLabel: string; outputs: string };
 };
 
 export function validateLandingPage(page: unknown): asserts page is LandingPage {
@@ -39,7 +40,7 @@ export function validateLandingPage(page: unknown): asserts page is LandingPage 
   if (!['A', 'B', 'C', 'D', 'E'].includes(candidate.pageType ?? '')) throw new Error(`Landing page "${candidate.slug}" needs one of the five brief page types (A–E).`);
   if (!candidate.seo?.title || !candidate.seo.description) throw new Error(`Landing page "${candidate.slug}" needs an SEO title and description.`);
   if (!candidate.hero?.title || !candidate.hero.body || !candidate.hero.primary?.href) throw new Error(`Landing page "${candidate.slug}" needs a complete hero and primary CTA.`);
-  if (!Array.isArray(candidate.useCases) || candidate.useCases.length !== 3) throw new Error(`Landing page "${candidate.slug}" must define exactly three use cases.`);
+  if (!Array.isArray(candidate.useCases) || candidate.useCases.length < 3 || candidate.useCases.length > 4) throw new Error(`Landing page "${candidate.slug}" must define three or four use cases.`);
   if (!Array.isArray(candidate.process?.steps) || candidate.process.steps.length !== 7) throw new Error(`Landing page "${candidate.slug}" must define the seven production steps from the brief.`);
   if (!Array.isArray(candidate.journey?.steps) || candidate.journey.steps.length !== 3) throw new Error(`Landing page "${candidate.slug}" must define three visual story steps.`);
   if (candidate.journey.steps.some((step) => !step.image || !step.imageAlt)) throw new Error(`Landing page "${candidate.slug}" needs a visual and alt text for every story step.`);
@@ -48,4 +49,5 @@ export function validateLandingPage(page: unknown): asserts page is LandingPage 
   if (!Array.isArray(candidate.library?.items) || candidate.library.items.some((item) => !item.poster || !item.alt)) throw new Error(`Landing page "${candidate.slug}" needs an image and alternative text for every library card.`);
   if (candidate.video.videoUrl && !candidate.video.captionsUrl) throw new Error(`Landing page "${candidate.slug}" needs captions when a sample video URL is configured.`);
   if (!Array.isArray(candidate.faqs) || candidate.faqs.length === 0) throw new Error(`Landing page "${candidate.slug}" must define at least one FAQ.`);
+  if (candidate.studio && candidate.studio.steps.length !== 3) throw new Error(`Landing page "${candidate.slug}" needs three studio pipeline stages.`);
 }

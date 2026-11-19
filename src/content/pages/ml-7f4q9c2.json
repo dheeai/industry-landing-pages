@@ -1,25 +1,25 @@
 {
   "slug": "ml-7f4q9c2",
   "pageType": "B",
-  "segment": "Multiply Labs · Product story preview",
+  "segment": "Multiply Labs · Robotic Biomanufacturing Story",
   "language": "en",
   "seo": {
-    "title": "Multiply Labs | A clearer story for robotic biomanufacturing",
-    "description": "A tailored product story preview for Multiply Labs’ robotic biomanufacturing platform, designed to set up a focused conversation about instruments, process fit and scale.",
+    "title": "Multiply Labs | Robotic Biomanufacturing Product Story",
+    "description": "A tailored product film and landing page for Multiply Labs, built around its robotic cluster and the questions commercial, process and quality teams need answered.",
     "noindex": true
   },
   "hero": {
-    "eyebrow": "MULTIPLY LABS · PRODUCT STORY PREVIEW",
-    "title": "Your process.",
-    "emphasis": "Robotics built around it.",
-    "body": "Four robotic arms. A modular cluster built around the GMP instruments teams already use. This focused story makes the platform easier to understand before a conversation about process fit and scale.",
+    "eyebrow": "MULTIPLY LABS / ROBOTIC BIOMANUFACTURING",
+    "title": "Keep the instruments",
+    "emphasis": "your team trusts.",
+    "body": "Multiply Labs builds modular robotic clusters to automate work around the GMP instruments manufacturers already use. See how the system, software and process story come together for commercial, engineering and quality teams.",
     "primary": {
-      "label": "Watch the 25-second story",
-      "href": "#sample"
+      "label": "Book a production-fit call",
+      "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
     },
     "secondary": {
-      "label": "Explore the platform story",
-      "href": "#journey"
+      "label": "Watch the 25-second film",
+      "href": "#sample"
     },
     "image": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
     "imageAlt": "Multiply Labs product image showing four robotic arms operating inside a modular robotic cluster; image from the company product page.",
@@ -30,34 +30,48 @@
     "edition": "003",
     "artStampTop": "4 ROBOTIC ARMS",
     "artStampLabel": "UNDER 600 SQ FT",
-    "note": "Built around the instruments.",
-    "noteEmphasis": "Designed for your process."
+    "note": "Built around your existing GMP instruments.",
+    "noteEmphasis": "Designed to automate the touchpoints."
   },
   "concept": {
-    "eyebrow": "A complex platform, made easier to follow.",
-    "title": "Give each stakeholder the same clear starting point.",
+    "eyebrow": "THE VIDEO IS THE BRIDGE, NOT THE PITCH",
+    "title": "A clear first answer. A better conversation.",
     "steps": [
-      "Understand",
-      "Visualise",
-      "Discuss"
+      "Interest",
+      "Understanding",
+      "Continuation"
     ],
-    "body": "Show the system at a glance, then let Multiply Labs’ team take the conversation into the prospect’s instruments, therapy and scale goals."
+    "body": "DHEE turns approved product material into a short film and a custom landing page buyers can use as a first reply, a WhatsApp answer, a proposal companion or a digital product guide. Buyers get the useful context first, then move into a more focused technical conversation."
   },
   "research": {
-    "value": "4 ARMS",
-    "body": "Multiply Labs describes a cluster with four robotic arms and a modular instrument system in a footprint under 600 sq ft. Its product page also describes configurations of up to 24 instrument modules; confirm the exact configuration before using a module count for a specific prospect.",
+    "value": "",
+    "body": "",
+    "items": [
+      {
+        "value": "4",
+        "label": "robotic arms"
+      },
+      {
+        "value": "12",
+        "label": "instrument towers"
+      },
+      {
+        "value": "<600",
+        "label": "sq ft footprint"
+      }
+    ],
     "source": {
-      "label": "See the product details",
+      "label": "Explore the platform specs",
       "href": "https://www.multiplylabs.com/product"
     }
   },
   "journey": {
-    "eyebrow": "Three parts of the platform story",
-    "title": "Start with the instruments.",
-    "emphasis": "Follow the process through.",
-    "body": "Connect what a buyer already knows—their equipment and process—to the role of robotics and the information captured for review.",
+    "eyebrow": "A closer look at the platform",
+    "title": "Built around the process.",
+    "emphasis": "Connected by robotics and software.",
+    "body": "Explore how instrument compatibility, coordinated robotic work and process records connect inside one modular platform.",
     "storyLabel": "INSTRUMENTS / EXECUTION / RECORDS",
-    "navigationLabel": "Follow the cluster from instruments to process records",
+    "navigationLabel": "Explore a part of the platform",
     "steps": [
       {
         "tab": "Existing GMP instruments",
@@ -86,12 +100,12 @@
     ]
   },
   "response": {
-    "eyebrow": "A useful first conversation",
-    "title": "Answer the big question before the technical deep dive.",
-    "body": "Use one clear visual to orient commercial, process and quality stakeholders. Then tailor the walkthrough to a prospect’s equipment, manufacturing protocol and requirements.",
-    "beforeLabel": "THE FIRST QUESTION",
-    "beforeMessage": "How would this work with the process we already run?",
-    "beforeNote": "Start with their instruments, process and scale goals.",
+    "eyebrow": "Built around real buyer questions",
+    "title": "Let buyers choose what they need to understand.",
+    "body": "A commercial lead, process engineer and quality stakeholder each need a different detail first. Select a question to see how one landing page can guide them to the right answer.",
+    "beforeLabel": "THE BUYER’S FIRST QUESTION",
+    "beforeMessage": "Can we see how this relates to our process?",
+    "beforeNote": "Start with the buyer’s question—not a feature list.",
     "videoDuration": "00:25",
     "tabs": [
       {
@@ -116,75 +130,81 @@
     "assetLabel": "ENGLISH VOICEOVER · 00:25"
   },
   "comparison": {
-    "title": "Make the platform easier to picture.",
-    "body": "The story format: establish the system-level context first, then use the live discussion to explore a specific manufacturing process.",
-    "leftTitle": "Start with the walkthrough",
+    "title": "A better first conversation starts with shared context.",
+    "body": "The film gives the group a common picture. The page lets each stakeholder follow the detail that matters, so a technical walkthrough can focus on process fit and open questions.",
+    "leftTitle": "Without a tailored story",
     "leftItems": [
-      "Introduce the platform from scratch",
-      "Re-establish context for each stakeholder",
-      "Move between architecture and detailed fit"
+      "Start every conversation with the full platform overview",
+      "Repeat the same orientation for each stakeholder",
+      "Jump between system context and technical detail"
     ],
     "rightTitle": "Set context with a visual",
     "rightItems": [
-      "Give the team a shared platform overview",
-      "Show instruments, robotics and records in sequence",
-      "Reserve meeting time for fit and technical questions"
+      "Give every stakeholder one clear first picture",
+      "Let buyers explore instruments, robotics and records",
+      "Use meeting time for their fit and technical questions"
     ],
-    "note": "Suggested sales communication, not a claim of measured impact. This preview uses public product imagery and illustrative generated motion; it does not depict an approved customer workflow."
+    "note": "A suggested buyer journey, not a claim of measured sales impact. Public product photography and illustrative animation are used."
   },
   "useCases": [
     {
       "number": "01",
-      "title": "Prepare a tailored walkthrough",
-      "body": "Give a prospect a concise view of the cluster before discussing therapy type, current instruments and manufacturing goals.",
-      "tag": "COMMERCIAL"
+      "title": "Answer a new lead",
+      "body": "Give a prospect a concise, visual first reply to what the platform does, then invite the right people into a technical walkthrough.",
+      "tag": "INBOUND LEAD"
     },
     {
       "number": "02",
-      "title": "Explain instrument fit",
-      "body": "Use listed instrument examples to make the compatibility story concrete, then confirm the prospect’s actual equipment with Multiply Labs.",
-      "tag": "PROCESS / ENGINEERING"
+      "title": "Clarify a question in chat",
+      "body": "Share a focused clip in WhatsApp or web chat when a buyer asks about instrument fit, robotic execution or process records.",
+      "tag": "CHAT / WHATSAPP"
     },
     {
       "number": "03",
-      "title": "Frame the data conversation",
-      "body": "Introduce process capture and electronic records, then bring quality and validation questions to the right product experts.",
-      "tag": "QUALITY / OPERATIONS"
+      "title": "Strengthen a proposal",
+      "body": "Pair the proposal with a tailored film and page so commercial, process and quality stakeholders arrive with a shared picture.",
+      "tag": "OUTBOUND PROPOSAL"
+    },
+    {
+      "number": "04",
+      "title": "Guide product use",
+      "body": "Reuse reviewed visuals in a digital product guide for setup, service or maintenance, alongside the approved technical documentation.",
+      "tag": "DIGITAL MANUAL"
     }
   ],
   "video": {
-    "title": "A clearer first look at the robotic cluster",
-    "description": "A concise, English-narrated overview built from Multiply Labs’ published product facts and public product imagery. The generated motion is illustrative; it is not a recording or simulation of the company’s equipment or process.",
+    "title": "Multiply Labs robotic biomanufacturing product film",
+    "description": "A 25-second English-narrated product story based on Multiply Labs’ published product facts and public imagery. The animated robotics are illustrative and are not actual equipment footage or a verified process.",
     "duration": "00:25",
     "poster": "/images/multiply-labs-video-poster.jpg",
-    "label": "MULTIPLY LABS / PRODUCT STORY PREVIEW",
+    "label": "MULTIPLY LABS / PRODUCT FILM",
     "transcript": [
       "Four robotic arms.",
       "Twelve modular instrument towers.",
       "Under six hundred square feet.",
-      "Multiply Labs says its cluster is designed to work with GMP instruments teams already use.",
+      "Multiply Labs designs its robotic cluster around GMP instruments teams already use.",
       "Its software translates protocols into robotic execution and captures process records for quality review.",
-      "This illustrative preview opens a conversation about process fit and scale."
+      "A modular platform built around your process."
     ],
     "videoUrl": "/videos/multiply-labs-story-preview.mp4",
     "captionsUrl": "/videos/multiply-labs-story-preview.en.vtt",
     "autoplayOnScroll": true
   },
   "library": {
-    "title": "Build from the story buyers need next.",
-    "body": "These are proposed follow-on story directions, not finished videos. Each one can be developed from approved product references and reviewed technical claims.",
+    "title": "Build the story around the question.",
+    "body": "Three follow-on film directions, each anchored to a specific part of the platform and its buyer.",
     "items": [
       {
         "number": "01",
-        "title": "Cluster at a glance",
-        "detail": "Explain the four-arm system, modular towers and footprint.",
+        "title": "Instrument compatibility",
+        "detail": "Show how the robots are adapted around existing GMP instruments.",
         "poster": "https://www.multiplylabs.com/static/img/2-product-2025-andor-photos-four-arms-1280w.webp",
         "alt": "Public Multiply Labs product image showing the four-arm robotic cluster."
       },
       {
         "number": "02",
-        "title": "Instrument compatibility",
-        "detail": "Show how robotic touchpoints relate to equipment teams already use.",
+        "title": "Robotic execution",
+        "detail": "Visualise the cluster’s coordinated robotic work at platform level.",
         "poster": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-robot-hold-syringe-1-1280w.webp",
         "alt": "Public Multiply Labs product image showing a robotic arm holding a syringe."
       },
@@ -194,18 +214,11 @@
         "detail": "Introduce how scientists can build and modify a manufacturing process.",
         "poster": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-hmi-interaction-1280w.webp",
         "alt": "Public Multiply Labs product image showing an operator using its interface."
-      },
-      {
-        "number": "04",
-        "title": "Process records",
-        "detail": "Frame how execution data connects to quality review workflows.",
-        "poster": "https://www.multiplylabs.com/static/img/2-product-2024-chiron-photos-hmi-interaction-1280w.webp",
-        "alt": "Public Multiply Labs product image showing an operator using its interface."
       }
     ]
   },
   "process": {
-    "title": "A review path built around your platform",
+    "title": "A reviewed production path—from product brief to campaign assets.",
     "steps": [
       {
         "number": "01",
@@ -233,100 +246,86 @@
       },
       {
         "number": "07",
-        "title": "Approve the final share version"
+        "title": "Revise, approve and prepare share versions"
       }
     ]
   },
   "faqs": [
     {
-      "question": "Is the generated video a recording of Multiply Labs’ robot?",
-      "answer": "No. The motion is AI-generated and illustrative. The page uses public product photography separately as product reference; the video does not show the actual equipment or a verified manufacturing sequence."
+      "question": "Can the film and landing page be tailored to our audience?",
+      "answer": "Yes. Start with one buyer and one question, then shape the storyboard, voice, visuals and page around that audience. Commercial, process and quality teams can each get a relevant entry point."
     },
     {
-      "question": "Are the product facts from Multiply Labs?",
-      "answer": "Yes. The details on this page are based on Multiply Labs’ public product and funding pages. Any customer-specific workflow, performance figure or regulatory wording should be confirmed by the company before external publication."
+      "question": "Can we review and revise the work?",
+      "answer": "Yes. Agree on review points and revision scope up front. The team can review the storyboard and voice direction first, then give consolidated notes on the film and landing page before final approval."
     },
     {
-      "question": "Why make a short story before a walkthrough?",
-      "answer": "It can give commercial, process and quality stakeholders the same starting picture, so the walkthrough can focus on their instruments, process and scale questions."
+      "question": "Can DHEE make versions for different channels or languages?",
+      "answer": "Yes. The production plan can include 16:9, 9:16 and square cuts, captions and approved language versions. Product terminology and translations should be reviewed by Multiply Labs before sharing."
     },
     {
-      "question": "What is the current preview based on?",
-      "answer": "Publicly available Multiply Labs product information and imagery, plus generated illustrative motion and an English voice-over. It has not been commissioned or approved by Multiply Labs."
+      "question": "Does the film show Multiply Labs’ actual robot?",
+      "answer": "No. The animation is illustrative, not footage or a verified simulation of Multiply Labs’ equipment or process. Public product photography is used separately to show the actual platform."
     },
     {
-      "question": "What would a final customer-approved version need?",
-      "answer": "A confirmed audience and use case, approved visual references, technical review of the script, and final sign-off from the relevant product, engineering and quality stakeholders."
+      "question": "Where do the product facts come from?",
+      "answer": "The page uses information published by Multiply Labs. Any customer-specific workflow, performance claim or regulatory wording should be confirmed by its product and quality teams before external use."
+    },
+    {
+      "question": "What would a final company-approved version need?",
+      "answer": "A confirmed audience and use case, approved product references, technical review of the script and visuals, and final sign-off from the relevant product, engineering and quality stakeholders."
+    },
+    {
+      "question": "Does our team need to use a video tool or manage generation credits?",
+      "answer": "No. DHEE runs the production workflow, including visual generation, editing, captions and format versions. Your team supplies approved product information, reviews the storyboard and claims, and signs off on the final assets. The revision scope is agreed before production."
     }
   ],
   "cta": {
-    "title": "Choose the first buyer story to build on.",
-    "body": "A focused next step: select one audience and one platform question, then review the storyboard, voice and visuals with your product team.",
+    "title": "Make the complexity clear. Make the next step easy.",
+    "body": "Start with one audience and one question. DHEE can shape the film, landing page and channel versions, then review every technical detail with your team before sharing.",
     "calendar": {
-      "label": "Discuss a product story",
+      "label": "Talk through your product story",
       "href": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1jRZAWKol3cIiT4khN3XhotFLi_YMKThl_3d-8tGVQglz7mt5fuhBEWcqErA_JluTYAL0r6a?gv=true"
     },
     "email": {
-      "label": "Email the DHEE team",
+      "label": "Send feedback by email",
       "href": "mailto:Gayathri@Dhee.Studio"
     }
   },
   "footer": {
-    "disclosure": "Independent concept based on Multiply Labs’ public materials; not commissioned, approved or endorsed by Multiply Labs. AI-generated motion is illustrative and is not a product demo or verified process.",
+    "disclosure": "Independent, unsolicited DHEE story based on Multiply Labs’ public materials. The illustrative animation is not actual equipment footage or a verified process, and does not imply Multiply Labs’ endorsement.",
     "copyright": "DHEE Studio"
   },
   "applications": {
-    "eyebrow": "One platform. Different buyer questions.",
-    "title": "Help each team see",
-    "emphasis": "the part that matters to them.",
-    "body": "Give commercial, process engineering and quality stakeholders a common overview—then let each team go deeper on its own questions."
+    "eyebrow": "WHERE THE VIDEO EARNS ITS PLACE",
+    "title": "One product story.",
+    "emphasis": "Four useful moments.",
+    "body": "Make the same approved explanation useful throughout the buying journey—from the first question to the next conversation and the day-to-day product guide."
   },
   "trigger": {
-    "eyebrow": "A timely company update",
+    "eyebrow": "WHY THIS STORY, WHY NOW",
     "dateStamp": "$75M",
     "dateLabel": "SERIES B · 06 OCT 2026",
     "title": "A platform story for the next stage of scale.",
-    "body": "Multiply Labs announced $75 million in Series B funding to expand manufacturing capacity and advance its product roadmap as it moves from clinical-stage deployments toward commercial-scale production. This preview focuses on the system story behind that next stage.",
+    "body": "Multiply Labs announced $75 million in Series B funding to expand manufacturing capacity and advance its product roadmap as it moves from clinical-stage deployments toward commercial-scale production. The story here focuses on the platform behind that next stage.",
     "source": {
       "label": "Read the company announcement",
       "href": "https://www.multiplylabs.com/press/series-b-2026"
     }
   },
-  "metrics": {
-    "eyebrow": "Multiply Labs’ published figures",
-    "title": "Put the stated outcomes in context.",
-    "body": "These are company-reported platform figures from Multiply Labs’ product page; include them with their original context in any final client-approved version.",
-    "source": {
-      "label": "Source: Multiply Labs product page",
-      "href": "https://www.multiplylabs.com/product"
-    },
-    "items": [
-      {
-        "value": "74%",
-        "label": "cost reduction per dose"
-      },
-      {
-        "value": "Up to 100×",
-        "label": "throughput per sq ft"
-      },
-      {
-        "value": "90%",
-        "label": "of cleanroom steps automated"
-      }
-    ]
-  },
   "navigation": {
     "response": "Buyer questions",
-    "applications": "Who it helps",
+    "applications": "Where it works",
     "journey": "Platform story",
-    "sample": "Watch the video"
+    "sample": "Film",
+    "studio": "DHEE pipeline"
   },
   "ui": {
     "menu": "Menu",
-    "headerCta": "Talk to DHEE",
+    "headerCta": "Discuss your story",
     "sampleEyebrow": "A short-form product story",
-    "conversation": "EXAMPLE CONVERSATION",
-    "conversationType": "PRODUCT EDUCATION / 01",
+    "conversation": "BUYER CONVERSATION",
+    "conversationType": "PRODUCT STORY / 01",
     "prospect": "PROSPECT",
     "exampleQuestion": "EXAMPLE QUESTION",
     "manufacturer": "MANUFACTURER",
@@ -335,26 +334,75 @@
     "answerVisually": "ANSWER THE QUESTION VISUALLY",
     "continueWithExpert": "CONTINUE WITH AN EXPERT",
     "comparisonEyebrow": "A bridge, not a replacement",
-    "libraryEyebrow": "Potential next stories",
-    "libraryCta": "Plan your first story",
+    "libraryEyebrow": "Three stories for the platform",
+    "libraryCta": "Discuss the story plan",
     "storyDirection": "STORY DIRECTION",
-    "processEyebrow": "FROM PRODUCT TO PAGE",
-    "footerLine": "Made for clearer product stories.",
+    "processEyebrow": "FROM BRIEF TO APPROVED ASSETS",
+    "footerLine": "A clearer story for complex technology.",
     "analyticsTitle": "Help us understand this page",
     "analyticsBody": "Optional analytics measure page use and video engagement. They load only if you accept. See our privacy notice.",
     "privacyLabel": "Privacy",
     "settingsLabel": "Cookie settings",
     "rejectLabel": "Reject",
     "acceptLabel": "Accept analytics",
-    "productStoryLabel": "PRODUCT STORY",
+    "productStoryLabel": "ROBOTIC BIOMANUFACTURING",
     "artCaption": "MAKE THE COMPLEX, CLEAR",
-    "bridgeLabel": "DHEE / THE BRIDGE",
-    "sampleQuestionLabel": "Choose a sample buyer question",
-    "noteLabel": "NOTE"
+    "bridgeLabel": "THE PLATFORM / THE PROCESS / THE BUYER",
+    "sampleQuestionLabel": "Choose a question from a likely buyer",
+    "noteLabel": "NOTE",
+    "privateConceptLabel": "DHEE PRODUCT STORY",
+    "heroImageLabel": "MULTIPLY LABS / ROBOTIC CLUSTER",
+    "heroImageSource": "PRODUCT PHOTOGRAPHY / MULTIPLY LABS",
+    "filmEyebrow": "THE PRODUCT FILM / 00:25",
+    "filmTitle": "Four arms. One platform story.",
+    "filmBody": "A visual first introduction. The tailored page gives each buyer a way to explore the details that matter to their role.",
+    "filmNext": "Explore the platform story",
+    "mlOfferEyebrow": "MADE FOR THIS BUYING JOURNEY",
+    "mlOfferTitle": "A tailored film and page for every buyer.",
+    "mlOfferIntro": "The video opens the door. The custom page carries the conversation with the product details, buyer-specific answers and one clear next step.",
+    "offerFilmLabel": "01 / FILM",
+    "offerPageLabel": "02 / CUSTOM PAGE",
+    "offerKitLabel": "03 / CAMPAIGN KIT",
+    "offerFilmTitle": "Product, brand and customer stories",
+    "offerFilmBody": "Create product explainers, brand films and customer case videos using approved facts, source material and customer permissions.",
+    "offerPageTitle": "A page made for this buyer",
+    "offerPageBody": "This page is tailored to Multiply Labs: its robotic cluster, the questions commercial, process and quality teams ask, and a relevant next step—not just a generic product overview.",
+    "offerKitTitle": "Ready for every channel",
+    "offerKitBody": "Adapt the approved story into 16:9, 9:16 and square cuts, with a poster and captions. Review points and revision scope are agreed before production.",
+    "offerFilmLink": "Watch the film",
+    "offerPageLink": "Explore buyer questions",
+    "offerKitLink": "Discuss a pilot",
+    "mlCtaKicker": "DHEE STUDIO × MULTIPLY LABS"
   },
   "faqTitle": {
     "eyebrow": "Useful before a technical walkthrough",
     "title": "A few useful questions",
     "emphasis": "to start with."
+  },
+  "studio": {
+    "eyebrow": "DHEE STUDIO / THE PRODUCTION SYSTEM",
+    "title": "DHEE runs production. You approve the story.",
+    "body": "DHEE combines managed video production with a custom AI video engine. Your team shares approved references and product knowledge; DHEE handles the creative and production work, then brings the storyboard, claims and final assets back for review.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Brief and storyboard",
+        "body": "Start with a logo, 1–4 approved product images, a short description, language and brand colours. DHEE researches the product and shapes a 3–5 shot storyboard."
+      },
+      {
+        "number": "02",
+        "title": "Make and assemble",
+        "body": "DHEE prepares the source images, generates the motion shots, then adds clean titles, branding, narration or captions in post-production."
+      },
+      {
+        "number": "03",
+        "title": "Review and deliver",
+        "body": "The team checks product claims, visual consistency, language and timing with you, then prepares agreed revisions and share-ready versions."
+      }
+    ],
+    "inputsLabel": "YOUR TEAM PROVIDES",
+    "inputs": "Approved product facts and assets. Your team reviews the storyboard and signs off on technical claims and final content.",
+    "outputsLabel": "DHEE PREPARES",
+    "outputs": "A 20–30 second product film, a custom landing page, 16:9, 9:16 and square edits, plus a poster and captions."
   }
 }

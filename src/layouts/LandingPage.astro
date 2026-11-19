@@ -5,10 +5,14 @@ import type { LandingPage as PageData } from '../content/schema';
 const { page } = Astro.props as { page: PageData };
 const publicAsset = (path: string) => path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 const isExternal = (href: string) => href.startsWith('http');
+const isMultiplyLabsPage = page.slug.startsWith('ml-7f4q9c2');
 const privacyUrl = import.meta.env.PUBLIC_PRIVACY_URL;
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
 const analyticsEnabled = Boolean(privacyUrl && plausibleDomain);
 const nav = page.navigation ?? { response: 'First response', applications: 'Applications', journey: 'How it works', sample: 'Sample' };
+const navTargets = page.slug.startsWith('ml-7f4q9c2')
+  ? { response: '#first-response', applications: '#applications', journey: '#journey', studio: '#dhee', sample: '#sample' }
+  : { response: '#first-response', applications: '#applications', journey: '#journey', sample: '#sample' };
 const canonicalUrl = new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/${page.slug}/`, Astro.site).toString();
 const shareImage = page.hero.image?.startsWith('http') ? page.hero.image : new URL(publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg'), Astro.site).toString();
 ---
@@ -37,9 +41,12 @@ const shareImage = page.hero.image?.startsWith('http') ? page.hero.image : new U
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header wrap">
-      <a class="wordmark" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><img class="wordmark-mark" src={publicAsset('/images/dhee-mark-black.png')} alt="" /><span>DHEE<span class="wordmark-period">.</span></span></a>
+      <div class="header-brand-group">
+        <a class="wordmark" href="https://dhee.framer.ai/" aria-label="DHEE Studio home"><img class="wordmark-mark" src={publicAsset('/images/dhee-mark-black.png')} alt="" /><span>DHEE<span class="wordmark-period">.</span></span></a>
+        {isMultiplyLabsPage && <span class="header-client-label"><span>PRODUCT STORY</span><b>MULTIPLY LABS</b></span>}
+      </div>
       <nav aria-label="Main navigation" class="desktop-nav">
-        <a href="#first-response">{nav.response}</a><a href="#applications">{nav.applications}</a><a href="#journey">{nav.journey}</a><a href="#sample">{nav.sample}</a>
+        <a href={navTargets.response}>{nav.response}</a><a href={navTargets.applications}>{nav.applications}</a><a href={navTargets.journey}>{nav.journey}</a>{isMultiplyLabsPage && <a href={navTargets.studio}>{nav.studio}</a>}<a href={navTargets.sample}>{nav.sample}</a>
       </nav>
       {page.languageVariants?.length > 1 && <details class="language-switcher">
         <summary aria-label={page.languageLabel ?? 'Language'}>{page.language.toUpperCase()} <span aria-hidden="true">⌄</span></summary>
@@ -47,7 +54,7 @@ const shareImage = page.hero.image?.startsWith('http') ? page.hero.image : new U
       </details>}
       <details class="mobile-nav">
         <summary aria-label={page.ui?.menu ?? 'Menu'}>{page.ui?.menu ?? 'Menu'} <span aria-hidden="true">＋</span></summary>
-        <nav aria-label="Mobile navigation"><a href="#first-response">{nav.response}</a><a href="#applications">{nav.applications}</a><a href="#journey">{nav.journey}</a><a href="#sample">{nav.sample}</a></nav>
+        <nav aria-label="Mobile navigation"><a href={navTargets.response}>{nav.response}</a><a href={navTargets.applications}>{nav.applications}</a><a href={navTargets.journey}>{nav.journey}</a>{isMultiplyLabsPage && <a href={navTargets.studio}>{nav.studio}</a>}<a href={navTargets.sample}>{nav.sample}</a></nav>
       </details>
       <a class="header-cta" href="#contact">{page.ui?.headerCta ?? 'Talk to DHEE'} <span aria-hidden="true">↗</span></a>
     </header>
