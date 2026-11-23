@@ -55,3 +55,8 @@ The DHEE mark in the header and footer is copied from the existing `dheeai/dhee-
 - Review all product, safety and regulatory statements with the relevant DHEE and customer experts. The page states that its AI-generated motion is illustrative and that it is not commissioned, approved or endorsed by Multiply Labs.
 - Update `site` and `base` in `astro.config.mjs` if the repository or production domain changes.
 - Add DHEE's approved privacy-policy destination and Plausible domain in the GitHub Pages build before enabling analytics. The consent banner and tracking remain off until both values exist.
+
+
+### Standalone pharma microsite
+
+The pharma/life-sciences page lives in `public/pharma/` as a separate static microsite, not a route generated from the config-driven Astro page system. Astro copies it into `dist/pharma/` during the normal build. Its GitHub Pages route is `/industry-landing-pages/pharma/`. The HTML, CSS, JavaScript, social image, and scientific review checklist are kept together so the page can be edited independently while still shipping through the existing GitHub Pages workflow.
