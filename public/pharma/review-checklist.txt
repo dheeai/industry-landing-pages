@@ -1,0 +1,30 @@
+DHEE STUDIO
+Scientific video review checklist
+
+This checklist helps prepare a review. It is not a substitute for your organization's Medical, Legal, Regulatory, scientific, or compliance review and does not confer approval.
+
+BEFORE STORYBOARD
+[ ] Identify the intended audience, use, and channel.
+[ ] Provide the approved source references and version/date for each.
+[ ] Name the scientific and claim owners who can resolve questions.
+[ ] Separate established evidence from assumptions or planned data.
+[ ] Confirm whether the content is scientific education, promotional, patient-facing, or internal.
+[ ] Agree data-handling requirements before sharing confidential material.
+
+BEFORE VISUAL DEVELOPMENT
+[ ] Confirm the mechanism, target, ligand, pathway, and biological context with a subject-matter expert.
+[ ] Confirm what is known, simplified, omitted, or shown schematically.
+[ ] Check that scale, cell type, molecular structure, sequence, and labels are not misleading.
+[ ] Review the script, storyboard, and visual direction before full production.
+[ ] Identify any client-specific AI disclosure or provenance requirements.
+
+BEFORE FINAL HANDOFF
+[ ] Review scientific statements against the approved references.
+[ ] Check claims, balance, intended audience, and applicable product context.
+[ ] Review captions, terminology, pronunciation, translations, and accessibility.
+[ ] Check that all visual simplifications are acceptable and disclosed where needed.
+[ ] Confirm version labels, approved formats, ownership, and permitted use.
+[ ] Record client review status and final sign-off through the client's process.
+
+REMINDER
+DHEE provides managed AI-assisted production and human creative QA. DHEE does not provide clinical evidence or replace client scientific, Medical, Legal, Regulatory, or compliance review.
