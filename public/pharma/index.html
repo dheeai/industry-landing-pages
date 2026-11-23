@@ -7,13 +7,13 @@
     <title>Scientific MOA &amp; MOD Films for Medical Affairs | DHEE Studio</title>
     <meta name="description" content="A managed, AI-assisted video studio for scientific explainers. Turn approved science into clear MOA and MOD stories, with human QA and review points designed around your existing MLR process." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Put complex science in motion | DHEE Studio" />
-    <meta property="og:description" content="MOA and MOD explainers for Medical Affairs, produced from approved references with human creative QA." />
+    <meta property="og:title" content="Make complex biology clear in motion | DHEE Studio" />
+    <meta property="og:description" content="Explore receptor signaling and see how DHEE turns approved science into clear, reviewable films." />
     <meta property="og:url" content="https://dheeai.github.io/industry-landing-pages/pharma/" />
     <meta property="og:image" content="https://dheeai.github.io/industry-landing-pages/pharma/og-pharma.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Put complex science in motion | DHEE Studio" />
-    <meta name="twitter:description" content="MOA and MOD explainers for Medical Affairs, produced from approved references with human creative QA." />
+    <meta name="twitter:title" content="Make complex biology clear in motion | DHEE Studio" />
+    <meta name="twitter:description" content="Explore receptor signaling and see how DHEE turns approved science into clear, reviewable films." />
     <meta name="twitter:image" content="https://dheeai.github.io/industry-landing-pages/pharma/og-pharma.svg" />
     <link rel="icon" type="image/png" href="../images/dhee-mark-black.png" />
     <link rel="stylesheet" href="./pharma.css" />
@@ -21,7 +21,7 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
+    <header class="site-header" data-site-header>
       <a class="brand" href="https://dhee.studio/" aria-label="DHEE Studio home">
         <img src="../images/dhee-mark-black.png" alt="" width="42" height="42" />
         <span>DHEE<span class="brand-dot">.</span></span>
@@ -40,13 +40,14 @@
         </nav>
       </details>
     </header>
+    <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow"><span class="live-dot"></span> DHEE STUDIO <span class="eyebrow-slash">/</span> PHARMA &amp; LIFE SCIENCES</p>
-          <h1 id="hero-title">Science should not wait on a <em>video cycle.</em></h1>
-          <p class="hero-lede">MOA and MOD explainers for Medical Affairs—shaped from approved scientific references, with human creative QA and review points designed around your existing process.</p>
+          <h1 id="hero-title">Make complex biology <em>clear in motion.</em></h1>
+          <p class="hero-lede">Give Medical Affairs and scientific teams a clearer way to explain a mechanism—with source-led visual storytelling, human creative QA, and review points built around your process.</p>
           <div class="hero-actions">
             <a class="button button-accent" href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Request a sample scene <span aria-hidden="true">↗</span></a>
             <a class="text-action" href="./review-checklist.txt" download>Get the review checklist <span aria-hidden="true">↓</span></a>
@@ -55,55 +56,78 @@
           <div class="hero-categories" aria-label="Focus areas"><span>MOA / MOD</span><i></i><span>MEDICAL AFFAIRS</span><i></i><span>SCIENTIFIC EDUCATION</span></div>
         </div>
 
-        <figure class="science-visual" id="sample">
-          <div class="visual-topline"><span>VISUAL DIRECTION / 001</span><span>ILLUSTRATIVE STUDY</span></div>
+        <figure class="science-visual" id="sample" data-mode="gpcr" data-stage="recognition">
+          <div class="pathway-selector" role="group" aria-label="Choose a receptor family">
+            <button type="button" class="pathway-choice is-active" data-mode-choice="gpcr" aria-pressed="true"><span>01</span><b>GPCR</b><i>7-transmembrane</i></button>
+            <button type="button" class="pathway-choice" data-mode-choice="channel" aria-pressed="false"><span>02</span><b>Ion channel</b><i>Ligand-gated</i></button>
+            <button type="button" class="pathway-choice" data-mode-choice="nuclear" aria-pressed="false"><span>03</span><b>Nuclear receptor</b><i>Gene regulation</i></button>
+          </div>
+          <div class="visual-topline"><span>MECHANISM EXPLORER</span><span data-mode-label>G-PROTEIN-COUPLED RECEPTOR</span></div>
           <div class="visual-canvas">
             <div class="visual-grid" aria-hidden="true"></div>
-            <div class="visual-axis axis-one" aria-hidden="true"></div>
-            <div class="visual-axis axis-two" aria-hidden="true"></div>
-            <svg class="molecule-scene" viewBox="0 0 720 500" role="img" aria-labelledby="scene-title scene-desc">
-              <title id="scene-title">Illustrative molecular visual direction</title>
-              <desc id="scene-desc">An abstract ligand approaches a stylized membrane protein, followed by a soft signal pulse. The drawing is conceptual and is not a verified drug mechanism.</desc>
+            <svg class="molecule-scene" viewBox="0 0 720 460" role="img" aria-labelledby="scene-title scene-desc">
+              <title id="scene-title">Interactive receptor-family schematic</title>
+              <desc id="scene-desc">An illustrative GPCR and its possible signaling sequence. It is a simplified family-level diagram, not a drug-specific structure or mechanism.</desc>
               <defs>
-                <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#94d8d0" stop-opacity=".28"/><stop offset="1" stop-color="#94d8d0" stop-opacity="0"/></radialGradient>
-                <linearGradient id="protein" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf0de"/><stop offset=".5" stop-color="#8fb9b5"/><stop offset="1" stop-color="#627e8b"/></linearGradient>
-                <linearGradient id="ligand" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#f2b279"/><stop offset="1" stop-color="#f7e4c1"/></linearGradient>
+                <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#94d8d0" stop-opacity=".24"/><stop offset="1" stop-color="#94d8d0" stop-opacity="0"/></radialGradient>
+                <linearGradient id="protein" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0f0dd"/><stop offset=".55" stop-color="#9bc4b7"/><stop offset="1" stop-color="#66828c"/></linearGradient>
+                <linearGradient id="ligand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5c68e"/><stop offset="1" stop-color="#e5784f"/></linearGradient>
               </defs>
-              <circle cx="390" cy="248" r="205" fill="url(#halo)"/>
-              <g class="membrane">
-                <path d="M78 190 C210 178 266 198 352 187 S532 178 646 191" fill="none" stroke="#86aaa9" stroke-opacity=".32" stroke-width="2"/>
-                <path d="M78 213 C211 201 267 221 353 210 S533 201 646 214" fill="none" stroke="#86aaa9" stroke-opacity=".22" stroke-width="2"/>
-                <path d="M78 288 C210 276 267 296 353 285 S532 276 646 289" fill="none" stroke="#86aaa9" stroke-opacity=".22" stroke-width="2"/>
-                <path d="M78 311 C211 299 268 319 354 308 S533 299 646 312" fill="none" stroke="#86aaa9" stroke-opacity=".32" stroke-width="2"/>
-                <g fill="#9ab7b0" opacity=".35">
-                  <circle cx="117" cy="191" r="4"/><circle cx="158" cy="187" r="4"/><circle cx="200" cy="188" r="4"/><circle cx="242" cy="194" r="4"/><circle cx="284" cy="194" r="4"/><circle cx="326" cy="189" r="4"/><circle cx="368" cy="185" r="4"/><circle cx="410" cy="184" r="4"/><circle cx="452" cy="184" r="4"/><circle cx="494" cy="183" r="4"/><circle cx="536" cy="184" r="4"/><circle cx="578" cy="187" r="4"/><circle cx="620" cy="190" r="4"/>
-                  <circle cx="117" cy="310" r="4"/><circle cx="158" cy="306" r="4"/><circle cx="200" cy="307" r="4"/><circle cx="242" cy="313" r="4"/><circle cx="284" cy="313" r="4"/><circle cx="326" cy="308" r="4"/><circle cx="368" cy="304" r="4"/><circle cx="410" cy="303" r="4"/><circle cx="452" cy="303" r="4"/><circle cx="494" cy="302" r="4"/><circle cx="536" cy="303" r="4"/><circle cx="578" cy="306" r="4"/><circle cx="620" cy="309" r="4"/>
+              <circle cx="354" cy="251" r="220" fill="url(#halo)"/>
+              <text class="scene-label" x="52" y="55">EXTRACELLULAR SPACE</text>
+              <text class="scene-label" x="52" y="240">PLASMA MEMBRANE</text>
+              <text class="scene-label" x="52" y="295">CELL INTERIOR</text>
+              <path d="M52 211 H668 M52 246 H668" stroke="#8bb4ab" stroke-opacity=".32" stroke-width="1.5"/>
+              <g class="membrane-heads" fill="#9dc4b8" opacity=".63">
+                <circle cx="90" cy="211" r="5"/><circle cx="132" cy="211" r="5"/><circle cx="174" cy="211" r="5"/><circle cx="216" cy="211" r="5"/><circle cx="258" cy="211" r="5"/><circle cx="300" cy="211" r="5"/><circle cx="342" cy="211" r="5"/><circle cx="384" cy="211" r="5"/><circle cx="426" cy="211" r="5"/><circle cx="468" cy="211" r="5"/><circle cx="510" cy="211" r="5"/><circle cx="552" cy="211" r="5"/><circle cx="594" cy="211" r="5"/><circle cx="636" cy="211" r="5"/>
+                <circle cx="90" cy="246" r="5"/><circle cx="132" cy="246" r="5"/><circle cx="174" cy="246" r="5"/><circle cx="216" cy="246" r="5"/><circle cx="258" cy="246" r="5"/><circle cx="300" cy="246" r="5"/><circle cx="342" cy="246" r="5"/><circle cx="384" cy="246" r="5"/><circle cx="426" cy="246" r="5"/><circle cx="468" cy="246" r="5"/><circle cx="510" cy="246" r="5"/><circle cx="552" cy="246" r="5"/><circle cx="594" cy="246" r="5"/><circle cx="636" cy="246" r="5"/>
+              </g>
+              <g data-mode-layer="gpcr" class="mode-layer">
+                <g class="target-protein">
+                  <path d="M310 164 C301 177 301 194 309 211 L313 246 C317 264 308 277 310 293" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M324 152 C317 173 319 194 326 211 L329 246 C333 264 326 280 328 294" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M338 150 C332 173 333 194 340 211 L343 246 C347 264 339 280 341 295" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M352 147 C347 173 348 194 354 211 L357 246 C361 265 353 280 355 296" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M366 150 C361 173 362 194 368 211 L371 246 C375 265 367 280 369 295" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M380 155 C374 174 376 194 382 211 L385 246 C389 264 381 278 383 293" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M394 165 C388 181 390 196 396 211 L399 246 C403 264 395 278 397 291" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
                 </g>
+                <g class="gpcr-ligand ligand"><path d="M342 121 L353 104 L374 106 L385 122 L374 139 L353 138Z" fill="url(#ligand)" stroke="#ffe2bd" stroke-width="2"/><circle cx="355" cy="120" r="3" fill="#fff2dc"/><circle cx="374" cy="124" r="3" fill="#fff2dc"/></g>
+                <g class="gpcr-gprotein" data-stage-layer="relay" fill="none" stroke="#b6d8c8" stroke-width="2"><path d="M365 293 C365 317 342 323 329 343 M365 293 C365 317 387 323 401 343" stroke-dasharray="3 7"/><circle cx="329" cy="347" r="18"/><circle cx="401" cy="347" r="13"/><circle cx="366" cy="360" r="12" fill="#e9b784"/><text class="scene-label" x="430" y="354">G PROTEIN</text></g>
+                <g data-stage-layer="response" class="response-network" fill="none" stroke="#b6d8c8" stroke-width="1.5"><path d="M366 372 C366 392 330 396 310 415 M366 372 C366 392 404 396 424 415" stroke-dasharray="3 7"/><circle cx="310" cy="415" r="13"/><circle cx="424" cy="415" r="13"/><text class="scene-label" x="450" y="420">CELL-SPECIFIC EFFECTORS</text></g>
+                <text class="scene-label" x="430" y="177">7 TRANSMEMBRANE</text>
               </g>
-              <g class="target-protein">
-                <path d="M344 109 C316 137 324 162 345 181 C364 197 361 224 340 244 C321 265 326 292 348 315 C370 338 365 365 344 390 C326 411 332 435 356 455" fill="none" stroke="url(#protein)" stroke-width="24" stroke-linecap="round"/>
-                <path d="M394 110 C420 137 412 163 392 183 C374 202 379 225 400 246 C419 266 415 293 393 316 C371 338 376 365 398 389 C418 411 410 435 389 455" fill="none" stroke="url(#protein)" stroke-width="24" stroke-linecap="round"/>
-                <path d="M437 126 C456 151 448 173 430 190 C412 207 416 229 436 248" fill="none" stroke="#c5d9ca" stroke-opacity=".78" stroke-width="13" stroke-linecap="round"/>
-                <path d="M309 335 C279 352 278 375 297 395 C314 413 315 430 301 447" fill="none" stroke="#7faaa8" stroke-opacity=".65" stroke-width="14" stroke-linecap="round"/>
-                <circle cx="376" cy="255" r="77" fill="none" stroke="#c8d9be" stroke-opacity=".34" stroke-width="1.5"/>
-                <circle cx="376" cy="255" r="97" fill="none" stroke="#c8d9be" stroke-opacity=".18" stroke-width="1" stroke-dasharray="2 8"/>
+              <g data-mode-layer="channel" class="mode-layer">
+                <path d="M331 135 C307 147 310 174 326 194 L329 263 C309 282 312 301 337 310 L383 310 C408 301 411 282 391 263 L394 194 C410 174 413 147 389 135 C373 127 347 127 331 135Z" fill="url(#protein)" stroke="#d9e7d8" stroke-width="1.5"/>
+                <path d="M350 170 C346 198 347 234 350 267 L370 267 C373 234 374 198 370 170Z" fill="#14242b" stroke="#c7ded2" stroke-opacity=".7" stroke-width="1.5"/>
+                <path d="M351 219 L358 212 L366 219" fill="none" stroke="#e9b784" stroke-width="3" stroke-linecap="round"/>
+                <g class="channel-ligand ligand"><path d="M342 111 L353 94 L374 96 L385 112 L374 129 L353 128Z" fill="url(#ligand)" stroke="#ffe2bd" stroke-width="2"/></g>
+                <g data-stage-layer="relay" class="ion-flow" fill="#e9b784"><circle cx="360" cy="181" r="6"/><circle cx="360" cy="207" r="5"/><circle cx="360" cy="286" r="4"/><text class="scene-label" x="414" y="230">SELECTIVE ION FLOW</text></g>
+                <g data-stage-layer="response" class="response-network" fill="none" stroke="#b6d8c8" stroke-width="1.5"><path d="M360 296 V365 M360 365 C330 390 310 393 286 411 M360 365 C390 390 410 393 434 411" stroke-dasharray="3 7"/><circle cx="286" cy="411" r="17"/><circle cx="434" cy="411" r="17"/><text class="scene-label" x="460" y="416">ION-DEPENDENT RESPONSE</text></g>
+                <text class="scene-label" x="416" y="169">CHANNEL GATE</text>
               </g>
-              <g class="ligand">
-                <path d="M152 248 C174 227 191 269 212 248 S250 228 271 249 S304 264 322 244" fill="none" stroke="url(#ligand)" stroke-width="9" stroke-linecap="round"/>
-                <g fill="#f4c48e" stroke="#fff0d5" stroke-width="2"><circle cx="152" cy="248" r="12"/><circle cx="190" cy="248" r="10"/><circle cx="231" cy="248" r="13"/><circle cx="271" cy="249" r="10"/><circle cx="310" cy="247" r="12"/></g>
-                <circle cx="231" cy="248" r="30" fill="none" stroke="#efb879" stroke-opacity=".3" stroke-width="1.5"/>
+              <g data-mode-layer="nuclear" class="mode-layer">
+                <g class="nuclear-ligand ligand"><path d="M342 180 L353 163 L374 165 L385 181 L374 198 L353 197Z" fill="url(#ligand)" stroke="#ffe2bd" stroke-width="2"/></g>
+                <path d="M356 198 V280" stroke="#e9b784" stroke-width="2" stroke-dasharray="3 7"/>
+                <g class="intracellular-receptor"><circle cx="356" cy="325" r="37" fill="url(#protein)" stroke="#d9e7d8" stroke-width="1.5"/><circle cx="356" cy="325" r="17" fill="#203b3e" stroke="#d9e7d8" stroke-opacity=".65"/><text class="scene-label" x="414" y="329">INTRACELLULAR RECEPTOR</text></g>
+                <g data-stage-layer="relay" class="nuclear-complex" fill="none" stroke="#b6d8c8" stroke-width="2"><path d="M356 362 V382 M356 382 H440" stroke-dasharray="3 7"/><path d="M434 369 C451 377 451 392 434 400 C417 408 417 423 434 431 M448 369 C431 377 431 392 448 400 C465 408 465 423 448 431"/><text class="scene-label" x="476" y="393">DNA-ASSOCIATED</text></g>
+                <g data-stage-layer="response" class="response-network" fill="none" stroke="#e9b784" stroke-width="2"><path d="M441 431 V442 H517"/><circle cx="523" cy="442" r="5" fill="#e9b784"/><text class="scene-label" x="450" y="460">TRANSCRIPTIONAL REGULATION</text></g>
               </g>
-              <g class="signal-pulse" fill="none" stroke="#c1e4d3" stroke-width="2"><circle cx="405" cy="265" r="36"/><circle cx="405" cy="265" r="63"/><circle cx="405" cy="265" r="90"/></g>
-              <g fill="#c5d8d2" font-family="Arial, sans-serif" font-size="10" letter-spacing="2">
-                <text x="88" y="143">SOURCE-DEFINED LIGAND</text><text x="412" y="143">TARGET / STRUCTURE</text><text x="506" y="366">PATHWAY DETAIL</text><text x="506" y="382" fill="#8aa5a0">SET WITH YOUR SCIENCE TEAM</text>
-              </g>
-              <path d="M176 151 L195 220" stroke="#a9bdb2" stroke-opacity=".6" stroke-width="1"/><path d="M480 151 L433 197" stroke="#a9bdb2" stroke-opacity=".6" stroke-width="1"/><path d="M505 349 L468 329" stroke="#a9bdb2" stroke-opacity=".6" stroke-width="1"/>
-              <circle cx="195" cy="220" r="2.5" fill="#e7bd8d"/><circle cx="433" cy="197" r="2.5" fill="#d2e3d4"/><circle cx="468" cy="329" r="2.5" fill="#c1e4d3"/>
+              <text class="scene-label" x="64" y="394" data-family-caption>GPCR FAMILY STUDY · ILLUSTRATIVE</text>
             </svg>
-            <div class="scene-index"><span>01</span><span>03</span></div>
+            <div class="scene-index"><span data-step-index>01</span><span>03</span></div>
             <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false"><span class="toggle-icon" aria-hidden="true">Ⅱ</span><span data-motion-label>Pause motion</span></button>
           </div>
-          <figcaption><span>CONCEPTUAL MOTION STUDY</span><span>NOT A DRUG-SPECIFIC MECHANISM OR EFFICACY CLAIM</span></figcaption>
+          <div class="science-explorer">
+            <div class="explorer-controls" role="group" aria-label="Explore mechanism stages">
+              <button type="button" class="explorer-step is-active" data-step="recognition" aria-pressed="true"><span>01</span><b data-step-label="recognition">Ligand recognition</b></button>
+              <button type="button" class="explorer-step" data-step="relay" aria-pressed="false"><span>02</span><b data-step-label="relay">Signal relay</b></button>
+              <button type="button" class="explorer-step" data-step="response" aria-pressed="false"><span>03</span><b data-step-label="response">Cell response</b></button>
+            </div>
+            <div class="explorer-copy" aria-live="polite" aria-atomic="true"><p class="explorer-title" data-step-title>A signal meets a GPCR</p><p data-step-copy>G-protein-coupled receptors span the membrane seven times. A bound signal can alter receptor activity; the specific pathway depends on the receptor and cell.</p></div>
+          </div>
+          <figcaption><span data-figure-caption>FAMILY-LEVEL GPCR SCHEMATIC</span><span>ILLUSTRATIVE · NOT A PRODUCT MECHANISM</span></figcaption>
+          <div class="science-source"><span>Family-level illustration; source-linked for review.</span><span class="science-source-links"><a data-science-source href="https://www.ncbi.nlm.nih.gov/books/NBK541112/" target="_blank" rel="noreferrer">GPCR reference <span aria-hidden="true">↗</span></a><a data-structure-source href="https://www.rcsb.org/structure/4MBS" target="_blank" rel="noreferrer">Real structure example: CCR5 · PDB 4MBS <span aria-hidden="true">↗</span></a></span></div>
         </figure>
       </section>
 
@@ -123,9 +147,15 @@
             <p>When those steps happen in disconnected queues, important science can arrive after the moment it was meant to support. A managed production path gives the story and its review points a place to move together.</p>
           </div>
         </div>
-        <div class="route-line" aria-label="A reviewable production sequence">
-          <div><b>01</b><span>Approved science</span></div><i aria-hidden="true"></i><div><b>02</b><span>Story &amp; visual direction</span></div><i aria-hidden="true"></i>
-          <div><b>03</b><span>Production</span></div><i aria-hidden="true"></i><div><b>04</b><span>Human QA + your review</span></div>
+        <div class="route-line" role="tablist" aria-label="Explore the production sequence">
+          <button type="button" id="process-tab-science" role="tab" aria-selected="true" aria-controls="process-panel" tabindex="0" data-process-stage="science"><span>01</span><b>Approved science</b><i aria-hidden="true"></i></button>
+          <button type="button" id="process-tab-direction" role="tab" aria-selected="false" aria-controls="process-panel" tabindex="-1" data-process-stage="direction"><span>02</span><b>Story &amp; direction</b><i aria-hidden="true"></i></button>
+          <button type="button" id="process-tab-production" role="tab" aria-selected="false" aria-controls="process-panel" tabindex="-1" data-process-stage="production"><span>03</span><b>Production</b><i aria-hidden="true"></i></button>
+          <button type="button" id="process-tab-review" role="tab" aria-selected="false" aria-controls="process-panel" tabindex="-1" data-process-stage="review"><span>04</span><b>Human QA + review</b><i aria-hidden="true"></i></button>
+        </div>
+        <div class="process-panel" id="process-panel" role="tabpanel" aria-labelledby="process-tab-science" aria-live="polite" aria-atomic="true" tabindex="0">
+          <div class="process-panel-copy"><span class="process-panel-index" data-process-index>STEP 01 / 04</span><h3 data-process-title>Start with the science you trust.</h3><p data-process-copy>Your team shares approved references, the intended audience, and the scientific question the film needs to clarify.</p></div>
+          <div class="process-panel-meta"><span data-process-owner-label>YOUR TEAM BRINGS</span><strong data-process-owner>Source material · audience context · claim owners</strong><span class="process-panel-note" data-process-note>Scientific authority stays with your reviewers.</span></div>
         </div>
         <p class="source-note">Project timelines and review cycles vary by scope, source material, and your organization’s review process.</p>
       </section>
@@ -136,13 +166,19 @@
           <div><p class="eyebrow">Built around the question to answer</p><h2>One scientific story.<br /><em>Many useful formats.</em></h2></div>
           <p>Start with the flagship mechanism. Extend the same governed production approach across the work your scientific teams already need to explain.</p>
         </div>
-        <div class="offer-grid">
-          <article class="offer-card offer-featured"><div class="offer-media offer-moa" aria-hidden="true"><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="orbit-core"></span><span class="media-label">MOA / MOD</span></div><div class="offer-content"><div class="offer-meta"><span>01 / MEDICAL AFFAIRS</span><span class="priority-tag">FLAGSHIP</span></div><h3>Mechanism of action</h3><p>Make a mechanism easier to follow through source-based visual storytelling, built for scientific education and your review pathway.</p><a href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Explore a sample scene <span aria-hidden="true">↗</span></a></div></article>
-          <article class="offer-card"><div class="offer-media offer-investor" aria-hidden="true"><span class="media-cell cell-one"></span><span class="media-cell cell-two"></span><span class="media-cell cell-three"></span><span class="media-label">SCIENCE → STORY</span></div><div class="offer-content"><div class="offer-meta"><span>02 / BIOTECH</span><span>PARTNERING</span></div><h3>Investor &amp; partnering films</h3><p>Explain a novel platform, therapeutic approach, or research program to the people considering what comes next.</p><a href="https://dhee.studio/contact?industry=pharma&amp;usecase=investor-film">Shape a science story <span aria-hidden="true">↗</span></a></div></article>
-          <article class="offer-card"><div class="offer-media offer-training" aria-hidden="true"><span class="training-line"></span><span class="training-line"></span><span class="training-line"></span><span class="media-label">LEARN / REVISIT</span></div><div class="offer-content"><div class="offer-meta"><span>03 / MEDICAL AFFAIRS</span><span>ENABLEMENT</span></div><h3>MSL &amp; scientific training</h3><p>Build focused modules that help teams revisit approved scientific concepts with clear, consistent visual language.</p><a href="https://dhee.studio/contact?industry=pharma&amp;usecase=scientific-training">Discuss a training module <span aria-hidden="true">↗</span></a></div></article>
-          <article class="offer-card"><div class="offer-media offer-congress" aria-hidden="true"><span class="congress-frame"></span><span class="congress-frame"></span><span class="media-label">CONGRESS / CUTDOWN</span></div><div class="offer-content"><div class="offer-meta"><span>04 / EVENTS</span><span>CONGRESS</span></div><h3>Congress &amp; poster assets</h3><p>Adapt a reviewed scientific story for event screens, a poster companion, or a QR-linked page—against an agreed calendar.</p><a href="https://dhee.studio/contact?industry=pharma&amp;usecase=congress">Plan an event asset <span aria-hidden="true">↗</span></a></div></article>
-          <article class="offer-card"><div class="offer-media offer-patient" aria-hidden="true"><span class="patient-sun"></span><span class="patient-path"></span><span class="media-label">CLEAR / ACCESSIBLE</span></div><div class="offer-content"><div class="offer-meta"><span>05 / PATIENT EDUCATION</span><span>PLAIN LANGUAGE</span></div><h3>Patient education &amp; trial recruitment</h3><p>Translate reviewed science into approachable, captioned, language-ready explainers for the intended audience.</p><a href="https://dhee.studio/contact?industry=pharma&amp;usecase=patient-education">Discuss audience needs <span aria-hidden="true">↗</span></a></div></article>
-          <article class="offer-card"><div class="offer-media offer-launch" aria-hidden="true"><span class="launch-ring"></span><span class="launch-ring"></span><span class="launch-ring"></span><span class="media-label">ALIGN / UPDATE</span></div><div class="offer-content"><div class="offer-meta"><span>06 / LAUNCH READINESS</span><span>INTERNAL</span></div><h3>Internal comms &amp; launch readiness</h3><p>Keep teams aligned around a scientific narrative with reusable video pieces that can be reviewed and refreshed over time.</p><a href="https://dhee.studio/contact?industry=pharma&amp;usecase=launch-readiness">Plan a first batch <span aria-hidden="true">↗</span></a></div></article>
+        <div class="usecase-studio" data-usecase="moa">
+          <div class="usecase-chooser" role="tablist" aria-label="Choose a pharma communication use case">
+            <button type="button" id="usecase-tab-moa" role="tab" aria-selected="true" aria-controls="usecase-panel" tabindex="0" data-usecase-choice="moa"><span>01</span><strong>Mechanism of action</strong><small>Medical Affairs</small><i aria-hidden="true">↗</i></button>
+            <button type="button" id="usecase-tab-investor" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="investor"><span>02</span><strong>Investor &amp; partnering</strong><small>Biotech leadership</small><i aria-hidden="true">↗</i></button>
+            <button type="button" id="usecase-tab-training" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="training"><span>03</span><strong>Scientific training</strong><small>MSL &amp; field teams</small><i aria-hidden="true">↗</i></button>
+            <button type="button" id="usecase-tab-congress" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="congress"><span>04</span><strong>Congress &amp; events</strong><small>Scientific audiences</small><i aria-hidden="true">↗</i></button>
+            <button type="button" id="usecase-tab-patient" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="patient"><span>05</span><strong>Patient education</strong><small>Patients &amp; caregivers</small><i aria-hidden="true">↗</i></button>
+            <button type="button" id="usecase-tab-launch" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="launch"><span>06</span><strong>Launch readiness</strong><small>Cross-functional teams</small><i aria-hidden="true">↗</i></button>
+          </div>
+          <article class="usecase-panel" id="usecase-panel" role="tabpanel" aria-labelledby="usecase-tab-moa" aria-live="polite" aria-atomic="true" tabindex="0">
+            <div class="usecase-art" aria-hidden="true"><div class="usecase-art-grid"></div><div class="usecase-art-orbit orbit-outer"></div><div class="usecase-art-orbit orbit-inner"></div><div class="usecase-art-core"></div><div class="usecase-art-line"></div><span class="usecase-art-label" data-usecase-art-label>MECHANISM / VISUAL STUDY</span><span class="usecase-art-index" data-usecase-art-index>01 — 06</span></div>
+            <div class="usecase-detail"><p class="eyebrow"><span class="live-dot"></span><span data-usecase-audience>MEDICAL AFFAIRS / SCIENTIFIC EDUCATION</span></p><h3 data-usecase-title>Mechanism of action</h3><p class="usecase-description" data-usecase-description>Make a mechanism easier to follow through source-based visual storytelling, built for scientific education and your review pathway.</p><div class="usecase-output"><span>STORY FORMATS TO EXPLORE</span><div data-usecase-formats><b>MOA / MOD film</b><b>Short concept scene</b><b>Interactive explainer</b></div></div><a class="usecase-cta" data-usecase-link href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Explore a sample scene <span aria-hidden="true">↗</span></a><p class="usecase-note">Examples are starting points; scope and deliverables are agreed around your audience, source material, and review process.</p></div>
+          </article>
         </div>
       </section>
 
