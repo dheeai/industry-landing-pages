@@ -37,6 +37,17 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- PRECISION STUDIO CURSOR RING & SECTION TELEMETRY RAIL (DESKTOP) -->
+    <div class="cursor-ring" data-cursor-ring aria-hidden="true"><span data-cursor-label></span></div>
+    <nav class="section-rail" aria-label="Page sections">
+      <a href="#explorer" class="rail-node-link is-active" data-rail-target="explorer"><i></i><span>00 MOA</span></a>
+      <a href="#why" class="rail-node-link" data-rail-target="why"><i></i><span>01 FLOW</span></a>
+      <a href="#use-cases" class="rail-node-link" data-rail-target="use-cases"><i></i><span>02 STORY</span></a>
+      <a href="#governance" class="rail-node-link" data-rail-target="governance"><i></i><span>03 MLR</span></a>
+      <a href="#dhee" class="rail-node-link" data-rail-target="dhee"><i></i><span>04 STUDIO</span></a>
+      <a href="#process" class="rail-node-link" data-rail-target="process"><i></i><span>05 SAMPLE</span></a>
+    </nav>
+
     <!-- FLOATING PRECISION STUDIO HEADER -->
     <header class="site-header" data-site-header data-header-tone="dark">
       <div class="header-bar">
@@ -102,11 +113,27 @@
 
     <main id="main">
       <!-- HERO: CINEMA EDITORIAL STAGE + FULL-WIDTH 3D INTERACTIVE MOA VIEWPORT -->
-      <section class="hero" data-section-tone="dark" aria-labelledby="hero-title">
+      <section class="hero" data-section-tone="dark" data-hero-stage aria-labelledby="hero-title">
         <div class="hero-backdrop" aria-hidden="true">
+          <div class="hero-zenith"></div>
+          <div class="hero-spotlight" data-hero-spotlight></div>
           <div class="hero-aurora aurora-a"></div>
           <div class="hero-aurora aurora-b"></div>
           <div class="hero-grid-plane"></div>
+          <div class="hero-grid-lit" data-hero-grid-lit></div>
+          <div class="hero-beams">
+            <span class="beam-rail rail-1"><i class="beam-pulse"></i></span>
+            <span class="beam-rail rail-2"><i class="beam-pulse"></i></span>
+            <span class="beam-rail rail-3"><i class="beam-pulse"></i></span>
+            <span class="beam-rail rail-4"><i class="beam-pulse"></i></span>
+          </div>
+          <div class="hero-crosshairs">
+            <span class="ch ch-1"></span>
+            <span class="ch ch-2"></span>
+            <span class="ch ch-3"></span>
+            <span class="ch ch-4"></span>
+          </div>
+          <div class="hero-bottom-fade"></div>
         </div>
 
         <div class="shell hero-stack">
@@ -290,9 +317,57 @@
         </div>
       </section>
 
+      <!-- KINETIC VELOCITY-REACTIVE STUDIO MARQUEE -->
+      <div class="kinetic-ribbon" data-section-tone="dark" aria-hidden="true">
+        <div class="ribbon-track" data-marquee-track>
+          <div class="ribbon-group">
+            <span>MOA &amp; MOD FILMS</span><i></i>
+            <span>MEDICAL AFFAIRS</span><i></i>
+            <span>MLR-READY WORKFLOW</span><i></i>
+            <span>HUMAN CREATIVE QA</span><i></i>
+            <span>SOURCE-LINKED PROVENANCE</span><i></i>
+            <span>CONGRESS &amp; PARTNERING</span><i></i>
+            <span>SCIENTIFIC TRAINING</span><i></i>
+          </div>
+          <div class="ribbon-group">
+            <span>MOA &amp; MOD FILMS</span><i></i>
+            <span>MEDICAL AFFAIRS</span><i></i>
+            <span>MLR-READY WORKFLOW</span><i></i>
+            <span>HUMAN CREATIVE QA</span><i></i>
+            <span>SOURCE-LINKED PROVENANCE</span><i></i>
+            <span>CONGRESS &amp; PARTNERING</span><i></i>
+            <span>SCIENTIFIC TRAINING</span><i></i>
+          </div>
+        </div>
+      </div>
+
       <!-- SECTION 01: THE BOTTLENECK + INTERACTIVE WORKFLOW CONTRAST -->
       <section class="workflow-section section-pad" id="why" data-section-tone="light">
         <div class="shell">
+          <!-- Studio Telemetry Bento Bar (Inspired by MediAI & Luvia) -->
+          <div class="telemetry-bento" data-reveal aria-label="DHEE studio operating principles">
+            <div class="tb-card" data-tilt>
+              <span class="tb-kicker">FIRST STEP</span>
+              <strong class="tb-val"><span data-count-to="5">5</span>–<span data-count-to="10">10</span><em>s</em></strong>
+              <p>Concept sample scene to evaluate direction before scoping a full film.</p>
+            </div>
+            <div class="tb-card" data-tilt>
+              <span class="tb-kicker">TEAM OVERHEAD</span>
+              <strong class="tb-val"><span data-count-to="0">0</span><em> logins</em></strong>
+              <p>No self-serve seats, prompt wrangling, or generation credits to manage.</p>
+            </div>
+            <div class="tb-card" data-tilt>
+              <span class="tb-kicker">REVIEW PATH</span>
+              <strong class="tb-val"><span data-count-to="4">4</span><em> gates</em></strong>
+              <p>Structured checkpoints from approved source material to MLR handoff.</p>
+            </div>
+            <div class="tb-card tb-card-dark" data-tilt>
+              <span class="tb-kicker">QUALITY BOUNDARY</span>
+              <strong class="tb-val"><span data-count-to="100">100</span><em>%</em></strong>
+              <p>Human creative QA by DHEE; scientific &amp; MLR authority stays with your team.</p>
+            </div>
+          </div>
+
           <div class="kicker-bar" data-reveal>
             <span>01 / THE BOTTLENECK</span>
             <span>PRODUCTION × SCIENTIFIC REVIEW × TIMING</span>
@@ -303,7 +378,7 @@
               <h2>The science is ready.<br /><em>Is the film?</em></h2>
             </div>
             <div class="workflow-prose">
-              <p>
+              <p class="scrub-statement" data-scroll-scrub>
                 Scientific animation takes more than beautiful frames. It needs source review, a clear story, a visual
                 plan, production, and the right internal reviewers—often across teams that already have full calendars.
               </p>
@@ -316,17 +391,17 @@
 
           <!-- Interactive 3-Pillar Stakes Bar -->
           <div class="stakes-trio" data-reveal>
-            <div class="stake-card">
+            <div class="stake-card" data-tilt>
               <span class="stake-idx">01 · THE CHALLENGE</span>
               <strong>Production time</strong>
               <p>Long agency cycles leave little room when scientific narratives evolve.</p>
             </div>
-            <div class="stake-card">
+            <div class="stake-card" data-tilt>
               <span class="stake-idx">02 · THE REALITY</span>
               <strong>Scientific review</strong>
               <p>Medical, Legal, and Regulatory checkpoints need clean, source-linked drafts.</p>
             </div>
-            <div class="stake-card stake-card-accent">
+            <div class="stake-card stake-card-accent" data-tilt>
               <span class="stake-idx">03 · THE STAKES</span>
               <strong>A live window to communicate</strong>
               <p>Congress, partnering, and launch milestones wait for no rendering queue.</p>
@@ -610,7 +685,7 @@
           </div>
 
           <div class="gov-bento">
-            <article class="bento-card" data-spotlight data-reveal>
+            <article class="bento-card" data-spotlight data-tilt data-reveal>
               <div class="bento-top">
                 <span class="bento-num">A / 01</span>
                 <div class="bento-icon" aria-hidden="true">
@@ -634,7 +709,7 @@
               </a>
             </article>
 
-            <article class="bento-card" data-spotlight data-reveal>
+            <article class="bento-card" data-spotlight data-tilt data-reveal>
               <div class="bento-top">
                 <span class="bento-num">A / 02</span>
                 <div class="bento-icon" aria-hidden="true">
@@ -651,7 +726,7 @@
               </p>
             </article>
 
-            <article class="bento-card" data-spotlight data-reveal>
+            <article class="bento-card" data-spotlight data-tilt data-reveal>
               <div class="bento-top">
                 <span class="bento-num">A / 03</span>
                 <div class="bento-icon" aria-hidden="true">
@@ -668,7 +743,7 @@
               </p>
             </article>
 
-            <article class="bento-card" data-spotlight data-reveal>
+            <article class="bento-card" data-spotlight data-tilt data-reveal>
               <div class="bento-top">
                 <span class="bento-num">A / 04</span>
                 <div class="bento-icon" aria-hidden="true">
@@ -734,26 +809,29 @@
               </a>
             </div>
 
-            <div class="studio-steps">
-              <article class="st-item" data-reveal>
+            <div class="studio-steps stack-deck" data-stack-deck>
+              <article class="st-item stack-card" style="--stack-i: 0" data-stack-card>
                 <span class="st-num">01</span>
                 <div>
+                  <span class="st-phase">PHASE 01 · INTAKE</span>
                   <h3>Source &amp; science</h3>
                   <p>Share approved references, audience, claims, and the scientific question the film must clarify.</p>
                 </div>
                 <span class="st-glyph" aria-hidden="true">↘</span>
               </article>
-              <article class="st-item" data-reveal>
+              <article class="st-item stack-card" style="--stack-i: 1" data-stack-card>
                 <span class="st-num">02</span>
                 <div>
+                  <span class="st-phase">PHASE 02 · DIRECTION</span>
                   <h3>Story &amp; visual direction</h3>
                   <p>Shape the narrative and visual approach so reviewers can react before full production.</p>
                 </div>
                 <span class="st-glyph" aria-hidden="true">↘</span>
               </article>
-              <article class="st-item" data-reveal>
+              <article class="st-item stack-card" style="--stack-i: 2" data-stack-card>
                 <span class="st-num">03</span>
                 <div>
+                  <span class="st-phase">PHASE 03 · STUDIO ENGINE</span>
                   <h3>AI-assisted production</h3>
                   <p>
                     DHEE uses its managed studio workflow and custom video engine; your team does not manage prompts,
@@ -762,9 +840,10 @@
                 </div>
                 <span class="st-glyph" aria-hidden="true">↘</span>
               </article>
-              <article class="st-item is-done" data-reveal>
+              <article class="st-item stack-card is-done" style="--stack-i: 3" data-stack-card>
                 <span class="st-num">04</span>
                 <div>
+                  <span class="st-phase">PHASE 04 · REVIEW HANDOFF</span>
                   <h3>Human QA &amp; delivery</h3>
                   <p>Review the claims, language, pacing, captions, and agreed formats with your team before handoff.</p>
                 </div>
@@ -781,6 +860,52 @@
             <div class="matrix-col matrix-dark">
               <span class="matrix-kicker">DHEE CARRIES &amp; PREPARES</span>
               <p>Story and visual direction · AI-assisted video production · human QA · reviewed outputs and agreed formats</p>
+            </div>
+          </div>
+
+          <!-- 3-Column Studio Positioning Matrix (Inspired by Atomis & Biotech X) -->
+          <div class="compare-matrix" data-reveal aria-label="How DHEE compares to alternatives">
+            <div class="cm-header">
+              <span class="cm-kicker">STUDIO POSITIONING</span>
+              <h3>Built specifically for Medical Affairs workflows</h3>
+            </div>
+            <div class="cm-table-wrap">
+              <table class="cm-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Criteria</th>
+                    <th scope="col">Self-serve AI tools</th>
+                    <th scope="col">Traditional 3D agency</th>
+                    <th scope="col" class="cm-featured">DHEE Managed Studio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Who runs production</th>
+                    <td>Your internal team manages prompts &amp; edits</td>
+                    <td>External team with heavy briefing overhead</td>
+                    <td class="cm-featured"><strong>Managed studio</strong> — zero logins or prompt queues</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Creative &amp; visual QA</th>
+                    <td>Unchecked outputs &amp; inconsistent biology</td>
+                    <td>Manual QA across long multi-month cycles</td>
+                    <td class="cm-featured"><strong>100% human creative QA</strong> on claims, captions &amp; continuity</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MLR &amp; provenance fit</th>
+                    <td>Ad-hoc; rarely structured for MLR checkpoints</td>
+                    <td>Formal, but slow to iterate between reviews</td>
+                    <td class="cm-featured"><strong>Source-linked checkpoints</strong> built around your MLR</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Evaluating visual fit</th>
+                    <td>Trial-and-error credits</td>
+                    <td>Full-film contract up front</td>
+                    <td class="cm-featured"><strong>5–10 sec concept sample</strong> before full commitment</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -849,7 +974,7 @@
               </p>
             </div>
 
-            <div class="dossier-card" data-spotlight data-reveal aria-label="What the sample request includes">
+            <div class="dossier-card" data-spotlight data-tilt data-reveal aria-label="What the sample request includes">
               <div class="dossier-head">
                 <div>
                   <span class="dossier-kicker" data-manifest-title>SAMPLE DOSSIER · MOA / MOD</span>
@@ -1010,7 +1135,7 @@
             START WITH ONE SCIENTIFIC QUESTION
           </p>
           <h2>Make the mechanism<br /><em>easier to follow<span class="ember-dot">.</span></em></h2>
-          <p class="closing-lede">
+          <p class="closing-lede scrub-statement" data-scroll-scrub>
             Bring one approved source and the audience you need to reach. DHEE can help shape a sample direction before
             you scope the full film.
           </p>
@@ -1048,6 +1173,20 @@
         </div>
       </section>
     </main>
+
+    <!-- FLOATING BOTTOM CINEMA ACTION DOCK (APPEARS AFTER HERO ON DESKTOP) -->
+    <aside class="floating-dock" data-floating-dock aria-label="Quick navigation dock">
+      <a href="#explorer" class="fd-link"><i class="rec-dot" aria-hidden="true"></i><span>3D MOA</span></a>
+      <a href="#use-cases" class="fd-link"><span>Storyboards</span></a>
+      <a href="#governance" class="fd-link"><span>MLR Trust</span></a>
+      <a href="./review-checklist.txt" download class="fd-link"><span>Checklist ↓</span></a>
+      <a href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa" class="fd-cta">
+        <span>Request sample</span>
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </aside>
 
     <footer class="site-footer" data-section-tone="dark">
       <div class="shell footer-shell">

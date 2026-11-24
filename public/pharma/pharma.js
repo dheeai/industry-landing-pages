@@ -1131,4 +1131,303 @@
       if (menu) menu.open = false;
     });
   });
+
+  /* ------------------------------------------------------------------------
+     9. Hero Cursor-Illuminated Perspective Grid & Spotlight Parallax
+     ------------------------------------------------------------------------ */
+  const heroStage = document.querySelector('[data-hero-stage]');
+  if (heroStage && !isReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    let targetX = 50;
+    let targetY = 26;
+    let curX = 50;
+    let curY = 26;
+    let rafHero = 0;
+
+    const animateSpotlight = () => {
+      curX += (targetX - curX) * 0.11;
+      curY += (targetY - curY) * 0.11;
+      heroStage.style.setProperty('--hx', `${curX.toFixed(2)}%`);
+      heroStage.style.setProperty('--hy', `${curY.toFixed(2)}%`);
+      if (Math.abs(targetX - curX) > 0.05 || Math.abs(targetY - curY) > 0.05) {
+        rafHero = requestAnimationFrame(animateSpotlight);
+      } else {
+        rafHero = 0;
+      }
+    };
+
+    heroStage.addEventListener(
+      'pointermove',
+      (e) => {
+        const rect = heroStage.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        targetX = ((e.clientX - rect.left) / rect.width) * 100;
+        targetY = ((e.clientY - rect.top) / rect.height) * 100;
+        if (!rafHero) rafHero = requestAnimationFrame(animateSpotlight);
+      },
+      { passive: true }
+    );
+  }
+
+  /* ------------------------------------------------------------------------
+     10. Awwwards Scroll Choreography: Velocity Marquee, Word Scrub,
+         Sticky Stacking Deck, 3D Perspective Stage & Telemetry Rail
+     ------------------------------------------------------------------------ */
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  // 10A. Scroll-Scrubbed Word-by-Word Editorial Statement Reveal
+  const scrubNodes = [...document.querySelectorAll('[data-scroll-scrub]')];
+  const scrubWordsMap = [];
+  if (!isReducedMotion && scrubNodes.length) {
+    scrubNodes.forEach((node) => {
+      const words = node.textContent.trim().split(/\s+/);
+      const spans = words.map((w, idx) => {
+        const sp = document.createElement('span');
+        sp.className = 'scrub-word';
+        sp.textContent = idx < words.length - 1 ? `${w} ` : w;
+        sp.style.setProperty('--w-op', '0.24');
+        return sp;
+      });
+      node.replaceChildren(...spans);
+      scrubWordsMap.push({ node, spans });
+    });
+  }
+
+  // 10B. Velocity-Reactive Kinetic Marquee
+  const marqueeTrack = document.querySelector('[data-marquee-track]');
+  let marqueeOffset = 0;
+  let marqueeDir = 1;
+  let scrollVelocity = 0;
+  let lastScrollY = window.scrollY;
+  let marqueePaused = false;
+
+  marqueeTrack?.closest('.kinetic-ribbon')?.addEventListener('pointerenter', () => {
+    marqueePaused = true;
+  });
+  marqueeTrack?.closest('.kinetic-ribbon')?.addEventListener('pointerleave', () => {
+    marqueePaused = false;
+  });
+
+  // 10C. Sticky Stacking Cards & Scroll-Linked Cinema Stage Perspective
+  const stackCards = [...document.querySelectorAll('[data-stack-card]')];
+
+  const updateScrollChoreography = () => {
+    const vh = window.innerHeight || 800;
+
+    // Hero 3D Cinema Stage smooth perspective flatten on scroll
+    if (stageEl && !isReducedMotion && window.innerWidth > 900) {
+      const rect = stageEl.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, (vh * 0.96 - rect.top) / (vh * 0.62)));
+      const tiltX = (1 - progress) * 4.5;
+      const scale = 0.968 + progress * 0.032;
+      stageEl.style.transform = `perspective(1400px) rotateX(${tiltX.toFixed(2)}deg) scale(${scale.toFixed(4)})`;
+    } else if (stageEl) {
+      stageEl.style.transform = '';
+    }
+
+    // Word-by-word scroll scrub illumination
+    for (const { node, spans } of scrubWordsMap) {
+      const rect = node.getBoundingClientRect();
+      const prog = Math.max(0, Math.min(1, (vh * 0.86 - rect.top) / (vh * 0.52)));
+      const total = spans.length;
+      for (let i = 0; i < total; i++) {
+        const start = (i / total) * 0.82;
+        const end = start + 0.18;
+        const local = Math.max(0, Math.min(1, (prog - start) / (end - start)));
+        spans[i].style.setProperty('--w-op', (0.24 + local * 0.76).toFixed(2));
+      }
+    }
+
+    // Sticky stacking depth scale on Studio Process cards (desktop)
+    if (!isReducedMotion && window.innerWidth > 900 && stackCards.length > 1) {
+      for (let i = 0; i < stackCards.length - 1; i++) {
+        const cur = stackCards[i];
+        const next = stackCards[i + 1];
+        const curRect = cur.getBoundingClientRect();
+        const nextRect = next.getBoundingClientRect();
+        const overlap = Math.max(0, Math.min(1, (curRect.bottom - nextRect.top) / Math.max(120, curRect.height)));
+        const scale = 1 - overlap * 0.055;
+        const op = 1 - overlap * 0.24;
+        cur.style.transform = `scale(${scale.toFixed(3)})`;
+        cur.style.opacity = op.toFixed(2);
+      }
+    } else {
+      stackCards.forEach((c) => {
+        c.style.transform = '';
+        c.style.opacity = '';
+      });
+    }
+  };
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      const dy = window.scrollY - lastScrollY;
+      lastScrollY = window.scrollY;
+      if (Math.abs(dy) > 0.5) {
+        marqueeDir = dy > 0 ? 1 : -1;
+        scrollVelocity = Math.min(14, Math.abs(dy) * 0.24);
+        // Subtle 3D receptor yaw kick synced to scroll
+        if (!isDragging && !isPaused) {
+          targetYaw += dy * 0.00055;
+        }
+      }
+      updateScrollChoreography();
+    },
+    { passive: true }
+  );
+  window.addEventListener('resize', updateScrollChoreography, { passive: true });
+  updateScrollChoreography();
+
+  // Marquee 60fps velocity ticker
+  if (marqueeTrack && !isReducedMotion) {
+    const tickMarquee = () => {
+      const halfWidth = marqueeTrack.scrollWidth / 2;
+      if (halfWidth > 0) {
+        const baseSpeed = marqueePaused ? 0.16 : 0.68;
+        marqueeOffset += (baseSpeed + scrollVelocity) * marqueeDir;
+        scrollVelocity *= 0.91;
+        if (marqueeOffset >= halfWidth) marqueeOffset -= halfWidth;
+        if (marqueeOffset < 0) marqueeOffset += halfWidth;
+        marqueeTrack.style.transform = `translate3d(${(-marqueeOffset).toFixed(2)}px, 0, 0)`;
+      }
+      requestAnimationFrame(tickMarquee);
+    };
+    requestAnimationFrame(tickMarquee);
+  }
+
+  // 10D. Tactile 3D Perspective Micro-Tilt on Cards
+  if (!isReducedMotion && finePointer) {
+    document.querySelectorAll('[data-tilt]').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const nx = (e.clientX - r.left) / r.width - 0.5;
+        const ny = (e.clientY - r.top) / r.height - 0.5;
+        const rx = (-ny * 6.5).toFixed(2);
+        const ry = (nx * 6.5).toFixed(2);
+        card.style.transform = `perspective(950px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  // 10E. Precision Studio Cursor Ring (Desktop Fine Pointer)
+  const cursorRing = document.querySelector('[data-cursor-ring]');
+  const cursorLabel = document.querySelector('[data-cursor-label]');
+  if (cursorRing && !isReducedMotion && finePointer) {
+    let cx = -100;
+    let cy = -100;
+    let tx = -100;
+    let ty = -100;
+    let activeLoop = false;
+
+    const animateCursor = () => {
+      cx += (tx - cx) * 0.2;
+      cy += (ty - cy) * 0.2;
+      const w = cursorRing.offsetWidth || 30;
+      const h = cursorRing.offsetHeight || 30;
+      cursorRing.style.transform = `translate3d(${(cx - w / 2).toFixed(1)}px, ${(cy - h / 2).toFixed(1)}px, 0)`;
+      if (Math.hypot(tx - cx, ty - cy) > 0.4) {
+        requestAnimationFrame(animateCursor);
+      } else {
+        activeLoop = false;
+      }
+    };
+
+    window.addEventListener(
+      'pointermove',
+      (e) => {
+        tx = e.clientX;
+        ty = e.clientY;
+        cursorRing.classList.add('is-visible');
+        if (!activeLoop) {
+          activeLoop = true;
+          requestAnimationFrame(animateCursor);
+        }
+      },
+      { passive: true }
+    );
+
+    document.addEventListener('pointerleave', () => cursorRing.classList.remove('is-visible'));
+
+    const interactiveSel = 'a, button, summary, .uc-pill, .receptor-tab, .stage-btn';
+    document.addEventListener('pointerover', (e) => {
+      const overViewport = e.target.closest('[data-stage-viewport]');
+      if (overViewport) {
+        cursorRing.classList.remove('is-hover');
+        cursorRing.classList.add('is-drag');
+        if (cursorLabel) cursorLabel.textContent = 'DRAG';
+        return;
+      }
+      cursorRing.classList.remove('is-drag');
+      if (cursorLabel) cursorLabel.textContent = '';
+      cursorRing.classList.toggle('is-hover', Boolean(e.target.closest(interactiveSel)));
+    });
+  }
+
+  // 10F. Right-Edge Section Telemetry Rail Active Sync
+  const railLinks = [...document.querySelectorAll('[data-rail-target]')];
+  const railSections = railLinks.map((a) => document.getElementById(a.dataset.railTarget)).filter(Boolean);
+  if ('IntersectionObserver' in window && railSections.length) {
+    const railObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          railLinks.forEach((link) => {
+            link.classList.toggle('is-active', link.dataset.railTarget === entry.target.id);
+          });
+        });
+      },
+      { rootMargin: '-30% 0px -52% 0px' }
+    );
+    railSections.forEach((sec) => railObs.observe(sec));
+  }
+
+  /* ------------------------------------------------------------------------
+     11. Floating Bottom Cinema Action Dock & Telemetry Count-Up
+     ------------------------------------------------------------------------ */
+  const floatingDock = document.querySelector('[data-floating-dock]');
+  const closingEl = document.querySelector('#request');
+
+  if (floatingDock) {
+    const syncDock = () => {
+      const scrolledPastHero = window.scrollY > 560;
+      const nearClosing = closingEl ? closingEl.getBoundingClientRect().top < window.innerHeight * 0.85 : false;
+      floatingDock.classList.toggle('is-visible', scrolledPastHero && !nearClosing);
+    };
+    syncDock();
+    window.addEventListener('scroll', syncDock, { passive: true });
+    window.addEventListener('resize', syncDock, { passive: true });
+  }
+
+  const counters = [...document.querySelectorAll('[data-count-to]')];
+  if (counters.length && 'IntersectionObserver' in window && !isReducedMotion) {
+    const countObs = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = Number(el.dataset.countTo || 0);
+          if (target <= 0) {
+            obs.unobserve(el);
+            return;
+          }
+          const duration = 900;
+          const startTime = performance.now();
+          const step = (now) => {
+            const p = Math.min(1, (now - startTime) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = String(Math.round(target * eased));
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = String(target);
+          };
+          requestAnimationFrame(step);
+          obs.unobserve(el);
+        });
+      },
+      { threshold: 0.35 }
+    );
+    counters.forEach((c) => countObs.observe(c));
+  }
 })();

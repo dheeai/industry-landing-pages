@@ -2453,6 +2453,880 @@ section h2:not(.dock-title) em {
   .motion-enabled [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
   }
 }
+
+/* ==========================================================================
+   FIGMA / FRAMER PREMIUM MOTION & ARCHITECTURAL BACKGROUND LAYER
+   Pure Vantablack contrast + volumetric zenith cone + falling light beams +
+   cursor-illuminated micro-grid + specular 1px glass rims + blur-to-focus
+   ========================================================================== */
+
+/* Pure Vantablack Hero Sky with Crisp Sculpted Lighting */
+.hero {
+  background: #030508;
+}
+
+.hero-zenith {
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  width: min(1100px, 110vw);
+  height: 620px;
+  transform: translateX(-50%);
+  background:
+    conic-gradient(
+      from 180deg at 50% 0%,
+      transparent 138deg,
+      rgba(45, 212, 191, 0.16) 168deg,
+      rgba(96, 165, 250, 0.14) 180deg,
+      rgba(45, 212, 191, 0.15) 192deg,
+      transparent 222deg
+    );
+  filter: blur(42px);
+  opacity: 0.92;
+}
+
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    680px circle at var(--hx, 50%) var(--hy, 26%),
+    rgba(45, 212, 191, 0.11),
+    rgba(59, 130, 246, 0.05) 36%,
+    transparent 68%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.aurora-a {
+  opacity: 0.55;
+}
+
+.aurora-b {
+  opacity: 0.65;
+}
+
+.hero-grid-plane {
+  opacity: 0.34;
+  background-size: 64px 64px;
+  background-image:
+    linear-gradient(rgba(182, 210, 224, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(182, 210, 224, 0.075) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 76% 52% at 50% 18%, #000 18%, transparent 86%);
+}
+
+/* Cursor-Illuminated Crisp Micro-Grid Overlay */
+.hero-grid-lit {
+  position: absolute;
+  inset: 0;
+  background-size: 64px 64px;
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.24) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.24) 1px, transparent 1px);
+  mask-image: radial-gradient(280px circle at var(--hx, 50%) var(--hy, 26%), #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(280px circle at var(--hx, 50%) var(--hy, 26%), #000 0%, transparent 78%);
+  opacity: 0.85;
+}
+
+/* Aceternity / Framer Architectural Falling Light Beams */
+.hero-beams {
+  position: absolute;
+  inset: 0;
+  width: var(--shell);
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.beam-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(94, 234, 212, 0.22) 0%,
+    rgba(182, 210, 224, 0.07) 42%,
+    transparent 88%
+  );
+  overflow: hidden;
+}
+
+.rail-1 { left: 6%; }
+.rail-2 { left: 28%; }
+.rail-3 { right: 28%; }
+.rail-4 { right: 6%; }
+
+.beam-pulse {
+  position: absolute;
+  top: -160px;
+  left: -0.5px;
+  width: 2px;
+  height: 150px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, rgba(94, 234, 212, 0.9), #ffffff);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.75);
+  animation: beam-fall 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.rail-2 .beam-pulse {
+  height: 120px;
+  background: linear-gradient(180deg, transparent, rgba(96, 165, 250, 0.85), #e0f2fe);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.7);
+  animation-duration: 9.2s;
+  animation-delay: -3.1s;
+}
+
+.rail-3 .beam-pulse {
+  height: 135px;
+  background: linear-gradient(180deg, transparent, rgba(255, 90, 47, 0.8), #ffd7c9);
+  box-shadow: 0 0 12px rgba(255, 90, 47, 0.65);
+  animation-duration: 8.6s;
+  animation-delay: -5.4s;
+}
+
+.rail-4 .beam-pulse {
+  animation-duration: 10.4s;
+  animation-delay: -1.8s;
+}
+
+@keyframes beam-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.95;
+  }
+  70% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(115vh);
+    opacity: 0;
+  }
+}
+
+/* Architectural Precision Crosshairs (+) */
+.hero-crosshairs {
+  position: absolute;
+  inset: 0;
+  width: var(--shell);
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.ch {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  opacity: 0.45;
+}
+
+.ch::before,
+.ch::after {
+  content: "";
+  position: absolute;
+  background: rgba(94, 234, 212, 0.75);
+}
+
+.ch::before { left: 5px; top: 0; width: 1px; height: 11px; }
+.ch::after { top: 5px; left: 0; width: 11px; height: 1px; }
+
+.ch-1 { left: calc(6% - 5px); top: 164px; }
+.ch-2 { right: calc(6% - 5px); top: 164px; }
+.ch-3 { left: calc(28% - 5px); top: 390px; opacity: 0.3; }
+.ch-4 { right: calc(28% - 5px); top: 390px; opacity: 0.3; }
+
+.hero-bottom-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(180deg, transparent, #05070a);
+}
+
+/* Studio Eyebrow Pill — Specular Top-Edge Glint */
+.studio-pill {
+  position: relative;
+  overflow: hidden;
+  background: rgba(12, 18, 26, 0.78);
+  border-color: rgba(182, 210, 224, 0.22);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.studio-pill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal-bright), transparent);
+  animation: pill-glint 5.5s ease-in-out infinite;
+}
+
+@keyframes pill-glint {
+  0%, 60% { left: -55%; opacity: 0; }
+  75% { opacity: 1; }
+  100% { left: 115%; opacity: 0; }
+}
+
+/* Specular 1px Top-Edge Glass Highlights on Flagship Cards */
+.cinema-stage,
+.uc-stage,
+.bento-card,
+.dossier-card,
+.pipeline-panel {
+  position: relative;
+}
+
+.cinema-stage::before,
+.uc-stage::before,
+.bento-card::before,
+.dossier-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.55) 35%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(96, 165, 250, 0.45) 65%,
+    transparent
+  );
+}
+
+/* Luminous Section Horizon Seams on Dark Bands */
+.usecases-section,
+.governance-section,
+.pilot-section,
+.closing-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.usecases-section::before,
+.governance-section::before,
+.pilot-section::before,
+.closing-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(860px, 88vw);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 234, 212, 0.45) 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 90, 47, 0.35) 65%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Swiss Architectural Dot-Matrix Depth on Light Gallery Sections */
+.workflow-section,
+.studio-section {
+  position: relative;
+  background-image:
+    radial-gradient(rgba(10, 15, 22, 0.085) 1px, transparent 1px),
+    linear-gradient(180deg, #ffffff 0%, #f8f8f6 100%);
+  background-size: 28px 28px, 100% 100%;
+}
+
+.faq-section {
+  background-image:
+    radial-gradient(rgba(10, 15, 22, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, #f2f3f5 0%, #ebedf1 100%);
+  background-size: 28px 28px, 100% 100%;
+}
+
+/* Elevated Framer Motion Blur-to-Focus Scroll Reveals */
+.motion-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px) scale(0.988);
+  filter: blur(5px);
+  transition:
+    opacity 0.82s var(--ease),
+    transform 0.82s var(--ease),
+    filter 0.82s var(--ease);
+}
+
+.motion-enabled [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+@media (max-width: 780px) {
+  .rail-2,
+  .rail-3,
+  .ch-3,
+  .ch-4 {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   AWWWARDS / FRAMER CHOREOGRAPHED SCROLL & KINETIC INTERACTION LAYER
+   1. Scroll-Perspective 3D Stage Entrance
+   2. Velocity-Reactive Kinetic Marquee Ribbon
+   3. Scroll-Scrubbed Word-by-Word Editorial Reveal
+   4. Sticky Stacking Studio Process Deck
+   5. 3D Perspective Micro-Tilt Cards
+   6. Precision Studio Cursor Ring & Section Telemetry Rail
+   ========================================================================== */
+
+/* 1. Scroll-Driven Perspective Entrance on 3D Cinema Stage */
+.cinema-stage {
+  will-change: transform;
+  transform-origin: center top;
+  transition: box-shadow 0.4s ease;
+}
+
+/* 2. Velocity-Reactive Kinetic Studio Marquee */
+.kinetic-ribbon {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 0;
+  background: #060a0f;
+  border-top: 1px solid rgba(182, 210, 224, 0.12);
+  border-bottom: 1px solid rgba(182, 210, 224, 0.12);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.ribbon-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.ribbon-group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  white-space: nowrap;
+}
+
+.ribbon-group span {
+  font: 500 11.5px/1 var(--mono);
+  letter-spacing: 0.16em;
+  color: rgba(214, 224, 234, 0.72);
+  transition: color 0.25s ease;
+}
+
+.ribbon-group span:nth-of-type(odd) {
+  color: var(--teal-bright);
+}
+
+.ribbon-group i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ember);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* 3. Scroll-Scrubbed Word-by-Word Editorial Reveal */
+.scrub-word {
+  display: inline;
+  opacity: var(--w-op, 1);
+  transition: opacity 0.18s linear;
+}
+
+/* 4. Sticky Stacking Studio Process Deck (Awwwards SOTD Pattern) */
+.stack-deck {
+  border-top: 0;
+  display: grid;
+  gap: 18px;
+  padding-bottom: 18px;
+}
+
+.stack-card {
+  position: sticky;
+  top: calc(96px + var(--stack-i, 0) * 20px);
+  z-index: calc(10 + var(--stack-i, 0));
+  padding: 28px 26px !important;
+  border-radius: 18px;
+  border: 1px solid rgba(10, 15, 22, 0.12) !important;
+  background: #ffffff;
+  box-shadow:
+    0 14px 40px rgba(10, 15, 22, 0.07),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  transform-origin: center top;
+  will-change: transform, opacity;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.28s ease;
+}
+
+.stack-card:hover {
+  padding-left: 26px !important;
+  background: #ffffff !important;
+  border-color: rgba(15, 118, 110, 0.34) !important;
+  box-shadow: 0 22px 54px rgba(10, 15, 22, 0.12);
+}
+
+.stack-card.is-done {
+  background: linear-gradient(135deg, #0b131c 0%, #10202b 100%);
+  border-color: rgba(94, 234, 212, 0.28) !important;
+  color: var(--light);
+  box-shadow: 0 24px 60px rgba(5, 8, 13, 0.24);
+}
+
+.stack-card.is-done:hover {
+  background: linear-gradient(135deg, #0b131c 0%, #10202b 100%) !important;
+  border-color: rgba(94, 234, 212, 0.5) !important;
+}
+
+.stack-card.is-done h3 { color: var(--light); }
+.stack-card.is-done p { color: var(--light-2); }
+.stack-card.is-done .st-glyph { color: var(--teal-bright); }
+.stack-card.is-done .st-num {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: #fff;
+}
+
+.st-phase {
+  display: inline-block;
+  margin-bottom: 6px;
+  font: 600 9.5px var(--mono);
+  letter-spacing: 0.13em;
+  color: var(--teal-dark);
+}
+
+.stack-card.is-done .st-phase {
+  color: var(--teal-bright);
+}
+
+/* 5. Tactile 3D Perspective Tilt Cards */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.35s var(--spring), border-color 0.28s ease, box-shadow 0.32s ease;
+}
+
+/* 6. Precision Studio Cursor Ring & Section Telemetry Rail */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 160;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.25px solid rgba(94, 234, 212, 0.58);
+  pointer-events: none;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  transform: translate3d(-100px, -100px, 0);
+  transition:
+    width 0.28s var(--spring),
+    height 0.28s var(--spring),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.28s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring.is-visible { opacity: 1; }
+
+.cursor-ring.is-hover {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(255, 255, 255, 0.85);
+  background: rgba(94, 234, 212, 0.14);
+}
+
+.cursor-ring.is-drag {
+  width: 68px;
+  height: 68px;
+  border-color: var(--teal-bright);
+  background: rgba(5, 9, 14, 0.72);
+  mix-blend-mode: normal;
+  backdrop-filter: blur(6px);
+}
+
+.cursor-ring span {
+  font: 600 9.5px/1 var(--mono);
+  letter-spacing: 0.12em;
+  color: var(--teal-bright);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cursor-ring.is-drag span { opacity: 1; }
+
+/* Right-Edge Floating Section Telemetry Rail */
+.section-rail {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 70;
+  display: grid;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: 999px;
+  background: rgba(8, 12, 18, 0.56);
+  border: 1px solid rgba(182, 210, 224, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.rail-node-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  text-decoration: none;
+}
+
+.rail-node-link i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(182, 210, 224, 0.35);
+  transition: transform 0.28s var(--spring), background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rail-node-link span {
+  position: absolute;
+  right: 26px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(8, 12, 18, 0.9);
+  border: 1px solid rgba(94, 234, 212, 0.28);
+  color: var(--light);
+  font: 600 9.5px/1 var(--mono);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.24s var(--ease);
+}
+
+.rail-node-link:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rail-node-link:hover i {
+  background: var(--teal-bright);
+  transform: scale(1.3);
+}
+
+.rail-node-link.is-active i {
+  background: var(--ember);
+  transform: scale(1.45);
+  box-shadow: 0 0 12px rgba(255, 90, 47, 0.85);
+}
+
+@media (max-width: 1180px) {
+  .section-rail { display: none; }
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  .cursor-ring { display: none !important; }
+  .stack-card {
+    position: relative;
+    top: auto;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring,
+  .section-rail { display: none !important; }
+  .scrub-word { opacity: 1 !important; }
+  .stack-card {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   FRAMER / WEBFLOW PREMIUM TEMPLATE BLOCKS (Atomis · Luvia · Biotech X · MediAI)
+   1. Truthful Studio Telemetry Bento Bar
+   2. 3-Column Studio Positioning Comparison Matrix
+   3. Floating Bottom Cinema Action Dock
+   4. Animated Border Beam on Sample Dossier Card
+   ========================================================================== */
+
+/* 1. Studio Telemetry Bento Bar */
+.telemetry-bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: clamp(46px, 5vw, 68px);
+}
+
+.tb-card {
+  padding: 24px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--hair-light);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px rgba(10, 15, 22, 0.045);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tb-card-dark {
+  background: linear-gradient(145deg, #0b131c 0%, #10242c 100%);
+  border-color: rgba(94, 234, 212, 0.28);
+  color: var(--light);
+  box-shadow: 0 18px 46px rgba(5, 8, 13, 0.2);
+}
+
+.tb-kicker {
+  font: 600 9.5px var(--mono);
+  letter-spacing: 0.13em;
+  color: var(--teal-dark);
+}
+
+.tb-card-dark .tb-kicker { color: var(--amber); }
+
+.tb-val {
+  font: 400 clamp(32px, 3.2vw, 44px)/1 var(--display);
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.tb-val em {
+  font-style: italic;
+  font-size: 0.62em;
+  color: var(--teal-dark);
+}
+
+.tb-card-dark .tb-val { color: var(--light); }
+.tb-card-dark .tb-val em { color: var(--teal-bright); }
+
+.tb-card p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.tb-card-dark p { color: var(--light-2); }
+
+/* 2. 3-Column Studio Positioning Matrix */
+.compare-matrix {
+  margin-top: 28px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--hair-light);
+  background: #ffffff;
+  box-shadow: 0 22px 60px rgba(10, 15, 22, 0.065);
+}
+
+.cm-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--hair-light);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px 24px;
+}
+
+.cm-kicker {
+  font: 600 10px var(--mono);
+  letter-spacing: 0.14em;
+  color: var(--teal-dark);
+}
+
+.cm-header h3 {
+  margin: 0;
+  font: 400 clamp(22px, 2.3vw, 28px)/1.15 var(--display);
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.cm-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.cm-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+.cm-table th,
+.cm-table td {
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--hair-light);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.cm-table tbody tr:last-child th,
+.cm-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cm-table thead th {
+  font: 600 10.5px var(--mono);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--stone);
+}
+
+.cm-table tbody th {
+  font: 600 13.5px var(--sans);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.cm-table td {
+  color: var(--ink-2);
+}
+
+.cm-table .cm-featured {
+  background: #0a141c;
+  color: var(--light-2);
+  border-left: 1px solid rgba(94, 234, 212, 0.24);
+}
+
+.cm-table thead th.cm-featured {
+  background: #071017;
+  color: var(--teal-bright);
+  border-bottom-color: rgba(94, 234, 212, 0.2);
+}
+
+.cm-table tbody td.cm-featured {
+  border-bottom-color: rgba(182, 210, 224, 0.12);
+}
+
+.cm-table td.cm-featured strong {
+  color: var(--light);
+  font-weight: 600;
+}
+
+/* 3. Floating Bottom Cinema Action Dock */
+.floating-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  z-index: 82;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(8, 13, 20, 0.84);
+  border: 1px solid rgba(182, 210, 224, 0.2);
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  transform: translate3d(-50%, 96px, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s var(--ease), opacity 0.35s ease;
+}
+
+.floating-dock.is-visible {
+  transform: translate3d(-50%, 0, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  color: var(--light-2);
+  font: 500 12px/1 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.fd-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.fd-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 4px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: var(--teal-bright);
+  color: #051212;
+  font: 700 12px/1 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.25s var(--spring);
+}
+
+.fd-cta:hover {
+  background: #a7f9eb;
+  transform: translateY(-1px);
+}
+
+/* 4. Subtle Animated Border Beam Glow on Sample Dossier Card */
+.dossier-card {
+  box-shadow:
+    0 36px 90px rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(94, 234, 212, 0.18),
+    0 0 44px rgba(45, 212, 191, 0.09);
+}
+
+@media (max-width: 1000px) {
+  .telemetry-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .telemetry-bento {
+    grid-template-columns: 1fr;
+  }
+  .floating-dock {
+    display: none;
+  }
+  .cm-table th,
+  .cm-table td {
+    padding: 13px 14px;
+    font-size: 12.5px;
+  }
+}
+
 
