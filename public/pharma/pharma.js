@@ -227,15 +227,55 @@
     const ctx = canvas.getContext('2d');
     let W = 0;
     let H = 0;
+    let stageVisible = true;
+    let lastCamText = '';
+    let renderRaf = 0;
+
+    // Pre-rendered sphere sprite cache (eliminates ~200 createRadialGradient calls/frame!)
+    const spriteCache = new Map();
+    const getSprite = (rgb, glow) => {
+      const key = `${rgb[0]},${rgb[1]},${rgb[2]},${glow ? 1 : 0}`;
+      let sp = spriteCache.get(key);
+      if (sp) return sp;
+      const size = glow ? 96 : 48;
+      const half = size / 2;
+      const off = document.createElement('canvas');
+      off.width = size;
+      off.height = size;
+      const octx = off.getContext('2d');
+      const r = glow ? 15 : 22;
+      if (glow) {
+        const halo = octx.createRadialGradient(half, half, 0, half, half, half);
+        halo.addColorStop(0, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0.48)`);
+        halo.addColorStop(0.55, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0.12)`);
+        halo.addColorStop(1, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0)`);
+        octx.fillStyle = halo;
+        octx.beginPath();
+        octx.arc(half, half, half, 0, Math.PI * 2);
+        octx.fill();
+      }
+      const grad = octx.createRadialGradient(half - r * 0.34, half - r * 0.34, r * 0.08, half, half, r);
+      grad.addColorStop(0, 'rgba(255,255,255,0.92)');
+      grad.addColorStop(0.35, `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`);
+      grad.addColorStop(1, `rgb(${Math.round(rgb[0] * 0.25)},${Math.round(rgb[1] * 0.32)},${Math.round(rgb[2] * 0.38)})`);
+      octx.fillStyle = grad;
+      octx.beginPath();
+      octx.arc(half, half, r, 0, Math.PI * 2);
+      octx.fill();
+      sp = { off, drawRatio: half / r };
+      spriteCache.set(key, sp);
+      return sp;
+    };
 
     const resize = () => {
       const rect = viewport.getBoundingClientRect();
       W = rect.width;
       H = rect.height;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = Math.max(1, Math.floor(W * dpr));
       canvas.height = Math.max(1, Math.floor(H * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      requestSingleFrame();
     };
 
     const project = (x, y, z) => {
@@ -269,23 +309,10 @@
         ctx.stroke();
         return;
       }
-      if (glow) {
-        const halo = ctx.createRadialGradient(p.sx, p.sy, 0, p.sx, p.sy, r * 3.2);
-        halo.addColorStop(0, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha * 0.45})`);
-        halo.addColorStop(1, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0)`);
-        ctx.fillStyle = halo;
-        ctx.beginPath();
-        ctx.arc(p.sx, p.sy, r * 3.2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      const grad = ctx.createRadialGradient(p.sx - r * 0.34, p.sy - r * 0.34, r * 0.08, p.sx, p.sy, r);
-      grad.addColorStop(0, `rgba(255,255,255,${alpha * 0.92})`);
-      grad.addColorStop(0.35, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha})`);
-      grad.addColorStop(1, `rgba(${Math.round(rgb[0] * 0.25)},${Math.round(rgb[1] * 0.32)},${Math.round(rgb[2] * 0.38)},${alpha})`);
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
-      ctx.fill();
+      const sp = getSprite(rgb, glow);
+      const drawR = r * sp.drawRatio;
+      ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+      ctx.drawImage(sp.off, p.sx - drawR, p.sy - drawR, drawR * 2, drawR * 2);
     };
 
     const buildScenePoints = (t, stVal) => {
@@ -504,24 +531,29 @@
     };
 
     const renderFrame = () => {
+      renderRaf = 0;
       if (!W || !H) return;
       ctx.clearRect(0, 0, W, H);
 
       const targetStageIdx = stageOrder.indexOf(activeStage);
-      stageProgress += (targetStageIdx - stageProgress) * 0.08;
+      stageProgress += (targetStageIdx - stageProgress) * 0.1;
 
       if (!isPaused && !isDragging) {
         simTime += 0.016;
         targetYaw += 0.0028;
       }
 
-      camYaw += (targetYaw - camYaw) * 0.1;
-      camPitch += (targetPitch - camPitch) * 0.1;
+      camYaw += (targetYaw - camYaw) * 0.12;
+      camPitch += (targetPitch - camPitch) * 0.12;
 
       if (cameraReadout) {
         const yawDeg = (((Math.round((camYaw * 180) / Math.PI) % 360) + 360) % 360).toString().padStart(2, '0');
         const pitchDeg = Math.round((camPitch * 180) / Math.PI);
-        cameraReadout.textContent = `YAW ${yawDeg}° · PITCH ${pitchDeg}°`;
+        const camText = `YAW ${yawDeg}° · PITCH ${pitchDeg}°`;
+        if (camText !== lastCamText) {
+          lastCamText = camText;
+          cameraReadout.textContent = camText;
+        }
       }
 
       // Subtle plasma membrane horizon glow
@@ -531,12 +563,14 @@
       bandGrad.addColorStop(0, 'rgba(45, 212, 191, 0)');
       bandGrad.addColorStop(0.5, renderMode === 'thermal' ? 'rgba(255, 120, 70, 0.09)' : 'rgba(45, 212, 191, 0.09)');
       bandGrad.addColorStop(1, 'rgba(45, 212, 191, 0)');
+      ctx.globalAlpha = 1;
       ctx.fillStyle = bandGrad;
       ctx.fillRect(0, memTop - 16, W, memBot - memTop + 32);
 
       const { items, links } = buildScenePoints(simTime, stageProgress);
 
       // Draw structural bonds / signal vectors first
+      ctx.globalAlpha = 1;
       for (const ln of links) {
         ctx.beginPath();
         ctx.moveTo(ln.a.sx, ln.a.sy);
@@ -551,12 +585,36 @@
       for (const it of items) {
         drawSphere(it, it.r, it.rgb, it.a, it.glow);
       }
+      ctx.globalAlpha = 1;
 
-      requestAnimationFrame(renderFrame);
+      const settling =
+        Math.abs(targetYaw - camYaw) > 0.002 ||
+        Math.abs(targetPitch - camPitch) > 0.002 ||
+        Math.abs(targetStageIdx - stageProgress) > 0.005;
+
+      if (stageVisible && (!isPaused || isDragging || settling)) {
+        renderRaf = requestAnimationFrame(renderFrame);
+      }
     };
 
+    const requestSingleFrame = () => {
+      if (!renderRaf) renderRaf = requestAnimationFrame(renderFrame);
+    };
+    window.__wake3DStage = requestSingleFrame;
+
+    if ('IntersectionObserver' in window) {
+      const stageObs = new IntersectionObserver(
+        (entries) => {
+          stageVisible = entries[0]?.isIntersecting ?? true;
+          if (stageVisible) requestSingleFrame();
+        },
+        { rootMargin: '120px 0px' }
+      );
+      stageObs.observe(viewport);
+    }
+
     resize();
-    renderFrame();
+    requestSingleFrame();
     window.addEventListener('resize', resize, { passive: true });
 
     // Drag to Orbit 3D Camera
@@ -565,6 +623,7 @@
       dragStartX = e.clientX;
       dragStartY = e.clientY;
       viewport.setPointerCapture?.(e.pointerId);
+      requestSingleFrame();
     });
 
     viewport.addEventListener('pointermove', (e) => {
@@ -575,6 +634,7 @@
       dragStartY = e.clientY;
       targetYaw += dx * 0.008;
       targetPitch = Math.max(-0.55, Math.min(0.65, targetPitch + dy * 0.006));
+      requestSingleFrame();
     });
 
     const endDrag = () => {
@@ -586,6 +646,7 @@
     resetCamBtn?.addEventListener('click', () => {
       targetYaw = 0.25;
       targetPitch = 0.22;
+      requestSingleFrame();
     });
   }
 
@@ -627,10 +688,12 @@
     document.querySelectorAll('[data-step]').forEach((btn) => {
       const active = btn.dataset.step === activeStage;
       btn.classList.remove('is-active');
-      void btn.offsetWidth;
-      btn.classList.toggle('is-active', active);
       btn.setAttribute('aria-pressed', String(active));
+      if (active) {
+        requestAnimationFrame(() => btn.classList.add('is-active'));
+      }
     });
+    window.__wake3DStage?.();
 
     const setText = (sel, val) => {
       const el = document.querySelector(sel);
@@ -1278,21 +1341,46 @@
   window.addEventListener('resize', updateScrollChoreography, { passive: true });
   updateScrollChoreography();
 
-  // Marquee 60fps velocity ticker
+  // Marquee 60fps velocity ticker (cached width — ZERO forced reflows — pauses off-screen!)
   if (marqueeTrack && !isReducedMotion) {
+    let cachedHalfWidth = marqueeTrack.scrollWidth / 2;
+    let marqueeVisible = true;
+    let marqueeRaf = 0;
+
+    const refreshMarqueeWidth = () => {
+      cachedHalfWidth = marqueeTrack.scrollWidth / 2;
+    };
+    window.addEventListener('resize', refreshMarqueeWidth, { passive: true });
+
     const tickMarquee = () => {
-      const halfWidth = marqueeTrack.scrollWidth / 2;
-      if (halfWidth > 0) {
+      marqueeRaf = 0;
+      if (!marqueeVisible) return;
+      if (cachedHalfWidth > 0) {
         const baseSpeed = marqueePaused ? 0.16 : 0.68;
         marqueeOffset += (baseSpeed + scrollVelocity) * marqueeDir;
         scrollVelocity *= 0.91;
-        if (marqueeOffset >= halfWidth) marqueeOffset -= halfWidth;
-        if (marqueeOffset < 0) marqueeOffset += halfWidth;
+        if (marqueeOffset >= cachedHalfWidth) marqueeOffset -= cachedHalfWidth;
+        if (marqueeOffset < 0) marqueeOffset += cachedHalfWidth;
         marqueeTrack.style.transform = `translate3d(${(-marqueeOffset).toFixed(2)}px, 0, 0)`;
       }
-      requestAnimationFrame(tickMarquee);
+      marqueeRaf = requestAnimationFrame(tickMarquee);
     };
-    requestAnimationFrame(tickMarquee);
+
+    const ribbonEl = marqueeTrack.closest('.kinetic-ribbon');
+    if ('IntersectionObserver' in window && ribbonEl) {
+      const mqObs = new IntersectionObserver(
+        (entries) => {
+          marqueeVisible = entries[0]?.isIntersecting ?? true;
+          if (marqueeVisible && !marqueeRaf) {
+            marqueeRaf = requestAnimationFrame(tickMarquee);
+          }
+        },
+        { rootMargin: '100px 0px' }
+      );
+      mqObs.observe(ribbonEl);
+    } else {
+      marqueeRaf = requestAnimationFrame(tickMarquee);
+    }
   }
 
   // 10D. Tactile 3D Perspective Micro-Tilt on Cards

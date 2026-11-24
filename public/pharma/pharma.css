@@ -373,14 +373,13 @@ h1, h2, h3 { text-wrap: pretty; }
     rgba(255, 90, 47, 0.85) 110deg,
     transparent 170deg
   );
-  animation: rim-spin 5s linear infinite;
   opacity: 0.72;
   transition: opacity 0.3s ease;
 }
 
 .btn-kinetic:hover .btn-rim {
   opacity: 1;
-  animation-duration: 2.2s;
+  animation: rim-spin 2.2s linear infinite;
 }
 
 @keyframes rim-spin {
@@ -553,24 +552,23 @@ h1, h2, h3 { text-wrap: pretty; }
 .hero-aurora {
   position: absolute;
   border-radius: 50%;
-  filter: blur(130px);
 }
 
 .aurora-a {
-  width: 58vw;
-  height: 44vw;
+  width: 68vw;
+  height: 52vw;
   top: -18vw;
   left: 50%;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(45, 212, 191, 0.2), rgba(59, 130, 246, 0.12) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.16) 0%, rgba(59, 130, 246, 0.09) 38%, transparent 70%);
 }
 
 .aurora-b {
-  width: 40vw;
-  height: 40vw;
-  bottom: 4%;
-  right: -12vw;
-  background: radial-gradient(circle, rgba(255, 90, 47, 0.14), transparent 72%);
+  width: 48vw;
+  height: 48vw;
+  bottom: 0%;
+  right: -14vw;
+  background: radial-gradient(circle, rgba(255, 90, 47, 0.11) 0%, transparent 68%);
 }
 
 .hero-grid-plane {
