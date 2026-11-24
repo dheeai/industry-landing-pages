@@ -965,3 +965,41 @@ h1, h2, h3 { text-wrap: pretty; }
   .usecase-art-core, .usecase-art-orbit { animation: none !important; }
   .process-panel::before, .usecase-art-orbit, .usecase-chooser button, .offer-content > a, .governance-grid article, .assurance-icon, .dhee-process article, .pilot-manifest > div:not(.manifest-head), .faq-list details, .faq-list summary, .closing-actions > a:not(.button) { transition: none !important; }
 }
+
+/* Responsive integrity: keep editorial copy and controls in a single readable column. */
+@media (max-width: 900px) {
+  .bottleneck-grid,
+  .governance-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .bottleneck-grid > *,
+  .governance-intro > * {
+    min-width: 0;
+  }
+}
+@media (max-width: 600px) {
+  .bottleneck-grid {
+    padding-top: 39px;
+    padding-bottom: 31px;
+  }
+
+  .bottleneck h2,
+  .governance-intro h2 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bottleneck-copy,
+  .governance-intro > p {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero > *,
+  .section-pad > *,
+  .closing-inner > * {
+    min-width: 0;
+  }
+}
