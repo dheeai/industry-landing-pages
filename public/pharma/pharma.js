@@ -1312,61 +1312,7 @@
     });
   }
 
-  // 10E. Precision Studio Cursor Ring (Desktop Fine Pointer)
-  const cursorRing = document.querySelector('[data-cursor-ring]');
-  const cursorLabel = document.querySelector('[data-cursor-label]');
-  if (cursorRing && !isReducedMotion && finePointer) {
-    let cx = -100;
-    let cy = -100;
-    let tx = -100;
-    let ty = -100;
-    let activeLoop = false;
-
-    const animateCursor = () => {
-      cx += (tx - cx) * 0.2;
-      cy += (ty - cy) * 0.2;
-      const w = cursorRing.offsetWidth || 30;
-      const h = cursorRing.offsetHeight || 30;
-      cursorRing.style.transform = `translate3d(${(cx - w / 2).toFixed(1)}px, ${(cy - h / 2).toFixed(1)}px, 0)`;
-      if (Math.hypot(tx - cx, ty - cy) > 0.4) {
-        requestAnimationFrame(animateCursor);
-      } else {
-        activeLoop = false;
-      }
-    };
-
-    window.addEventListener(
-      'pointermove',
-      (e) => {
-        tx = e.clientX;
-        ty = e.clientY;
-        cursorRing.classList.add('is-visible');
-        if (!activeLoop) {
-          activeLoop = true;
-          requestAnimationFrame(animateCursor);
-        }
-      },
-      { passive: true }
-    );
-
-    document.addEventListener('pointerleave', () => cursorRing.classList.remove('is-visible'));
-
-    const interactiveSel = 'a, button, summary, .uc-pill, .receptor-tab, .stage-btn';
-    document.addEventListener('pointerover', (e) => {
-      const overViewport = e.target.closest('[data-stage-viewport]');
-      if (overViewport) {
-        cursorRing.classList.remove('is-hover');
-        cursorRing.classList.add('is-drag');
-        if (cursorLabel) cursorLabel.textContent = 'DRAG';
-        return;
-      }
-      cursorRing.classList.remove('is-drag');
-      if (cursorLabel) cursorLabel.textContent = '';
-      cursorRing.classList.toggle('is-hover', Boolean(e.target.closest(interactiveSel)));
-    });
-  }
-
-  // 10F. Right-Edge Section Telemetry Rail Active Sync
+  // 10E. Right-Edge Section Telemetry Rail Active Sync
   const railLinks = [...document.querySelectorAll('[data-rail-target]')];
   const railSections = railLinks.map((a) => document.getElementById(a.dataset.railTarget)).filter(Boolean);
   if ('IntersectionObserver' in window && railSections.length) {

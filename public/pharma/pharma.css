@@ -2925,59 +2925,7 @@ section h2:not(.dock-title) em {
   transition: transform 0.35s var(--spring), border-color 0.28s ease, box-shadow 0.32s ease;
 }
 
-/* 6. Precision Studio Cursor Ring & Section Telemetry Rail */
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 160;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1.25px solid rgba(94, 234, 212, 0.58);
-  pointer-events: none;
-  opacity: 0;
-  display: grid;
-  place-items: center;
-  transform: translate3d(-100px, -100px, 0);
-  transition:
-    width 0.28s var(--spring),
-    height 0.28s var(--spring),
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    opacity 0.28s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-ring.is-visible { opacity: 1; }
-
-.cursor-ring.is-hover {
-  width: 48px;
-  height: 48px;
-  border-color: rgba(255, 255, 255, 0.85);
-  background: rgba(94, 234, 212, 0.14);
-}
-
-.cursor-ring.is-drag {
-  width: 68px;
-  height: 68px;
-  border-color: var(--teal-bright);
-  background: rgba(5, 9, 14, 0.72);
-  mix-blend-mode: normal;
-  backdrop-filter: blur(6px);
-}
-
-.cursor-ring span {
-  font: 600 9.5px/1 var(--mono);
-  letter-spacing: 0.12em;
-  color: var(--teal-bright);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.cursor-ring.is-drag span { opacity: 1; }
-
-/* Right-Edge Floating Section Telemetry Rail */
+/* 6. Right-Edge Floating Section Telemetry Rail */
 .section-rail {
   position: fixed;
   right: 18px;
@@ -3049,7 +2997,6 @@ section h2:not(.dock-title) em {
 }
 
 @media (max-width: 900px), (pointer: coarse) {
-  .cursor-ring { display: none !important; }
   .stack-card {
     position: relative;
     top: auto;
@@ -3059,7 +3006,6 @@ section h2:not(.dock-title) em {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cursor-ring,
   .section-rail { display: none !important; }
   .scrub-word { opacity: 1 !important; }
   .stack-card {
