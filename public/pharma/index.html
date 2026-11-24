@@ -3,243 +3,1075 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#10151d" />
+    <meta name="theme-color" content="#05070a" />
     <title>Scientific MOA &amp; MOD Films for Medical Affairs | DHEE Studio</title>
-    <meta name="description" content="A managed, AI-assisted video studio for scientific explainers. Turn approved science into clear MOA and MOD stories, with human QA and review points designed around your existing MLR process." />
+    <meta
+      name="description"
+      content="A managed, AI-assisted video studio for scientific explainers. Turn approved science into clear MOA and MOD stories, with human QA and review points designed around your existing MLR process."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Make complex biology clear in motion | DHEE Studio" />
-    <meta property="og:description" content="Explore receptor signaling and see how DHEE turns approved science into clear, reviewable films." />
+    <meta
+      property="og:description"
+      content="Explore receptor signaling in interactive 3D and see how DHEE turns approved science into clear, reviewable films."
+    />
     <meta property="og:url" content="https://dheeai.github.io/industry-landing-pages/pharma/" />
     <meta property="og:image" content="https://dheeai.github.io/industry-landing-pages/pharma/og-pharma.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Make complex biology clear in motion | DHEE Studio" />
-    <meta name="twitter:description" content="Explore receptor signaling and see how DHEE turns approved science into clear, reviewable films." />
+    <meta
+      name="twitter:description"
+      content="Explore receptor signaling in interactive 3D and see how DHEE turns approved science into clear, reviewable films."
+    />
     <meta name="twitter:image" content="https://dheeai.github.io/industry-landing-pages/pharma/og-pharma.svg" />
     <link rel="icon" type="image/png" href="../images/dhee-mark-black.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./pharma.css" />
     <script src="./pharma.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header" data-site-header>
-      <a class="brand" href="https://dhee.studio/" aria-label="DHEE Studio home">
-        <img src="../images/dhee-mark-black.png" alt="" width="42" height="42" />
-        <span>DHEE<span class="brand-dot">.</span></span>
-      </a>
-      <div class="header-context"><span>SCIENCE FILMS</span><b>PHARMA &amp; LIFE SCIENCES</b></div>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#use-cases">Use cases</a>
-        <a href="#governance">Review &amp; trust</a>
-        <a href="#dhee">How DHEE works</a>
-      </nav>
-      <a class="header-cta" href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Request a sample <span aria-hidden="true">↗</span></a>
-      <details class="mobile-menu">
-        <summary aria-label="Open navigation">Menu <span aria-hidden="true">＋</span></summary>
-        <nav aria-label="Mobile navigation">
-          <a href="#use-cases">Use cases</a><a href="#governance">Review &amp; trust</a><a href="#dhee">How DHEE works</a>
+
+    <!-- FLOATING PRECISION STUDIO HEADER -->
+    <header class="site-header" data-site-header data-header-tone="dark">
+      <div class="header-bar">
+        <a class="brand" href="https://dhee.studio/" aria-label="DHEE Studio home">
+          <span class="brand-mark-wrap" aria-hidden="true">
+            <img class="brand-mark mark-light" src="../images/dhee-mark-white.png" alt="" width="32" height="32" />
+            <img class="brand-mark mark-dark" src="../images/dhee-mark-black.png" alt="" width="32" height="32" />
+          </span>
+          <span class="brand-word">DHEE<span class="brand-dot" aria-hidden="true"></span></span>
+        </a>
+
+        <div class="header-practice" aria-label="Practice area">
+          <span class="practice-kicker"><i class="rec-dot" aria-hidden="true"></i>SCIENCE FILMS</span>
+          <span class="practice-name">PHARMA <span class="practice-amp">&amp;</span> LIFE SCIENCES</span>
+        </div>
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#explorer">MOA Studio</a>
+          <a href="#why">Workflow</a>
+          <a href="#use-cases">Use cases</a>
+          <a href="#governance">MLR &amp; Trust</a>
+          <a href="#process">Sample</a>
         </nav>
-      </details>
+
+        <a
+          class="btn-kinetic btn-header"
+          data-magnetic
+          href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa"
+        >
+          <span class="btn-rim" aria-hidden="true"></span>
+          <span class="btn-bg" aria-hidden="true"></span>
+          <span class="btn-text">Request a sample</span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg class="ic-out" width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg class="ic-in" width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+
+        <details class="mobile-menu">
+          <summary aria-label="Open navigation">
+            <span>Menu</span>
+            <svg class="menu-plus" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M6 1.5V10.5M1.5 6H10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#explorer">MOA Studio</a>
+            <a href="#why">Workflow</a>
+            <a href="#use-cases">Use cases</a>
+            <a href="#governance">MLR &amp; Trust</a>
+            <a href="#dhee">Studio system</a>
+            <a href="#process">Sample manifest</a>
+            <a href="#faq">Buyer FAQ</a>
+          </nav>
+        </details>
+      </div>
+      <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
     </header>
-    <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="live-dot"></span> DHEE STUDIO <span class="eyebrow-slash">/</span> PHARMA &amp; LIFE SCIENCES</p>
-          <h1 id="hero-title">Make complex biology <em>clear in motion.</em></h1>
-          <p class="hero-lede">Give Medical Affairs and scientific teams a clearer way to explain a mechanism—with source-led visual storytelling, human creative QA, and review points built around your process.</p>
-          <div class="hero-actions">
-            <a class="button button-accent" href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Request a sample scene <span aria-hidden="true">↗</span></a>
-            <a class="text-action" href="./review-checklist.txt" download>Get the review checklist <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-footnote"><span class="footnote-mark">01</span><span>A managed studio workflow. Your team reviews the science; DHEE carries the production work.</span></div>
-          <div class="hero-categories" aria-label="Focus areas"><span>MOA / MOD</span><i></i><span>MEDICAL AFFAIRS</span><i></i><span>SCIENTIFIC EDUCATION</span></div>
+      <!-- HERO: CINEMA EDITORIAL STAGE + FULL-WIDTH 3D INTERACTIVE MOA VIEWPORT -->
+      <section class="hero" data-section-tone="dark" aria-labelledby="hero-title">
+        <div class="hero-backdrop" aria-hidden="true">
+          <div class="hero-aurora aurora-a"></div>
+          <div class="hero-aurora aurora-b"></div>
+          <div class="hero-grid-plane"></div>
         </div>
 
-        <figure class="science-visual" id="sample" data-mode="gpcr" data-stage="recognition">
-          <div class="pathway-selector" role="group" aria-label="Choose a receptor family">
-            <button type="button" class="pathway-choice is-active" data-mode-choice="gpcr" aria-pressed="true"><span>01</span><b>GPCR</b><i>7-transmembrane</i></button>
-            <button type="button" class="pathway-choice" data-mode-choice="channel" aria-pressed="false"><span>02</span><b>Ion channel</b><i>Ligand-gated</i></button>
-            <button type="button" class="pathway-choice" data-mode-choice="nuclear" aria-pressed="false"><span>03</span><b>Nuclear receptor</b><i>Gene regulation</i></button>
-          </div>
-          <div class="visual-topline"><span>MECHANISM EXPLORER</span><span data-mode-label>G-PROTEIN-COUPLED RECEPTOR</span></div>
-          <div class="visual-canvas">
-            <div class="visual-grid" aria-hidden="true"></div>
-            <svg class="molecule-scene" viewBox="0 0 720 460" role="img" aria-labelledby="scene-title scene-desc">
-              <title id="scene-title">Interactive receptor-family schematic</title>
-              <desc id="scene-desc">An illustrative GPCR and its possible signaling sequence. It is a simplified family-level diagram, not a drug-specific structure or mechanism.</desc>
-              <defs>
-                <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#94d8d0" stop-opacity=".24"/><stop offset="1" stop-color="#94d8d0" stop-opacity="0"/></radialGradient>
-                <linearGradient id="protein" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0f0dd"/><stop offset=".55" stop-color="#9bc4b7"/><stop offset="1" stop-color="#66828c"/></linearGradient>
-                <linearGradient id="ligand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5c68e"/><stop offset="1" stop-color="#e5784f"/></linearGradient>
-              </defs>
-              <circle cx="354" cy="251" r="220" fill="url(#halo)"/>
-              <text class="scene-label" x="52" y="55">EXTRACELLULAR SPACE</text>
-              <text class="scene-label" x="52" y="240">PLASMA MEMBRANE</text>
-              <text class="scene-label" x="52" y="295">CELL INTERIOR</text>
-              <path d="M52 211 H668 M52 246 H668" stroke="#8bb4ab" stroke-opacity=".32" stroke-width="1.5"/>
-              <g class="membrane-heads" fill="#9dc4b8" opacity=".63">
-                <circle cx="90" cy="211" r="5"/><circle cx="132" cy="211" r="5"/><circle cx="174" cy="211" r="5"/><circle cx="216" cy="211" r="5"/><circle cx="258" cy="211" r="5"/><circle cx="300" cy="211" r="5"/><circle cx="342" cy="211" r="5"/><circle cx="384" cy="211" r="5"/><circle cx="426" cy="211" r="5"/><circle cx="468" cy="211" r="5"/><circle cx="510" cy="211" r="5"/><circle cx="552" cy="211" r="5"/><circle cx="594" cy="211" r="5"/><circle cx="636" cy="211" r="5"/>
-                <circle cx="90" cy="246" r="5"/><circle cx="132" cy="246" r="5"/><circle cx="174" cy="246" r="5"/><circle cx="216" cy="246" r="5"/><circle cx="258" cy="246" r="5"/><circle cx="300" cy="246" r="5"/><circle cx="342" cy="246" r="5"/><circle cx="384" cy="246" r="5"/><circle cx="426" cy="246" r="5"/><circle cx="468" cy="246" r="5"/><circle cx="510" cy="246" r="5"/><circle cx="552" cy="246" r="5"/><circle cx="594" cy="246" r="5"/><circle cx="636" cy="246" r="5"/>
-              </g>
-              <g data-mode-layer="gpcr" class="mode-layer">
-                <g class="target-protein">
-                  <path d="M310 164 C301 177 301 194 309 211 L313 246 C317 264 308 277 310 293" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                  <path d="M324 152 C317 173 319 194 326 211 L329 246 C333 264 326 280 328 294" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                  <path d="M338 150 C332 173 333 194 340 211 L343 246 C347 264 339 280 341 295" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                  <path d="M352 147 C347 173 348 194 354 211 L357 246 C361 265 353 280 355 296" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                  <path d="M366 150 C361 173 362 194 368 211 L371 246 C375 265 367 280 369 295" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                  <path d="M380 155 C374 174 376 194 382 211 L385 246 C389 264 381 278 383 293" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                  <path d="M394 165 C388 181 390 196 396 211 L399 246 C403 264 395 278 397 291" fill="none" stroke="url(#protein)" stroke-width="11" stroke-linecap="round"/>
-                </g>
-                <g class="gpcr-ligand ligand"><path d="M342 121 L353 104 L374 106 L385 122 L374 139 L353 138Z" fill="url(#ligand)" stroke="#ffe2bd" stroke-width="2"/><circle cx="355" cy="120" r="3" fill="#fff2dc"/><circle cx="374" cy="124" r="3" fill="#fff2dc"/></g>
-                <g class="gpcr-gprotein" data-stage-layer="relay" fill="none" stroke="#b6d8c8" stroke-width="2"><path d="M365 293 C365 317 342 323 329 343 M365 293 C365 317 387 323 401 343" stroke-dasharray="3 7"/><circle cx="329" cy="347" r="18"/><circle cx="401" cy="347" r="13"/><circle cx="366" cy="360" r="12" fill="#e9b784"/><text class="scene-label" x="430" y="354">G PROTEIN</text></g>
-                <g data-stage-layer="response" class="response-network" fill="none" stroke="#b6d8c8" stroke-width="1.5"><path d="M366 372 C366 392 330 396 310 415 M366 372 C366 392 404 396 424 415" stroke-dasharray="3 7"/><circle cx="310" cy="415" r="13"/><circle cx="424" cy="415" r="13"/><text class="scene-label" x="450" y="420">CELL-SPECIFIC EFFECTORS</text></g>
-                <text class="scene-label" x="430" y="177">7 TRANSMEMBRANE</text>
-              </g>
-              <g data-mode-layer="channel" class="mode-layer">
-                <path d="M331 135 C307 147 310 174 326 194 L329 263 C309 282 312 301 337 310 L383 310 C408 301 411 282 391 263 L394 194 C410 174 413 147 389 135 C373 127 347 127 331 135Z" fill="url(#protein)" stroke="#d9e7d8" stroke-width="1.5"/>
-                <path d="M350 170 C346 198 347 234 350 267 L370 267 C373 234 374 198 370 170Z" fill="#14242b" stroke="#c7ded2" stroke-opacity=".7" stroke-width="1.5"/>
-                <path d="M351 219 L358 212 L366 219" fill="none" stroke="#e9b784" stroke-width="3" stroke-linecap="round"/>
-                <g class="channel-ligand ligand"><path d="M342 111 L353 94 L374 96 L385 112 L374 129 L353 128Z" fill="url(#ligand)" stroke="#ffe2bd" stroke-width="2"/></g>
-                <g data-stage-layer="relay" class="ion-flow" fill="#e9b784"><circle cx="360" cy="181" r="6"/><circle cx="360" cy="207" r="5"/><circle cx="360" cy="286" r="4"/><text class="scene-label" x="414" y="230">SELECTIVE ION FLOW</text></g>
-                <g data-stage-layer="response" class="response-network" fill="none" stroke="#b6d8c8" stroke-width="1.5"><path d="M360 296 V365 M360 365 C330 390 310 393 286 411 M360 365 C390 390 410 393 434 411" stroke-dasharray="3 7"/><circle cx="286" cy="411" r="17"/><circle cx="434" cy="411" r="17"/><text class="scene-label" x="460" y="416">ION-DEPENDENT RESPONSE</text></g>
-                <text class="scene-label" x="416" y="169">CHANNEL GATE</text>
-              </g>
-              <g data-mode-layer="nuclear" class="mode-layer">
-                <g class="nuclear-ligand ligand"><path d="M342 180 L353 163 L374 165 L385 181 L374 198 L353 197Z" fill="url(#ligand)" stroke="#ffe2bd" stroke-width="2"/></g>
-                <path d="M356 198 V280" stroke="#e9b784" stroke-width="2" stroke-dasharray="3 7"/>
-                <g class="intracellular-receptor"><circle cx="356" cy="325" r="37" fill="url(#protein)" stroke="#d9e7d8" stroke-width="1.5"/><circle cx="356" cy="325" r="17" fill="#203b3e" stroke="#d9e7d8" stroke-opacity=".65"/><text class="scene-label" x="414" y="329">INTRACELLULAR RECEPTOR</text></g>
-                <g data-stage-layer="relay" class="nuclear-complex" fill="none" stroke="#b6d8c8" stroke-width="2"><path d="M356 362 V382 M356 382 H440" stroke-dasharray="3 7"/><path d="M434 369 C451 377 451 392 434 400 C417 408 417 423 434 431 M448 369 C431 377 431 392 448 400 C465 408 465 423 448 431"/><text class="scene-label" x="476" y="393">DNA-ASSOCIATED</text></g>
-                <g data-stage-layer="response" class="response-network" fill="none" stroke="#e9b784" stroke-width="2"><path d="M441 431 V442 H517"/><circle cx="523" cy="442" r="5" fill="#e9b784"/><text class="scene-label" x="450" y="460">TRANSCRIPTIONAL REGULATION</text></g>
-              </g>
-              <text class="scene-label" x="64" y="394" data-family-caption>GPCR FAMILY STUDY · ILLUSTRATIVE</text>
-            </svg>
-            <div class="scene-index"><span data-step-index>01</span><span>03</span></div>
-            <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false"><span class="toggle-icon" aria-hidden="true">Ⅱ</span><span data-motion-label>Pause motion</span></button>
-          </div>
-          <div class="science-explorer">
-            <div class="explorer-controls" role="group" aria-label="Explore mechanism stages">
-              <button type="button" class="explorer-step is-active" data-step="recognition" aria-pressed="true"><span>01</span><b data-step-label="recognition">Ligand recognition</b></button>
-              <button type="button" class="explorer-step" data-step="relay" aria-pressed="false"><span>02</span><b data-step-label="relay">Signal relay</b></button>
-              <button type="button" class="explorer-step" data-step="response" aria-pressed="false"><span>03</span><b data-step-label="response">Cell response</b></button>
+        <div class="shell hero-stack">
+          <div class="hero-editorial">
+            <div class="studio-pill hero-in" style="--d: 0">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>DHEE STUDIO</span>
+              <span class="pill-divider" aria-hidden="true"></span>
+              <span class="pill-accent">PHARMA &amp; LIFE SCIENCES</span>
             </div>
-            <div class="explorer-copy" aria-live="polite" aria-atomic="true"><p class="explorer-title" data-step-title>A signal meets a GPCR</p><p data-step-copy>G-protein-coupled receptors span the membrane seven times. A bound signal can alter receptor activity; the specific pathway depends on the receptor and cell.</p></div>
+
+            <h1 id="hero-title" class="hero-in" style="--d: 1">
+              Make complex biology<br />
+              <em>clear in motion<span class="ember-dot">.</span></em>
+            </h1>
+
+            <p class="hero-sub hero-in" style="--d: 2">
+              A managed, AI-assisted scientific film studio for Medical Affairs and biotech teams. Turn approved science
+              into review-ready MOA &amp; MOD cinema—backed by human creative QA and built around your MLR process.
+            </p>
+
+            <div class="hero-cta-row hero-in" style="--d: 3">
+              <a
+                class="btn-kinetic btn-primary"
+                data-magnetic
+                href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa"
+              >
+                <span class="btn-rim" aria-hidden="true"></span>
+                <span class="btn-bg" aria-hidden="true"></span>
+                <span class="btn-text">Request a sample scene</span>
+                <span class="btn-icon" aria-hidden="true">
+                  <svg class="ic-out" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <svg class="ic-in" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+
+              <a class="btn-secondary" href="./review-checklist.txt" download>
+                <span>Download review checklist</span>
+                <span class="sec-arrow" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 2.5V11.5M7 11.5L3.25 7.75M7 11.5L10.75 7.75" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <div class="hero-signals hero-in" style="--d: 4" aria-label="Core studio pillars">
+              <span><strong>Managed studio</strong> — your team reviews science, DHEE runs production</span>
+              <i aria-hidden="true"></i>
+              <span><strong>MOA / MOD</strong> · Medical Affairs · Scientific Education</span>
+            </div>
           </div>
-          <figcaption><span data-figure-caption>FAMILY-LEVEL GPCR SCHEMATIC</span><span>ILLUSTRATIVE · NOT A PRODUCT MECHANISM</span></figcaption>
-          <div class="science-source"><span>Family-level illustration; source-linked for review.</span><span class="science-source-links"><a data-science-source href="https://www.ncbi.nlm.nih.gov/books/NBK541112/" target="_blank" rel="noreferrer">GPCR reference <span aria-hidden="true">↗</span></a><a data-structure-source href="https://www.rcsb.org/structure/4MBS" target="_blank" rel="noreferrer">Real structure example: CCR5 · PDB 4MBS <span aria-hidden="true">↗</span></a></span></div>
-        </figure>
+
+          <!-- WIDESCREEN INTERACTIVE 3D MOLECULAR CINEMA DIRECTOR'S VIEWPORT -->
+          <figure
+            class="cinema-stage hero-in"
+            style="--d: 4"
+            id="explorer"
+            data-mode="gpcr"
+            data-stage="recognition"
+            data-render="optical"
+          >
+            <!-- Top Cinema Telemetry Toolbar -->
+            <div class="stage-topbar">
+              <div class="receptor-tabs" role="group" aria-label="Choose a receptor family">
+                <button type="button" class="receptor-tab is-active" data-mode-choice="gpcr" aria-pressed="true">
+                  <span class="rt-num">01</span>
+                  <span class="rt-body"><b>GPCR</b><i>7-transmembrane</i></span>
+                </button>
+                <button type="button" class="receptor-tab" data-mode-choice="channel" aria-pressed="false">
+                  <span class="rt-num">02</span>
+                  <span class="rt-body"><b>Ion channel</b><i>Ligand-gated</i></span>
+                </button>
+                <button type="button" class="receptor-tab" data-mode-choice="nuclear" aria-pressed="false">
+                  <span class="rt-num">03</span>
+                  <span class="rt-body"><b>Nuclear receptor</b><i>Gene regulation</i></span>
+                </button>
+              </div>
+
+              <div class="render-modes" role="group" aria-label="Viewport render style">
+                <button type="button" class="render-chip is-active" data-render-choice="optical" aria-pressed="true">Optical</button>
+                <button type="button" class="render-chip" data-render-choice="thermal" aria-pressed="false">Thermal</button>
+                <button type="button" class="render-chip" data-render-choice="wireframe" aria-pressed="false">Wireframe</button>
+              </div>
+            </div>
+
+            <!-- Interactive 3D Molecular Canvas Stage -->
+            <div class="stage-viewport" data-stage-viewport>
+              <canvas
+                class="mol-canvas"
+                data-mol-canvas
+                aria-label="Interactive 3D molecular mechanism visualizer. Drag to orbit."
+              ></canvas>
+
+              <!-- Non-overlapping Cinema Corner Telemetry -->
+              <div class="vp-corner vp-tl" aria-hidden="true">
+                <span class="vp-badge"><i class="rec-dot"></i>INTERACTIVE 3D MOA STUDY</span>
+                <span class="vp-sub" data-mode-label>G-PROTEIN-COUPLED RECEPTOR</span>
+              </div>
+
+              <div class="vp-corner vp-tr" aria-hidden="true">
+                <span class="vp-hint">DRAG TO ORBIT · CLICK STAGE</span>
+                <span class="vp-readout" data-camera-readout>YAW 00° · PITCH 14°</span>
+              </div>
+
+              <!-- Live Compartment Key (Clean Left Side Rail) -->
+              <div class="vp-compartments" aria-hidden="true">
+                <span>EXTRACELLULAR</span>
+                <span class="is-membrane">LIPID BILAYER</span>
+                <span>INTRACELLULAR</span>
+              </div>
+
+              <!-- Accessible Live Description -->
+              <p class="sr-only" id="scene-desc">
+                An illustrative 3D GPCR family model. GPCRs span the plasma membrane seven times; this simplified visual
+                is not a drug-specific structure or mechanism.
+              </p>
+            </div>
+
+            <!-- Dedicated Bottom Cinema Control Dock (ZERO overlap with canvas) -->
+            <div class="stage-dock">
+              <div class="dock-timeline" role="group" aria-label="Explore mechanism stages">
+                <button type="button" class="stage-btn is-active" data-step="recognition" aria-pressed="true">
+                  <span class="sb-idx">01</span>
+                  <b data-step-label="recognition">Ligand recognition</b>
+                  <span class="sb-bar" aria-hidden="true"><i></i></span>
+                </button>
+                <button type="button" class="stage-btn" data-step="relay" aria-pressed="false">
+                  <span class="sb-idx">02</span>
+                  <b data-step-label="relay">G-protein activation</b>
+                  <span class="sb-bar" aria-hidden="true"><i></i></span>
+                </button>
+                <button type="button" class="stage-btn" data-step="response" aria-pressed="false">
+                  <span class="sb-idx">03</span>
+                  <b data-step-label="response">Cell-specific signaling</b>
+                  <span class="sb-bar" aria-hidden="true"><i></i></span>
+                </button>
+              </div>
+
+              <div class="dock-narrative">
+                <div class="dock-copy" aria-live="polite" aria-atomic="true">
+                  <div class="dock-meta">
+                    <span class="dock-counter">SCENE <b data-step-index>01</b> / 03</span>
+                    <span class="dock-caption" data-figure-caption>FAMILY-LEVEL GPCR SCHEMATIC</span>
+                  </div>
+                  <h2 class="dock-title" data-step-title>A signal meets a GPCR</h2>
+                  <p class="dock-desc" data-step-copy>
+                    G-protein-coupled receptors span the membrane seven times. A bound signal can alter receptor
+                    activity; the specific pathway depends on the receptor and cell.
+                  </p>
+                </div>
+
+                <div class="dock-controls">
+                  <button class="dock-action" type="button" data-motion-toggle aria-pressed="false">
+                    <span class="toggle-icon" aria-hidden="true">Ⅱ</span>
+                    <span data-motion-label>Pause motion</span>
+                  </button>
+                  <button class="dock-action dock-reset" type="button" data-reset-camera>
+                    <span>Reset camera</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <figcaption class="stage-footer">
+              <span>Illustrative family-level study · Not a product mechanism · Source-linked for scientific review.</span>
+              <span class="stage-sources">
+                <a data-science-source href="https://www.ncbi.nlm.nih.gov/books/NBK541112/" target="_blank" rel="noreferrer">
+                  GPCR reference <span aria-hidden="true">↗</span>
+                </a>
+                <a data-structure-source href="https://www.rcsb.org/structure/4MBS" target="_blank" rel="noreferrer">
+                  Real structure example: CCR5 · PDB 4MBS <span aria-hidden="true">↗</span>
+                </a>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
-      <section class="moment-strip" aria-label="The production challenge">
-        <div><span class="strip-index">THE CHALLENGE</span><strong>Production time</strong></div><span class="strip-connector" aria-hidden="true">+</span>
-        <div><span class="strip-index">THE REALITY</span><strong>Scientific review</strong></div><span class="strip-connector" aria-hidden="true">+</span>
-        <div><span class="strip-index">THE STAKES</span><strong>A live window to communicate</strong></div>
-        <a href="#process" aria-label="See the proposed review path">See the review path <span aria-hidden="true">↘</span></a>
+      <!-- SECTION 01: THE BOTTLENECK + INTERACTIVE WORKFLOW CONTRAST -->
+      <section class="workflow-section section-pad" id="why" data-section-tone="light">
+        <div class="shell">
+          <div class="kicker-bar" data-reveal>
+            <span>01 / THE BOTTLENECK</span>
+            <span>PRODUCTION × SCIENTIFIC REVIEW × TIMING</span>
+          </div>
+
+          <div class="workflow-header" data-reveal>
+            <div>
+              <h2>The science is ready.<br /><em>Is the film?</em></h2>
+            </div>
+            <div class="workflow-prose">
+              <p>
+                Scientific animation takes more than beautiful frames. It needs source review, a clear story, a visual
+                plan, production, and the right internal reviewers—often across teams that already have full calendars.
+              </p>
+              <p>
+                When those steps sit in disconnected queues, important science arrives after the congress or launch
+                window it was meant to support.
+              </p>
+            </div>
+          </div>
+
+          <!-- Interactive 3-Pillar Stakes Bar -->
+          <div class="stakes-trio" data-reveal>
+            <div class="stake-card">
+              <span class="stake-idx">01 · THE CHALLENGE</span>
+              <strong>Production time</strong>
+              <p>Long agency cycles leave little room when scientific narratives evolve.</p>
+            </div>
+            <div class="stake-card">
+              <span class="stake-idx">02 · THE REALITY</span>
+              <strong>Scientific review</strong>
+              <p>Medical, Legal, and Regulatory checkpoints need clean, source-linked drafts.</p>
+            </div>
+            <div class="stake-card stake-card-accent">
+              <span class="stake-idx">03 · THE STAKES</span>
+              <strong>A live window to communicate</strong>
+              <p>Congress, partnering, and launch milestones wait for no rendering queue.</p>
+              <a class="stake-link" href="#process">See the 5–10 sec sample path ↘</a>
+            </div>
+          </div>
+
+          <!-- Interactive 4-Step Pipeline Console -->
+          <div class="pipeline-console" data-reveal>
+            <div class="pipeline-rail" role="tablist" aria-label="Explore the production sequence">
+              <div class="rail-track" aria-hidden="true"><span class="rail-fill" data-route-fill></span></div>
+              <button
+                type="button"
+                id="process-tab-science"
+                class="rail-tab is-active"
+                role="tab"
+                aria-selected="true"
+                aria-controls="process-panel"
+                tabindex="0"
+                data-process-stage="science"
+              >
+                <span class="rail-dot">01</span>
+                <span class="rail-label"><b>Approved science</b><small>Source intake</small></span>
+              </button>
+              <button
+                type="button"
+                id="process-tab-direction"
+                class="rail-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="process-panel"
+                tabindex="-1"
+                data-process-stage="direction"
+              >
+                <span class="rail-dot">02</span>
+                <span class="rail-label"><b>Story &amp; direction</b><small>SME checkpoint</small></span>
+              </button>
+              <button
+                type="button"
+                id="process-tab-production"
+                class="rail-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="process-panel"
+                tabindex="-1"
+                data-process-stage="production"
+              >
+                <span class="rail-dot">03</span>
+                <span class="rail-label"><b>Production</b><small>Managed studio</small></span>
+              </button>
+              <button
+                type="button"
+                id="process-tab-review"
+                class="rail-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="process-panel"
+                tabindex="-1"
+                data-process-stage="review"
+              >
+                <span class="rail-dot">04</span>
+                <span class="rail-label"><b>Human QA + review</b><small>MLR handoff</small></span>
+              </button>
+            </div>
+
+            <div
+              class="pipeline-panel"
+              id="process-panel"
+              role="tabpanel"
+              aria-labelledby="process-tab-science"
+              aria-live="polite"
+              aria-atomic="true"
+              tabindex="0"
+              data-stage="science"
+              data-spotlight
+            >
+              <div class="pp-main">
+                <span class="pp-step" data-process-index>STEP 01 / 04</span>
+                <h3 data-process-title>Start with the science you trust.</h3>
+                <p data-process-copy>
+                  Your team shares approved references, the intended audience, and the scientific question the film needs
+                  to clarify.
+                </p>
+
+                <div class="ownership-widget" aria-label="Responsibility balance">
+                  <div class="ow-head">
+                    <span>YOUR SCIENCE TEAM <b data-owner-client-pct>78%</b></span>
+                    <span>DHEE STUDIO <b data-owner-dhee-pct>22%</b></span>
+                  </div>
+                  <div class="ow-track">
+                    <span class="ow-client" data-owner-client style="width: 78%"></span>
+                    <span class="ow-dhee" data-owner-dhee style="width: 22%"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pp-meta">
+                <span class="pp-meta-kicker" data-process-owner-label>YOUR TEAM BRINGS</span>
+                <strong data-process-owner>Source material · audience context · claim owners</strong>
+                <p class="pp-meta-note" data-process-note>Scientific authority stays with your reviewers.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="micro-footnote">
+            Project timelines and review cycles vary by scope, source material, and your organization’s review process.
+          </p>
+        </div>
       </section>
 
-      <section class="bottleneck section-pad" id="why">
-        <div class="section-kicker"><span>01 / THE BOTTLENECK</span><span>PRODUCTION × REVIEW × TIMING</span></div>
-        <div class="bottleneck-grid">
-          <h2>The science is ready.<br /><em>Is the film?</em></h2>
-          <div class="bottleneck-copy">
-            <p>Scientific animation takes more than beautiful frames. It needs source review, a clear story, a visual plan, production, and the right internal reviewers—often across teams that already have full calendars.</p>
-            <p>When those steps happen in disconnected queues, important science can arrive after the moment it was meant to support. A managed production path gives the story and its review points a place to move together.</p>
+      <!-- SECTION 02: WIDESCREEN INTERACTIVE USE-CASE STUDIO -->
+      <section class="usecases-section section-pad" id="use-cases" data-section-tone="dark">
+        <div class="shell">
+          <div class="kicker-bar" data-reveal>
+            <span>02 / ONE STUDIO, MANY SCIENCE STORIES</span>
+            <span>MEDICAL AFFAIRS FIRST</span>
+          </div>
+
+          <div class="uc-header" data-reveal>
+            <div>
+              <p class="eyebrow">Built around the question to answer</p>
+              <h2>One scientific story.<br /><em>Many useful formats.</em></h2>
+            </div>
+            <p>
+              Start with the flagship mechanism. Extend the same governed production approach across congress screens,
+              partnering decks, MSL training, and patient explainers.
+            </p>
+          </div>
+
+          <div class="uc-deck" data-usecase="moa" data-reveal>
+            <!-- Top Horizontal Pill Switcher -->
+            <div class="uc-pillbar" role="tablist" aria-label="Choose a pharma communication use case">
+              <button type="button" id="usecase-tab-moa" class="uc-pill is-active" role="tab" aria-selected="true" aria-controls="usecase-panel" tabindex="0" data-usecase-choice="moa">
+                <span>01</span><b>Mechanism of action</b>
+              </button>
+              <button type="button" id="usecase-tab-investor" class="uc-pill" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="investor">
+                <span>02</span><b>Investor &amp; partnering</b>
+              </button>
+              <button type="button" id="usecase-tab-training" class="uc-pill" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="training">
+                <span>03</span><b>Scientific training</b>
+              </button>
+              <button type="button" id="usecase-tab-congress" class="uc-pill" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="congress">
+                <span>04</span><b>Congress &amp; events</b>
+              </button>
+              <button type="button" id="usecase-tab-patient" class="uc-pill" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="patient">
+                <span>05</span><b>Patient education</b>
+              </button>
+              <button type="button" id="usecase-tab-launch" class="uc-pill" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="launch">
+                <span>06</span><b>Launch readiness</b>
+              </button>
+            </div>
+
+            <!-- Interactive Studio Storyboard & Brief Stage -->
+            <article
+              class="uc-stage"
+              id="usecase-panel"
+              role="tabpanel"
+              aria-labelledby="usecase-tab-moa"
+              aria-live="polite"
+              aria-atomic="true"
+              tabindex="0"
+              data-spotlight
+            >
+              <!-- Left Column: Interactive 3-Beat Storyboard Blueprint -->
+              <div class="uc-storyboard-col">
+                <div class="sb-header">
+                  <span class="sb-kicker"><i class="rec-dot" aria-hidden="true"></i>STORYBOARD ARCHITECTURE</span>
+                  <span class="sb-index" data-usecase-art-index>01 — 06</span>
+                </div>
+
+                <div class="sb-beats" data-usecase-beats>
+                  <div class="sb-beat is-lead">
+                    <div class="sb-beat-top">
+                      <span class="sb-beat-num">BEAT 01</span>
+                      <span class="sb-beat-cue">00:00 — 00:10</span>
+                    </div>
+                    <h4>Establish biological context</h4>
+                    <p>Open on the target environment and disease state so scientific viewers immediately orient.</p>
+                  </div>
+                  <div class="sb-beat">
+                    <div class="sb-beat-top">
+                      <span class="sb-beat-num">BEAT 02</span>
+                      <span class="sb-beat-cue">00:10 — 00:28</span>
+                    </div>
+                    <h4>Show the mechanism step by step</h4>
+                    <p>Reveal binding, structural change, and pathway sequence in clear, source-anchored beats.</p>
+                  </div>
+                  <div class="sb-beat">
+                    <div class="sb-beat-top">
+                      <span class="sb-beat-num">BEAT 03</span>
+                      <span class="sb-beat-cue">00:28 — 00:40</span>
+                    </div>
+                    <h4>Close with reviewable takeaway</h4>
+                    <p>Anchor the key scientific point with clean captions and approved reference attribution.</p>
+                  </div>
+                </div>
+
+                <div class="sb-specs" aria-label="Production parameters">
+                  <div class="sb-spec">
+                    <span>TYPICAL SCOPE</span>
+                    <strong data-usecase-runtime>30–45s film · 5–10s sample</strong>
+                  </div>
+                  <div class="sb-spec">
+                    <span>KEY REVIEWERS</span>
+                    <strong data-usecase-reviewer>Medical Affairs &amp; MLR</strong>
+                  </div>
+                  <div class="sb-spec">
+                    <span>USED ACROSS</span>
+                    <strong data-usecase-channels>Web, MSL iPad &amp; Congress</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Editorial Narrative & CTA -->
+              <div class="uc-detail-col">
+                <p class="eyebrow">
+                  <span class="live-dot" aria-hidden="true"></span>
+                  <span data-usecase-audience>MEDICAL AFFAIRS / SCIENTIFIC EDUCATION</span>
+                </p>
+                <h3 data-usecase-title>Mechanism of action</h3>
+                <p class="uc-desc" data-usecase-description>
+                  Make a mechanism easier to follow through source-based visual storytelling, built for scientific
+                  education and your review pathway.
+                </p>
+
+                <div class="uc-formats">
+                  <span>STORY FORMATS TO EXPLORE</span>
+                  <div data-usecase-formats>
+                    <b>MOA / MOD film</b>
+                    <b>Short concept scene</b>
+                    <b>Interactive explainer</b>
+                  </div>
+                </div>
+
+                <a
+                  class="btn-kinetic btn-primary uc-cta"
+                  data-magnetic
+                  data-usecase-link
+                  href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa"
+                >
+                  <span class="btn-rim" aria-hidden="true"></span>
+                  <span class="btn-bg" aria-hidden="true"></span>
+                  <span class="btn-text" data-usecase-cta-label>Explore a sample scene</span>
+                  <span class="btn-icon" aria-hidden="true">
+                    <svg class="ic-out" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="ic-in" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </a>
+
+                <p class="uc-note">
+                  Examples are starting points; scope and deliverables are agreed around your audience, source material,
+                  and review process.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-        <div class="route-line" role="tablist" aria-label="Explore the production sequence">
-          <button type="button" id="process-tab-science" role="tab" aria-selected="true" aria-controls="process-panel" tabindex="0" data-process-stage="science"><span>01</span><b>Approved science</b><i aria-hidden="true"></i></button>
-          <button type="button" id="process-tab-direction" role="tab" aria-selected="false" aria-controls="process-panel" tabindex="-1" data-process-stage="direction"><span>02</span><b>Story &amp; direction</b><i aria-hidden="true"></i></button>
-          <button type="button" id="process-tab-production" role="tab" aria-selected="false" aria-controls="process-panel" tabindex="-1" data-process-stage="production"><span>03</span><b>Production</b><i aria-hidden="true"></i></button>
-          <button type="button" id="process-tab-review" role="tab" aria-selected="false" aria-controls="process-panel" tabindex="-1" data-process-stage="review"><span>04</span><b>Human QA + review</b><i aria-hidden="true"></i></button>
-        </div>
-        <div class="process-panel" id="process-panel" role="tabpanel" aria-labelledby="process-tab-science" aria-live="polite" aria-atomic="true" tabindex="0">
-          <div class="process-panel-copy"><span class="process-panel-index" data-process-index>STEP 01 / 04</span><h3 data-process-title>Start with the science you trust.</h3><p data-process-copy>Your team shares approved references, the intended audience, and the scientific question the film needs to clarify.</p></div>
-          <div class="process-panel-meta"><span data-process-owner-label>YOUR TEAM BRINGS</span><strong data-process-owner>Source material · audience context · claim owners</strong><span class="process-panel-note" data-process-note>Scientific authority stays with your reviewers.</span></div>
-        </div>
-        <p class="source-note">Project timelines and review cycles vary by scope, source material, and your organization’s review process.</p>
       </section>
 
-      <section class="use-cases section-pad" id="use-cases">
-        <div class="section-kicker"><span>02 / ONE STUDIO, MANY SCIENCE STORIES</span><span>MEDICAL AFFAIRS FIRST</span></div>
-        <div class="section-heading">
-          <div><p class="eyebrow">Built around the question to answer</p><h2>One scientific story.<br /><em>Many useful formats.</em></h2></div>
-          <p>Start with the flagship mechanism. Extend the same governed production approach across the work your scientific teams already need to explain.</p>
-        </div>
-        <div class="usecase-studio" data-usecase="moa">
-          <div class="usecase-chooser" role="tablist" aria-label="Choose a pharma communication use case">
-            <button type="button" id="usecase-tab-moa" role="tab" aria-selected="true" aria-controls="usecase-panel" tabindex="0" data-usecase-choice="moa"><span>01</span><strong>Mechanism of action</strong><small>Medical Affairs</small><i aria-hidden="true">↗</i></button>
-            <button type="button" id="usecase-tab-investor" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="investor"><span>02</span><strong>Investor &amp; partnering</strong><small>Biotech leadership</small><i aria-hidden="true">↗</i></button>
-            <button type="button" id="usecase-tab-training" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="training"><span>03</span><strong>Scientific training</strong><small>MSL &amp; field teams</small><i aria-hidden="true">↗</i></button>
-            <button type="button" id="usecase-tab-congress" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="congress"><span>04</span><strong>Congress &amp; events</strong><small>Scientific audiences</small><i aria-hidden="true">↗</i></button>
-            <button type="button" id="usecase-tab-patient" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="patient"><span>05</span><strong>Patient education</strong><small>Patients &amp; caregivers</small><i aria-hidden="true">↗</i></button>
-            <button type="button" id="usecase-tab-launch" role="tab" aria-selected="false" aria-controls="usecase-panel" tabindex="-1" data-usecase-choice="launch"><span>06</span><strong>Launch readiness</strong><small>Cross-functional teams</small><i aria-hidden="true">↗</i></button>
+      <!-- SECTION 03: BUILT FOR REVIEW — 2x2 ARCHITECTURAL BENTO -->
+      <section class="governance-section section-pad" id="governance" data-section-tone="dark">
+        <div class="shell">
+          <div class="kicker-bar" data-reveal>
+            <span>03 / BUILT FOR REVIEW</span>
+            <span>AI-ASSISTED · HUMAN-ACCOUNTABLE</span>
           </div>
-          <article class="usecase-panel" id="usecase-panel" role="tabpanel" aria-labelledby="usecase-tab-moa" aria-live="polite" aria-atomic="true" tabindex="0">
-            <div class="usecase-art" aria-hidden="true"><div class="usecase-art-grid"></div><div class="usecase-art-orbit orbit-outer"></div><div class="usecase-art-orbit orbit-inner"></div><div class="usecase-art-core"></div><div class="usecase-art-line"></div><span class="usecase-art-label" data-usecase-art-label>MECHANISM / VISUAL STUDY</span><span class="usecase-art-index" data-usecase-art-index>01 — 06</span></div>
-            <div class="usecase-detail"><p class="eyebrow"><span class="live-dot"></span><span data-usecase-audience>MEDICAL AFFAIRS / SCIENTIFIC EDUCATION</span></p><h3 data-usecase-title>Mechanism of action</h3><p class="usecase-description" data-usecase-description>Make a mechanism easier to follow through source-based visual storytelling, built for scientific education and your review pathway.</p><div class="usecase-output"><span>STORY FORMATS TO EXPLORE</span><div data-usecase-formats><b>MOA / MOD film</b><b>Short concept scene</b><b>Interactive explainer</b></div></div><a class="usecase-cta" data-usecase-link href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Explore a sample scene <span aria-hidden="true">↗</span></a><p class="usecase-note">Examples are starting points; scope and deliverables are agreed around your audience, source material, and review process.</p></div>
-          </article>
-        </div>
-      </section>
 
-      <section class="governance section-pad" id="governance">
-        <div class="section-kicker"><span>03 / BUILT FOR REVIEW</span><span>AI-ASSISTED / HUMAN-ACCOUNTABLE</span></div>
-        <div class="governance-intro"><div><p class="eyebrow">Medical Affairs keeps the scientific authority</p><h2>Designed for review.<br /><em>Never around it.</em></h2></div><p>DHEE brings production into a managed workflow. Your scientific and regulatory teams retain control over evidence, claims, review, and approval.</p></div>
-        <div class="governance-grid">
-          <article><span class="governance-number">A / 01</span><div class="assurance-icon icon-shield" aria-hidden="true"><span></span></div><h3>Client material stays governed</h3><p>DHEE says client material is handled as confidential production input, used for agreed work, and not used as public proof without permission. Discuss any additional data-handling requirements before sharing sensitive material.</p><a href="https://dhee.studio/trust" target="_blank" rel="noreferrer">DHEE trust approach <span aria-hidden="true">↗</span></a></article>
-          <article><span class="governance-number">A / 02</span><div class="assurance-icon icon-human" aria-hidden="true"><span></span></div><h3>Human creative QA</h3><p>Before delivery, DHEE checks language, claims, pacing, visual consistency, captions, format specs, and obvious AI errors. Your reviewers remain the authority on scientific accuracy.</p></article>
-          <article><span class="governance-number">A / 03</span><div class="assurance-icon icon-provenance" aria-hidden="true"><span></span></div><h3>Provenance by agreement</h3><p>Define source references, AI-use disclosure, version labels, and reviewer checkpoints at kickoff. Align the plan with your internal AI policy and applicable requirements.</p></article>
-          <article><span class="governance-number">A / 04</span><div class="assurance-icon icon-review" aria-hidden="true"><span></span></div><h3>Your MLR process stays in control</h3><p>Assets can be prepared for your existing Medical, Legal, and Regulatory review. DHEE does not provide MLR approval or replace your organization’s review process.</p></article>
-        </div>
-        <div class="governance-foot"><p><span>IMPORTANT</span> “Review-ready” describes preparation for your review—not regulatory approval, clinical evidence, or a compliance guarantee.</p><div><a href="https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/opdp-regulatory-information" target="_blank" rel="noreferrer">FDA OPDP guidance <span aria-hidden="true">↗</span></a><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noreferrer">EU AI Act text <span aria-hidden="true">↗</span></a></div></div>
-      </section>
+          <div class="gov-header" data-reveal>
+            <div>
+              <p class="eyebrow">Medical Affairs keeps the scientific authority</p>
+              <h2>Designed for review.<br /><em>Never around it.</em></h2>
+            </div>
+            <p>
+              DHEE brings production into a managed workflow. Your scientific and regulatory teams retain full control
+              over evidence, claims, review, and approval.
+            </p>
+          </div>
 
-      <section class="dhee-section section-pad" id="dhee">
-        <div class="section-kicker"><span>04 / THE DHEE STUDIO SYSTEM</span><span>PRODUCTION, NOT ANOTHER LOGIN</span></div>
-        <div class="dhee-layout">
-          <div class="dhee-copy"><p class="eyebrow">A managed, AI-assisted video studio</p><h2>Your team brings the science.<br /><em>DHEE carries the production.</em></h2><p>DHEE is not a self-serve video generator. Your team shares source material and subject-matter context; DHEE manages scripting, visual direction, editing, motion, captions, format adaptations, localization support, and human QA.</p><a class="text-action dark-action" href="https://dhee.studio/capabilities" target="_blank" rel="noreferrer">Explore DHEE capabilities <span aria-hidden="true">↗</span></a></div>
-          <div class="dhee-process">
-            <article><span>01</span><div><h3>Source &amp; science</h3><p>Share approved references, audience, claims, and the scientific question the film must clarify.</p></div><b aria-hidden="true">↘</b></article>
-            <article><span>02</span><div><h3>Story &amp; visual direction</h3><p>Shape the narrative and visual approach so reviewers can react before full production.</p></div><b aria-hidden="true">↘</b></article>
-            <article><span>03</span><div><h3>AI-assisted production</h3><p>DHEE uses its managed studio workflow and custom video engine; your team does not manage prompts, seats, or generation credits.</p></div><b aria-hidden="true">↘</b></article>
-            <article><span>04</span><div><h3>Human QA &amp; delivery</h3><p>Review the claims, language, pacing, captions, and agreed formats with your team before handoff.</p></div><b aria-hidden="true">✓</b></article>
+          <div class="gov-bento">
+            <article class="bento-card" data-spotlight data-reveal>
+              <div class="bento-top">
+                <span class="bento-num">A / 01</span>
+                <div class="bento-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3L5 6V11.5C5 16.05 7.98 20.22 12 21.5C16.02 20.22 19 16.05 19 11.5V6L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    <path d="M9.5 12L11.2 13.7L14.8 10.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <h3>Client material stays governed</h3>
+              <p>
+                DHEE handles client material as confidential production input, used strictly for agreed work and never
+                as public proof without permission. Discuss any additional data-handling requirements before sharing
+                sensitive material.
+              </p>
+              <a class="link-arrow" href="https://dhee.studio/trust" target="_blank" rel="noreferrer">
+                <span>DHEE trust approach</span>
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </article>
+
+            <article class="bento-card" data-spotlight data-reveal>
+              <div class="bento-top">
+                <span class="bento-num">A / 02</span>
+                <div class="bento-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8.5" r="3.5" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M5.5 19.5C6.5 15.8 9 14 12 14C15 14 17.5 15.8 18.5 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <h3>Human creative QA</h3>
+              <p>
+                Before delivery, DHEE checks language, claims, pacing, visual consistency, captions, format specs, and
+                obvious AI artifacts. Your reviewers remain the authority on scientific accuracy.
+              </p>
+            </article>
+
+            <article class="bento-card" data-spotlight data-reveal>
+              <div class="bento-top">
+                <span class="bento-num">A / 03</span>
+                <div class="bento-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+                    <path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <h3>Provenance by agreement</h3>
+              <p>
+                Define source references, AI-use disclosure, version labels, and reviewer checkpoints at kickoff. Align
+                the production plan with your internal AI policy and applicable requirements.
+              </p>
+            </article>
+
+            <article class="bento-card" data-spotlight data-reveal>
+              <div class="bento-top">
+                <span class="bento-num">A / 04</span>
+                <div class="bento-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M8.5 12.2L10.8 14.5L15.8 9.5" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <h3>Your MLR process stays in control</h3>
+              <p>
+                Assets are prepared cleanly for your existing Medical, Legal, and Regulatory review. DHEE does not
+                provide MLR approval or replace your organization’s review process.
+              </p>
+            </article>
+          </div>
+
+          <div class="gov-ribbon" data-reveal>
+            <p>
+              <span>IMPORTANT</span> “Review-ready” describes preparation for your review—not regulatory approval,
+              clinical evidence, or a compliance guarantee.
+            </p>
+            <div class="gov-links">
+              <a class="link-arrow" href="https://www.fda.gov/about-fda/center-drug-evaluation-and-research-cder/opdp-regulatory-information" target="_blank" rel="noreferrer">
+                <span>FDA OPDP guidance</span>
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="link-arrow" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noreferrer">
+                <span>EU AI Act text</span>
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="dhee-delivery"><span>YOUR TEAM BRINGS</span><p>Approved scientific references · audience context · claim owners · review requirements</p><span>DHEE PREPARES</span><p>Story and visual direction · AI-assisted video production · human QA · reviewed outputs and agreed formats</p></div>
       </section>
 
-      <section class="pilot section-pad" id="process">
-        <div class="section-kicker"><span>05 / A PRACTICAL FIRST STEP</span><span>NO FULL-FILM COMMITMENT REQUIRED</span></div>
-        <div class="pilot-layout">
-          <div><p class="eyebrow">Evaluate the direction first</p><h2>See one scene.<br /><em>Review the fit.</em></h2><p>DHEE’s public sample offer is a short concept preview—not a finished 30–45 second MOA film. It includes a 5–10 second sample scene, a hook or title frame, visual direction, a format recommendation, and a note on what could come next.</p><a class="button button-light" href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Request a sample scene <span aria-hidden="true">↗</span></a><p class="pilot-note">Samples are limited and subject to fit and capacity. Share public or approved source material; agree data handling before sending confidential scientific material.</p></div>
-          <div class="pilot-manifest" aria-label="What the sample request includes"><div class="manifest-head"><span>THE SAMPLE MANIFEST</span><span>5–10 SEC</span></div><div><b>01</b><span>One visual scene</span><i>CONCEPT</i></div><div><b>02</b><span>One hook or title frame</span><i>STORY</i></div><div><b>03</b><span>One visual direction</span><i>STYLE</i></div><div><b>04</b><span>One format recommendation</span><i>CHANNEL</i></div><div><b>05</b><span>A suggested next production step</span><i>SCOPE</i></div><a href="https://dhee.studio/contact" target="_blank" rel="noreferrer">See DHEE’s sample request <span aria-hidden="true">↗</span></a></div>
-        </div>
-      </section>
+      <!-- SECTION 04: THE DHEE STUDIO SYSTEM -->
+      <section class="studio-section section-pad" id="dhee" data-section-tone="light">
+        <div class="shell">
+          <div class="kicker-bar" data-reveal>
+            <span>04 / THE DHEE STUDIO SYSTEM</span>
+            <span>PRODUCTION, NOT ANOTHER LOGIN</span>
+          </div>
 
-      <section class="faq-section section-pad" id="faq">
-        <div class="section-kicker"><span>06 / QUESTIONS FROM BUYERS</span><span>DIRECT ANSWERS</span></div>
-        <div class="faq-layout">
-          <div><p class="eyebrow">Before the first science review</p><h2>What should your team know?</h2><p>Clear boundaries make the first conversation more useful—for your Medical Affairs lead, scientific reviewers, and production partners.</p></div>
-          <div class="faq-list">
-            <details><summary>Is DHEE a self-serve video platform?<span aria-hidden="true">＋</span></summary><p>No. DHEE describes itself as a managed, AI-assisted studio. DHEE handles the production work; your team provides source material, expertise, and review.</p></details>
-            <details><summary>Will DHEE’s sample be a complete MOA film?<span aria-hidden="true">＋</span></summary><p>No. The public sample offer is a 5–10 second concept scene with a hook or title frame, visual direction, a format recommendation, and a suggested next step. A full 30–45 second film needs its own scope and review plan.</p></details>
-            <details><summary>Does DHEE approve the science or guarantee MLR approval?<span aria-hidden="true">＋</span></summary><p>No. DHEE provides human creative QA and can prepare work for your review process. Your scientific, Medical, Legal, and Regulatory reviewers retain approval authority.</p></details>
-            <details><summary>Can we send a PDB or AlphaFold structure?<span aria-hidden="true">＋</span></summary><p>Share a public structure ID or approved reference in the sample request so DHEE can assess the fit and production scope. Confirm scientific 3D requirements before committing; do not send confidential data through a public form.</p></details>
-            <details><summary>Can DHEE promise delivery in a few days?<span aria-hidden="true">＋</span></summary><p>No fixed timeline is stated here. Timing depends on the scientific scope, source readiness, reviewer availability, and DHEE capacity. Agree milestones before production begins.</p></details>
-            <details><summary>How are AI use and source materials handled?<span aria-hidden="true">＋</span></summary><p>DHEE’s public trust page describes client material as confidential production input, used for agreed work and not used as public proof without permission. Discuss any additional infrastructure, retention, or policy requirements before sharing sensitive material.</p></details>
+          <div class="studio-grid">
+            <div class="studio-left" data-reveal>
+              <p class="eyebrow eyebrow-light">A managed, AI-assisted video studio</p>
+              <h2>Your team brings the science.<br /><em>DHEE carries the production.</em></h2>
+              <p class="studio-prose">
+                DHEE is not a self-serve video generator. Your team shares source material and subject-matter context;
+                DHEE manages scripting, visual direction, editing, motion, captions, format adaptations, localization
+                support, and human QA.
+              </p>
+              <a class="link-arrow link-dark" href="https://dhee.studio/capabilities" target="_blank" rel="noreferrer">
+                <span>Explore DHEE capabilities</span>
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="studio-steps">
+              <article class="st-item" data-reveal>
+                <span class="st-num">01</span>
+                <div>
+                  <h3>Source &amp; science</h3>
+                  <p>Share approved references, audience, claims, and the scientific question the film must clarify.</p>
+                </div>
+                <span class="st-glyph" aria-hidden="true">↘</span>
+              </article>
+              <article class="st-item" data-reveal>
+                <span class="st-num">02</span>
+                <div>
+                  <h3>Story &amp; visual direction</h3>
+                  <p>Shape the narrative and visual approach so reviewers can react before full production.</p>
+                </div>
+                <span class="st-glyph" aria-hidden="true">↘</span>
+              </article>
+              <article class="st-item" data-reveal>
+                <span class="st-num">03</span>
+                <div>
+                  <h3>AI-assisted production</h3>
+                  <p>
+                    DHEE uses its managed studio workflow and custom video engine; your team does not manage prompts,
+                    seats, or generation credits.
+                  </p>
+                </div>
+                <span class="st-glyph" aria-hidden="true">↘</span>
+              </article>
+              <article class="st-item is-done" data-reveal>
+                <span class="st-num">04</span>
+                <div>
+                  <h3>Human QA &amp; delivery</h3>
+                  <p>Review the claims, language, pacing, captions, and agreed formats with your team before handoff.</p>
+                </div>
+                <span class="st-glyph" aria-hidden="true">✓</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="split-matrix" data-reveal>
+            <div class="matrix-col">
+              <span class="matrix-kicker">YOUR TEAM BRINGS</span>
+              <p>Approved scientific references · audience context · claim owners · review requirements</p>
+            </div>
+            <div class="matrix-col matrix-dark">
+              <span class="matrix-kicker">DHEE CARRIES &amp; PREPARES</span>
+              <p>Story and visual direction · AI-assisted video production · human QA · reviewed outputs and agreed formats</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="closing" id="request">
-        <div class="closing-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="closing-inner"><p class="eyebrow"><span class="live-dot"></span> START WITH ONE SCIENTIFIC QUESTION</p><h2>Make the mechanism<br /><em>easier to follow.</em></h2><p>Bring one approved source and the audience you need to reach. DHEE can help shape a sample direction before you scope the full film.</p><div class="closing-actions"><a class="button button-light" href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa">Request a sample MOA scene <span aria-hidden="true">↗</span></a><a href="https://calendly.com/dhee-ai/30min" target="_blank" rel="noreferrer">Book a production-fit call <span aria-hidden="true">↗</span></a></div><span class="closing-note">A sample is a concept preview; scientific claims and mechanisms require client review.</span></div>
+      <!-- SECTION 05: INTERACTIVE SAMPLE DOSSIER CONFIGURATOR -->
+      <section class="pilot-section section-pad" id="process" data-section-tone="dark">
+        <div class="shell">
+          <div class="kicker-bar" data-reveal>
+            <span>05 / A PRACTICAL FIRST STEP</span>
+            <span>NO FULL-FILM COMMITMENT REQUIRED</span>
+          </div>
+
+          <div class="pilot-grid">
+            <div class="pilot-left" data-reveal>
+              <p class="eyebrow">Evaluate the direction first</p>
+              <h2>See one scene.<br /><em>Review the fit.</em></h2>
+              <p class="pilot-prose">
+                DHEE’s public sample offer is a short concept preview—not a finished 30–45 second MOA film. It includes
+                a 5–10 second sample scene, a hook or title frame, visual direction, a format recommendation, and a note
+                on what could come next.
+              </p>
+
+              <div class="config-block">
+                <span class="config-label">01 · SELECT STORY FOCUS</span>
+                <div class="config-row" role="group" aria-label="Choose a sample focus">
+                  <button type="button" class="cfg-chip is-active" data-sample-focus="moa" aria-pressed="true">MOA / MOD</button>
+                  <button type="button" class="cfg-chip" data-sample-focus="investor-film" aria-pressed="false">Investor pitch</button>
+                  <button type="button" class="cfg-chip" data-sample-focus="scientific-training" aria-pressed="false">MSL training</button>
+                  <button type="button" class="cfg-chip" data-sample-focus="congress" aria-pressed="false">Congress screen</button>
+                </div>
+              </div>
+
+              <div class="config-block">
+                <span class="config-label">02 · PRIMARY AUDIENCE</span>
+                <div class="config-row" role="group" aria-label="Choose target audience">
+                  <button type="button" class="cfg-chip is-active" data-sample-audience="medical-affairs" aria-pressed="true">Medical Affairs</button>
+                  <button type="button" class="cfg-chip" data-sample-audience="hcps" aria-pressed="false">HCPs &amp; KOLs</button>
+                  <button type="button" class="cfg-chip" data-sample-audience="investors" aria-pressed="false">Investors</button>
+                  <button type="button" class="cfg-chip" data-sample-audience="patients" aria-pressed="false">Patients</button>
+                </div>
+              </div>
+
+              <a
+                class="btn-kinetic btn-primary"
+                data-magnetic
+                data-sample-cta
+                href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa&amp;audience=medical-affairs"
+              >
+                <span class="btn-rim" aria-hidden="true"></span>
+                <span class="btn-bg" aria-hidden="true"></span>
+                <span class="btn-text">Request your sample scene</span>
+                <span class="btn-icon" aria-hidden="true">
+                  <svg class="ic-out" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <svg class="ic-in" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+
+              <p class="pilot-note">
+                Samples are limited and subject to fit and capacity. Share public or approved source material; agree
+                data handling before sending confidential scientific material.
+              </p>
+            </div>
+
+            <div class="dossier-card" data-spotlight data-reveal aria-label="What the sample request includes">
+              <div class="dossier-head">
+                <div>
+                  <span class="dossier-kicker" data-manifest-title>SAMPLE DOSSIER · MOA / MOD</span>
+                  <span class="dossier-sub" data-manifest-audience>AUDIENCE: MEDICAL AFFAIRS</span>
+                </div>
+                <span class="dossier-badge">5–10 SEC</span>
+              </div>
+              <div class="dossier-row"><b>01</b><span data-manifest-1>One visual mechanism scene</span><i>CONCEPT</i></div>
+              <div class="dossier-row"><b>02</b><span data-manifest-2>One hook or title frame</span><i>STORY</i></div>
+              <div class="dossier-row"><b>03</b><span data-manifest-3>One visual &amp; motion direction</span><i>STYLE</i></div>
+              <div class="dossier-row"><b>04</b><span data-manifest-4>One format &amp; channel recommendation</span><i>CHANNEL</i></div>
+              <div class="dossier-row"><b>05</b><span data-manifest-5>A suggested next production step</span><i>SCOPE</i></div>
+              <a class="link-arrow dossier-link" href="https://dhee.studio/contact" target="_blank" rel="noreferrer">
+                <span>See DHEE’s sample request</span>
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 06: BUYER FAQ -->
+      <section class="faq-section section-pad" id="faq" data-section-tone="light">
+        <div class="shell">
+          <div class="kicker-bar" data-reveal>
+            <span>06 / QUESTIONS FROM BUYERS</span>
+            <span>DIRECT ANSWERS</span>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-intro" data-reveal>
+              <p class="eyebrow eyebrow-light">Before the first science review</p>
+              <h2>What should your team know?</h2>
+              <p>
+                Clear boundaries make the first conversation more useful—for your Medical Affairs lead, scientific
+                reviewers, and production partners.
+              </p>
+            </div>
+
+            <div class="faq-list" data-reveal>
+              <details class="faq-item">
+                <summary>
+                  <span>Is DHEE a self-serve video platform?</span>
+                  <span class="faq-plus" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    No. DHEE describes itself as a managed, AI-assisted studio. DHEE handles the production work; your
+                    team provides source material, expertise, and review.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary>
+                  <span>Will DHEE’s sample be a complete MOA film?</span>
+                  <span class="faq-plus" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    No. The public sample offer is a 5–10 second concept scene with a hook or title frame, visual
+                    direction, a format recommendation, and a suggested next step. A full 30–45 second film needs its
+                    own scope and review plan.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary>
+                  <span>Does DHEE approve the science or guarantee MLR approval?</span>
+                  <span class="faq-plus" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    No. DHEE provides human creative QA and can prepare work for your review process. Your scientific,
+                    Medical, Legal, and Regulatory reviewers retain approval authority.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary>
+                  <span>Can we send a PDB or AlphaFold structure?</span>
+                  <span class="faq-plus" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    Share a public structure ID or approved reference in the sample request so DHEE can assess the fit
+                    and production scope. Confirm scientific 3D requirements before committing; do not send confidential
+                    data through a public form.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary>
+                  <span>Can DHEE promise delivery in a few days?</span>
+                  <span class="faq-plus" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    No fixed timeline is stated here. Timing depends on the scientific scope, source readiness, reviewer
+                    availability, and DHEE capacity. Agree milestones before production begins.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary>
+                  <span>How are AI use and source materials handled?</span>
+                  <span class="faq-plus" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    DHEE’s public trust page describes client material as confidential production input, used for agreed
+                    work and not used as public proof without permission. Discuss any additional infrastructure,
+                    retention, or policy requirements before sharing sensitive material.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLOSING CINEMA CTA -->
+      <section class="closing-section" id="request" data-section-tone="dark">
+        <div class="closing-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="shell closing-inner" data-reveal>
+          <p class="eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            START WITH ONE SCIENTIFIC QUESTION
+          </p>
+          <h2>Make the mechanism<br /><em>easier to follow<span class="ember-dot">.</span></em></h2>
+          <p class="closing-lede">
+            Bring one approved source and the audience you need to reach. DHEE can help shape a sample direction before
+            you scope the full film.
+          </p>
+          <div class="closing-actions">
+            <a
+              class="btn-kinetic btn-primary"
+              data-magnetic
+              href="https://dhee.studio/contact?industry=pharma&amp;usecase=moa"
+            >
+              <span class="btn-rim" aria-hidden="true"></span>
+              <span class="btn-bg" aria-hidden="true"></span>
+              <span class="btn-text">Request a sample MOA scene</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg class="ic-out" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg class="ic-in" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </a>
+
+            <a class="btn-secondary" href="https://calendly.com/dhee-ai/30min" target="_blank" rel="noreferrer">
+              <span>Book a production-fit call</span>
+              <span class="sec-arrow" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 11L11 3M11 3H4.75M11 3V9.25" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <span class="closing-note">
+            A sample is a concept preview; scientific claims and mechanisms require client review.
+          </span>
+        </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-main"><a class="brand footer-brand" href="https://dhee.studio/" aria-label="DHEE Studio home"><img src="../images/dhee-mark-white.png" alt="" width="38" height="38" /><span>DHEE<span class="brand-dot">.</span></span></a><p>DHEE Studio · AI-assisted production. Human creative QA.</p><div class="footer-links"><a href="https://dhee.studio/trust">Trust <span aria-hidden="true">↗</span></a><a href="https://dhee.studio/contact">Contact <span aria-hidden="true">↗</span></a><a href="./review-checklist.txt" download>Review checklist <span aria-hidden="true">↓</span></a></div></div>
-      <div class="footer-bottom"><span>© <span data-current-year></span> DHEE Studio</span><p>Independent industry concept. Scientific visuals are illustrative—not clinical evidence, validated structures, or an approved mechanism. MLR approval remains with the client.</p><span>PHARMA / LIFE SCIENCES</span></div>
+    <footer class="site-footer" data-section-tone="dark">
+      <div class="shell footer-shell">
+        <div class="footer-top">
+          <a class="brand footer-brand" href="https://dhee.studio/" aria-label="DHEE Studio home">
+            <img src="../images/dhee-mark-white.png" alt="" width="32" height="32" />
+            <span class="brand-word">DHEE<span class="brand-dot" aria-hidden="true"></span></span>
+          </a>
+          <p class="footer-tag">DHEE Studio · AI-assisted production. Human creative QA.</p>
+          <div class="footer-links">
+            <a href="https://dhee.studio/trust">Trust ↗</a>
+            <a href="https://dhee.studio/contact">Contact ↗</a>
+            <a href="./review-checklist.txt" download>Review checklist ↓</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-current-year></span> DHEE Studio</span>
+          <p>
+            Independent industry concept. Scientific visuals are illustrative—not clinical evidence, validated
+            structures, or an approved mechanism. MLR approval remains with the client.
+          </p>
+          <span>PHARMA / LIFE SCIENCES</span>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
