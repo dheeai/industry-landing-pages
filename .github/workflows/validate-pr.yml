@@ -27,19 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate JSON configs and scaffolder syntax
+      - name: Validate content configs, assets, locales, and scaffolder
         run: |
           node --check scripts/new-page.mjs
-          node -e "
-            const fs = require('node:fs');
-            const path = require('node:path');
-            for (const dir of ['src/content/pages', 'src/content/locales']) {
-              for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {
-                JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
-              }
-            }
-            console.log('All page and locale JSON files parsed cleanly.');
-          "
+          node --check scripts/check-content.mjs
+          npm run check:content
 
       - name: Build and schema-validate all pages
         run: npm run build
