@@ -1,0 +1,171 @@
+---
+import type { LandingPage } from '../content/schema';
+import KineticButton from './KineticButton.astro';
+
+interface Props {
+  page: LandingPage;
+  configuredVideoUrl?: string;
+}
+
+const { page, configuredVideoUrl } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+const isAccountShowcase = page.presentation?.layout === 'account-showcase';
+const heroShowsVideo = Boolean(configuredVideoUrl) && page.presentation?.heroMedia !== 'image';
+const pillEdition = isAccountShowcase
+  ? (page.ui?.privateConceptLabel ?? 'DHEE PRODUCT STORY')
+  : `DHEE / EDITION ${page.hero.edition ?? '001'}`;
+---
+<section class="hero" id="top" data-section-tone="dark" data-hero-stage>
+  <div class="hero-backdrop" aria-hidden="true">
+    <div class="hero-zenith"></div>
+    <div class="hero-aurora aurora-a"></div>
+    <div class="hero-aurora aurora-b"></div>
+    <div class="hero-grid-plane"></div>
+    <div class="hero-grid-lit"></div>
+    <div class="hero-beams">
+      <span class="beam-rail rail-1"><i class="beam-pulse"></i></span>
+      <span class="beam-rail rail-2"><i class="beam-pulse"></i></span>
+      <span class="beam-rail rail-3"><i class="beam-pulse"></i></span>
+      <span class="beam-rail rail-4"><i class="beam-pulse"></i></span>
+    </div>
+    <div class="hero-crosshairs">
+      <span class="ch ch-1"></span>
+      <span class="ch ch-2"></span>
+      <span class="ch ch-3"></span>
+      <span class="ch ch-4"></span>
+    </div>
+    <div class="hero-bottom-fade"></div>
+  </div>
+
+  <div class="shell hero-stack">
+    <div class="hero-editorial">
+      <div class="studio-pill hero-in" style="--d:0">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>{page.hero.eyebrow}</span>
+        <span class="pill-divider" aria-hidden="true"></span>
+        <span class="pill-accent">{pillEdition}</span>
+      </div>
+
+      <h1 class="hero-in" style="--d:1">
+        {page.hero.title}<br />
+        <em>{page.hero.emphasis}</em>
+      </h1>
+
+      <p class="hero-sub hero-in" style="--d:2">{page.hero.body}</p>
+
+      <div class="hero-cta-row hero-in" style="--d:3">
+        <KineticButton href={page.hero.primary.href} label={page.hero.primary.label} analytics="calendar_click" />
+        <a
+          class="btn-secondary"
+          href={page.hero.secondary.href}
+          data-analytics="sample_video_click"
+          data-start-film={page.presentation?.showFilmSection ? 'true' : undefined}
+        >
+          <span>{page.hero.secondary.label}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      {page.research.items?.length ? (
+        <div class="hero-spec-strip hero-in" style="--d:4" aria-label="Published specifications">
+          {page.research.items.map((item) => (
+            <div class="hero-spec-chip">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
+          <a class="link-arrow" href={page.research.source.href} target="_blank" rel="noreferrer">
+            {page.research.source.label} <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      ) : (
+        <div class="hero-proof-bar hero-in" style="--d:4">
+          <strong>{page.research.value}</strong>
+          <span>
+            {page.research.body}
+            <a
+              href={page.research.source.href}
+              target={page.research.source.href.startsWith('http') ? '_blank' : undefined}
+              rel={page.research.source.href.startsWith('http') ? 'noreferrer' : undefined}
+            >
+              {page.research.source.label} ↗
+            </a>
+          </span>
+        </div>
+      )}
+    </div>
+
+    <figure
+      class="cinema-stage glass-specular hero-in"
+      style="--d:5"
+      id={heroShowsVideo ? 'sample' : undefined}
+      data-cinema-stage
+    >
+      <div class="stage-topbar">
+        <span class="stage-topbar-left">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>{heroShowsVideo ? page.video.label : (page.ui?.heroImageLabel ?? page.hero.artTopLabel ?? 'PRODUCT STORY')}</span>
+        </span>
+        <span class="stage-badge">
+          {heroShowsVideo ? `CONCEPT FILM · ${page.video.duration}` : (page.ui?.heroImageSource ?? page.hero.artStampLabel ?? 'STUDIO VIEWPORT')}
+        </span>
+      </div>
+
+      <div class="stage-media-wrap">
+        {heroShowsVideo && configuredVideoUrl ? (
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster={publicAsset(page.video.poster)}
+            aria-label={page.video.title}
+            data-scroll-autoplay={page.video.autoplayOnScroll ? 'true' : undefined}
+            data-analytics-video
+          >
+            <source src={publicAsset(configuredVideoUrl)} type="video/mp4" />
+            {page.video.captionsUrl && (
+              <track
+                kind="captions"
+                src={publicAsset(page.video.captionsUrl)}
+                srclang={page.language}
+                label={`${page.language.toUpperCase()} captions`}
+                default
+              />
+            )}
+            Your browser does not support embedded video.
+          </video>
+        ) : (
+          <img
+            src={publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg')}
+            alt={page.hero.imageAlt ?? page.hero.title}
+            fetchpriority="high"
+          />
+        )}
+      </div>
+
+      <figcaption class="stage-footer">
+        <div class="stage-footer-meta">
+          <strong>{heroShowsVideo ? page.video.title : (page.hero.note ?? 'One clear story.')}</strong>
+          <span>{heroShowsVideo ? page.video.description : (page.hero.noteEmphasis ?? 'More confident decisions.')}</span>
+        </div>
+        {!heroShowsVideo && page.presentation?.showFilmSection && (
+          <a class="link-arrow" href="#sample">
+            {page.hero.secondary.label} <span aria-hidden="true">↓</span>
+          </a>
+        )}
+      </figcaption>
+
+      {heroShowsVideo && page.video.transcript.length > 0 && (
+        <details class="transcript-drawer">
+          <summary>
+            <span>Read film transcript &amp; narration</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="transcript-body">
+            {page.video.transcript.map((line) => <p>{line}</p>)}
+          </div>
+        </details>
+      )}
+    </figure>
+  </div>
+</section>

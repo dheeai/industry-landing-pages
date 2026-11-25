@@ -26,13 +26,23 @@ Astro writes the deployable site to `dist/`.
 
 ## Add another page
 
-1. Copy the closest page config from `src/content/pages/` to a new JSON file in the same folder.
-2. Set a unique lowercase `slug`, the matching `pageType` (`A`–`E`), and update its audience, SEO copy and section content.
-3. Keep exactly three `useCases`; the config validator checks the required fields, sample poster and text alternative.
-4. Add approved imagery under `public/images/` and point `video.poster` to it. Set `video.videoUrl` and `video.captionsUrl` when a sample is ready; otherwise, the page shows its concept poster.
-5. Run `npm run build`; Astro creates a matching `dist/<slug>/` route.
+Generate a validated starter config in one command:
 
-The shared page renderer and layout live in `src/pages/[slug].astro` and `src/layouts/LandingPage.astro`. The visual system is in `src/styles/global.css`. Page copy, story steps, trigger, use cases, video, library, process, FAQ and CTA are configured in JSON. Page Type C uses the library block as its main value; Type E uses the same reusable blocks to explain a partner's service lines and client handoffs. The two template routes are noindex concept examples, not approved company pages.
+```sh
+npm run new-page -- my-industry --type A --segment "My Industry"
+```
+
+1. Customize the generated JSON in `src/content/pages/<slug>.json` (optional per-industry `theme` color tokens, `presentation` flags, `telemetry` cards, `marqueeItems`, copy, and media).
+2. Add optional localized variants as `src/content/locales/<slug>.<lang>.json` — routes and language switchers wire up automatically.
+3. Add approved imagery under `public/images/` and video/captions under `public/videos/`.
+4. Run `npm run build` to validate against `src/content/schema.ts` and generate `dist/<slug>/`.
+
+### Reusable Architecture & CI/CD
+
+- **Portfolio Hub:** `src/pages/index.astro` renders the root directory (`/`) linking to all live verticals and templates.
+- **Design System & Motion:** Shared tokens live in `src/styles/studio-tokens.css`, layout & theme primitives in `src/styles/studio-system.css`, and zero-reflow scroll/tab interactions in `src/scripts/studio-motion.ts`.
+- **Modular Components:** Reusable Astro sections live in `src/components/` (`StudioHeader`, `StudioHero`, `KineticMarquee`, `ConceptBridge`, `TriggerAndMetrics`, `FirstResponseStudio`, `UseCasesGrid`, `InteractiveJourney`, `ComparisonSection`, `StoryLibrary`, `ProcessStack`, `FaqSection`, `ClosingCta`, `StudioFooter`, `FloatingChrome`).
+- **GitHub Actions:** `.github/workflows/deploy.yml` separates `build` and `deploy` jobs with route verification and `cancel-in-progress: false` to prevent Pages artifact races. `.github/workflows/validate-pr.yml` validates JSON configs, schema builds, and the page scaffolder on every PR to `main`.
 
 ## Optional campaign integrations
 

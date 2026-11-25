@@ -1,0 +1,31 @@
+---
+import type { LandingPage } from '../content/schema';
+import KineticButton from './KineticButton.astro';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const kicker =
+  page.presentation?.layout === 'account-showcase'
+    ? (page.ui?.mlCtaKicker ?? `DHEE STUDIO × ${page.segment.toUpperCase()}`)
+    : `DHEE / INDUSTRY STORIES — ${page.hero.edition ?? '001'}`;
+---
+<section class="band-dark closing-cta" id="contact" data-section-tone="dark">
+  <div class="shell closing-inner" data-reveal>
+    <div class="studio-pill">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>{kicker}</span>
+    </div>
+    <h2>{page.cta.title}</h2>
+    <p>{page.cta.body}</p>
+    <div class="hero-cta-row">
+      <KineticButton href={page.cta.calendar.href} label={page.cta.calendar.label} analytics="calendar_click" />
+      <a class="btn-secondary" href={page.cta.email.href} data-analytics="email_click">
+        <span>{page.cta.email.label}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>

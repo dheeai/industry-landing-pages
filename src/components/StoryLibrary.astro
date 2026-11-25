@@ -1,0 +1,42 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+---
+<section class="band-dark" id="library" data-section-tone="dark">
+  <div class="shell">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.libraryEyebrow ?? 'Potential next stories'}</p>
+        <h2 class="section-title">{page.library.title}</h2>
+      </div>
+      <div>
+        <p class="section-lead">{page.library.body}</p>
+        <a class="link-arrow" style="margin-top: 14px;" href="#contact">
+          {page.ui?.libraryCta ?? 'Plan your first story'} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="library-grid" data-reveal>
+      {page.library.items.map((item) => (
+        <article class="library-card glass-specular" data-spotlight data-tilt>
+          <div class="library-thumb">
+            <img src={publicAsset(item.poster)} alt={item.alt} loading="lazy" />
+            <span class="library-thumb-badge">STORY / {item.number}</span>
+          </div>
+          <div class="library-copy">
+            <span class="library-kicker">{item.number} / {page.ui?.storyDirection ?? 'STORY DIRECTION'}</span>
+            <h3>{item.title}</h3>
+            <p>{item.detail}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

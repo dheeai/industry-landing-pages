@@ -1,0 +1,41 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+---
+<section class="band-light" id="comparison" data-section-tone="light">
+  <div class="shell">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.comparisonEyebrow ?? 'A bridge, not a replacement'}</p>
+        <h2 class="section-title">{page.comparison.title}</h2>
+      </div>
+      <p class="section-lead">{page.comparison.body}</p>
+    </div>
+
+    <div class="comparison-grid" data-reveal>
+      <article class="comparison-card" data-tilt>
+        <div class="comparison-label"><span>01</span> {page.comparison.leftTitle}</div>
+        <ul class="comparison-list">
+          {page.comparison.leftItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+
+      <article class="comparison-card comparison-card-story glass-specular" data-spotlight data-tilt>
+        <div class="comparison-label"><span>02</span> {page.comparison.rightTitle}</div>
+        <ul class="comparison-list">
+          {page.comparison.rightItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+
+    <p class="comparison-note" data-reveal>
+      <span>{page.ui?.noteLabel ?? 'NOTE'} / 01</span>
+      {page.comparison.note}
+    </p>
+  </div>
+</section>

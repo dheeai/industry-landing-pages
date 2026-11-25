@@ -3,6 +3,61 @@
   "pageType": "A",
   "segment": "EU machinery manufacturers",
   "language": "en",
+  "theme": {
+    "accent": "#f59e0b",
+    "accentBright": "#fcd34d",
+    "accentDark": "#b45309",
+    "accentSecondary": "#38bdf8",
+    "accentRgb": "245, 158, 11",
+    "accentBrightRgb": "252, 211, 77",
+    "accentSecondaryRgb": "56, 189, 248",
+    "ember": "#ff5a2f"
+  },
+  "presentation": {
+    "layout": "standard",
+    "heroMedia": "video",
+    "practiceKicker": "INDUSTRIAL FILMS",
+    "practiceName": "EU MACHINERY"
+  },
+  "marqueeItems": [
+    "Follow-the-part explainers",
+    "EU Machinery Regulation 2023/1230",
+    "First-response buyer clarity",
+    "WhatsApp & proposal companions",
+    "Operator orientation",
+    "Reviewed technical claims",
+    "Managed DHEE production"
+  ],
+  "telemetry": [
+    {
+      "kicker": "BUYER RESEARCH",
+      "value": "62",
+      "unit": "%",
+      "countTo": 62,
+      "body": "of technical buying happens online before contacting sales (2026 engineer research).",
+      "dark": true
+    },
+    {
+      "kicker": "REGULATION MILESTONE",
+      "value": "2027",
+      "unit": "EU 2023/1230",
+      "body": "Digital instructions permitted from 20 Jan 2027 when statutory requirements are met."
+    },
+    {
+      "kicker": "SAMPLE RUNTIME",
+      "value": "47",
+      "unit": "sec",
+      "countTo": 47,
+      "body": "One clear narrated pass from incoming workpiece to finished precision part."
+    },
+    {
+      "kicker": "STUDIO WORKFLOW",
+      "value": "7",
+      "unit": "steps",
+      "countTo": 7,
+      "body": "Managed production from audience brief to reviewed claims, captions, and final QA."
+    }
+  ],
   "seo": {
     "title": "Make complex machinery easier to understand | DHEE",
     "description": "Show buyers, operators and service teams how your machinery works with clear, product-specific video experiences from DHEE."

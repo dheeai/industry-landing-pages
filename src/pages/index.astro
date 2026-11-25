@@ -1,0 +1,189 @@
+---
+import '../styles/studio-tokens.css';
+import '../styles/studio-system.css';
+import KineticButton from '../components/KineticButton.astro';
+import type { LandingPage } from '../content/schema';
+
+const pageModules = import.meta.glob('../content/pages/*.json', { eager: true, import: 'default' });
+const allPages = Object.values(pageModules) as LandingPage[];
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+const routeUrl = (slug: string) => `${import.meta.env.BASE_URL}${slug}/`;
+
+const featuredPages = [
+  {
+    slug: 'machinery',
+    badge: 'TYPE A · INDUSTRIAL MACHINERY',
+    accent: '#f59e0b',
+    title: 'European Machinery Manufacturers',
+    description: 'Follow-the-part workflow films, EU Machinery Regulation 2023/1230 context, and interactive buyer first-response stories.',
+    href: routeUrl('machinery')
+  },
+  {
+    slug: 'robotics',
+    badge: 'TYPE D · ROBOTICS & PHYSICAL AI',
+    accent: '#38bdf8',
+    title: 'Robotics & Physical-AI Teams',
+    description: 'Demo-before-hardware task narratives that make intended robot workflows concrete without overclaiming simulation.',
+    href: routeUrl('robotics')
+  },
+  {
+    slug: 'pharma',
+    badge: 'STANDALONE · PHARMA & LIFE SCIENCES',
+    accent: '#2dd4bf',
+    title: 'Pharma & Life Sciences',
+    description: 'Interactive 3D MOA studio, storyboard architecture, and MLR-aware scientific storytelling built for Medical Affairs & Biotech.',
+    href: routeUrl('pharma')
+  },
+  {
+    slug: 'ml-7f4q9c2',
+    badge: 'TYPE B · ACCOUNT SHOWCASE · 5 LOCALES',
+    accent: '#2dd4bf',
+    title: 'Multiply Labs · Robotic Biomanufacturing',
+    description: 'Tailored account film, localized DE/FR/IT/NL editions, and multi-stakeholder platform exploration.',
+    href: routeUrl('ml-7f4q9c2')
+  }
+];
+
+const templatePages = allPages.filter((p) => p.slug.endsWith('-template'));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="DHEE Studio reusable industry landing-page system for machinery, robotics, pharma, and bespoke product stories." />
+    <meta name="theme-color" content="#030508" />
+    <title>Industry Landing Pages | DHEE Studio</title>
+    <link rel="icon" type="image/png" href={publicAsset('/images/dhee-mark-black.png')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header" data-site-header data-header-tone="dark">
+      <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+      <div class="header-bar">
+        <a class="brand" href="https://dhee.studio/" target="_blank" rel="noreferrer" aria-label="DHEE Studio home">
+          <span class="brand-mark-wrap" aria-hidden="true">
+            <img class="brand-mark mark-light" src={publicAsset('/images/dhee-mark-white.png')} alt="" />
+            <img class="brand-mark mark-dark" src={publicAsset('/images/dhee-mark-black.png')} alt="" />
+          </span>
+          <span class="brand-word">DHEE<span class="brand-dot" aria-hidden="true"></span></span>
+        </a>
+        <div class="header-practice">
+          <span class="practice-kicker"><span class="rec-dot" aria-hidden="true"></span>PORTFOLIO HUB</span>
+          <span class="practice-name">INDUSTRY LANDING PAGES</span>
+        </div>
+        <nav class="desktop-nav" aria-label="Industry routes">
+          <a href={routeUrl('machinery')}>Machinery</a>
+          <a href={routeUrl('robotics')}>Robotics</a>
+          <a href={routeUrl('pharma')}>Pharma</a>
+          <a href={routeUrl('ml-7f4q9c2')}>Multiply Labs</a>
+        </nav>
+        <KineticButton href="https://dhee.studio/" label="Visit DHEE Studio" variant="header" />
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top" data-section-tone="dark" data-hero-stage style="padding-bottom: 84px;">
+        <div class="hero-backdrop" aria-hidden="true">
+          <div class="hero-zenith"></div>
+          <div class="hero-aurora aurora-a"></div>
+          <div class="hero-aurora aurora-b"></div>
+          <div class="hero-grid-plane"></div>
+          <div class="hero-grid-lit"></div>
+          <div class="hero-beams">
+            <span class="beam-rail rail-1"><i class="beam-pulse"></i></span>
+            <span class="beam-rail rail-2"><i class="beam-pulse"></i></span>
+            <span class="beam-rail rail-3"><i class="beam-pulse"></i></span>
+            <span class="beam-rail rail-4"><i class="beam-pulse"></i></span>
+          </div>
+          <div class="hero-bottom-fade"></div>
+        </div>
+
+        <div class="shell hero-stack">
+          <div class="hero-editorial">
+            <div class="studio-pill hero-in" style="--d:0">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>DHEE STUDIO · CONFIG-DRIVEN PAGE FACTORY</span>
+              <span class="pill-divider" aria-hidden="true"></span>
+              <span class="pill-accent">{featuredPages.length} LIVE VERTICALS</span>
+            </div>
+            <h1 class="hero-in" style="--d:1">
+              One studio system.<br />
+              <em>Every complex industry.</em>
+            </h1>
+            <p class="hero-sub hero-in" style="--d:2">
+              Every vertical below runs on DHEE’s reusable landing-page engine: per-industry color tokens, interactive buyer response studios, storyboard walkthroughs, and zero-reflow motion.
+            </p>
+          </div>
+
+          <div class="deliverables-grid" style="grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));">
+            {featuredPages.map((item) => (
+              <a
+                href={item.href}
+                class="deliverable-card glass-specular"
+                style={`text-decoration:none; border-top: 2px solid ${item.accent};`}
+                data-spotlight
+                data-tilt
+              >
+                <span class="deliverable-label" style={`color:${item.accent};`}>{item.badge}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <span class="link-arrow" style={`color:${item.accent}; align-self:flex-start;`}>
+                  Open live page <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {templatePages.length > 0 && (
+        <section class="band-light" data-section-tone="light">
+          <div class="shell">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-dot"></span>REUSABLE STARTING TEMPLATES</p>
+                <h2 class="section-title">Scaffold a new page <em>in one command.</em></h2>
+              </div>
+              <p class="section-lead">
+                Run <code>npm run new-page -- my-industry --type A</code> to generate a validated JSON config with per-industry theme tokens, ready to customize and deploy.
+              </p>
+            </div>
+            <div class="usecase-grid">
+              {templatePages.map((tpl) => (
+                <a class="usecase-card" href={routeUrl(tpl.slug)} data-tilt>
+                  <div class="usecase-top">
+                    <span class="usecase-num">TYPE {tpl.pageType}</span>
+                    <span class="usecase-tag">{tpl.slug}</span>
+                  </div>
+                  <h3>{tpl.segment}</h3>
+                  <p>{tpl.seo.description}</p>
+                  <span class="usecase-arrow" aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </main>
+
+    <footer class="site-footer" data-section-tone="dark">
+      <div class="shell">
+        <div class="footer-bottom" style="padding-top: 0;">
+          <span>© {new Date().getFullYear()} DHEE Studio</span>
+          <span>Reusable Industry Landing Pages Factory</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { initStudioMotion } from '../scripts/studio-motion';
+      initStudioMotion();
+    </script>
+  </body>
+</html>

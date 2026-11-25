@@ -3,6 +3,61 @@
   "pageType": "D",
   "segment": "Robotics and physical-AI teams",
   "language": "en",
+  "theme": {
+    "accent": "#38bdf8",
+    "accentBright": "#7dd3fc",
+    "accentDark": "#0369a1",
+    "accentSecondary": "#818cf8",
+    "accentRgb": "56, 189, 248",
+    "accentBrightRgb": "125, 211, 252",
+    "accentSecondaryRgb": "129, 140, 248",
+    "ember": "#ff5a2f"
+  },
+  "presentation": {
+    "layout": "standard",
+    "heroMedia": "video",
+    "practiceKicker": "PHYSICAL AI FILMS",
+    "practiceName": "ROBOTICS & AUTOMATION"
+  },
+  "marqueeItems": [
+    "Demo before hardware",
+    "Bounded task sequences",
+    "Warehouse & work-cell stories",
+    "Stakeholder alignment",
+    "Validation-ready visuals",
+    "Zero overclaimed simulation",
+    "Managed DHEE production"
+  ],
+  "telemetry": [
+    {
+      "kicker": "STORY FOCUS",
+      "value": "1",
+      "unit": "bounded task",
+      "countTo": 1,
+      "body": "Anchor each concept film to one specific job, setting, and next engineering check.",
+      "dark": true
+    },
+    {
+      "kicker": "CONCEPT RUNTIME",
+      "value": "30",
+      "unit": "sec",
+      "countTo": 30,
+      "body": "Concise narrated mobile-robot sequence designed for fast executive & ops review."
+    },
+    {
+      "kicker": "HONEST BOUNDARY",
+      "value": "0",
+      "unit": "fake claims",
+      "body": "Clearly labeled illustrative concepts—never pitched as validated simulation or safety proof."
+    },
+    {
+      "kicker": "PRODUCTION PATH",
+      "value": "7",
+      "unit": "checkpoints",
+      "countTo": 7,
+      "body": "Separates verified product specs from assumptions before final engineering QA."
+    }
+  ],
   "seo": {
     "title": "Show the robot’s job before hardware | DHEE",
     "description": "Help buyers and stakeholders understand a robotics use case with a clear, illustrative product story before a hardware decision."

@@ -1,0 +1,51 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+---
+<section class="band-light" id="bridge" data-section-tone="light">
+  <div class="shell">
+    {page.telemetry && page.telemetry.length > 0 && (
+      <div class="telemetry-bento" data-reveal>
+        {page.telemetry.map((item) => (
+          <article class:list={['tb-card', item.dark && 'tb-card-dark']} data-tilt>
+            <span class="tb-kicker">{item.kicker}</span>
+            <strong class="tb-val">
+              {item.countTo !== undefined ? (
+                <span data-count-to={item.countTo}>{item.value}</span>
+              ) : (
+                item.value
+              )}
+              {item.unit && <em> {item.unit}</em>}
+            </strong>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    )}
+
+    <div class="concept-grid" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>{page.concept.eyebrow}</p>
+        <h2 class="concept-statement" data-scroll-scrub>{page.concept.title}</h2>
+        <p class="section-lead">{page.concept.body}</p>
+      </div>
+
+      <div class="concept-steps" aria-label={page.ui?.bridgeLabel ?? 'How a product story helps'}>
+        {page.concept.steps.map((step, i) => (
+          <div class="concept-step-card" data-tilt>
+            <div>
+              <span class="concept-step-num">0{i + 1} / STAGE</span>
+              <div class="concept-step-label">{step}</div>
+            </div>
+            <span class="concept-step-arrow" aria-hidden="true">→</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

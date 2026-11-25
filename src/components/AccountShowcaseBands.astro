@@ -1,0 +1,144 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+  configuredVideoUrl?: string;
+}
+
+const { page, configuredVideoUrl } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+const showFilmSection = Boolean(page.presentation?.showFilmSection && configuredVideoUrl);
+const showDeliverables = Boolean(page.presentation?.showDeliverables && page.ui?.mlOfferTitle);
+---
+{showFilmSection && configuredVideoUrl && (
+  <section class="band-dark" id="sample" data-section-tone="dark" aria-labelledby="film-section-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.filmEyebrow ?? 'PRODUCT FILM'}</p>
+          <h2 class="section-title" id="film-section-title">{page.ui?.filmTitle ?? page.video.title}</h2>
+        </div>
+        <div>
+          <p class="section-lead">{page.ui?.filmBody ?? page.video.description}</p>
+          {page.ui?.filmNext && (
+            <a class="link-arrow" style="margin-top: 14px;" href="#journey">
+              {page.ui.filmNext} <span aria-hidden="true">↓</span>
+            </a>
+          )}
+        </div>
+      </div>
+
+      <figure class="cinema-stage glass-specular" data-reveal>
+        <div class="stage-topbar">
+          <span class="stage-topbar-left">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>{page.video.label}</span>
+          </span>
+          <span class="stage-badge">{page.video.duration} · VOICEOVER</span>
+        </div>
+        <div class="stage-media-wrap">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster={publicAsset(page.video.poster)}
+            aria-label={page.video.title}
+            data-scroll-autoplay={page.video.autoplayOnScroll ? 'true' : undefined}
+            data-analytics-video
+          >
+            <source src={publicAsset(configuredVideoUrl)} type="video/mp4" />
+            {page.video.captionsUrl && (
+              <track
+                kind="captions"
+                src={publicAsset(page.video.captionsUrl)}
+                srclang={page.language}
+                label={`${page.language.toUpperCase()} captions`}
+                default
+              />
+            )}
+            Your browser does not support embedded video.
+          </video>
+        </div>
+        <figcaption class="stage-footer">
+          <div class="stage-footer-meta">
+            <strong>{page.video.title}</strong>
+            <span>{page.video.description}</span>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+)}
+
+{showDeliverables && (
+  <section class="band-dark" id="deliverables" data-section-tone="dark" aria-labelledby="deliverables-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.mlOfferEyebrow}</p>
+          <h2 class="section-title" id="deliverables-title">{page.ui?.mlOfferTitle}</h2>
+        </div>
+        <p class="section-lead">{page.ui?.mlOfferIntro}</p>
+      </div>
+      <div class="deliverables-grid" data-reveal>
+        <article class="deliverable-card" data-spotlight data-tilt>
+          <span class="deliverable-label">{page.ui?.offerFilmLabel}</span>
+          <h3>{page.ui?.offerFilmTitle}</h3>
+          <p>{page.ui?.offerFilmBody}</p>
+          <a class="link-arrow" href="#sample">{page.ui?.offerFilmLink} <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="deliverable-card is-featured glass-specular" data-spotlight data-tilt>
+          <span class="deliverable-label">{page.ui?.offerPageLabel}</span>
+          <h3>{page.ui?.offerPageTitle}</h3>
+          <p>{page.ui?.offerPageBody}</p>
+          <a class="link-arrow" href="#first-response">{page.ui?.offerPageLink} <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="deliverable-card" data-spotlight data-tilt>
+          <span class="deliverable-label">{page.ui?.offerKitLabel}</span>
+          <h3>{page.ui?.offerKitTitle}</h3>
+          <p>{page.ui?.offerKitBody}</p>
+          <a class="link-arrow" href="#contact">{page.ui?.offerKitLink} <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+)}
+
+{page.studio && (
+  <section class="band-light" id="dhee" data-section-tone="light" aria-labelledby="studio-pipeline-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>{page.studio.eyebrow}</p>
+          <h2 class="section-title" id="studio-pipeline-title">{page.studio.title}</h2>
+        </div>
+        <p class="section-lead">{page.studio.body}</p>
+      </div>
+
+      <div class="usecase-grid" data-reveal>
+        {page.studio.steps.map((step) => (
+          <article class="usecase-card" data-tilt>
+            <div class="usecase-top">
+              <span class="usecase-num">STAGE {step.number}</span>
+              <span class="usecase-tag">MANAGED STUDIO</span>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="studio-rails" data-reveal>
+        <div class="studio-rail-card">
+          <span>{page.studio.inputsLabel}</span>
+          <p>{page.studio.inputs}</p>
+        </div>
+        <div class="studio-rail-card">
+          <span>{page.studio.outputsLabel}</span>
+          <p>{page.studio.outputs}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}

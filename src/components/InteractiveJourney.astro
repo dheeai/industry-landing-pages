@@ -1,0 +1,80 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+const firstStep = page.journey.steps[0];
+---
+<section class="band-dark journey-section" id="journey" data-section-tone="dark" data-story-step="0">
+  <div class="shell journey-layout">
+    <div data-reveal>
+      <p class="eyebrow"><span class="eyebrow-dot"></span>{page.journey.eyebrow}</p>
+      <h2 class="section-title">
+        {page.journey.title}<br />
+        <em>{page.journey.emphasis}</em>
+      </h2>
+      <p class="section-lead">{page.journey.body}</p>
+
+      <div class="journey-controls" role="tablist" aria-label={page.journey.navigationLabel ?? 'Follow the visual story'}>
+        {page.journey.steps.map((step, i) => (
+          <button
+            id={`story-tab-${i}`}
+            class:list={['journey-tab', i === 0 && 'is-active']}
+            type="button"
+            role="tab"
+            aria-controls="story-preview"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            data-story-tab={i}
+            data-story-title={step.title}
+            data-story-copy={step.copy}
+          >
+            <span class="journey-tab-left">
+              <span class="journey-tab-num">0{i + 1}</span>
+              <strong>{step.tab}</strong>
+            </span>
+            <span class="journey-tab-zone">{step.zone}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div
+      class="journey-viewport glass-specular"
+      id="story-preview"
+      role="tabpanel"
+      aria-labelledby="story-tab-0"
+      aria-live="polite"
+      data-reveal
+    >
+      <div class="journey-topline">
+        <span>{page.journey.storyLabel ?? 'ONE WORKPIECE / THREE CLEAR MOMENTS'}</span>
+        <span class="journey-counter">01 / 0{page.journey.steps.length}</span>
+      </div>
+
+      <div class="journey-stage">
+        {page.journey.steps.map((step, i) => (
+          <figure class:list={['journey-scene', i === 0 && 'is-active']} data-story-image={i} aria-hidden={i === 0 ? 'false' : 'true'}>
+            <img src={publicAsset(step.image)} alt={step.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
+            <figcaption>
+              <span>0{i + 1} / {step.zone}</span>
+              <b>{step.tab}</b>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="journey-caption">
+        <span class="journey-caption-index">01</span>
+        <div>
+          <h3 data-story-title-view>{firstStep?.title}</h3>
+          <p data-story-copy-view>{firstStep?.copy}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+  railItems: Array<{ id: string; label: string }>;
+}
+
+const { page, railItems } = Astro.props;
+const nav = page.navigation ?? { response: 'First response', applications: 'Applications', journey: 'How it works', sample: 'Sample' };
+---
+<aside class="section-rail" aria-label="Page sections">
+  {railItems.map((item, i) => (
+    <a class:list={['rail-node-link', i === 0 && 'is-active']} href={`#${item.id}`} data-rail-target={item.id} aria-label={item.label}>
+      <i></i>
+      <span>{item.label}</span>
+    </a>
+  ))}
+</aside>
+
+<nav class="floating-dock" data-floating-dock aria-label="Quick actions">
+  <a class="fd-link" href="#sample">{nav.sample}</a>
+  <a class="fd-link" href="#first-response">{nav.response}</a>
+  <a class="fd-link" href="#journey">{nav.journey}</a>
+  <a class="fd-cta" href="#contact">{page.ui?.headerCta ?? 'Talk to DHEE'} ↗</a>
+</nav>

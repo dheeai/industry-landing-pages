@@ -1,8 +1,30 @@
 ---
 import LandingPage from '../layouts/LandingPage.astro';
-import '../styles/multiply-labs.css';
+import StudioHero from '../components/StudioHero.astro';
+import KineticMarquee from '../components/KineticMarquee.astro';
+import ConceptBridge from '../components/ConceptBridge.astro';
+import AccountShowcaseBands from '../components/AccountShowcaseBands.astro';
+import TriggerAndMetrics from '../components/TriggerAndMetrics.astro';
+import FirstResponseStudio from '../components/FirstResponseStudio.astro';
+import UseCasesGrid from '../components/UseCasesGrid.astro';
+import InteractiveJourney from '../components/InteractiveJourney.astro';
+import ComparisonSection from '../components/ComparisonSection.astro';
+import StoryLibrary from '../components/StoryLibrary.astro';
+import ProcessStack from '../components/ProcessStack.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ClosingCta from '../components/ClosingCta.astro';
 import type { LandingPage as PageData } from '../content/schema';
 import { validateLandingPage } from '../content/schema';
+
+type LocaleFile = {
+  language: string;
+  label: string;
+  slug: string;
+  captionsUrl?: string;
+  translations: Record<string, string>;
+  reviewStatus: 'draft-machine-translation' | 'human-reviewed';
+};
+
 export function getStaticPaths() {
   function translateConfig(value: unknown, dictionary: Record<string, string>): unknown {
     if (typeof value === 'string') return dictionary[value] ?? value;
@@ -12,21 +34,39 @@ export function getStaticPaths() {
     }
     return value;
   }
+
   const pageModules = import.meta.glob('../content/pages/*.json', { eager: true, import: 'default' });
-  const localeModules = import.meta.glob('../content/locales/ml-7f4q9c2.*.json', { eager: true, import: 'default' });
+  const localeModules = import.meta.glob('../content/locales/*.json', { eager: true, import: 'default' });
+
+  const localesByBaseSlug = new Map<string, LocaleFile[]>();
+  for (const [filePath, rawLocale] of Object.entries(localeModules)) {
+    const filename = filePath.split('/').pop() ?? '';
+    const match = filename.match(/^([a-z0-9-]+)\.[a-z]{2}\.json$/);
+    if (!match) continue;
+    const baseSlug = match[1];
+    const list = localesByBaseSlug.get(baseSlug) ?? [];
+    list.push(rawLocale as LocaleFile);
+    localesByBaseSlug.set(baseSlug, list);
+  }
+
   const basePages = Object.values(pageModules) as PageData[];
-  const localeConfigs = Object.values(localeModules) as Array<{ language: string; label: string; slug: string; captionsUrl?: string; translations: Record<string, string>; reviewStatus: 'draft-machine-translation' }>;
   const pages: PageData[] = [];
+
   for (const basePage of basePages) {
-    if (basePage.slug !== 'ml-7f4q9c2') {
+    const localeConfigs = localesByBaseSlug.get(basePage.slug);
+    if (!localeConfigs || localeConfigs.length === 0) {
       pages.push(basePage);
       continue;
     }
+
+    localeConfigs.sort((a, b) => a.language.localeCompare(b.language));
     const variants = [
-      { language: 'en', label: 'EN', slug: basePage.slug },
+      { language: basePage.language, label: basePage.language.toUpperCase(), slug: basePage.slug },
       ...localeConfigs.map(({ language, label, slug }) => ({ language, label, slug }))
     ];
+
     pages.push({ ...basePage, languageVariants: variants, languageLabel: 'Language' });
+
     for (const locale of localeConfigs) {
       const translated = translateConfig(basePage, locale.translations) as PageData;
       translated.slug = locale.slug;
@@ -38,332 +78,38 @@ export function getStaticPaths() {
       pages.push(translated);
     }
   }
+
   for (const page of pages) validateLandingPage(page);
   return pages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
 }
+
 const { page } = Astro.props as { page: PageData };
-const ext = (href: string) => href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {};
-const publicAsset = (path: string) => path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
-const configuredVideoUrl = page.slug.startsWith('ml-7f4q9c2')
-  ? import.meta.env.PUBLIC_MULTIPLY_LABS_VIDEO_URL || page.video.videoUrl
-  : page.video.videoUrl;
-const showFilm = Boolean(configuredVideoUrl);
-const isMultiplyLabsPage = page.slug.startsWith('ml-7f4q9c2');
-const showHeroFilm = showFilm && !isMultiplyLabsPage;
+
+const envVideoOverride =
+  page.presentation?.videoEnvOverride === 'PUBLIC_MULTIPLY_LABS_VIDEO_URL'
+    ? import.meta.env.PUBLIC_MULTIPLY_LABS_VIDEO_URL
+    : undefined;
+const configuredVideoUrl = envVideoOverride || page.video.videoUrl;
+
+const marqueeItems = page.marqueeItems ?? [
+  ...page.concept.steps,
+  ...page.useCases.map((u) => u.tag),
+  'Reviewed claims & captions',
+  'Managed studio production'
+];
 ---
 <LandingPage page={page}>
-  <section class:list={['hero', isMultiplyLabsPage && 'ml-hero']}>
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="eyebrow-dot"></span>{page.hero.eyebrow}<span class="hero-edition">{isMultiplyLabsPage ? (page.ui?.privateConceptLabel ?? 'A PRIVATE PRODUCT-STORY CONCEPT') : `DHEE / INDUSTRY STORIES ${page.hero.edition ?? '001'}`}</span></p>
-      <h1>{page.hero.title}<br /><em>{page.hero.emphasis}</em></h1>
-      <p class="hero-body">{page.hero.body}</p>
-      <div class="hero-actions">
-        <a class="button button-dark" href={page.hero.primary.href} data-analytics="calendar_click" {...ext(page.hero.primary.href)}>{page.hero.primary.label}<span aria-hidden="true">↗</span></a>
-        <a class="text-link" href={page.hero.secondary.href} data-analytics="sample_video_click" data-start-film={isMultiplyLabsPage ? true : undefined}>{page.hero.secondary.label}<span aria-hidden="true">→</span></a>
-      </div>
-      <div class="hero-note"><span class="note-icon">✳</span><span>{page.hero.note ?? 'One clear story.'}<br /><strong>{page.hero.noteEmphasis ?? 'More confident decisions.'}</strong></span></div>
-      {isMultiplyLabsPage && page.research.items?.length ? <div class="ml-hero-specs" aria-label="Multiply Labs published product specifications">
-        {page.research.items.map((item) => <div class="ml-hero-spec"><strong>{item.value}</strong><span>{item.label}</span></div>)}
-        <a class="ml-spec-source" href={page.research.source.href} target="_blank" rel="noreferrer">{page.research.source.label}<span aria-hidden="true">↗</span></a>
-      </div> : <div class="hero-research"><strong>{page.research.value}</strong><span>{page.research.body}<a href={page.research.source.href} target="_blank" rel="noreferrer">{page.research.source.label} ↗</a></span></div>}
-    </div>
-      <div class:list={['hero-art', showHeroFilm && 'hero-art-film']} id={!isMultiplyLabsPage ? 'sample' : undefined} aria-label={page.hero.imageAlt ?? 'Illustration of a product and its workflow'}>
-      {isMultiplyLabsPage ? <>
-        <img src={publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg')} alt={page.hero.imageAlt ?? 'Multiply Labs robotic cluster'} fetchpriority="high" />
-        <div class="ml-hero-caption"><span>{page.ui?.heroImageLabel}</span><span>{page.ui?.heroImageSource}</span></div>
-      </> : configuredVideoUrl ? <>
-        <video
-          class="hero-film"
-          controls
-          playsinline
-          preload="auto"
-          poster={publicAsset(page.video.poster)}
-          aria-label={page.video.title}
-          data-scroll-autoplay
-          data-analytics-video
-        >
-          <source src={publicAsset(configuredVideoUrl)} type="video/mp4" />
-          {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
-          Your browser does not support embedded video.
-        </video>
-        <span class="hero-film-label">{page.video.label}</span>
-      </> : <>
-      <div class="art-grid" aria-hidden="true"></div>
-        <div class="art-label art-label-top"><span>{page.hero.artTopLabel ?? 'FIELD NOTE / 01'}</span><span>{page.ui?.productStoryLabel ?? 'PRODUCT STORY'}</span></div>
-        <img src={publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg')} alt={page.hero.imageAlt ?? 'Fictional modular production machine in a bright workshop'} fetchpriority="high" />
-      <div class="art-orbit art-orbit-one" aria-hidden="true"></div><div class="art-orbit art-orbit-two" aria-hidden="true"></div>
-        <div class="art-callout art-callout-in"><span>01 / INPUT</span><strong>{page.hero.artInput ?? 'One part enters'}</strong></div>
-        <div class="art-callout art-callout-out"><span>03 / OUTPUT</span><strong>{page.hero.artOutput ?? 'Clear result'}</strong></div>
-        <div class="art-stamp"><span>{page.hero.artStampTop ?? 'BUILT FOR'}</span><strong>{page.hero.artStamp ?? <>REAL<br />WORK</>}</strong><span>{page.hero.artStampLabel ?? 'MACHINERY / 01'}</span></div>
-      <div class="art-caption"><span class="pulse"></span>{page.ui?.artCaption ?? 'MAKE THE COMPLEX, CLEAR'}</div>
-      </>}
-    </div>
-  </section>
-
-  {isMultiplyLabsPage && <section class="ml-film-section" id="sample" aria-labelledby="ml-film-title">
-    <div class="wrap ml-film-layout">
-      <div class="ml-film-copy"><p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.filmEyebrow}</p><h2 id="ml-film-title">{page.ui?.filmTitle}</h2><p>{page.ui?.filmBody}</p><a href="#journey" class="ml-film-next">{page.ui?.filmNext} <span aria-hidden="true">↓</span></a></div>
-      <figure class="ml-film-player">
-        <video
-          controls
-          playsinline
-          preload="auto"
-          poster={publicAsset(page.video.poster)}
-          aria-label={page.video.title}
-          data-scroll-autoplay
-          data-analytics-video
-        >
-          <source src={publicAsset(configuredVideoUrl)} type="video/mp4" />
-          {page.video.captionsUrl && <track kind="captions" src={publicAsset(page.video.captionsUrl)} srclang={page.language} label={`${page.language.toUpperCase()} captions`} default />}
-          Your browser does not support embedded video.
-        </video>
-        <figcaption><span>{page.video.label}</span><span>{page.video.duration} · ENGLISH VOICEOVER</span></figcaption>
-      </figure>
-    </div>
-  </section>}
-
-  <section class="principle-band" aria-label={page.ui?.bridgeLabel ?? 'How a product story helps'}>
-    <div class="wrap principle-top"><span>{page.ui?.bridgeLabel ?? 'DHEE / THE BRIDGE'}</span><span>{page.concept.steps.map((step, i) => <>{i > 0 && <i>→</i>}{step.toUpperCase()}</>)}</span></div>
-    <div class="wrap principle-copy"><p>{page.concept.eyebrow}</p><h2>{page.concept.title}</h2><p class="principle-body">{page.concept.body}</p><span class="principle-orbit" aria-hidden="true">↗</span></div>
-    <div class="wrap principle-bottom"><span>01 / {page.concept.steps[0]?.toUpperCase()}</span><span>02 / {page.concept.steps[1]?.toUpperCase()}</span><span>03 / {page.concept.steps[2]?.toUpperCase()}</span></div>
-  </section>
-
-  {isMultiplyLabsPage && <section class="ml-deliverables" id="deliverables" aria-labelledby="ml-deliverables-title">
-    <div class="wrap ml-deliverables-head">
-      <div><p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.mlOfferEyebrow}</p><h2 id="ml-deliverables-title">{page.ui?.mlOfferTitle}</h2></div>
-      <p>{page.ui?.mlOfferIntro}</p>
-    </div>
-    <div class="wrap ml-deliverables-grid">
-      <article><span>{page.ui?.offerFilmLabel}</span><h3>{page.ui?.offerFilmTitle}</h3><p>{page.ui?.offerFilmBody}</p><a href="#sample">{page.ui?.offerFilmLink} <b aria-hidden="true">↗</b></a></article>
-      <article class="ml-offer-featured"><span>{page.ui?.offerPageLabel}</span><h3>{page.ui?.offerPageTitle}</h3><p>{page.ui?.offerPageBody}</p><a href="#first-response">{page.ui?.offerPageLink} <b aria-hidden="true">↗</b></a></article>
-      <article><span>{page.ui?.offerKitLabel}</span><h3>{page.ui?.offerKitTitle}</h3><p>{page.ui?.offerKitBody}</p><a href="#contact">{page.ui?.offerKitLink} <b aria-hidden="true">↗</b></a></article>
-    </div>
-  </section>}
-
-  {isMultiplyLabsPage && page.studio && <section class="ml-studio" id="dhee" aria-labelledby="ml-studio-title">
-    <div class="wrap">
-      <div class="ml-studio-intro"><p class="eyebrow"><span class="eyebrow-dot"></span>{page.studio.eyebrow}</p><h2 id="ml-studio-title">{page.studio.title}</h2><p>{page.studio.body}</p></div>
-      <div class="ml-studio-pipeline">
-        {page.studio.steps.map((step) => <article><span class="ml-studio-number">{step.number}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></article>)}
-      </div>
-      <div class="ml-studio-rails">
-        <div><span>{page.studio.inputsLabel}</span><p>{page.studio.inputs}</p></div>
-        <div><span>{page.studio.outputsLabel}</span><p>{page.studio.outputs}</p></div>
-      </div>
-    </div>
-  </section>}
-
-  {page.trigger && <section class="trigger-band" id="why"><div class="wrap trigger-grid">
-    <div class="trigger-date"><span class="eyebrow">{page.trigger.eyebrow}</span><strong>{page.trigger.dateStamp}</strong><span class="trigger-year">{page.trigger.dateLabel}</span></div>
-    <div class="trigger-copy"><h2>{page.trigger.title}</h2><p>{page.trigger.body}</p><a class="light-link" href={page.trigger.source.href} {...ext(page.trigger.source.href)}>{page.trigger.source.label}<span aria-hidden="true">↗</span></a></div>
-  </div></section>}
-
-  {page.metrics && <section class="metrics-band"><div class="wrap metrics-layout">
-    <div class="metrics-intro"><p class="eyebrow">{page.metrics.eyebrow}</p><h2>{page.metrics.title}</h2><p>{page.metrics.body}</p><a href={page.metrics.source.href} {...ext(page.metrics.source.href)}>{page.metrics.source.label}<span aria-hidden="true"> ↗</span></a></div>
-    <div class="metrics-grid">{page.metrics.items.map((item) => <article class="metric-card"><strong>{item.value}</strong><span>{item.label}</span></article>)}</div>
-  </div></section>}
-
-  <section class="reply-section" id="first-response" data-reply-step="0">
-    <div class="wrap reply-layout">
-      <div class="reply-intro">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>{page.response.eyebrow}</p>
-        <h2>{page.response.title}</h2>
-        <p>{page.response.body}</p>
-        <div class="reply-options" role="tablist" aria-label={page.ui?.sampleQuestionLabel ?? 'Choose a sample buyer question'}>
-          {page.response.tabs.map((item, i) => <button id={`buyer-tab-${i}`} class:list={['reply-tab', i === 0 && 'is-active']} type="button" role="tab" aria-controls="buyer-preview" aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-reply-tab={i} data-reply-question={item.question} data-reply-answer={item.answer} data-reply-asset={item.asset}><span>0{i + 1}</span> {item.label}</button>)}
-        </div>
-      </div>
-      <div class="reply-demo" id="buyer-preview" role="tabpanel" aria-labelledby="buyer-tab-0" aria-live="polite">
-        <div class="reply-window-top"><span><i></i> {page.ui?.conversation ?? 'EXAMPLE CONVERSATION'}</span><span>{page.ui?.conversationType ?? 'PRODUCT EDUCATION / 01'}</span></div>
-        <div class="reply-chat">
-          <div class="reply-before"><span>{page.response.beforeLabel}</span><p>“{page.response.beforeMessage}”</p><small>{page.response.beforeNote}</small></div>
-          <div class="reply-before-arrow">{page.ui?.instead ?? 'INSTEAD'} <span aria-hidden="true">↓</span></div>
-          <div class="chat-label">{page.ui?.prospect ?? 'PROSPECT'} <span>{page.ui?.exampleQuestion ?? 'EXAMPLE QUESTION'}</span></div>
-          <p class="chat-bubble chat-question" data-reply-question>{page.response.tabs[0]?.question}</p>
-          <div class="chat-label chat-label-company">{page.ui?.manufacturer ?? 'MANUFACTURER'} <span>{page.ui?.helpfulFirstResponse ?? 'HELPFUL FIRST RESPONSE'}</span></div>
-          <p class="chat-bubble chat-answer" data-reply-answer>{page.response.tabs[0]?.answer}</p>
-          <div class="reply-asset"><span class="reply-play" aria-hidden="true">▶</span><div><strong data-reply-asset>{page.response.tabs[0]?.asset}</strong><small>{page.response.assetLabel ?? 'PRODUCT EXPLAINER · SAMPLE IDEA'}</small></div><span class="reply-duration">{page.response.videoDuration ?? '00:45'}</span></div>
-        </div>
-        <div class="reply-foot"><span><b>01</b> {page.ui?.answerVisually ?? 'ANSWER THE QUESTION VISUALLY'}</span><span>02 <i>→</i> {page.ui?.continueWithExpert ?? 'CONTINUE WITH AN EXPERT'}</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class:list={['usecases', isMultiplyLabsPage && 'ml-usecases']} id="applications"><div class="wrap">
-    <div class="usecase-heading"><div><p class="eyebrow">{page.applications?.eyebrow ?? 'Where a clear story helps'}</p><h2>{page.applications?.title ?? 'Useful across'}<br /><em>{page.applications?.emphasis ?? 'the whole journey.'}</em></h2></div><p>{page.applications?.body ?? 'One machine can raise different questions at every stage. Give each moment its own focused explanation.'}</p></div>
-    <div class="usecase-list">{page.useCases.map((item, i) => <>
-      {isMultiplyLabsPage
-        ? <a class="usecase-row" href="#first-response" data-reply-link={Math.min(i, 2)} data-analytics="buyer_journey_click"><span class="usecase-number">{item.number}</span><div class="usecase-title"><span class="tag">{item.tag}</span><h3>{item.title}</h3></div><p>{item.body}</p><span class="row-arrow" aria-hidden="true">↗</span></a>
-        : <article class="usecase-row"><span class="usecase-number">{item.number}</span><div class="usecase-title"><span class="tag">{item.tag}</span><h3>{item.title}</h3></div><p>{item.body}</p><span class="row-arrow" aria-hidden="true">↗</span></article>}
-    </>)}</div>
-  </div></section>
-
-  <section class="journey-section" id="journey" data-story-step="0">
-      <div class="wrap journey-layout">
-      <div class="journey-intro"><p class="eyebrow"><span class="eyebrow-dot"></span>{page.journey.eyebrow}</p><h2>{page.journey.title}<br /><em>{page.journey.emphasis}</em></h2><p>{page.journey.body}</p><div class="journey-controls" role="tablist" aria-label={page.journey.navigationLabel ?? 'Follow the workpiece through the machine'}>
-        {page.journey.steps.map((step, i) => <button id={`story-tab-${i}`} class:list={['journey-tab', i === 0 && 'is-active']} type="button" role="tab" aria-controls="story-preview" aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-story-tab={i} data-story-title={step.title} data-story-copy={step.copy}><span>0{i + 1}</span> {step.tab}</button>)}
-      </div></div>
-      <div class="journey-visual" id="story-preview" role="tabpanel" aria-labelledby="story-tab-0" aria-live="polite">
-        <div class="journey-topline"><span>{page.journey.storyLabel ?? 'ONE WORKPIECE / THREE CLEAR MOMENTS'}</span><span class="journey-counter">01 / 03</span></div>
-        <div class="journey-stage">
-          {page.journey.steps.map((step, i) => <figure class:list={['journey-scene', i === 0 && 'is-active']} data-story-image={i} aria-hidden={i === 0 ? 'false' : 'true'}>
-            <img src={publicAsset(step.image)} alt={step.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
-            <figcaption><span>0{i + 1} / {step.zone}</span><b>{step.tab}</b></figcaption>
-          </figure>)}
-          <div class="journey-image-wash" aria-hidden="true"></div>
-          <div class="journey-route" aria-hidden="true"><span class="route-line"></span>{page.journey.steps.map((step, i) => <span class:list={['route-stop', i === 0 && 'is-active']} data-route-stop={i}><i></i><b>0{i + 1}</b></span>)}</div>
-        </div>
-        <div class="journey-caption"><span class="journey-caption-index">01</span><div><h3 data-story-title>{page.journey.steps[0]?.title}</h3><p data-story-copy>{page.journey.steps[0]?.copy}</p></div><span class="journey-next" aria-hidden="true">↗</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="comparison-section">
-    <div class="wrap comparison-layout">
-      <div class="comparison-intro"><p class="eyebrow">{page.ui?.comparisonEyebrow ?? 'A bridge, not a replacement'}</p><h2>{page.comparison.title}</h2><p>{page.comparison.body}</p></div>
-      <div class="comparison-cards">
-        <article class="comparison-card"><div class="comparison-label"><span>01</span>{page.comparison.leftTitle}</div><ul>{page.comparison.leftItems.map((item) => <li>{item}</li>)}</ul></article>
-        <div class="comparison-plus" aria-hidden="true">+</div>
-        <article class="comparison-card comparison-card-story"><div class="comparison-label"><span>02</span>{page.comparison.rightTitle}</div><ul>{page.comparison.rightItems.map((item) => <li>{item}</li>)}</ul></article>
-      </div>
-      <p class="comparison-note"><span>{page.ui?.noteLabel ?? 'NOTE'} / 01</span>{page.comparison.note}</p>
-    </div>
-  </section>
-
-  <section class="library-section" id="library"><div class="wrap library-layout"><div class="library-intro"><p class="eyebrow">{page.ui?.libraryEyebrow ?? 'Potential next stories'}</p><h2>{page.library.title}</h2><p>{page.library.body}</p><a class="text-link" href="#contact">{page.ui?.libraryCta ?? 'Plan your first story'} <span aria-hidden="true">→</span></a></div><div class="library-items">{page.library.items.map((item, i) => <article class:list={['library-card', `library-card-${i + 1}`]}><div class="library-thumb"><img src={publicAsset(item.poster)} alt={item.alt} loading="lazy" /><span class="library-thumb-index">STORY / {item.number}</span><span class="library-thumb-play" aria-hidden="true">{item.number}</span><span class="library-thumb-line"></span></div><div class="library-card-copy"><span class="library-card-number">{item.number} / {page.ui?.storyDirection ?? 'STORY DIRECTION'}</span><h3>{item.title}</h3><p>{item.detail}</p></div><span class="library-arrow" aria-hidden="true">↗</span></article>)}</div></div></section>
-
-  <section class="process-section wrap"><div class="process-heading"><p class="eyebrow">{page.ui?.processEyebrow ?? 'From product to page'}</p><h2>{page.process.title}</h2></div><div class="process-steps">{page.process.steps.map((step, i) => <article><span class="process-number">{step.number}</span><span class="process-line"></span><h3>{step.title}</h3></article>)}</div></section>
-
-  <section class="faq-section wrap"><div class="faq-intro"><p class="eyebrow">{page.faqTitle?.eyebrow ?? 'Good questions, straight answers'}</p><h2>{page.faqTitle?.title ?? 'Before we make'}<br /><em>{page.faqTitle?.emphasis ?? 'the first frame.'}</em></h2></div><div class="faq-list">{page.faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></section>
-
-  <section class="final-cta" id="contact"><div class="wrap cta-inner"><div class="cta-kicker">{isMultiplyLabsPage ? (page.ui?.mlCtaKicker ?? 'MULTIPLY LABS / A CONCEPT FOR REVIEW') : `DHEE / INDUSTRY STORIES — ${page.hero.edition ?? '001'}`}</div><h2>{page.cta.title}</h2><p>{page.cta.body}</p><div class="hero-actions"><a class="button button-light" href={page.cta.calendar.href} data-analytics="calendar_click" {...ext(page.cta.calendar.href)}>{page.cta.calendar.label}<span aria-hidden="true">↗</span></a><a class="cta-email" href={page.cta.email.href} data-analytics="email_click">{page.cta.email.label}</a></div><span class="cta-orbit" aria-hidden="true">D</span></div></section>
-  <script>
-    const journey = document.querySelector<HTMLElement>('.journey-section');
-    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-story-tab]')];
-    const title = document.querySelector<HTMLElement>('[data-story-title]');
-    const copy = document.querySelector<HTMLElement>('[data-story-copy]');
-    const counter = document.querySelector<HTMLElement>('.journey-counter');
-    const index = document.querySelector<HTMLElement>('.journey-caption-index');
-    const caption = document.querySelector<HTMLElement>('.journey-caption');
-    const scenes = [...document.querySelectorAll<HTMLElement>('[data-story-image]')];
-    const stops = [...document.querySelectorAll<HTMLElement>('[data-route-stop]')];
-    const bindTabKeys = (items: HTMLButtonElement[]) => items.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
-      if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      const target = event.key === 'Home' ? 0
-        : event.key === 'End' ? items.length - 1
-        : (index + (event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
-      items[target]?.focus();
-      items[target]?.click();
-    }));
-    bindTabKeys(tabs);
-    tabs.forEach((tab) => tab.addEventListener('click', () => {
-      const step = Number(tab.dataset.storyTab);
-      journey?.setAttribute('data-story-step', String(step));
-      tabs.forEach((item, itemIndex) => {
-        const active = itemIndex === step;
-        item.classList.toggle('is-active', active);
-        item.setAttribute('aria-selected', String(active));
-        item.tabIndex = active ? 0 : -1;
-      });
-      document.querySelector('#story-preview')?.setAttribute('aria-labelledby', `story-tab-${step}`);
-      scenes.forEach((scene, sceneIndex) => {
-        const active = sceneIndex === step;
-        scene.classList.toggle('is-active', active);
-        scene.setAttribute('aria-hidden', String(!active));
-      });
-      stops.forEach((stop, stopIndex) => stop.classList.toggle('is-active', stopIndex === step));
-      caption?.classList.add('is-changing');
-      window.setTimeout(() => caption?.classList.remove('is-changing'), 140);
-      if (title) title.textContent = tab.dataset.storyTitle ?? '';
-      if (copy) copy.textContent = tab.dataset.storyCopy ?? '';
-      if (counter) counter.textContent = `0${step + 1} / 03`;
-      if (index) index.textContent = `0${step + 1}`;
-    }));
-    const reply = document.querySelector<HTMLElement>('.reply-section');
-    const replyTabs = [...document.querySelectorAll<HTMLButtonElement>('[data-reply-tab]')];
-    const replyPanel = document.querySelector<HTMLElement>('#buyer-preview');
-    const replyQuestion = document.querySelector<HTMLElement>('.chat-question');
-    const replyAnswer = document.querySelector<HTMLElement>('.chat-answer');
-    const replyAsset = document.querySelector<HTMLElement>('.reply-asset [data-reply-asset]');
-    bindTabKeys(replyTabs);
-    replyTabs.forEach((tab) => tab.addEventListener('click', () => {
-      const step = Number(tab.dataset.replyTab);
-      if (!tab.dataset.replyQuestion || !tab.dataset.replyAnswer || !tab.dataset.replyAsset) return;
-      reply?.setAttribute('data-reply-step', String(step));
-      replyTabs.forEach((item, itemIndex) => {
-        const active = itemIndex === step;
-        item.classList.toggle('is-active', active);
-        item.setAttribute('aria-selected', String(active));
-        item.tabIndex = active ? 0 : -1;
-      });
-      replyPanel?.setAttribute('aria-labelledby', `buyer-tab-${step}`);
-      if (replyQuestion) replyQuestion.textContent = tab.dataset.replyQuestion;
-      if (replyAnswer) replyAnswer.textContent = tab.dataset.replyAnswer;
-      if (replyAsset) replyAsset.textContent = tab.dataset.replyAsset;
-    }));
-    document.querySelectorAll<HTMLAnchorElement>('[data-reply-link]').forEach((link) => link.addEventListener('click', () => {
-      replyTabs[Number(link.dataset.replyLink)]?.click();
-    }));
-    const revealItems = document.querySelectorAll<HTMLElement>('.hero-copy, .hero-art, .ml-film-layout, .ml-deliverables-head, .ml-deliverables-grid, .principle-copy, .journey-layout, .reply-layout, .usecase-row, .sample-heading, .sample-frame, .comparison-layout, .library-layout, .process-steps, .faq-section, .final-cta .cta-inner');
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      revealItems.forEach((item) => item.classList.add('motion-ready'));
-      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      }), { threshold: 0.14 });
-      revealItems.forEach((item) => observer.observe(item));
-    }
-    const scrollVideos = [...document.querySelectorAll<HTMLVideoElement>('video[data-scroll-autoplay]')];
-    const attemptSoundOnPlayback = (video: HTMLVideoElement) => {
-      const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
-      void video.play().then(() => { if (startButton) startButton.hidden = true; }).catch(() => { if (startButton) startButton.hidden = false; });
-    };
-    document.querySelector<HTMLAnchorElement>('[data-start-film]')?.addEventListener('click', () => {
-      const video = document.querySelector<HTMLVideoElement>('.ml-film-player video');
-      if (!video) return;
-      video.muted = false;
-      video.dataset.startedFromCta = 'true';
-      void video.play().catch(() => {});
-    });
-    scrollVideos.forEach((video) => {
-      const startButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-sound-start');
-      if (!startButton) return;
-      const showSoundStart = () => { startButton.hidden = false; };
-      const hideSoundStart = () => { startButton.hidden = true; };
-      video.addEventListener('play', hideSoundStart);
-      startButton.addEventListener('click', () => {
-        video.muted = false;
-        void video.play().then(hideSoundStart).catch(showSoundStart);
-      });
-      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) showSoundStart();
-    });
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const videoObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
-        const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting) {
-          video.dataset.reachedView = 'true';
-          attemptSoundOnPlayback(video);
-        }
-        else if (video.dataset.reachedView === 'true') video.pause();
-      }), { threshold: 0.35 });
-      scrollVideos.forEach((video) => videoObserver.observe(video));
-    }
-    const updateActiveLink = () => {
-      const sections = ['first-response', 'applications', 'journey', 'dhee', 'sample'].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
-      const current = sections.filter((section) => section.getBoundingClientRect().top < window.innerHeight * 0.42).at(-1);
-      document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a').forEach((link) => {
-        const active = current?.id === link.hash.slice(1);
-        link.classList.toggle('is-current', Boolean(active));
-      });
-    };
-    window.addEventListener('scroll', updateActiveLink, { passive: true });
-    updateActiveLink();
-    document.querySelectorAll<HTMLAnchorElement>('.mobile-nav nav a').forEach((link) => link.addEventListener('click', () => {
-      const menu = document.querySelector<HTMLDetailsElement>('.mobile-nav');
-      if (menu) menu.open = false;
-    }));
-  </script>
+  <StudioHero page={page} configuredVideoUrl={configuredVideoUrl} />
+  <KineticMarquee items={marqueeItems} />
+  <ConceptBridge page={page} />
+  <AccountShowcaseBands page={page} configuredVideoUrl={configuredVideoUrl} />
+  <TriggerAndMetrics page={page} />
+  <FirstResponseStudio page={page} />
+  <UseCasesGrid page={page} />
+  <InteractiveJourney page={page} />
+  <ComparisonSection page={page} />
+  <StoryLibrary page={page} />
+  <ProcessStack page={page} />
+  <FaqSection page={page} />
+  <ClosingCta page={page} />
 </LandingPage>

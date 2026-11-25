@@ -1,0 +1,53 @@
+/* ==========================================================================
+   DHEE Studio — Shared Design System Tokens
+   Vantablack Darkroom × Swiss Gallery Editorial
+   Per-industry accent tokens override --accent* via inline style on <html>
+   ========================================================================== */
+
+:root {
+  /* Deep Carbon Darkroom Surfaces */
+  --carbon: #030508;
+  --carbon-2: #090e15;
+  --carbon-3: #101822;
+  --carbon-glass: rgba(9, 14, 21, 0.78);
+
+  /* Swiss Gallery Light Surfaces */
+  --white: #fbfbfa;
+  --stone: #f2f3f5;
+  --stone-2: #e7e9ee;
+
+  /* Ink */
+  --ink: #0a0f16;
+  --ink-2: #3b4652;
+  --ink-3: #64717e;
+  --light: #f6f7f9;
+  --light-2: #b6c2ce;
+  --light-3: #7f8fa0;
+
+  /* Default Studio Accent Tokens (Overridable per Industry JSON) */
+  --accent: #2dd4bf;
+  --accent-bright: #5eead4;
+  --accent-dark: #0f766e;
+  --accent-secondary: #3b82f6;
+  --accent-rgb: 45, 212, 191;
+  --accent-bright-rgb: 94, 234, 212;
+  --accent-secondary-rgb: 59, 130, 246;
+  --ember: #ff5a2f;
+  --amber: #ff8e53;
+
+  /* Hairlines */
+  --hair-dark: rgba(182, 210, 224, 0.13);
+  --hair-dark-hi: rgba(var(--accent-bright-rgb), 0.36);
+  --hair-light: rgba(10, 15, 22, 0.11);
+
+  /* Typography */
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Layout & Curves */
+  --shell: min(1280px, 100%);
+  --gutter: clamp(18px, 4.5vw, 56px);
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --spring: cubic-bezier(0.22, 1, 0.36, 1);
+}

@@ -1,0 +1,95 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const firstTab = page.response.tabs[0];
+---
+<section class="band-dark reply-section" id="first-response" data-section-tone="dark" data-reply-step="0">
+  <div class="shell reply-layout">
+    <div data-reveal>
+      <p class="eyebrow"><span class="eyebrow-dot"></span>{page.response.eyebrow}</p>
+      <h2 class="section-title">{page.response.title}</h2>
+      <p class="section-lead">{page.response.body}</p>
+
+      <div class="reply-options" role="tablist" aria-label={page.ui?.sampleQuestionLabel ?? 'Choose a sample buyer question'}>
+        {page.response.tabs.map((item, i) => (
+          <button
+            id={`buyer-tab-${i}`}
+            class:list={['reply-tab', i === 0 && 'is-active']}
+            type="button"
+            role="tab"
+            aria-controls="buyer-preview"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            data-reply-tab={i}
+            data-reply-question={item.question}
+            data-reply-answer={item.answer}
+            data-reply-asset={item.asset}
+          >
+            <span>0{i + 1}</span>
+            <strong>{item.label}</strong>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div
+      class="reply-console glass-specular"
+      id="buyer-preview"
+      role="tabpanel"
+      aria-labelledby="buyer-tab-0"
+      aria-live="polite"
+      data-spotlight
+      data-reveal
+    >
+      <div class="reply-console-top">
+        <span><span class="live-dot" aria-hidden="true"></span>{page.ui?.conversation ?? 'EXAMPLE CONVERSATION'}</span>
+        <span>{page.ui?.conversationType ?? 'PRODUCT EDUCATION / 01'}</span>
+      </div>
+
+      <div class="reply-console-body">
+        <div class="reply-before-box">
+          <span>{page.response.beforeLabel}</span>
+          <p>“{page.response.beforeMessage}”</p>
+          <small>{page.response.beforeNote}</small>
+        </div>
+
+        <div class="reply-divider">{page.ui?.instead ?? 'INSTEAD'} ↓</div>
+
+        <div class="chat-block">
+          <div class="chat-meta">
+            <span>{page.ui?.prospect ?? 'PROSPECT'}</span>
+            <span>{page.ui?.exampleQuestion ?? 'EXAMPLE QUESTION'}</span>
+          </div>
+          <p class="chat-bubble chat-question" data-reply-question-view>{firstTab?.question}</p>
+        </div>
+
+        <div class="chat-block">
+          <div class="chat-meta chat-meta-company">
+            <span>{page.ui?.manufacturer ?? 'MANUFACTURER'}</span>
+            <span>{page.ui?.helpfulFirstResponse ?? 'HELPFUL FIRST RESPONSE'}</span>
+          </div>
+          <p class="chat-bubble chat-answer" data-reply-answer-view>{firstTab?.answer}</p>
+        </div>
+
+        <div class="reply-asset-bar">
+          <span class="reply-play-icon" aria-hidden="true">▶</span>
+          <div class="reply-asset-meta">
+            <strong data-reply-asset-view>{firstTab?.asset}</strong>
+            <small>{page.response.assetLabel ?? 'PRODUCT EXPLAINER · SAMPLE IDEA'}</small>
+          </div>
+          <span class="reply-duration">{page.response.videoDuration ?? page.video.duration ?? '00:45'}</span>
+        </div>
+      </div>
+
+      <div class="reply-console-foot">
+        <span><b>01</b> {page.ui?.answerVisually ?? 'ANSWER THE QUESTION VISUALLY'}</span>
+        <span><b>02</b> → {page.ui?.continueWithExpert ?? 'CONTINUE WITH AN EXPERT'}</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'header';
+  analytics?: string;
+}
+
+const { href, label, variant = 'primary', analytics } = Astro.props;
+const isExternal = href.startsWith('http');
+---
+<a
+  class:list={['btn-kinetic', variant === 'header' ? 'btn-header' : 'btn-primary']}
+  href={href}
+  data-magnetic
+  data-analytics={analytics}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noreferrer' : undefined}
+>
+  <span class="btn-rim" aria-hidden="true"></span>
+  <span class="btn-bg" aria-hidden="true"></span>
+  <span>{label}</span>
+  <span class="btn-icon" aria-hidden="true">
+    <svg class="ic-out" width="13" height="13" viewBox="0 0 14 14" fill="none">
+      <path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg class="ic-in" width="13" height="13" viewBox="0 0 14 14" fill="none">
+      <path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </span>
+</a>

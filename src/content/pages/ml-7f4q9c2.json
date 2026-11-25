@@ -3,6 +3,35 @@
   "pageType": "B",
   "segment": "Multiply Labs · Robotic Biomanufacturing Story",
   "language": "en",
+  "theme": {
+    "accent": "#2dd4bf",
+    "accentBright": "#5eead4",
+    "accentDark": "#0f766e",
+    "accentSecondary": "#3b82f6",
+    "accentRgb": "45, 212, 191",
+    "accentBrightRgb": "94, 234, 212",
+    "accentSecondaryRgb": "59, 130, 246",
+    "ember": "#ff5a2f"
+  },
+  "presentation": {
+    "layout": "account-showcase",
+    "heroMedia": "image",
+    "showFilmSection": true,
+    "showDeliverables": true,
+    "linkUseCasesToResponse": true,
+    "practiceKicker": "PRODUCT STORY",
+    "practiceName": "MULTIPLY LABS",
+    "videoEnvOverride": "PUBLIC_MULTIPLY_LABS_VIDEO_URL"
+  },
+  "marqueeItems": [
+    "4 robotic arms",
+    "12 instrument towers",
+    "Under 600 sq ft footprint",
+    "Existing GMP instruments",
+    "Process Creator App",
+    "Electronic quality records",
+    "Multi-language editions"
+  ],
   "seo": {
     "title": "Multiply Labs | Robotic Biomanufacturing Product Story",
     "description": "A tailored product film and landing page for Multiply Labs, built around its robotic cluster and the questions commercial, process and quality teams need answered.",

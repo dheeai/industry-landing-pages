@@ -1,0 +1,63 @@
+---
+import type { LandingPage } from '../content/schema';
+import KineticButton from './KineticButton.astro';
+
+interface Props {
+  page: LandingPage;
+  navItems: Array<{ label: string; href: string }>;
+}
+
+const { page, navItems } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+const practiceKicker = page.presentation?.practiceKicker ?? 'INDUSTRY STORIES';
+const practiceName = page.presentation?.practiceName ?? page.segment;
+---
+<header class="site-header" data-site-header data-header-tone="dark">
+  <div class="scroll-progress" aria-hidden="true"><span data-progress-bar></span></div>
+  <div class="header-bar">
+    <a class="brand" href="https://dhee.studio/" target="_blank" rel="noreferrer" aria-label="DHEE Studio home">
+      <span class="brand-mark-wrap" aria-hidden="true">
+        <img class="brand-mark mark-light" src={publicAsset('/images/dhee-mark-white.png')} alt="" />
+        <img class="brand-mark mark-dark" src={publicAsset('/images/dhee-mark-black.png')} alt="" />
+      </span>
+      <span class="brand-word">DHEE<span class="brand-dot" aria-hidden="true"></span></span>
+    </a>
+
+    <div class="header-practice" aria-label="Industry practice">
+      <span class="practice-kicker"><span class="rec-dot" aria-hidden="true"></span>{practiceKicker}</span>
+      <span class="practice-name">{practiceName}</span>
+    </div>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    {page.languageVariants && page.languageVariants.length > 1 && (
+      <details class="language-switcher">
+        <summary aria-label={page.languageLabel ?? 'Language'}>{page.language.toUpperCase()} <span aria-hidden="true">⌄</span></summary>
+        <nav aria-label={page.languageLabel ?? 'Language'}>
+          {page.languageVariants.map((option) => (
+            <a
+              href={`${import.meta.env.BASE_URL}${option.slug}/`}
+              aria-current={option.language === page.language ? 'page' : undefined}
+              data-analytics={option.language === page.language ? undefined : 'language_switch'}
+              data-language={option.language}
+            >
+              {option.label}
+            </a>
+          ))}
+        </nav>
+      </details>
+    )}
+
+    <details class="mobile-menu">
+      <summary aria-label={page.ui?.menu ?? 'Menu'}>{page.ui?.menu ?? 'Menu'} <span aria-hidden="true">＋</span></summary>
+      <nav aria-label="Mobile navigation">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href="#contact">{page.ui?.headerCta ?? 'Talk to DHEE'} ↗</a>
+      </nav>
+    </details>
+
+    <KineticButton href="#contact" label={page.ui?.headerCta ?? 'Talk to DHEE'} variant="header" />
+  </div>
+</header>

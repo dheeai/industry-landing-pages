@@ -1,0 +1,58 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const linkToResponse = Boolean(page.presentation?.linkUseCasesToResponse);
+---
+<section class="band-light" id="applications" data-section-tone="light">
+  <div class="shell">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>{page.applications?.eyebrow ?? 'Where a clear story helps'}</p>
+        <h2 class="section-title">
+          {page.applications?.title ?? 'Useful across'}<br />
+          <em>{page.applications?.emphasis ?? 'the whole journey.'}</em>
+        </h2>
+      </div>
+      <p class="section-lead">
+        {page.applications?.body ?? 'One system raises different questions at every stage. Give each moment its own focused explanation.'}
+      </p>
+    </div>
+
+    <div class="usecase-grid" data-reveal>
+      {page.useCases.map((item, i) =>
+        linkToResponse ? (
+          <a
+            class="usecase-card"
+            href="#first-response"
+            data-reply-link={Math.min(i, 2)}
+            data-analytics="buyer_journey_click"
+            data-tilt
+          >
+            <div class="usecase-top">
+              <span class="usecase-num">{item.number}</span>
+              <span class="usecase-tag">{item.tag}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            <span class="usecase-arrow" aria-hidden="true">↗</span>
+          </a>
+        ) : (
+          <article class="usecase-card" data-tilt>
+            <div class="usecase-top">
+              <span class="usecase-num">{item.number}</span>
+              <span class="usecase-tag">{item.tag}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            <span class="usecase-arrow" aria-hidden="true">↗</span>
+          </article>
+        )
+      )}
+    </div>
+  </div>
+</section>

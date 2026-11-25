@@ -1,0 +1,38 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const totalSteps = page.process.steps.length;
+---
+<section class="band-light" id="process" data-section-tone="light">
+  <div class="shell process-layout">
+    <div class="process-sticky-head" data-reveal>
+      <p class="eyebrow"><span class="eyebrow-dot"></span>{page.ui?.processEyebrow ?? 'From product to page'}</p>
+      <h2 class="section-title">{page.process.title}</h2>
+      <p class="section-lead">
+        A managed studio path with explicit technical checkpoints—so your experts stay in control of product claims without managing video tools.
+      </p>
+    </div>
+
+    <div class="stack-deck">
+      {page.process.steps.map((step, i) => (
+        <article
+          class:list={['stack-card', i === totalSteps - 1 && 'is-done']}
+          style={`--stack-i:${i}`}
+          data-stack-card
+        >
+          <span class="st-num">{step.number}</span>
+          <div>
+            <span class="st-phase">STEP {step.number} / 0{totalSteps}</span>
+            <h3>{step.title}</h3>
+          </div>
+          <span class="st-glyph" aria-hidden="true">{i === totalSteps - 1 ? '✓' : '→'}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

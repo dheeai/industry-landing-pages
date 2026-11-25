@@ -1,0 +1,42 @@
+---
+import type { LandingPage } from '../content/schema';
+
+interface Props {
+  page: LandingPage;
+  privacyUrl?: string;
+  analyticsEnabled?: boolean;
+}
+
+const { page, privacyUrl, analyticsEnabled } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+---
+<footer class="site-footer" data-section-tone="dark">
+  <div class="shell">
+    <div class="footer-main">
+      <a class="brand" href="https://dhee.studio/" target="_blank" rel="noreferrer" aria-label="DHEE Studio home">
+        <span class="brand-mark-wrap" aria-hidden="true">
+          <img class="brand-mark" src={publicAsset('/images/dhee-mark-white.png')} alt="" />
+        </span>
+        <span class="brand-word">DHEE<span class="brand-dot" aria-hidden="true"></span></span>
+      </a>
+
+      <p class="footer-disclosure">{page.footer.disclosure}</p>
+
+      <div class="footer-links">
+        <a href={import.meta.env.BASE_URL}>All industry pages</a>
+        <a href={page.cta.email.href} data-analytics="email_click">{page.cta.email.label} ↗</a>
+        {privacyUrl && <a href={privacyUrl} target="_blank" rel="noreferrer">{page.ui?.privacyLabel ?? 'Privacy'}</a>}
+        {analyticsEnabled && (
+          <button class="privacy-settings" type="button" data-analytics-settings>
+            {page.ui?.settingsLabel ?? 'Cookie settings'}
+          </button>
+        )}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {new Date().getFullYear()} {page.footer.copyright}</span>
+      <span>{page.ui?.footerLine ?? 'Made for clearer product stories.'}</span>
+    </div>
+  </div>
+</footer>

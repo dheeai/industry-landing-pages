@@ -1,0 +1,29 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+{items.length > 0 && (
+  <div class="kinetic-ribbon" aria-hidden="true">
+    <div class="ribbon-track" data-marquee-track>
+      <div class="ribbon-group">
+        {items.map((item) => (
+          <>
+            <span>{item}</span>
+            <i></i>
+          </>
+        ))}
+      </div>
+      <div class="ribbon-group" aria-hidden="true">
+        {items.map((item) => (
+          <>
+            <span>{item}</span>
+            <i></i>
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
