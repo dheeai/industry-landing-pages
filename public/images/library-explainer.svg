@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05090e"/>
+      <stop offset="100%" stop-color="#0a191b"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="62%" cy="46%" r="52%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#05090e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid2" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(182,210,224,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg2)"/>
+  <rect width="1200" height="750" fill="url(#grid2)"/>
+  <rect width="1200" height="750" fill="url(#glow2)"/>
+  <text x="1128" y="72" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#6ee7b7" letter-spacing="2">CUSTOMER QUESTION → REVIEWED EXPLAINER</text>
+  <!-- Left Question Rail -->
+  <g transform="translate(72,130)">
+    <rect width="360" height="490" rx="18" fill="#0a1219" stroke="rgba(182,210,224,0.18)"/>
+    <text x="28" y="48" font-family="ui-monospace, monospace" font-size="11" fill="#7f8fa0" letter-spacing="1.6">RECURRING QUESTIONS</text>
+    <rect x="24" y="76" width="312" height="106" rx="12" fill="rgba(16,185,129,0.13)" stroke="#34d399" stroke-opacity="0.6"/>
+    <text x="42" y="108" font-family="ui-monospace, monospace" font-size="11" fill="#6ee7b7">01 · SELECTED</text>
+    <text x="42" y="140" font-family="system-ui, sans-serif" font-size="17" font-weight="600" fill="#f6f7f9">Which model fits our line?</text>
+    <text x="42" y="164" font-family="system-ui, sans-serif" font-size="13" fill="#9fb0c0">Matched → 00:45 Product Overview</text>
+    <rect x="24" y="202" width="312" height="96" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(182,210,224,0.14)"/>
+    <text x="42" y="234" font-family="ui-monospace, monospace" font-size="11" fill="#7f8fa0">02 · ONBOARDING</text>
+    <text x="42" y="264" font-family="system-ui, sans-serif" font-size="16" fill="#cbd5e1">What happens on first start?</text>
+    <rect x="24" y="318" width="312" height="96" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(182,210,224,0.14)"/>
+    <text x="42" y="350" font-family="ui-monospace, monospace" font-size="11" fill="#7f8fa0">03 · SERVICE</text>
+    <text x="42" y="380" font-family="system-ui, sans-serif" font-size="16" fill="#cbd5e1">How do we inspect wear parts?</text>
+  </g>
+  <!-- Connector -->
+  <path d="M 432 260 C 480 260, 480 340, 520 340" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 6"/>
+  <circle cx="520" cy="340" r="6" fill="#6ee7b7"/>
+  <!-- Right Video Stage -->
+  <g transform="translate(520,130)">
+    <rect width="608" height="490" rx="20" fill="#0b141c" stroke="#34d399" stroke-opacity="0.45" stroke-width="1.5"/>
+    <rect x="24" y="24" width="560" height="316" rx="12" fill="#060c12" stroke="rgba(182,210,224,0.14)"/>
+    <circle cx="304" cy="182" r="46" fill="rgba(16,185,129,0.2)" stroke="#6ee7b7" stroke-width="2"/>
+    <polygon points="294,162 294,202 328,182" fill="#6ee7b7"/>
+    <text x="44" y="384" font-family="Georgia, serif" font-size="28" fill="#f6f7f9">Reviewed Product Explainer</text>
+    <text x="44" y="418" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">Captioned · Multi-channel ready · Linked to approved docs</text>
+    <rect x="44" y="446" width="520" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+    <rect x="44" y="446" width="210" height="8" rx="4" fill="#34d399"/>
+  </g>
+</svg>

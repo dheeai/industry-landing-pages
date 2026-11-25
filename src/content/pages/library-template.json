@@ -3,6 +3,62 @@
   "pageType": "C",
   "segment": "Product library · concept template",
   "language": "en",
+  "theme": {
+    "accent": "#10b981",
+    "accentBright": "#6ee7b7",
+    "accentDark": "#047857",
+    "accentSecondary": "#38bdf8",
+    "accentRgb": "16, 185, 129",
+    "accentBrightRgb": "110, 231, 183",
+    "accentSecondaryRgb": "56, 189, 248",
+    "ember": "#ff5a2f"
+  },
+  "presentation": {
+    "layout": "standard",
+    "heroMedia": "video",
+    "practiceKicker": "PAGE TYPE C · TEMPLATE",
+    "practiceName": "PRODUCT VIDEO LIBRARY"
+  },
+  "marqueeItems": [
+    "Product family overviews",
+    "Setup & operator onboarding",
+    "Safety & approved use",
+    "Maintenance & service clips",
+    "Reusable across channels",
+    "Official manuals stay authoritative",
+    "Managed DHEE production"
+  ],
+  "telemetry": [
+    {
+      "kicker": "LIBRARY ARCHITECTURE",
+      "value": "4",
+      "unit": "core categories",
+      "countTo": 4,
+      "body": "Organized around Product Overview, Onboarding, Safety & Use, and Service.",
+      "dark": true
+    },
+    {
+      "kicker": "CUSTOMER LIFECYCLE",
+      "value": "3",
+      "unit": "teams served",
+      "countTo": 3,
+      "body": "One reviewed library shared by sales, customer onboarding, and service teams."
+    },
+    {
+      "kicker": "SOURCE OF RECORD",
+      "value": "100",
+      "unit": "% aligned",
+      "countTo": 100,
+      "body": "Videos add visual context while official manuals and safety specs remain authoritative."
+    },
+    {
+      "kicker": "STUDIO WORKFLOW",
+      "value": "7",
+      "unit": "steps",
+      "countTo": 7,
+      "body": "Repeatable DHEE production process that scales category by category."
+    }
+  ],
   "seo": {
     "title": "A reusable video library for every product line | DHEE",
     "description": "A concept page showing how product, setup, safety and service explainers can be organized into one useful customer library.",
@@ -59,24 +115,24 @@
         "zone": "PRODUCT FAMILY",
         "title": "Start with the right product family.",
         "copy": "Group the product range into categories customers and teams can recognize.",
-        "image": "/images/machinery-input.jpg",
-        "imageAlt": "Illustrative fictional production machine used as a generic product category visual."
+        "image": "/images/library-categories.svg",
+        "imageAlt": "Architectural diagram showing four organized product video library categories: overview, onboarding, safety, and maintenance."
       },
       {
         "tab": "Find an explainer",
         "zone": "CUSTOMER QUESTION",
         "title": "Match the story to the question.",
         "copy": "Offer a short, reviewed explanation for the use, workflow or support question at hand.",
-        "image": "/images/machinery-process.jpg",
-        "imageAlt": "Illustrative process inside a fictional machine, used as a product explainer visual."
+        "image": "/images/library-explainer.svg",
+        "imageAlt": "Diagram linking a recurring customer question directly to a reviewed, captioned product explainer."
       },
       {
         "tab": "Continue with support",
         "zone": "NEXT STEP",
         "title": "Make the next useful step clear.",
         "copy": "Connect the explainer to approved documentation or a product expert who can handle specifics.",
-        "image": "/images/machinery-outcome.jpg",
-        "imageAlt": "Illustrative finished part representing a next step after viewing a product story."
+        "image": "/images/library-support.svg",
+        "imageAlt": "Three-stage handoff diagram connecting visual context to official documentation and specialist continuation."
       }
     ],
     "storyLabel": "CATEGORY / EXPLAINER / NEXT STEP",
@@ -170,29 +226,29 @@
         "number": "01",
         "title": "Product overview",
         "detail": "What it does, who it is for and where it fits.",
-        "poster": "/images/industrial-machine-hero.jpg",
-        "alt": "Fictional modular production machine used as an illustrative concept."
+        "poster": "/images/library-overview.svg",
+        "alt": "Editorial overview diagram of an organized multi-team product video library."
       },
       {
         "number": "02",
         "title": "Setup and onboarding",
         "detail": "A first orientation for a new operator or customer.",
-        "poster": "/images/machinery-input.jpg",
-        "alt": "Illustrative workpiece arriving at a fictional production machine."
+        "poster": "/images/library-categories.svg",
+        "alt": "Product library category matrix highlighting setup and onboarding explainers."
       },
       {
         "number": "03",
         "title": "Safety and use",
         "detail": "An approved explanation that supports, but never replaces, official instructions.",
-        "poster": "/images/machinery-process.jpg",
-        "alt": "Illustrative fictional machine process; not a safety instruction."
+        "poster": "/images/library-explainer.svg",
+        "alt": "Customer question matched to a reviewed explainer alongside official documentation."
       },
       {
         "number": "04",
         "title": "Maintenance and service",
         "detail": "A focused service story for a confirmed product and model.",
-        "poster": "/images/machinery-outcome.jpg",
-        "alt": "Illustrative finished component beside a fictional production machine."
+        "poster": "/images/library-support.svg",
+        "alt": "Handoff diagram connecting service explainers to official manuals and product specialists."
       }
     ]
   },

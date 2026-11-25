@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05090e"/>
+      <stop offset="100%" stop-color="#0c1820"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#05090e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid3" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(182,210,224,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg3)"/>
+  <rect width="1200" height="750" fill="url(#grid3)"/>
+  <rect width="1200" height="750" fill="url(#glow3)"/>
+  <text x="1128" y="72" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#6ee7b7" letter-spacing="2">HANDOFF ARCHITECTURE / 03</text>
+  <!-- 3 Connected Pillars -->
+  <g transform="translate(72,180)">
+    <rect x="0" y="0" width="316" height="390" rx="18" fill="#0b141c" stroke="rgba(182,210,224,0.2)"/>
+    <text x="28" y="48" font-family="ui-monospace, monospace" font-size="11" fill="#6ee7b7">01 · EXPLAINER</text>
+    <text x="28" y="100" font-family="Georgia, serif" font-size="28" fill="#f6f7f9">Visual Context</text>
+    <text x="28" y="142" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">Answers the recurring</text>
+    <text x="28" y="166" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">product question in &lt;60s.</text>
+    <circle cx="158" cy="290" r="46" fill="rgba(16,185,129,0.14)" stroke="#34d399" stroke-width="1.5"/>
+    <text x="158" y="297" text-anchor="middle" font-family="ui-monospace, monospace" font-size="18" fill="#6ee7b7">▶</text>
+
+    <path d="M 316 195 L 368 195" stroke="#34d399" stroke-width="2"/>
+
+    <rect x="368" y="0" width="316" height="390" rx="18" fill="#0b141c" stroke="#34d399" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="396" y="48" font-family="ui-monospace, monospace" font-size="11" fill="#7dd3fc">02 · DOCUMENTATION</text>
+    <text x="396" y="100" font-family="Georgia, serif" font-size="28" fill="#f6f7f9">Source of Record</text>
+    <text x="396" y="142" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">Links directly to official</text>
+    <text x="396" y="166" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">manuals &amp; safety specs.</text>
+    <rect x="448" y="248" width="156" height="84" rx="10" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <line x1="472" y1="278" x2="580" y2="278" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
+    <line x1="472" y1="302" x2="548" y2="302" stroke="rgba(182,210,224,0.45)" stroke-width="3" stroke-linecap="round"/>
+
+    <path d="M 684 195 L 736 195" stroke="#ff8e53" stroke-width="2"/>
+
+    <rect x="736" y="0" width="316" height="390" rx="18" fill="#0e161f" stroke="#ff8e53" stroke-opacity="0.45" stroke-width="1.5"/>
+    <text x="764" y="48" font-family="ui-monospace, monospace" font-size="11" fill="#ff8e53">03 · SPECIALIST</text>
+    <text x="764" y="100" font-family="Georgia, serif" font-size="28" fill="#f6f7f9">Expert Continuation</text>
+    <text x="764" y="142" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">Sales &amp; service jump right</text>
+    <text x="764" y="166" font-family="system-ui, sans-serif" font-size="15" fill="#9fb0c0">into model specifics.</text>
+    <circle cx="894" cy="290" r="46" fill="rgba(255,90,47,0.14)" stroke="#ff5a2f" stroke-width="1.5"/>
+    <text x="894" y="297" text-anchor="middle" font-family="ui-monospace, monospace" font-size="20" fill="#ff8e53">↗</text>
+  </g>
+</svg>

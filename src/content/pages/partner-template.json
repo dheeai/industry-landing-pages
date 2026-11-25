@@ -3,6 +3,62 @@
   "pageType": "E",
   "segment": "Channel partners · concept template",
   "language": "en",
+  "theme": {
+    "accent": "#a78bfa",
+    "accentBright": "#c4b5fd",
+    "accentDark": "#6d28d9",
+    "accentSecondary": "#38bdf8",
+    "accentRgb": "167, 139, 250",
+    "accentBrightRgb": "196, 181, 253",
+    "accentSecondaryRgb": "56, 189, 248",
+    "ember": "#ff5a2f"
+  },
+  "presentation": {
+    "layout": "standard",
+    "heroMedia": "video",
+    "practiceKicker": "PAGE TYPE E · TEMPLATE",
+    "practiceName": "CHANNEL PARTNERS"
+  },
+  "marqueeItems": [
+    "Consultancy & advisory overviews",
+    "System integrator handoffs",
+    "Compliance partner readiness",
+    "Joint proposal companions",
+    "Co-marketing explainers",
+    "Partner specialist authority",
+    "Managed DHEE production"
+  ],
+  "telemetry": [
+    {
+      "kicker": "PARTNER MOMENTS",
+      "value": "3",
+      "unit": "shared stages",
+      "countTo": 3,
+      "body": "Introduce a service line, answer recurring questions, and support joint proposals.",
+      "dark": true
+    },
+    {
+      "kicker": "SERVICE LIBRARY",
+      "value": "4",
+      "unit": "story formats",
+      "countTo": 4,
+      "body": "Overview, engagement walkthrough, client readiness, and joint proposal companion."
+    },
+    {
+      "kicker": "EXPERT BOUNDARY",
+      "value": "100",
+      "unit": "% partner-led",
+      "countTo": 100,
+      "body": "Video frames the service context while qualified partner teams own advice & delivery."
+    },
+    {
+      "kicker": "PRODUCTION PATH",
+      "value": "7",
+      "unit": "steps",
+      "countTo": 7,
+      "body": "Joint brand, claim, and scope approval before any co-marketing asset is shared."
+    }
+  ],
   "seo": {
     "title": "A video layer for partner service lines | DHEE",
     "description": "A concept page for consultancies, system integrators and compliance partners exploring reusable video explainers for their services.",
@@ -59,24 +115,24 @@
         "zone": "THE QUESTION",
         "title": "Begin with the client’s question.",
         "copy": "Name a common situation where a partner’s service can help. Keep the example general until a real client context is approved.",
-        "image": "/images/machinery-input.jpg",
-        "imageAlt": "Illustrative workpiece representing a client need; fictional industrial visual."
+        "image": "/images/partner-need.svg",
+        "imageAlt": "Editorial service-scoping diagram covering consultancy advisory fit, system integration handoffs, and compliance readiness."
       },
       {
         "tab": "Service value",
         "zone": "THE OFFER",
         "title": "Make the service easier to picture.",
         "copy": "Show the steps, expertise or deliverable a client can expect, using service details approved by the partner.",
-        "image": "/images/machinery-process.jpg",
-        "imageAlt": "Illustrative process visual representing a service workflow."
+        "image": "/images/partner-service.svg",
+        "imageAlt": "Three-stage partner engagement swimlane mapping discovery, co-delivered scope, and specialist handoff."
       },
       {
         "tab": "Next step",
         "zone": "CONTINUE",
         "title": "Connect the story to an expert.",
         "copy": "Use the visual to frame a focused consultation, assessment or implementation discussion.",
-        "image": "/images/machinery-outcome.jpg",
-        "imageAlt": "Illustrative outcome visual representing a next-step conversation."
+        "image": "/images/partner-expert.svg",
+        "imageAlt": "Side-by-side diagram pairing a reusable DHEE service video layer with qualified partner specialist advisory."
       }
     ],
     "storyLabel": "CLIENT QUESTION / SERVICE / NEXT STEP",
@@ -170,29 +226,29 @@
         "number": "01",
         "title": "Service overview",
         "detail": "Who the service helps and the challenge it addresses.",
-        "poster": "/images/industrial-machine-hero.jpg",
-        "alt": "Illustrative industrial service context; fictional machinery image."
+        "poster": "/images/partner-overview.svg",
+        "alt": "Editorial overview graphic introducing a reusable video layer for channel partner service lines."
       },
       {
         "number": "02",
         "title": "How the engagement works",
         "detail": "The stages, roles and handoffs at a high level.",
-        "poster": "/images/machinery-input.jpg",
-        "alt": "Illustrative process image for a partner service concept."
+        "poster": "/images/partner-service.svg",
+        "alt": "Three-stage partner engagement diagram illustrating discovery, core offer, and handoff."
       },
       {
         "number": "03",
         "title": "Client readiness",
         "detail": "What information helps the first expert discussion.",
-        "poster": "/images/machinery-process.jpg",
-        "alt": "Illustrative workflow image for a partner service concept."
+        "poster": "/images/partner-need.svg",
+        "alt": "Client scoping visual for consultancy, integration, and compliance readiness."
       },
       {
         "number": "04",
         "title": "Joint proposal companion",
         "detail": "A visual introduction to a shared service offer.",
-        "poster": "/images/machinery-outcome.jpg",
-        "alt": "Illustrative output image for a partner service concept."
+        "poster": "/images/partner-expert.svg",
+        "alt": "Joint proposal visual pairing DHEE service explainers with qualified partner advisory."
       }
     ]
   },

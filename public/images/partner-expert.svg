@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="pbg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05070d"/>
+      <stop offset="100%" stop-color="#101224"/>
+    </linearGradient>
+    <radialGradient id="pglow3" cx="50%" cy="50%" r="52%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="65%" stop-color="#a78bfa" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#05070d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#pbg3)"/>
+  <rect width="1200" height="750" fill="url(#pglow3)"/>
+  <text x="1128" y="72" text-anchor="end" font-family="ui-monospace, monospace" font-size="13" fill="#c4b5fd" letter-spacing="2">JOINT PROPOSAL COMPANION / 03</text>
+  <g transform="translate(110,130)">
+    <rect width="980" height="490" rx="22" fill="#0b0f1d" stroke="#a78bfa" stroke-opacity="0.45" stroke-width="1.5"/>
+    <text x="48" y="64" font-family="ui-monospace, monospace" font-size="11" fill="#7dd3fc" letter-spacing="1.8">SHARED CONTEXT → QUALIFIED CONVERSATION</text>
+    <text x="48" y="130" font-family="Georgia, serif" font-size="42" fill="#f6f7f9">Pair every proposal with visual clarity.</text>
+    <g transform="translate(48,186)">
+      <rect width="420" height="248" rx="16" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-opacity="0.4"/>
+      <text x="28" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#c4b5fd">DHEE VIDEO LAYER</text>
+      <text x="28" y="88" font-family="Georgia, serif" font-size="26" fill="#f6f7f9">Reusable Service Story</text>
+      <text x="28" y="128" font-family="system-ui, sans-serif" font-size="15" fill="#cbd5e1">• Concise overview before the call</text>
+      <text x="28" y="158" font-family="system-ui, sans-serif" font-size="15" fill="#cbd5e1">• Consistent across partner teams</text>
+      <text x="28" y="188" font-family="system-ui, sans-serif" font-size="15" fill="#cbd5e1">• Reviewed brand &amp; scope wording</text>
+
+      <text x="442" y="136" font-family="ui-monospace, monospace" font-size="24" fill="#ff8e53">+</text>
+
+      <rect x="464" width="420" height="248" rx="16" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-opacity="0.4"/>
+      <text x="492" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#7dd3fc">PARTNER SPECIALIST</text>
+      <text x="492" y="88" font-family="Georgia, serif" font-size="26" fill="#f6f7f9">Qualified Advisory</text>
+      <text x="492" y="128" font-family="system-ui, sans-serif" font-size="15" fill="#cbd5e1">• Tailored technical assessment</text>
+      <text x="492" y="158" font-family="system-ui, sans-serif" font-size="15" fill="#cbd5e1">• Formal compliance &amp; deliverables</text>
+      <text x="492" y="188" font-family="system-ui, sans-serif" font-size="15" fill="#cbd5e1">• Direct implementation ownership</text>
+    </g>
+  </g>
+</svg>
