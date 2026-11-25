@@ -1,0 +1,58 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate JSON configs and scaffolder syntax
+        run: |
+          node --check scripts/new-page.mjs
+          node -e "
+            const fs = require('node:fs');
+            const path = require('node:path');
+            for (const dir of ['src/content/pages', 'src/content/locales']) {
+              for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+                JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+              }
+            }
+            console.log('All page and locale JSON files parsed cleanly.');
+          "
+
+      - name: Build and schema-validate all pages
+        run: npm run build
+
+      - name: Verify critical built routes
+        run: |
+          for route in index.html machinery/index.html robotics/index.html pharma/index.html ml-7f4q9c2/index.html; do
+            test -f "dist/$route" || { echo "Missing built route: dist/$route"; exit 1; }
+          done
+
+      - name: Smoke-test page scaffolder
+        run: |
+          npm run new-page -- ci-smoke-test --type A --segment "CI Smoke Test"
+          npm run build
+          test -f dist/ci-smoke-test/index.html
+          rm -f src/content/pages/ci-smoke-test.json
