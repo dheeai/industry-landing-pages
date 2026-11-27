@@ -52,6 +52,7 @@ for (const file of pageFiles) {
   basePages.set(data.slug, data);
 
   checkPublicPath(file, 'hero.image', data.hero?.image);
+  checkPublicPath(file, 'presentation.blueprintArt', data.presentation?.blueprintArt);
   checkPublicPath(file, 'video.poster', data.video?.poster);
   checkPublicPath(file, 'video.videoUrl', data.video?.videoUrl);
   checkPublicPath(file, 'video.captionsUrl', data.video?.captionsUrl);

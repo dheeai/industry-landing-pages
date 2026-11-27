@@ -1,0 +1,139 @@
+{
+  "presets": {
+    "protocol-industrial": {
+      "name": "Protocol · Industrial Blueprint",
+      "layout": "protocol",
+      "defaultPageType": "A",
+      "oversightReference": "Protocol (https://supply.madebyoversight.com/?t=protocol)",
+      "bestFor": [
+        "European machinery manufacturers",
+        "CNC & precision tooling",
+        "Packaging & factory automation",
+        "Heavy equipment & energy hardware"
+      ],
+      "theme": {
+        "accent": "#2056ff",
+        "accentBright": "#9bb5ff",
+        "accentDark": "#1441d4",
+        "accentSecondary": "#38bdf8",
+        "accentRgb": "32, 86, 255",
+        "accentBrightRgb": "155, 181, 255",
+        "accentSecondaryRgb": "56, 189, 248",
+        "ember": "#2056ff"
+      },
+      "practiceKicker": "INDUSTRIAL FILMS"
+    },
+    "protocol-robotics": {
+      "name": "Protocol · Robotics & Physical AI",
+      "layout": "protocol",
+      "defaultPageType": "D",
+      "oversightReference": "Protocol (https://supply.madebyoversight.com/?t=protocol)",
+      "bestFor": [
+        "Autonomous mobile robots (AMR)",
+        "Warehouse & factory work cells",
+        "Physical AI & manipulation platforms",
+        "Drones & field robotics"
+      ],
+      "theme": {
+        "accent": "#0284c7",
+        "accentBright": "#7dd3fc",
+        "accentDark": "#0369a1",
+        "accentSecondary": "#2056ff",
+        "accentRgb": "2, 132, 199",
+        "accentBrightRgb": "125, 211, 252",
+        "accentSecondaryRgb": "32, 86, 255",
+        "ember": "#0284c7"
+      },
+      "practiceKicker": "PHYSICAL AI FILMS"
+    },
+    "protocol-biotech": {
+      "name": "Protocol · Biomanufacturing & MedTech",
+      "layout": "protocol",
+      "defaultPageType": "B",
+      "oversightReference": "Protocol (https://supply.madebyoversight.com/?t=protocol)",
+      "bestFor": [
+        "Robotic biomanufacturing",
+        "Medical devices & diagnostics",
+        "Cleanroom & GMP lab automation",
+        "Target-account executive pitches"
+      ],
+      "theme": {
+        "accent": "#0d9488",
+        "accentBright": "#5eead4",
+        "accentDark": "#0f766e",
+        "accentSecondary": "#2056ff",
+        "accentRgb": "13, 148, 136",
+        "accentBrightRgb": "94, 234, 212",
+        "accentSecondaryRgb": "32, 86, 255",
+        "ember": "#0d9488"
+      },
+      "practiceKicker": "PRODUCT STORY"
+    },
+    "protocol-library": {
+      "name": "Protocol · Multi-Product Video Library",
+      "layout": "protocol",
+      "defaultPageType": "C",
+      "oversightReference": "Protocol (https://supply.madebyoversight.com/?t=protocol)",
+      "bestFor": [
+        "Multi-SKU product catalogs",
+        "Sales + onboarding + service libraries",
+        "Digital customer orientation hubs"
+      ],
+      "theme": {
+        "accent": "#059669",
+        "accentBright": "#6ee7b7",
+        "accentDark": "#047857",
+        "accentSecondary": "#2056ff",
+        "accentRgb": "5, 150, 105",
+        "accentBrightRgb": "110, 231, 183",
+        "accentSecondaryRgb": "32, 86, 255",
+        "ember": "#059669"
+      },
+      "practiceKicker": "VIDEO LIBRARY"
+    },
+    "protocol-partner": {
+      "name": "Protocol · Channel & Integration Partners",
+      "layout": "protocol",
+      "defaultPageType": "E",
+      "oversightReference": "Protocol (https://supply.madebyoversight.com/?t=protocol)",
+      "bestFor": [
+        "System integrators",
+        "Engineering & compliance consultancies",
+        "Co-marketing & joint proposals"
+      ],
+      "theme": {
+        "accent": "#4f46e5",
+        "accentBright": "#a5b4fc",
+        "accentDark": "#3730a3",
+        "accentSecondary": "#2056ff",
+        "accentRgb": "79, 70, 229",
+        "accentBrightRgb": "165, 180, 252",
+        "accentSecondaryRgb": "32, 86, 255",
+        "ember": "#4f46e5"
+      },
+      "practiceKicker": "CHANNEL PARTNERS"
+    },
+    "studio-darkroom": {
+      "name": "DHEE Studio · Vantablack Darkroom Cinema",
+      "layout": "standard",
+      "defaultPageType": "A",
+      "oversightReference": "DHEE Pharma Flagship Aesthetic",
+      "bestFor": [
+        "Pharma & life sciences storytelling",
+        "Deep-tech brand flagships",
+        "High-contrast cinema product reveals"
+      ],
+      "theme": {
+        "accent": "#2dd4bf",
+        "accentBright": "#5eead4",
+        "accentDark": "#0f766e",
+        "accentSecondary": "#3b82f6",
+        "accentRgb": "45, 212, 191",
+        "accentBrightRgb": "94, 234, 212",
+        "accentSecondaryRgb": "59, 130, 246",
+        "ember": "#ff5a2f"
+      },
+      "practiceKicker": "CINEMA STORIES"
+    }
+  }
+}

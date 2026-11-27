@@ -1,0 +1,67 @@
+{
+  "_instructions": "Fill this brief from real industry research (never fabricate statistics or compliance claims), then run: npm run new-page -- <slug> --preset protocol-industrial --brief path/to/brief.json",
+  "segment": "Semiconductor Cleanroom Equipment",
+  "practiceName": "SEMICONDUCTOR TOOLS",
+  "hero": {
+    "eyebrow": "For wafer-fab & cleanroom equipment teams",
+    "title": "Make cleanroom systems",
+    "emphasis": "clear before fab review.",
+    "body": "Help process engineers, facility planners, and procurement teams understand chamber workflow, utility footprint, and maintenance access before an on-site audit."
+  },
+  "research": {
+    "value": "62%",
+    "body": "of technical buyers complete initial evaluation online before engaging applications engineering.",
+    "sourceLabel": "2026 engineer research",
+    "sourceHref": "https://www.trewmarketing.com/state-of-marketing-to-engineers-research-report"
+  },
+  "trigger": {
+    "eyebrow": "A timely industry shift",
+    "dateStamp": "EU CHIPS",
+    "dateLabel": "FAB EXPANSION · 2026–2028",
+    "title": "Shorter qualification windows demand clearer pre-audit stories.",
+    "body": "Replace with a verified, dated industry or regulatory milestone relevant to this vertical, linking directly to the authoritative primary source.",
+    "sourceLabel": "Read primary source",
+    "sourceHref": "https://commission.europa.eu/"
+  },
+  "journeySteps": [
+    {
+      "tab": "Wafer transfer",
+      "zone": "LOAD PORT",
+      "title": "Start with contamination-free loading.",
+      "copy": "Show how the carrier docks and enters the controlled environment using approved references."
+    },
+    {
+      "tab": "Chamber process",
+      "zone": "PROCESS MODULE",
+      "title": "Clarify the core process stage.",
+      "copy": "Explain what happens inside the sealed enclosure without disclosing proprietary IP."
+    },
+    {
+      "tab": "Metrology & output",
+      "zone": "VERIFIED EXIT",
+      "title": "End with what engineers inspect next.",
+      "copy": "Connect the visual story to approved datasheets, SEMI standards, and applications engineering."
+    }
+  ],
+  "buyerQuestions": [
+    {
+      "label": "Fab footprint",
+      "question": "How does this tool fit our cleanroom bay and utility hookups?",
+      "answer": "Here is a concise layout orientation. Share your bay constraints and our applications team will confirm exact facility specs.",
+      "asset": "Cleanroom footprint orientation"
+    },
+    {
+      "label": "Process flow",
+      "question": "How does material move between load port and chamber?",
+      "answer": "This short visual walks through the transfer sequence before we review tool-specific documentation.",
+      "asset": "Transfer sequence explainer"
+    },
+    {
+      "label": "Service access",
+      "question": "What does routine preventive maintenance access look like?",
+      "answer": "Start with this visual maintenance overview while keeping official service manuals as the source of record.",
+      "asset": "Service access walkthrough"
+    }
+  ],
+  "disclaimer": "Concept visuals are illustrative and do not replace official engineering specifications, SEMI compliance documentation, or customer qualification testing."
+}

@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
     "new-page": "node scripts/new-page.mjs",
-    "check:content": "node scripts/check-content.mjs"
+    "list-presets": "node scripts/new-page.mjs --list-presets",
+    "check:content": "node scripts/check-content.mjs",
+    "check:all": "npm run check:content && npm run build"
   },
   "dependencies": {
     "astro": "^6.0.0"

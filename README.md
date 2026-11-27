@@ -3,12 +3,12 @@
 # DHEE · Industry Landing Pages
 
 **A config-driven, static-first Astro landing-page factory for complex technical products.**  
-Built on a unified Vantablack Darkroom × Swiss Gallery design system with per-industry color tokens, interactive buyer studios, auto-discovered locales, and one-command scaffolding.
+Built on the Protocol Swiss-Industrial Blueprint design system (`IBM Plex Sans` / `IBM Plex Mono`, `0px` architectural grid, per-industry color tokens, bespoke SVG schematics, interactive buyer studios, auto-discovered locales, and a preset-driven research-to-page scaffolder).
 
-[![Live Hub](https://img.shields.io/badge/Live_Hub-dheeai.github.io-0a0f16?style=for-the-badge&logo=githubpages&logoColor=2dd4bf)](https://dheeai.github.io/industry-landing-pages/)
+[![Machinery Live](https://img.shields.io/badge/Machinery-Live_Route-2056FF?style=for-the-badge&logo=githubpages&logoColor=white)](https://dheeai.github.io/industry-landing-pages/machinery/)
 [![Astro 6](https://img.shields.io/badge/Astro-6.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
-[![Static Build](https://img.shields.io/badge/Output-Static_HTML-0f766e?style=for-the-badge)](#architecture)
-[![Zero Reflow Motion](https://img.shields.io/badge/Motion-60fps_Zero--Reflow-f59e0b?style=for-the-badge)](#design-system--performance-guardrails)
+[![Static Build](https://img.shields.io/badge/Output-Static_HTML-0d9488?style=for-the-badge)](#architecture)
+[![Presets Pipeline](https://img.shields.io/badge/Pipeline-6_Presets-0c1322?style=for-the-badge)](docs/LANDING-PAGE-PIPELINE.md)
 
 </div>
 
@@ -16,17 +16,16 @@ Built on a unified Vantablack Darkroom × Swiss Gallery design system with per-i
 
 ## Live Verticals & Routes
 
-Every route deploys statically to [`https://dheeai.github.io/industry-landing-pages/`](https://dheeai.github.io/industry-landing-pages/).
+Every route deploys statically under [`https://dheeai.github.io/industry-landing-pages/`](https://dheeai.github.io/industry-landing-pages/machinery/).
 
 | Route | Vertical / Purpose | Page Type | Accent Theme | Notes |
 | :--- | :--- | :---: | :--- | :--- |
-| [`/`](https://dheeai.github.io/industry-landing-pages/) | **Portfolio Hub** | Hub | Studio Teal | Directory linking all live verticals & starter templates |
-| [`/machinery/`](https://dheeai.github.io/industry-landing-pages/machinery/) | **EU Machinery Manufacturers** | `A` · Industry Trigger | Industrial Amber `#f59e0b` | 47s sample film, EU Reg 2023/1230 context, buyer Q&A |
-| [`/robotics/`](https://dheeai.github.io/industry-landing-pages/robotics/) | **Robotics & Physical AI** | `D` · Demo Before Hardware | Precision Cyan `#38bdf8` | 30s concept film, bounded task flow, engineering boundaries |
-| [`/pharma/`](https://dheeai.github.io/industry-landing-pages/pharma/) | **Pharma & Life Sciences** | Standalone Microsite | Bioluminescent Teal `#2dd4bf` | Interactive 3D MOA Canvas stage, storyboard studio, MLR review |
-| [`/ml-7f4q9c2/`](https://dheeai.github.io/industry-landing-pages/ml-7f4q9c2/) | **Multiply Labs** (`noindex`) | `B` · Account Showcase | Bioluminescent Teal `#2dd4bf` | 25s product film, deliverables, 5 locales (`EN`/`DE`/`FR`/`IT`/`NL`) |
-| [`/library-template/`](https://dheeai.github.io/industry-landing-pages/library-template/) | **Product Library Concept** (`noindex`) | `C` · Product Library | Studio Emerald `#10b981` | Reusable concept template for multi-product libraries |
-| [`/partner-template/`](https://dheeai.github.io/industry-landing-pages/partner-template/) | **Channel Partner Concept** (`noindex`) | `E` · Channel Partner | Studio Violet `#a78bfa` | Reusable concept template for consultancies & integrators |
+| [`/machinery/`](https://dheeai.github.io/industry-landing-pages/machinery/) | **EU Machinery Manufacturers** | `A` · Industry Trigger | Signal Cobalt `#2056ff` | Protocol Blueprint, 47s sample film, EU Reg 2023/1230 context, buyer Q&A |
+| [`/robotics/`](https://dheeai.github.io/industry-landing-pages/robotics/) | **Robotics & Physical AI** | `D` · Demo Before Hardware | Precision Azure `#0284c7` | Protocol Blueprint, 30s concept film, bounded task flow, engineering boundaries |
+| [`/pharma/`](https://dheeai.github.io/industry-landing-pages/pharma/) | **Pharma & Life Sciences** | Standalone Microsite | Clinical Teal `#0d9488` | Protocol Blueprint + interactive 3D MOA Canvas stage, storyboard studio, MLR review |
+| [`/multiply-labs/`](https://dheeai.github.io/industry-landing-pages/multiply-labs/) | **Multiply Labs** (`noindex`) | `B` · Account Showcase | Clinical Teal `#0d9488` | Protocol Blueprint, 25s product film, deliverables, 5 locales (`EN`/`DE`/`FR`/`IT`/`NL`) |
+| [`/library-template/`](https://dheeai.github.io/industry-landing-pages/library-template/) | **Product Library Concept** (`noindex`) | `C` · Product Library | Studio Emerald `#059669` | Reusable Protocol concept template for multi-product libraries |
+| [`/partner-template/`](https://dheeai.github.io/industry-landing-pages/partner-template/) | **Channel Partner Concept** (`noindex`) | `E` · Channel Partner | Precision Indigo `#4f46e5` | Reusable Protocol concept template for consultancies & integrators |
 
 > **Page Types (`A`–`E`):** `A` Industry Trigger · `B` Account Pitch · `C` Product Library · `D` Demo-Before-Hardware · `E` Channel Partner.
 
@@ -74,8 +73,17 @@ npm run preview
 Use the built-in scaffolder to generate a schema-valid starter config complete with a matching per-type color palette:
 
 ```sh
-npm run new-page -- medtech --type A --segment "Medical Device Teams"
+# List available industry presets
+npm run list-presets
+
+# Scaffold a new Protocol landing page from a preset + research brief
+npm run new-page -- medtech --preset protocol-biotech --brief templates/industry-brief.template.json
+
+# Run full validation (content/assets/locales + Astro static build)
+npm run check:all
 ```
+
+See [docs/LANDING-PAGE-PIPELINE.md](docs/LANDING-PAGE-PIPELINE.md) for the complete research → brief → preset → QA workflow.
 
 | Flag | Default | Description |
 | :--- | :--- | :--- |
@@ -139,10 +147,10 @@ Drop a translation dictionary alongside any base slug in `src/content/locales/<s
     │   ├── pages/*.json            # Vertical & account landing page configs
     │   └── locales/*.json          # Auto-discovered per-slug translations
     ├── layouts/
-    │   └── LandingPage.astro       # Shared HTML shell, fonts, theme injection & analytics
+    │   ├── ProtocolLayout.astro    # Swiss-Industrial Protocol HTML shell & theme injection
+    │   └── LandingPage.astro       # Alternative Darkroom HTML shell
     ├── pages/
-    │   ├── index.astro             # Root Portfolio Hub (/)
-    │   └── [slug].astro            # Composable dynamic route renderer
+    │   └── [slug].astro            # Composable dynamic route & locale renderer
     ├── scripts/
     │   └── studio-motion.ts        # Adaptive header, tabs, scroll scrub, marquee & video
     └── styles/
@@ -188,6 +196,6 @@ When both Plausible settings are configured, tracking remains off until the visi
 
 ## CI/CD & Deployment
 
-- **Production Deploy (`.github/workflows/deploy.yml`):** Triggers on pushes to `main` and manual dispatch, running `build` and `deploy` as separate jobs with route verification (`index.html`, `machinery/`, `robotics/`, `pharma/`, `ml-7f4q9c2/`) and `.nojekyll` generation.
+- **Production Deploy (`.github/workflows/deploy.yml`):** Triggers on pushes to `main` and manual dispatch, running `build` and `deploy` as separate jobs with route verification (`machinery/`, `robotics/`, `pharma/`, `multiply-labs/`, `multiply-labs-de/`) and `.nojekyll` generation.
 - **Pull Request Validation (`.github/workflows/validate-pr.yml`):** Validates JSON syntax, runs `npm run build` schema checks, verifies critical routes, and smoke-tests `npm run new-page` on every PR targeting `main`.
 - **Site Configuration:** Update `site` and `base` in `astro.config.mjs` if migrating to a custom domain.

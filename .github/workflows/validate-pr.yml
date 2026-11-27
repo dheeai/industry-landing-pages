@@ -38,13 +38,13 @@ jobs:
 
       - name: Verify critical built routes
         run: |
-          for route in index.html machinery/index.html robotics/index.html pharma/index.html ml-7f4q9c2/index.html; do
+          for route in machinery/index.html robotics/index.html pharma/index.html multiply-labs/index.html multiply-labs-de/index.html; do
             test -f "dist/$route" || { echo "Missing built route: dist/$route"; exit 1; }
           done
 
       - name: Smoke-test page scaffolder
         run: |
-          npm run new-page -- ci-smoke-test --type A --segment "CI Smoke Test"
-          npm run build
+          npm run new-page -- ci-smoke-test --preset protocol-industrial --brief templates/industry-brief.template.json
+          npm run check:all
           test -f dist/ci-smoke-test/index.html
-          rm -f src/content/pages/ci-smoke-test.json
+          rm -f src/content/pages/ci-smoke-test.json public/images/ci-smoke-test-blueprint-art.svg

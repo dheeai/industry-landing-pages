@@ -42,7 +42,7 @@ jobs:
       - name: Verify critical routes and disable Jekyll
         run: |
           touch dist/.nojekyll
-          for route in index.html machinery/index.html robotics/index.html pharma/index.html ml-7f4q9c2/index.html; do
+          for route in machinery/index.html robotics/index.html pharma/index.html multiply-labs/index.html multiply-labs-de/index.html; do
             test -f "dist/$route" || { echo "Missing built route: dist/$route"; exit 1; }
           done
 
