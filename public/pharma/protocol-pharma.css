@@ -1,0 +1,1198 @@
+/* ==========================================================================
+   DHEE Studio — Pharma & Life Sciences · Protocol Blueprint Layer
+   Transforms the Pharma microsite onto the unified Protocol Swiss-Industrial
+   design system (IBM Plex Sans/Mono, crisp #FFFFFF/#F7F8FA blueprint paper,
+   Obsidian-Navy #070B14 showcase bands, strict 0px architectural geometry,
+   Clinical Teal #0D9488 + Precision Cobalt #2056FF) while keeping 100% of
+   pharma.js animations, 3D MOA Canvas stage, marquee, scroll-scrub, tilt,
+   stacking deck, and interactive studios intact.
+   ========================================================================== */
+
+:root {
+  --carbon: #070b14;
+  --carbon-2: #0d1424;
+  --carbon-3: #121b2e;
+  --carbon-glass: rgba(7, 11, 20, 0.92);
+
+  --white: #ffffff;
+  --stone: #f7f8fa;
+  --stone-2: #edf0f5;
+
+  --ink: #0c1322;
+  --ink-2: #4b5565;
+  --ink-3: #647182;
+  --light: #ffffff;
+  --light-2: #c5cedd;
+  --light-3: #8c98ac;
+
+  /* Clinical Teal + Signal Cobalt (Zero orange/ember) */
+  --teal: #0d9488;
+  --teal-bright: #2dd4bf;
+  --teal-dark: #0f766e;
+  --teal-deep: #0b4f4a;
+  --cobalt: #2056ff;
+  --cobalt-soft: #9bb5ff;
+  --ember: #0d9488;
+  --amber: #2dd4bf;
+
+  --hair-dark: #1e273d;
+  --hair-dark-hi: rgba(45, 212, 191, 0.45);
+  --hair-light: #e2e6ec;
+
+  --display: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --shell: min(1196px, 100%);
+  --gutter: clamp(20px, 3.3vw, 42px);
+}
+
+html,
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  border-radius: 0;
+  background: var(--teal);
+  color: #ffffff;
+}
+
+/* Enforce strict 0px Protocol architectural geometry across all components */
+.header-bar,
+.desktop-nav,
+.desktop-nav a,
+.btn-kinetic,
+.btn-bg,
+.btn-secondary,
+.studio-pill,
+.cinema-stage,
+.stage-topbar,
+.receptor-tab,
+.render-modes,
+.render-chip,
+.stage-viewport,
+.vp-badge,
+.vp-hint,
+.vp-readout,
+.vp-compartments,
+.stage-dock,
+.stage-btn,
+.dock-action,
+.tb-card,
+.stake-card,
+.pipeline-console,
+.rail-tab,
+.rail-dot,
+.pipeline-panel,
+.ow-track,
+.ow-client,
+.ow-dhee,
+.uc-pillbar,
+.uc-pill,
+.uc-stage,
+.sb-beat,
+.sb-spec,
+.uc-formats b,
+.bento-card,
+.bento-icon,
+.gov-ribbon,
+.gov-ribbon span,
+.st-item,
+.st-num,
+.split-matrix,
+.matrix-col,
+.compare-matrix,
+.cfg-chip,
+.dossier-card,
+.dossier-badge,
+.faq-item,
+.faq-plus,
+.floating-dock,
+.fd-link,
+.fd-cta,
+.section-rail,
+.rail-node-link span,
+.mobile-menu summary,
+.mobile-menu nav {
+  border-radius: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. FIXED SWISS-INDUSTRIAL HEADER (Matches ProtocolLayout.astro)
+   -------------------------------------------------------------------------- */
+.site-header,
+.site-header.is-scrolled {
+  top: 0;
+  padding-inline: 0;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--hair-light);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-bar,
+.site-header[data-header-tone="light"] .header-bar,
+.site-header[data-header-tone="dark"] .header-bar {
+  width: min(1196px, 100% - var(--gutter) * 2);
+  height: 76px;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Always render dark DHEE mark on the crisp white Swiss header */
+.site-header .mark-light { opacity: 0 !important; }
+.site-header .mark-dark { opacity: 1 !important; }
+
+.brand-word {
+  font: 700 20px/1 var(--sans);
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+.site-footer .brand-word {
+  color: #ffffff;
+}
+
+.brand-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 0;
+  background: var(--teal);
+  box-shadow: none;
+}
+
+.header-practice,
+.site-header[data-header-tone="dark"] .header-practice {
+  border-left: 1px solid var(--hair-light);
+}
+
+.practice-kicker,
+.site-header[data-header-tone="dark"] .practice-kicker {
+  color: var(--ink-3);
+}
+
+.practice-name {
+  color: var(--ink);
+}
+
+.practice-amp {
+  color: var(--teal);
+}
+
+.rec-dot,
+.live-dot {
+  border-radius: 0 !important;
+  width: 7px !important;
+  height: 7px !important;
+  background: var(--teal) !important;
+  box-shadow: none !important;
+}
+
+.live-dot::after {
+  border-radius: 0 !important;
+  border-color: rgba(13, 148, 136, 0.55) !important;
+}
+
+.cinema-stage .rec-dot,
+.uc-stage .rec-dot,
+.uc-stage .live-dot,
+.closing-section .live-dot,
+.floating-dock .rec-dot {
+  background: var(--teal-bright) !important;
+}
+
+.desktop-nav,
+.site-header[data-header-tone="light"] .desktop-nav,
+.site-header[data-header-tone="dark"] .desktop-nav {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  gap: clamp(16px, 2.2vw, 28px);
+}
+
+.desktop-nav a,
+.site-header[data-header-tone="light"] .desktop-nav a,
+.site-header[data-header-tone="dark"] .desktop-nav a {
+  padding: 6px 0;
+  font: 500 14px/1 var(--sans);
+  color: var(--ink);
+  background: transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.desktop-nav a:hover,
+.site-header[data-header-tone="dark"] .desktop-nav a:hover,
+.desktop-nav a.is-current,
+.site-header[data-header-tone="light"] .desktop-nav a.is-current,
+.site-header[data-header-tone="dark"] .desktop-nav a.is-current {
+  color: var(--teal);
+  background: transparent;
+  border-bottom-color: var(--teal);
+}
+
+.scroll-progress span {
+  background: linear-gradient(90deg, var(--teal), var(--cobalt));
+}
+
+.mobile-menu summary {
+  border: 1px solid var(--hair-light);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.mobile-menu nav {
+  background: var(--white);
+  border: 1px solid var(--hair-light);
+  box-shadow: 0 20px 44px rgba(12, 19, 34, 0.12);
+}
+
+.mobile-menu nav a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--hair-light);
+}
+
+.mobile-menu nav a:hover {
+  background: var(--stone);
+  color: var(--teal);
+}
+
+/* --------------------------------------------------------------------------
+   2. PROTOCOL SPLIT-BLOCK CTA BUTTONS (Preserves [data-magnetic] + icon swap)
+   -------------------------------------------------------------------------- */
+.btn-kinetic {
+  padding: 6px 6px 6px 20px;
+  min-height: 52px;
+  gap: 16px;
+  font: 500 14.5px/1 var(--sans);
+  background: var(--teal);
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.btn-header {
+  min-height: 42px;
+  padding: 4px 4px 4px 14px;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.btn-rim {
+  display: none;
+}
+
+.btn-bg,
+.btn-primary .btn-bg,
+.btn-header .btn-bg {
+  inset: 0;
+  background: var(--teal) !important;
+}
+
+.btn-kinetic:hover .btn-bg,
+.btn-primary:hover .btn-bg,
+.btn-header:hover .btn-bg {
+  background: var(--teal-dark) !important;
+}
+
+.btn-icon,
+.btn-primary .btn-icon,
+.btn-header .btn-icon {
+  border-radius: 0 !important;
+  width: 40px;
+  height: 40px;
+  background: #ffffff !important;
+  color: var(--teal) !important;
+}
+
+.btn-header .btn-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.btn-secondary {
+  min-height: 52px;
+  padding: 0 22px;
+  background: var(--white);
+  color: var(--ink) !important;
+  border: 1px solid var(--hair-light);
+  font: 500 14.5px/1 var(--sans);
+}
+
+.btn-secondary .sec-arrow {
+  color: var(--teal) !important;
+}
+
+.btn-secondary:hover {
+  border-color: var(--teal);
+  color: var(--teal) !important;
+  background: var(--stone);
+}
+
+.closing-section .btn-secondary {
+  background: transparent;
+  color: #ffffff !important;
+  border-color: var(--hair-dark);
+}
+
+.closing-section .btn-secondary .sec-arrow {
+  color: var(--teal-bright) !important;
+}
+
+.closing-section .btn-secondary:hover {
+  border-color: var(--teal-bright);
+  color: var(--teal-bright) !important;
+  background: rgba(45, 212, 191, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO — CRISP BLUEPRINT DRAFTING GRID × OBSIDIAN 3D MOA STAGE
+   -------------------------------------------------------------------------- */
+.hero {
+  background-color: var(--white) !important;
+  background-image:
+    linear-gradient(rgba(13, 148, 136, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 148, 136, 0.055) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+  color: var(--ink);
+  padding-top: 122px;
+  padding-bottom: 84px;
+  border-bottom: 1px solid var(--hair-light);
+}
+
+.hero-backdrop {
+  opacity: 0.45;
+}
+
+.hero-zenith,
+.hero-aurora,
+.hero-bottom-fade,
+.hero-grid-plane {
+  display: none !important;
+}
+
+.hero-spotlight {
+  background: radial-gradient(
+    520px circle at var(--hx, 50%) var(--hy, 26%),
+    rgba(13, 148, 136, 0.09),
+    rgba(32, 86, 255, 0.04) 42%,
+    transparent 70%
+  ) !important;
+}
+
+.hero-grid-lit {
+  background-image:
+    linear-gradient(rgba(13, 148, 136, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 148, 136, 0.16) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+}
+
+.beam-rail {
+  background: rgba(13, 148, 136, 0.08) !important;
+}
+
+.beam-pulse {
+  background: linear-gradient(180deg, transparent, var(--teal), transparent) !important;
+  box-shadow: none !important;
+}
+
+.hero-crosshairs .ch::before,
+.hero-crosshairs .ch::after {
+  background: rgba(13, 148, 136, 0.3) !important;
+}
+
+.studio-pill {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  color: var(--ink-2) !important;
+  box-shadow: none !important;
+  padding: 8px 14px;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.11em;
+}
+
+.studio-pill::before,
+.studio-pill::after {
+  display: none !important;
+}
+
+.studio-pill .pill-divider {
+  background: var(--hair-light) !important;
+}
+
+.studio-pill .pill-accent {
+  color: var(--teal) !important;
+}
+
+.hero h1 {
+  font: 500 clamp(42px, 5.4vw, 68px)/1.05 var(--sans) !important;
+  letter-spacing: -0.04em !important;
+  color: var(--ink) !important;
+}
+
+/* CRITICAL: Reset pharma.css gradient clip so "clear in motion." is crisp high-contrast teal on white */
+.hero h1 em {
+  font-style: normal !important;
+  font-family: var(--sans) !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--teal) !important;
+  color: var(--teal) !important;
+}
+
+.workflow-header h2 em,
+.gov-header h2 em,
+.studio-left h2 em {
+  font-style: normal !important;
+  font-family: var(--sans) !important;
+  color: var(--teal) !important;
+}
+
+.uc-header h2 em,
+.pilot-left h2 em,
+.closing-section h2 em {
+  font-style: normal !important;
+  font-family: var(--sans) !important;
+  color: var(--teal-bright) !important;
+}
+
+.ember-dot {
+  color: var(--cobalt) !important;
+  -webkit-text-fill-color: var(--cobalt) !important;
+}
+
+.hero-sub {
+  color: var(--ink-2) !important;
+  font: 400 17px/1.6 var(--sans);
+}
+
+.hero-signals {
+  color: var(--ink-2) !important;
+  border-top: 1px solid var(--hair-light);
+  padding-top: 20px;
+}
+
+.hero-signals strong {
+  color: var(--ink) !important;
+}
+
+.hero-signals i {
+  background: var(--teal) !important;
+  border-radius: 0 !important;
+  width: 5px;
+  height: 5px;
+}
+
+/* 3D Molecular Cinema Stage framed as a Precision Obsidian Specimen Plate */
+.cinema-stage {
+  position: relative;
+  background: var(--carbon) !important;
+  border: 1px solid var(--hair-dark) !important;
+  box-shadow: 0 32px 72px rgba(12, 19, 34, 0.14) !important;
+  overflow: visible !important;
+}
+
+/* Signature Protocol 14px Registration Corner Pixels (overrides pharma.css line 2687) */
+.cinema-stage::before {
+  content: "";
+  position: absolute;
+  top: -7px !important;
+  left: -7px !important;
+  right: auto !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: var(--teal) !important;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.cinema-stage::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: var(--cobalt);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.stage-topbar {
+  background: var(--carbon-2) !important;
+  border-bottom: 1px solid var(--hair-dark) !important;
+}
+
+.receptor-tab {
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.receptor-tab.is-active {
+  background: rgba(45, 212, 191, 0.12) !important;
+  border-color: var(--teal-bright) !important;
+}
+
+.receptor-tab .rt-num,
+.receptor-tab.is-active .rt-num {
+  color: var(--teal-bright) !important;
+  font-family: var(--mono);
+}
+
+.render-modes {
+  background: var(--carbon) !important;
+  border: 1px solid var(--hair-dark) !important;
+}
+
+.render-chip.is-active {
+  background: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+.stage-viewport {
+  background: radial-gradient(circle at 50% 45%, #0e1a2b 0%, #070b14 75%) !important;
+}
+
+.vp-badge,
+.vp-hint,
+.vp-readout {
+  background: rgba(7, 11, 20, 0.88) !important;
+  border: 1px solid var(--hair-dark) !important;
+  padding: 5px 9px;
+}
+
+.vp-sub {
+  color: var(--cobalt-soft) !important;
+}
+
+.stage-dock {
+  background: var(--carbon-2) !important;
+  border-top: 1px solid var(--hair-dark) !important;
+}
+
+.stage-btn.is-active {
+  background: rgba(45, 212, 191, 0.08) !important;
+  border-color: var(--teal-bright) !important;
+}
+
+.stage-btn.is-active .sb-idx,
+.dock-counter b {
+  color: var(--teal-bright) !important;
+}
+
+.stage-btn .sb-bar i {
+  background: linear-gradient(90deg, var(--teal-bright), var(--cobalt)) !important;
+}
+
+.dock-title {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em;
+}
+
+.stage-footer {
+  background: var(--carbon) !important;
+  border-top: 1px solid var(--hair-dark) !important;
+  color: var(--light-3);
+}
+
+.stage-footer a {
+  color: var(--teal-bright);
+}
+
+/* --------------------------------------------------------------------------
+   4. KINETIC RIBBON & EDITORIAL HEADINGS
+   -------------------------------------------------------------------------- */
+.kinetic-ribbon {
+  background: var(--carbon) !important;
+  border-top: 1px solid var(--hair-dark);
+  border-bottom: 1px solid var(--hair-dark);
+}
+
+.ribbon-group span {
+  font-family: var(--mono);
+  color: var(--light-2);
+}
+
+.ribbon-group i {
+  border-radius: 0 !important;
+  width: 6px !important;
+  height: 6px !important;
+  background: var(--teal-bright) !important;
+}
+
+.kicker-bar {
+  border-bottom: 1px solid var(--hair-light);
+  font-family: var(--mono);
+  color: var(--ink-3);
+}
+
+[data-section-tone="dark"] .kicker-bar {
+  border-bottom-color: var(--hair-dark);
+  color: var(--light-3);
+}
+
+.section-pad h2,
+.closing-section h2 {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.036em !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION 01: WORKFLOW & TELEMETRY (CRISP WHITE SWISS GRID)
+   -------------------------------------------------------------------------- */
+.workflow-section {
+  background: var(--white) !important;
+  background-image: none !important;
+}
+
+.tb-card {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  box-shadow: none !important;
+}
+
+.tb-card:hover {
+  border-color: var(--teal) !important;
+  box-shadow: 0 18px 40px rgba(12, 19, 34, 0.06) !important;
+}
+
+.tb-card-dark {
+  background: var(--carbon) !important;
+  border-color: var(--carbon) !important;
+  color: #ffffff !important;
+}
+
+.tb-card-dark .tb-kicker {
+  color: var(--teal-bright) !important;
+}
+
+.tb-val {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.04em;
+}
+
+.tb-val em {
+  font-style: normal !important;
+  color: var(--teal);
+}
+
+.tb-card-dark .tb-val em {
+  color: var(--teal-bright);
+}
+
+.stake-card {
+  background: var(--stone) !important;
+  border: 1px solid var(--hair-light) !important;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+}
+
+.stake-card strong {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  color: var(--ink) !important;
+}
+
+.stake-card-accent {
+  background: var(--white) !important;
+  border-color: var(--teal) !important;
+  border-left: 3px solid var(--teal) !important;
+  color: var(--ink) !important;
+}
+
+.stake-card-accent .stake-idx {
+  color: var(--teal) !important;
+}
+
+.stake-card-accent strong {
+  color: var(--ink) !important;
+}
+
+.stake-card-accent p {
+  color: var(--ink-2) !important;
+}
+
+.stake-link {
+  color: var(--teal) !important;
+}
+
+.pipeline-console {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  box-shadow: none !important;
+}
+
+.rail-tab.is-active .rail-dot,
+.rail-tab[aria-selected="true"] .rail-dot {
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.rail-fill {
+  background: var(--teal) !important;
+}
+
+.pipeline-panel {
+  background: var(--carbon) !important;
+  border: 1px solid var(--hair-dark) !important;
+}
+
+.pp-step {
+  color: var(--teal-bright) !important;
+}
+
+.pipeline-panel h3,
+.pp-meta strong {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+}
+
+.ow-client {
+  background: var(--teal-bright) !important;
+}
+
+.ow-dhee {
+  background: var(--cobalt) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION 02: STORYBOARD STUDIO (OBSIDIAN-NAVY PROTOCOL STAGE)
+   -------------------------------------------------------------------------- */
+.usecases-section {
+  background: var(--carbon) !important;
+  border-top: 1px solid var(--hair-dark);
+  border-bottom: 1px solid var(--hair-dark);
+}
+
+.usecases-section::before {
+  display: none !important;
+}
+
+.uc-pill {
+  background: var(--carbon-2) !important;
+  border: 1px solid var(--hair-dark) !important;
+}
+
+.uc-pill.is-active,
+.uc-pill[aria-selected="true"] {
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+.uc-pill.is-active span,
+.uc-pill[aria-selected="true"] span,
+.uc-pill.is-active b,
+.uc-pill[aria-selected="true"] b {
+  color: #ffffff !important;
+}
+
+.uc-stage {
+  position: relative;
+  background: var(--carbon-2) !important;
+  border: 1px solid var(--hair-dark) !important;
+  overflow: visible !important;
+}
+
+.uc-stage::before {
+  content: "";
+  position: absolute;
+  top: -7px !important;
+  right: -7px !important;
+  left: auto !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: var(--teal-bright) !important;
+  z-index: 4;
+}
+
+.sb-index,
+.sb-beat-num {
+  color: var(--cobalt-soft) !important;
+}
+
+.sb-beat {
+  background: var(--carbon) !important;
+  border: 1px solid var(--hair-dark) !important;
+}
+
+.sb-beat h4,
+.uc-detail-col h3 {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+}
+
+.sb-beat.is-lead {
+  border-color: var(--teal) !important;
+  border-left: 3px solid var(--teal-bright) !important;
+}
+
+.sb-spec {
+  background: var(--carbon) !important;
+  border: 1px solid var(--hair-dark) !important;
+  padding: 10px 12px;
+}
+
+.uc-formats b {
+  border: 1px solid var(--hair-dark) !important;
+  background: var(--carbon) !important;
+  color: var(--teal-bright) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION 03: MLR & TRUST (CRISP LIGHT BLUEPRINT PAPER BAND)
+   -------------------------------------------------------------------------- */
+.governance-section {
+  background: var(--stone) !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--hair-light);
+}
+
+.governance-section::before {
+  display: none !important;
+}
+
+.governance-section .kicker-bar {
+  border-bottom-color: var(--hair-light) !important;
+  color: var(--ink-3) !important;
+}
+
+.governance-section .eyebrow {
+  color: var(--teal) !important;
+}
+
+.governance-section h2,
+.governance-section .bento-card h3 {
+  color: var(--ink) !important;
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+}
+
+.governance-section .gov-header p,
+.governance-section .bento-card p {
+  color: var(--ink-2) !important;
+}
+
+.governance-section .bento-card {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  box-shadow: none !important;
+}
+
+.governance-section .bento-card::before,
+.governance-section .bento-card::after {
+  display: none !important;
+}
+
+.governance-section .bento-card:hover {
+  border-color: var(--teal) !important;
+  box-shadow: 0 18px 40px rgba(12, 19, 34, 0.06) !important;
+}
+
+.governance-section .bento-num {
+  color: var(--teal) !important;
+  font-family: var(--mono);
+}
+
+.governance-section .bento-icon {
+  background: rgba(13, 148, 136, 0.08) !important;
+  border: 1px solid rgba(13, 148, 136, 0.22) !important;
+  color: var(--teal) !important;
+}
+
+.governance-section .link-arrow {
+  color: var(--teal) !important;
+  border-bottom-color: rgba(13, 148, 136, 0.35) !important;
+}
+
+.governance-section .link-arrow:hover {
+  color: var(--ink) !important;
+  border-bottom-color: var(--teal) !important;
+}
+
+.governance-section .gov-ribbon {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  border-left: 3px solid var(--cobalt) !important;
+}
+
+.governance-section .gov-ribbon p {
+  color: var(--ink-2) !important;
+}
+
+.governance-section .gov-ribbon p span {
+  background: var(--cobalt) !important;
+  color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION 04: STUDIO SYSTEM + POSITIONING MATRIX (CRISP WHITE)
+   -------------------------------------------------------------------------- */
+.studio-section {
+  background: var(--white) !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--hair-light);
+}
+
+.st-item,
+.stack-card {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  box-shadow: 0 10px 28px rgba(12, 19, 34, 0.04) !important;
+}
+
+.st-item h3 {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+}
+
+.stack-card.is-done,
+.stack-card.is-done:hover {
+  background: var(--carbon) !important;
+  border-color: var(--carbon) !important;
+  border-left: 3px solid var(--teal-bright) !important;
+  color: #ffffff !important;
+}
+
+.st-num {
+  background: var(--stone) !important;
+  border: 1px solid var(--hair-light) !important;
+  color: var(--teal) !important;
+  font-family: var(--mono);
+}
+
+.stack-card.is-done .st-num,
+.st-item.is-done .st-num {
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+.split-matrix {
+  border: 1px solid var(--hair-light) !important;
+}
+
+.matrix-dark {
+  background: var(--carbon) !important;
+}
+
+.compare-matrix {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+  box-shadow: none !important;
+}
+
+.cm-header h3 {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+}
+
+.cm-table thead th.cm-featured {
+  background: rgba(13, 148, 136, 0.1) !important;
+  color: var(--teal-dark) !important;
+  border-left: 2px solid var(--teal) !important;
+  border-bottom-color: var(--hair-light) !important;
+}
+
+.cm-table tbody td.cm-featured {
+  background: rgba(13, 148, 136, 0.045) !important;
+  color: var(--ink-2) !important;
+  border-left: 2px solid var(--teal) !important;
+  border-bottom-color: var(--hair-light) !important;
+}
+
+.cm-table tbody td.cm-featured strong {
+  color: var(--ink) !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION 05: SAMPLE DOSSIER CONFIGURATOR (OBSIDIAN-NAVY)
+   -------------------------------------------------------------------------- */
+.pilot-section {
+  background: var(--carbon) !important;
+  border-bottom: 1px solid var(--hair-dark);
+}
+
+.pilot-section::before {
+  display: none !important;
+}
+
+.cfg-chip {
+  background: var(--carbon-2) !important;
+  border: 1px solid var(--hair-dark) !important;
+  color: var(--light-2) !important;
+}
+
+.cfg-chip.is-active {
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+.dossier-card {
+  background: var(--carbon-2) !important;
+  border: 1px solid var(--hair-dark) !important;
+  overflow: visible !important;
+}
+
+.dossier-card::after {
+  display: none !important;
+}
+
+.dossier-card::before {
+  content: "";
+  position: absolute;
+  top: -7px !important;
+  right: -7px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: var(--cobalt) !important;
+  z-index: 4;
+  border-radius: 0 !important;
+  animation: none !important;
+  padding: 0 !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.dossier-badge {
+  background: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION 06: BUYER FAQ & CLOSING CTA & DOCK & RAIL & FOOTER
+   -------------------------------------------------------------------------- */
+.faq-section {
+  background: var(--stone) !important;
+  background-image: none !important;
+}
+
+.faq-item {
+  background: var(--white) !important;
+  border: 1px solid var(--hair-light) !important;
+}
+
+.faq-item summary {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  padding-left: 18px;
+}
+
+.faq-body {
+  padding-left: 18px;
+}
+
+.faq-item[open] {
+  border-color: var(--teal) !important;
+}
+
+.faq-plus {
+  background: var(--stone) !important;
+  border: 1px solid var(--hair-light) !important;
+  color: var(--teal) !important;
+}
+
+.faq-item[open] .faq-plus {
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+.closing-section {
+  background-color: var(--carbon) !important;
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.05) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+  border-top: 1px solid var(--hair-dark);
+}
+
+.closing-section::before,
+.closing-rings {
+  display: none !important;
+}
+
+.floating-dock {
+  background: rgba(7, 11, 20, 0.94) !important;
+  border: 1px solid var(--hair-dark) !important;
+  box-shadow: 0 20px 48px rgba(7, 11, 20, 0.32) !important;
+}
+
+.fd-cta {
+  background: var(--teal) !important;
+  color: #ffffff !important;
+}
+
+.fd-cta:hover {
+  background: var(--teal-dark) !important;
+}
+
+.section-rail .rail-node-link i {
+  border-radius: 0 !important;
+}
+
+.section-rail .rail-node-link.is-active i {
+  background: var(--teal-bright) !important;
+  box-shadow: none !important;
+}
+
+.site-footer {
+  background: var(--carbon) !important;
+  border-top: 1px solid var(--hair-dark) !important;
+}
+
+.site-footer .footer-links a:hover {
+  color: var(--teal-bright) !important;
+}
+
+/* Mobile Overflow Guardrails */
+.studio-section,
+.pilot-section,
+.usecases-section {
+  overflow-x: clip;
+}
+
+.compare-matrix,
+.cm-table-wrap {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .cm-table th,
+  .cm-table td {
+    padding: 12px;
+    font-size: 12px;
+  }
+  .cm-table tbody th {
+    white-space: normal;
+  }
+  .cinema-stage::before,
+  .cinema-stage::after,
+  .uc-stage::before,
+  .dossier-card::before {
+    display: none !important;
+  }
+}

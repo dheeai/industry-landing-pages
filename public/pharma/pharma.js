@@ -206,8 +206,8 @@
     if (renderMode === 'wireframe') {
       return {
         proteinA: [94, 234, 212],
-        proteinB: [59, 130, 246],
-        ligand: [255, 107, 61],
+        proteinB: [32, 86, 255],
+        ligand: [96, 165, 250],
         signal: [94, 234, 212],
         membrane: [94, 234, 212],
         wire: 'rgba(94, 234, 212, 0.55)'
@@ -215,8 +215,8 @@
     }
     return {
       proteinA: [222, 249, 243],
-      proteinB: [36, 176, 162],
-      ligand: [255, 108, 62],
+      proteinB: [13, 148, 136],
+      ligand: [56, 140, 255],
       signal: [94, 234, 212],
       membrane: [120, 196, 188],
       wire: 'rgba(94, 234, 212, 0.28)'
@@ -390,7 +390,7 @@
         const projLig = ligPts.map(([dx, dy, dz]) => project(ligX + dx, ligY + dy, dz));
         projLig.forEach((p, idx) => {
           items.push({ ...p, r: idx === 0 ? 11 : 6.2, rgb: pal.ligand, a: 0.98, glow: idx === 0 });
-          if (idx > 0) links.push({ a: projLig[0], b: p, color: 'rgba(255, 168, 120, 0.7)', w: 1.6 });
+          if (idx > 0) links.push({ a: projLig[0], b: p, color: 'rgba(110, 175, 255, 0.78)', w: 1.6 });
         });
 
         // Stage 2: Heterotrimeric G-Protein Complex + Signal Energy Pulses

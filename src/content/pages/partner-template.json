@@ -4,18 +4,19 @@
   "segment": "Channel partners · concept template",
   "language": "en",
   "theme": {
-    "accent": "#a78bfa",
-    "accentBright": "#c4b5fd",
-    "accentDark": "#6d28d9",
-    "accentSecondary": "#38bdf8",
-    "accentRgb": "167, 139, 250",
-    "accentBrightRgb": "196, 181, 253",
-    "accentSecondaryRgb": "56, 189, 248",
-    "ember": "#ff5a2f"
+    "accent": "#4f46e5",
+    "accentBright": "#a5b4fc",
+    "accentDark": "#3730a3",
+    "accentSecondary": "#2056ff",
+    "accentRgb": "79, 70, 229",
+    "accentBrightRgb": "165, 180, 252",
+    "accentSecondaryRgb": "32, 86, 255",
+    "ember": "#4f46e5"
   },
   "presentation": {
-    "layout": "standard",
+    "layout": "protocol",
     "heroMedia": "video",
+    "blueprintArt": "/images/partner-overview.svg",
     "practiceKicker": "PAGE TYPE E · TEMPLATE",
     "practiceName": "CHANNEL PARTNERS"
   },

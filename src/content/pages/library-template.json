@@ -4,18 +4,19 @@
   "segment": "Product library · concept template",
   "language": "en",
   "theme": {
-    "accent": "#10b981",
+    "accent": "#059669",
     "accentBright": "#6ee7b7",
     "accentDark": "#047857",
-    "accentSecondary": "#38bdf8",
-    "accentRgb": "16, 185, 129",
+    "accentSecondary": "#2056ff",
+    "accentRgb": "5, 150, 105",
     "accentBrightRgb": "110, 231, 183",
-    "accentSecondaryRgb": "56, 189, 248",
-    "ember": "#ff5a2f"
+    "accentSecondaryRgb": "32, 86, 255",
+    "ember": "#059669"
   },
   "presentation": {
-    "layout": "standard",
+    "layout": "protocol",
     "heroMedia": "video",
+    "blueprintArt": "/images/library-overview.svg",
     "practiceKicker": "PAGE TYPE C · TEMPLATE",
     "practiceName": "PRODUCT VIDEO LIBRARY"
   },

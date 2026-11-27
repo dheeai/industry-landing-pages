@@ -13,8 +13,9 @@ export type PageTheme = {
 };
 
 export type PagePresentation = {
-  layout?: 'standard' | 'account-showcase';
+  layout?: 'standard' | 'account-showcase' | 'protocol';
   heroMedia?: 'video' | 'image';
+  blueprintArt?: string;
   showFilmSection?: boolean;
   showDeliverables?: boolean;
   linkUseCasesToResponse?: boolean;
@@ -198,6 +199,17 @@ export function resolveThemeStyle(page: LandingPage): string {
     `--accent-bright-rgb:${t.accentBrightRgb}`,
     `--accent-secondary-rgb:${t.accentSecondaryRgb ?? '59, 130, 246'}`,
     `--ember:${t.ember ?? '#ff5a2f'}`
+  ].join(';');
+}
+
+export function resolveProtocolThemeStyle(page: LandingPage): string {
+  const t = page.theme;
+  if (!t) return '';
+  return [
+    `--p-accent:${t.accent}`,
+    `--p-accent-hover:${t.accentDark}`,
+    `--p-accent-soft:${t.accentBright}`,
+    `--p-accent-rgb:${t.accentRgb}`
   ].join(';');
 }
 

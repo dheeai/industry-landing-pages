@@ -4,18 +4,19 @@
   "segment": "EU machinery manufacturers",
   "language": "en",
   "theme": {
-    "accent": "#f59e0b",
-    "accentBright": "#fcd34d",
-    "accentDark": "#b45309",
+    "accent": "#2056ff",
+    "accentBright": "#9bb5ff",
+    "accentDark": "#1441d4",
     "accentSecondary": "#38bdf8",
-    "accentRgb": "245, 158, 11",
-    "accentBrightRgb": "252, 211, 77",
+    "accentRgb": "32, 86, 255",
+    "accentBrightRgb": "155, 181, 255",
     "accentSecondaryRgb": "56, 189, 248",
-    "ember": "#ff5a2f"
+    "ember": "#2056ff"
   },
   "presentation": {
-    "layout": "standard",
+    "layout": "protocol",
     "heroMedia": "video",
+    "blueprintArt": "/images/machinery-blueprint-art.svg",
     "practiceKicker": "INDUSTRIAL FILMS",
     "practiceName": "EU MACHINERY"
   },

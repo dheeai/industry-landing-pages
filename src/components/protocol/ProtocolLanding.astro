@@ -1,0 +1,727 @@
+---
+import type { LandingPage } from '../../content/schema';
+
+interface Props {
+  page: LandingPage;
+  configuredVideoUrl?: string;
+}
+
+const { page, configuredVideoUrl } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+const ext = (href: string) => (href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {});
+
+const numberedCapabilities = [
+  ...page.useCases.map((u) => ({
+    tag: u.tag,
+    title: u.title,
+    body: u.body
+  })),
+  ...page.journey.steps.map((s) => ({
+    tag: s.zone,
+    title: s.title,
+    body: s.copy
+  }))
+].slice(0, 6);
+
+const firstReply = page.response.tabs[0];
+const firstJourney = page.journey.steps[0];
+const heroImage = publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg');
+const blueprintArt = publicAsset(page.presentation?.blueprintArt ?? '/images/machinery-blueprint-art.svg');
+const showDeliverables = Boolean(page.presentation?.showDeliverables && page.ui?.mlOfferTitle);
+
+// Dynamic 3-Stat KPI Strip (adapts to research.items, telemetry, or research + trigger + video)
+const kpiCells = page.research.items?.length
+  ? page.research.items.slice(0, 3).map((item) => ({
+      label: item.label.toUpperCase(),
+      value: item.value,
+      note: page.trigger?.title ?? page.concept.body,
+      source: page.research.source
+    }))
+  : page.telemetry && page.telemetry.length >= 3
+    ? page.telemetry.slice(0, 3).map((t) => ({
+        label: t.kicker,
+        value: `${t.value}${t.unit && t.unit.length <= 3 ? t.unit : ''}`,
+        note: t.body,
+        source: undefined
+      }))
+    : [
+        {
+          label: 'RESEARCH SIGNAL',
+          value: page.research.value || '01',
+          note: page.research.body,
+          source: page.research.source
+        },
+        {
+          label: page.trigger?.dateLabel ?? 'STORY STRUCTURE',
+          value: page.trigger?.dateStamp ?? '03',
+          note: page.trigger?.title ?? page.journey.body,
+          source: page.trigger?.source
+        },
+        {
+          label: 'SAMPLE CONCEPT FILM',
+          value: page.video.duration,
+          note: `Narrated, captioned product explainer built in ${page.process.steps.length} reviewed studio steps.`,
+          source: undefined
+        }
+      ];
+
+const heroBadgeLabel = page.research.items?.length
+  ? `${page.research.items[0].value} ${page.research.items[0].label} · ${page.research.source.label} ↗`
+  : `${page.research.value} · ${page.research.source.label} ↗`;
+---
+<!-- 1. HERO — BLUEPRINT DRAFTING GRID × EDITORIAL SPECIMEN FRAME -->
+<section class="p-hero" id="top">
+  <div class="p-wrap p-hero-grid">
+    <div class="p-hero-copy">
+      <div class="p-eyebrow">
+        <span class="p-eyebrow-sq" aria-hidden="true"></span>
+        <span>{page.hero.eyebrow}</span>
+      </div>
+      <h1 class="p-h1">
+        {page.hero.title}<br />
+        <span class="p-h1-accent">{page.hero.emphasis}</span>
+      </h1>
+      <p class="p-hero-body">{page.hero.body}</p>
+      <div class="p-hero-actions">
+        <a class="p-fancy-btn" href={page.hero.primary.href} data-analytics="calendar_click" {...ext(page.hero.primary.href)}>
+          <span class="p-fancy-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+            </svg>
+          </span>
+          <span class="p-fancy-label">{page.hero.primary.label}</span>
+        </a>
+        <a class="p-text-cta" href={page.hero.secondary.href} data-analytics="sample_video_click" {...ext(page.hero.secondary.href)}>
+          <span>{page.hero.secondary.label}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      {page.research.items && page.research.items.length > 0 && (
+        <div class="p-spec-row" aria-label="Published specifications">
+          {page.research.items.map((spec) => (
+            <div class="p-spec-box">
+              <strong>{spec.value}</strong>
+              <span>{spec.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="p-hero-media">
+      <span class="p-pixel" style="top: -7px; left: -7px;" aria-hidden="true"></span>
+      <span class="p-pixel p-pixel-soft" style="bottom: -7px; right: -7px;" aria-hidden="true"></span>
+      <div class="p-art-header">
+        <span><b>FIG. 01</b> · {page.ui?.heroImageLabel ?? page.hero.artTopLabel ?? page.segment}</span>
+        <span>EDITION {page.hero.edition ?? '001'}</span>
+      </div>
+      <div class="p-hero-photo-wrap">
+        <img
+          class="p-hero-photo"
+          src={heroImage}
+          alt={page.hero.imageAlt ?? page.hero.title}
+          fetchpriority="high"
+        />
+        <span class="p-photo-cross" aria-hidden="true">{page.ui?.heroImageSource ?? page.hero.artStampLabel ?? 'PRODUCT STORY SYSTEM'}</span>
+        <a class="p-hero-badge" href={page.research.source.href} {...ext(page.research.source.href)}>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5" />
+            <path d="M2.5 10H17.5M10 2C12.2 4.4 13.4 7.1 13.4 10C13.4 12.9 12.2 15.6 10 18C7.8 15.6 6.6 12.9 6.6 10C6.6 7.1 7.8 4.4 10 2Z" stroke="currentColor" stroke-width="1.4" />
+          </svg>
+          <span>{heroBadgeLabel}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FULL-CONTAINER 1PX HAIRLINE RULE -->
+<div class="p-wrap"><div class="p-line"></div></div>
+
+<!-- 3. SIGNATURE 01.–06. NUMBERED CAPABILITIES GRID WITH GEOMETRIC ART GLYPHS -->
+<section class="p-section" id="applications">
+  <div class="p-wrap">
+    <div class="p-sec-head" data-p-reveal>
+      <div>
+        <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.applications?.eyebrow ?? 'Where a clear story helps'}</span></div>
+        <h2 class="p-h2">
+          {page.applications?.title ?? 'Built for every technical'}<br />
+          {page.applications?.emphasis ?? 'buyer moment.'}
+        </h2>
+      </div>
+      <p class="p-lead">
+        {page.applications?.body ?? 'One system raises different questions across sales, engineering, and onboarding. Give each moment its own focused visual answer.'}
+      </p>
+    </div>
+
+    <div class="p-num-grid" data-p-reveal>
+      {numberedCapabilities.map((item, i) => (
+        <article class="p-num-card">
+          <div class="p-num-top">
+            <div class="p-num-index">0{i + 1}<b>.</b></div>
+            <svg class="p-card-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              {i === 0 && (
+                <>
+                  <rect x="6" y="6" width="52" height="52" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="6" y1="32" x2="46" y2="32" stroke="var(--p-accent)" stroke-width="1.8" />
+                  <polyline points="36,22 46,32 36,42" stroke="var(--p-accent)" stroke-width="1.8" />
+                  <rect x="48" y="26" width="10" height="12" fill="currentColor" />
+                </>
+              )}
+              {i === 1 && (
+                <>
+                  <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="1.2" />
+                  <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3" />
+                  <rect x="27" y="27" width="10" height="10" fill="var(--p-accent)" />
+                  <line x1="32" y1="2" x2="32" y2="12" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="32" y1="52" x2="32" y2="62" stroke="currentColor" stroke-width="1.2" />
+                </>
+              )}
+              {i === 2 && (
+                <>
+                  <polygon points="32,8 56,22 56,42 32,56 8,42 8,22" stroke="currentColor" stroke-width="1.2" />
+                  <polyline points="8,22 32,36 56,22" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="32" y1="36" x2="32" y2="56" stroke="currentColor" stroke-width="1.2" />
+                  <polygon points="32,16 44,23 32,30 20,23" fill="var(--p-accent)" />
+                </>
+              )}
+              {i === 3 && (
+                <>
+                  <line x1="6" y1="18" x2="58" y2="18" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="6" y1="32" x2="58" y2="32" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="6" y1="46" x2="58" y2="46" stroke="currentColor" stroke-width="1.2" />
+                  <rect x="14" y="12" width="12" height="12" fill="var(--p-accent)" />
+                  <rect x="38" y="26" width="12" height="12" fill="currentColor" />
+                  <rect x="22" y="40" width="12" height="12" fill="var(--p-accent)" />
+                </>
+              )}
+              {i === 4 && (
+                <>
+                  <rect x="8" y="8" width="48" height="48" stroke="currentColor" stroke-width="1.2" />
+                  <line x1="8" y1="56" x2="56" y2="8" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" />
+                  <circle cx="32" cy="32" r="10" stroke="var(--p-accent)" stroke-width="2" />
+                  <circle cx="32" cy="32" r="3" fill="var(--p-accent)" />
+                </>
+              )}
+              {i === 5 && (
+                <>
+                  <path d="M10 18 V10 H18 M46 10 H54 V18 M10 46 V54 H18 M46 54 H54 V46" stroke="currentColor" stroke-width="1.5" />
+                  <rect x="20" y="20" width="24" height="24" fill="var(--p-accent-pale)" stroke="currentColor" stroke-width="1.2" />
+                  <polyline points="26,32 30,36 39,27" stroke="var(--p-accent)" stroke-width="2.2" />
+                </>
+              )}
+            </svg>
+          </div>
+          <div>
+            <span class="p-num-tag">{item.tag}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 4. SPLIT FEATURE + ZERO-OVERLAP 2-TIER BLUEPRINT SPECIMEN PLATE -->
+<section class="p-section" id="bridge" style="padding-top: 24px;">
+  <div class="p-wrap p-split-grid">
+    <div data-p-reveal>
+      <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.concept.eyebrow}</span></div>
+      <h2 class="p-h2" style="margin-bottom: 18px;">{page.concept.title}</h2>
+      <p class="p-lead">{page.concept.body}</p>
+
+      <ul class="p-checklist">
+        {page.concept.steps.map((step, i) => (
+          <li>
+            <span class="p-check-sq" aria-hidden="true"><i></i></span>
+            <span>0{i + 1} / {step}</span>
+          </li>
+        ))}
+      </ul>
+
+      <a class="p-fancy-btn" href="#contact" data-analytics="calendar_click">
+        <span class="p-fancy-arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+          </svg>
+        </span>
+        <span class="p-fancy-label">{page.ui?.headerCta ?? page.cta.calendar.label}</span>
+      </a>
+    </div>
+
+    <div class="p-specimen-plate" data-p-reveal>
+      <span class="p-pixel" style="top: -7px; right: -7px;" aria-hidden="true"></span>
+      <span class="p-pixel p-pixel-soft" style="bottom: -7px; left: -7px;" aria-hidden="true"></span>
+      <div class="p-specimen-bar">
+        <span><b>FIG. 02</b> · {page.ui?.bridgeLabel ?? 'VISUAL STORY ARCHITECTURE'}</span>
+        <span>{page.concept.steps.join(' → ').toUpperCase()}</span>
+      </div>
+      <div class="p-specimen-blueprint">
+        <img
+          src={blueprintArt}
+          alt={`Illustrative schematic for ${page.segment}`}
+          loading="lazy"
+        />
+      </div>
+      <div class="p-specimen-diptych">
+        <figure class="p-specimen-cell">
+          <img
+            src={publicAsset(page.journey.steps[0]?.image ?? '/images/machinery-input.jpg')}
+            alt={page.journey.steps[0]?.imageAlt ?? 'Step 01 visual'}
+            loading="lazy"
+          />
+          <figcaption><span>01 / {page.journey.steps[0]?.zone}</span><b>{page.journey.steps[0]?.tab}</b></figcaption>
+        </figure>
+        <figure class="p-specimen-cell">
+          <img
+            src={publicAsset(page.journey.steps[2]?.image ?? '/images/machinery-outcome.jpg')}
+            alt={page.journey.steps[2]?.imageAlt ?? 'Step 03 visual'}
+            loading="lazy"
+          />
+          <figcaption><span>03 / {page.journey.steps[2]?.zone}</span><b>{page.journey.steps[2]?.tab}</b></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 3-STAT QUANTITATIVE KPI STRIP -->
+<section class="p-stats-band">
+  <div class="p-wrap">
+    <div class="p-stats-grid" data-p-reveal>
+      {kpiCells.map((cell) => (
+        <div class="p-stat-cell">
+          <span class="p-stat-label">{cell.label}</span>
+          <div class="p-stat-val">{cell.value}<b>.</b></div>
+          <p class="p-stat-note">
+            {cell.note}
+            {cell.source && (
+              <>
+                {' '}
+                <a class="p-text-cta" style="font-size:13.5px;" href={cell.source.href} {...ext(cell.source.href)}>
+                  {cell.source.label} ↗
+                </a>
+              </>
+            )}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 6. DARK OBSIDIAN-NAVY SHOWCASE — SAMPLE FILM + OPTIONAL DELIVERABLES + STORY LIBRARY -->
+<section class="p-section p-section-dark" id="sample">
+  <div class="p-wrap">
+    <div class="p-sec-head" data-p-reveal>
+      <div>
+        <div class="p-eyebrow" style="color: var(--p-accent-soft);"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.ui?.filmEyebrow ?? page.video.label}</span></div>
+        <h2 class="p-h2">{page.ui?.filmTitle ?? page.video.title}</h2>
+      </div>
+      <div>
+        <p class="p-lead" style="margin-bottom: 22px;">{page.ui?.filmBody ?? page.video.description}</p>
+        <a class="p-fancy-btn" href="#contact" data-analytics="calendar_click">
+          <span class="p-fancy-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+            </svg>
+          </span>
+          <span class="p-fancy-label">{page.ui?.libraryCta ?? 'Plan your first story'}</span>
+        </a>
+      </div>
+    </div>
+
+    {configuredVideoUrl && (
+      <figure class="p-film-frame" style="margin: 0 0 52px;" data-p-reveal>
+        <span class="p-pixel" style="top: -7px; right: -7px;" aria-hidden="true"></span>
+        <div class="p-film-bar">
+          <span><b>{page.video.label}</b></span>
+          <span>RUNTIME {page.video.duration} · CAPTIONS INCLUDED</span>
+        </div>
+        <div class="p-film-stage">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster={publicAsset(page.video.poster)}
+            aria-label={page.video.title}
+            data-analytics-video
+          >
+            <source src={publicAsset(configuredVideoUrl)} type="video/mp4" />
+            {page.video.captionsUrl && (
+              <track
+                kind="captions"
+                src={publicAsset(page.video.captionsUrl)}
+                srclang={page.language}
+                label={`${page.language.toUpperCase()} captions`}
+                default
+              />
+            )}
+            Your browser does not support embedded video.
+          </video>
+        </div>
+        {page.video.transcript.length > 0 && (
+          <details class="p-transcript">
+            <summary>
+              <span>Read film transcript &amp; narration</span>
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <div class="p-transcript-body">
+              {page.video.transcript.map((line) => <p style="margin:0;">{line}</p>)}
+            </div>
+          </details>
+        )}
+      </figure>
+    )}
+
+    {showDeliverables && (
+      <div style="margin-bottom: 64px;" id="deliverables" data-p-reveal>
+        <div class="p-sec-head" style="margin-bottom: 28px;">
+          <div>
+            <div class="p-eyebrow" style="color: var(--p-accent-soft);"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.ui?.mlOfferEyebrow}</span></div>
+            <h3 style="margin:0; font: 500 clamp(26px, 2.8vw, 36px)/1.15 var(--p-sans); letter-spacing: -0.03em; color: #fff;">{page.ui?.mlOfferTitle}</h3>
+          </div>
+          <p class="p-lead">{page.ui?.mlOfferIntro}</p>
+        </div>
+        <div class="p-deliverables-grid">
+          <article class="p-deliv-card">
+            <span>{page.ui?.offerFilmLabel}</span>
+            <h3>{page.ui?.offerFilmTitle}</h3>
+            <p>{page.ui?.offerFilmBody}</p>
+            <a class="p-text-cta p-text-cta-dark" href="#sample">{page.ui?.offerFilmLink} ↗</a>
+          </article>
+          <article class="p-deliv-card is-featured">
+            <span>{page.ui?.offerPageLabel}</span>
+            <h3>{page.ui?.offerPageTitle}</h3>
+            <p>{page.ui?.offerPageBody}</p>
+            <a class="p-text-cta p-text-cta-dark" href="#first-response">{page.ui?.offerPageLink} ↗</a>
+          </article>
+          <article class="p-deliv-card">
+            <span>{page.ui?.offerKitLabel}</span>
+            <h3>{page.ui?.offerKitTitle}</h3>
+            <p>{page.ui?.offerKitBody}</p>
+            <a class="p-text-cta p-text-cta-dark" href="#contact">{page.ui?.offerKitLink} ↗</a>
+          </article>
+        </div>
+      </div>
+    )}
+
+    <div class="p-sec-head" style="margin-bottom: 28px;" id="library" data-p-reveal>
+      <div>
+        <div class="p-eyebrow" style="color: var(--p-accent-soft);"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.ui?.libraryEyebrow ?? 'STORY LIBRARY'}</span></div>
+        <h3 style="margin:0; font: 500 clamp(26px, 2.8vw, 36px)/1.15 var(--p-sans); letter-spacing: -0.03em; color: #fff;">{page.library.title}</h3>
+      </div>
+      <p class="p-lead">{page.library.body}</p>
+    </div>
+
+    <div class="p-sector-strip" style={`grid-template-columns: repeat(${Math.min(page.library.items.length, 4)}, minmax(0, 1fr));`} data-p-reveal>
+      {page.library.items.map((item) => (
+        <article class="p-sector-card">
+          <img src={publicAsset(item.poster)} alt={item.alt} loading="lazy" />
+          <div class="p-sector-overlay">
+            <span class="p-sector-num">{item.number} / {page.ui?.storyDirection ?? 'DIRECTION'}</span>
+            <div>
+              <div class="p-sector-label">{item.title}</div>
+              <p class="p-sector-detail">{item.detail}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONAL DHEE STUDIO PIPELINE (For Account Showcases like Multiply Labs) -->
+{page.studio && (
+  <section class="p-section p-section-soft" id="dhee">
+    <div class="p-wrap">
+      <div class="p-sec-head" data-p-reveal>
+        <div>
+          <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.studio.eyebrow}</span></div>
+          <h2 class="p-h2">{page.studio.title}</h2>
+        </div>
+        <p class="p-lead">{page.studio.body}</p>
+      </div>
+      <div class="p-num-grid" data-p-reveal>
+        {page.studio.steps.map((step) => (
+          <article class="p-num-card" style="min-height: 290px;">
+            <div class="p-num-index">{step.number}<b>.</b></div>
+            <div>
+              <span class="p-num-tag">MANAGED STUDIO</span>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="p-studio-rails" data-p-reveal>
+        <div class="p-studio-rail">
+          <span>{page.studio.inputsLabel}</span>
+          <p>{page.studio.inputs}</p>
+        </div>
+        <div class="p-studio-rail">
+          <span>{page.studio.outputsLabel}</span>
+          <p>{page.studio.outputs}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- 7. INTERACTIVE FIRST-RESPONSE STUDIO -->
+<section class="p-section" id="first-response">
+  <div class="p-wrap">
+    <div class="p-sec-head" data-p-reveal>
+      <div>
+        <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.response.eyebrow}</span></div>
+        <h2 class="p-h2">{page.response.title}</h2>
+      </div>
+      <p class="p-lead">{page.response.body}</p>
+    </div>
+
+    <div class="p-tab-strip" role="tablist" aria-label={page.ui?.sampleQuestionLabel ?? 'Choose a sample buyer question'} data-p-reveal>
+      {page.response.tabs.map((tab, i) => (
+        <button
+          type="button"
+          role="tab"
+          class:list={['p-tab-btn', i === 0 && 'is-active']}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          tabindex={i === 0 ? 0 : -1}
+          data-p-reply-tab={i}
+          data-q={tab.question}
+          data-a={tab.answer}
+          data-asset={tab.asset}
+        >
+          <span>0{i + 1}.</span>
+          {tab.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="p-response-card" role="tabpanel" aria-live="polite" data-p-reveal>
+      <div class="p-holding-bar">
+        <span><strong>{page.response.beforeLabel}:</strong> “{page.response.beforeMessage}”</span>
+        <span>{page.response.beforeNote}</span>
+      </div>
+
+      <p class="p-quote">
+        <b>“</b><span data-p-reply-q>{firstReply?.question}</span><b>”</b>
+      </p>
+
+      <p class="p-answer-text" data-p-reply-a>{firstReply?.answer}</p>
+
+      <div class="p-response-foot">
+        <div class="p-elbow-meta">
+          <span class="p-elbow" aria-hidden="true"></span>
+          <div>
+            <strong data-p-reply-asset>{firstReply?.asset}</strong>
+            <small>{page.response.assetLabel ?? `ATTACHED VISUAL REPLY · ${page.video.duration} EXPLAINER`}</small>
+          </div>
+        </div>
+        <button type="button" class="p-square-next" data-p-reply-next aria-label="Next buyer question">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="p-wrap"><div class="p-line"></div></div>
+
+<!-- 8. INTERACTIVE 3-STEP VISUAL JOURNEY + COMPARISON + TRIGGER + 7-STEP PROCESS -->
+<section class="p-section" id="journey">
+  <div class="p-wrap">
+    <div class="p-sec-head" data-p-reveal>
+      <div>
+        <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.journey.eyebrow}</span></div>
+        <h2 class="p-h2">
+          {page.journey.title}<br />
+          <span class="p-h1-accent">{page.journey.emphasis}</span>
+        </h2>
+      </div>
+      <p class="p-lead">{page.journey.body}</p>
+    </div>
+
+    <div class="p-journey-grid" data-p-reveal>
+      <div class="p-journey-tabs" role="tablist" aria-label={page.journey.navigationLabel ?? 'Follow the visual journey'}>
+        {page.journey.steps.map((step, i) => (
+          <button
+            type="button"
+            role="tab"
+            class:list={['p-journey-tab', i === 0 && 'is-active']}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            data-p-journey-tab={i}
+            data-title={step.title}
+            data-copy={step.copy}
+          >
+            <div>
+              <strong>{step.tab}</strong>
+              <small>{step.zone}</small>
+            </div>
+            <span class="p-journey-tab-num">0{i + 1}.</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="p-journey-stage" role="tabpanel" aria-live="polite">
+        <div class="p-journey-media">
+          {page.journey.steps.map((step, i) => (
+            <figure class:list={['p-journey-scene', i === 0 && 'is-active']} data-p-journey-scene={i} aria-hidden={i === 0 ? 'false' : 'true'}>
+              <img src={publicAsset(step.image)} alt={step.imageAlt} loading={i === 0 ? 'eager' : 'lazy'} />
+              <figcaption>0{i + 1} / {step.zone}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class="p-journey-caption">
+          <span class="p-journey-caption-num" data-p-journey-num>01.</span>
+          <div>
+            <h3 data-p-journey-title>{firstJourney?.title}</h3>
+            <p data-p-journey-copy>{firstJourney?.copy}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Bridge -->
+    <div style="margin-top: 84px;" data-p-reveal>
+      <div class="p-sec-head" style="margin-bottom: 32px;">
+        <div>
+          <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.ui?.comparisonEyebrow ?? 'A BRIDGE, NOT A REPLACEMENT'}</span></div>
+          <h2 class="p-h2" style="font-size: clamp(28px, 3.3vw, 42px);">{page.comparison.title}</h2>
+        </div>
+        <p class="p-lead">{page.comparison.body}</p>
+      </div>
+
+      <div class="p-compare-grid">
+        <article class="p-compare-card">
+          <div class="p-compare-head">
+            <span>01.</span>
+            <h3>{page.comparison.leftTitle}</h3>
+          </div>
+          <ul class="p-compare-list">
+            {page.comparison.leftItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+
+        <article class="p-compare-card p-compare-card-dark">
+          <div class="p-compare-head">
+            <span>02.</span>
+            <h3>{page.comparison.rightTitle}</h3>
+          </div>
+          <ul class="p-compare-list">
+            {page.comparison.rightItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
+
+      <p class="p-note-bar"><b>{page.ui?.noteLabel ?? 'NOTE'} / 01</b>{page.comparison.note}</p>
+    </div>
+
+    <!-- Trigger Box -->
+    {page.trigger && (
+      <div class="p-trigger-box" id="why" data-p-reveal>
+        <div class="p-trigger-left">
+          <span class="p-eyebrow" style="color: var(--p-accent-soft); margin:0;"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.trigger.eyebrow}</span></span>
+          <div>
+            <div class="p-trigger-date">{page.trigger.dateStamp}</div>
+            <div style="margin-top: 8px; font: 500 11.5px var(--p-mono); letter-spacing: 0.1em; color: var(--p-muted-dark);">{page.trigger.dateLabel}</div>
+          </div>
+        </div>
+        <div class="p-trigger-right">
+          <h3>{page.trigger.title}</h3>
+          <p>{page.trigger.body}</p>
+          <a class="p-text-cta" href={page.trigger.source.href} {...ext(page.trigger.source.href)}>
+            <span>{page.trigger.source.label}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    )}
+
+    <!-- 7-Step Production Sequence -->
+    <div style="margin-top: 84px;" id="process" data-p-reveal>
+      <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.ui?.processEyebrow ?? 'FROM PRODUCT TO PAGE'}</span></div>
+      <h2 class="p-h2" style="font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 32px;">{page.process.title}</h2>
+      <div class="p-process-list">
+        {page.process.steps.map((step) => (
+          <article class="p-process-step">
+            <span>{step.number}.</span>
+            <h3>{step.title}</h3>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ ACCORDION -->
+<section class="p-section p-section-soft" id="faq">
+  <div class="p-wrap">
+    <div data-p-reveal>
+      <div class="p-eyebrow"><span class="p-eyebrow-sq" aria-hidden="true"></span><span>{page.faqTitle?.eyebrow ?? 'GOOD QUESTIONS, STRAIGHT ANSWERS'}</span></div>
+      <h2 class="p-h2">{page.faqTitle ? `${page.faqTitle.title} ${page.faqTitle.emphasis}` : 'Questions?'}</h2>
+    </div>
+
+    <div class="p-faq-list" data-p-reveal>
+      {page.faqs.map((faq) => (
+        <details class="p-faq-item">
+          <summary>
+            <span class="p-faq-plus" aria-hidden="true">+</span>
+            <span>{faq.question}</span>
+          </summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 10. DARK CLOSING CTA WITH THEME-AWARE PIXEL CHECKERBOARDS -->
+<section class="p-section p-section-dark" id="contact">
+  <div class="p-wrap">
+    <div class="p-cta-box" data-p-reveal>
+      <svg class="p-checker p-checker-tl" viewBox="0 0 112 112" fill="none" aria-hidden="true">
+        <rect x="28" y="0" width="28" height="28" fill="var(--p-accent)" />
+        <rect x="84" y="0" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+        <rect x="0" y="28" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+        <rect x="56" y="28" width="28" height="28" fill="var(--p-accent)" />
+        <rect x="28" y="56" width="28" height="28" fill="var(--p-accent)" />
+        <rect x="0" y="84" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+      </svg>
+
+      <svg class="p-checker p-checker-br" viewBox="0 0 112 112" fill="none" aria-hidden="true">
+        <rect x="56" y="0" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+        <rect x="28" y="28" width="28" height="28" fill="var(--p-accent)" />
+        <rect x="84" y="28" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+        <rect x="0" y="56" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+        <rect x="56" y="56" width="28" height="28" fill="var(--p-accent)" />
+        <rect x="28" y="84" width="28" height="28" fill="var(--p-accent)" fill-opacity="0.28" />
+        <rect x="84" y="84" width="28" height="28" fill="var(--p-accent)" />
+      </svg>
+
+      <div class="p-cta-inner">
+        <h2>{page.cta.title}</h2>
+        <p>{page.cta.body}</p>
+        <div class="p-cta-actions">
+          <a class="p-fancy-btn" href={page.cta.calendar.href} data-analytics="calendar_click" {...ext(page.cta.calendar.href)}>
+            <span class="p-fancy-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+              </svg>
+            </span>
+            <span class="p-fancy-label">{page.cta.calendar.label}</span>
+          </a>
+          <a class="p-text-cta p-text-cta-dark" href={page.cta.email.href} data-analytics="email_click">
+            <span>{page.cta.email.label}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

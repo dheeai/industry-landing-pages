@@ -23,7 +23,7 @@ const publicAsset = (path: string) => (path.startsWith('http') ? path : `${impor
       <p class="footer-disclosure">{page.footer.disclosure}</p>
 
       <div class="footer-links">
-        <a href={import.meta.env.BASE_URL}>All industry pages</a>
+        <a href={`${import.meta.env.BASE_URL}machinery/`}>Machinery</a>
         <a href={page.cta.email.href} data-analytics="email_click">{page.cta.email.label} ↗</a>
         {privacyUrl && <a href={privacyUrl} target="_blank" rel="noreferrer">{page.ui?.privacyLabel ?? 'Privacy'}</a>}
         {analyticsEnabled && (

@@ -1,0 +1,283 @@
+---
+import '../styles/protocol-system.css';
+import type { LandingPage as PageData } from '../content/schema';
+import { resolveProtocolThemeStyle } from '../content/schema';
+
+interface Props {
+  page: PageData;
+}
+
+const { page } = Astro.props;
+const publicAsset = (path: string) => (path.startsWith('http') ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`);
+const privacyUrl = import.meta.env.PUBLIC_PRIVACY_URL;
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const analyticsEnabled = Boolean(privacyUrl && plausibleDomain);
+
+const nav = page.navigation ?? { response: 'First response', applications: 'Applications', journey: 'How it works', sample: 'Sample' };
+const navItems = [
+  { label: nav.applications, href: '#applications' },
+  { label: nav.sample, href: '#sample' },
+  { label: nav.response, href: '#first-response' },
+  { label: nav.journey, href: '#journey' },
+  ...(page.studio && nav.studio ? [{ label: nav.studio, href: '#dhee' }] : []),
+  { label: 'Contact', href: '#contact' }
+];
+
+const canonicalUrl = new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/${page.slug}/`, Astro.site).toString();
+const shareImage = page.hero.image?.startsWith('http')
+  ? page.hero.image
+  : new URL(publicAsset(page.hero.image ?? '/images/industrial-machine-hero.jpg'), Astro.site).toString();
+const themeStyle = resolveProtocolThemeStyle(page);
+---
+<!doctype html>
+<html lang={page.language} data-page-slug={page.slug} data-page-type={page.pageType} data-layout="protocol" style={themeStyle || undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={page.seo.description} />
+    {page.seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={page.seo.title} />
+    <meta property="og:description" content={page.seo.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={shareImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={page.seo.title} />
+    <meta name="twitter:description" content={page.seo.description} />
+    <meta name="twitter:image" content={shareImage} />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{page.seo.title}</title>
+    <link rel="icon" type="image/png" href={publicAsset('/images/dhee-mark-black.png')} />
+    <link rel="apple-touch-icon" href={publicAsset('/images/dhee-mark-black.png')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="p-skip" href="#main">Skip to content</a>
+
+    <header class="p-header" data-p-header>
+      <div class="p-wrap p-header-inner">
+        <a class="p-brand" href="https://dhee.studio/" target="_blank" rel="noreferrer" aria-label="DHEE Studio home">
+          <img class="p-logo-mark" src={publicAsset('/images/dhee-mark-black.png')} alt="" />
+          <span class="p-word">DHEE<b>.</b></span>
+          <span class="p-brand-tag">{page.presentation?.practiceName ?? page.segment}</span>
+        </a>
+
+        <div class="p-header-right">
+          <nav class="p-nav" aria-label="Main navigation">
+            {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          </nav>
+
+          {page.languageVariants && page.languageVariants.length > 1 && (
+            <details class="p-lang">
+              <summary aria-label={page.languageLabel ?? 'Language'}>{page.language.toUpperCase()} <span aria-hidden="true">⌄</span></summary>
+              <nav aria-label={page.languageLabel ?? 'Language'}>
+                {page.languageVariants.map((option) => (
+                  <a
+                    href={`${import.meta.env.BASE_URL}${option.slug}/`}
+                    aria-current={option.language === page.language ? 'page' : undefined}
+                    data-analytics={option.language === page.language ? undefined : 'language_switch'}
+                    data-language={option.language}
+                  >
+                    {option.label}
+                  </a>
+                ))}
+              </nav>
+            </details>
+          )}
+
+          <details class="p-mobile-nav">
+            <summary aria-label={page.ui?.menu ?? 'Menu'}>{page.ui?.menu ?? 'Menu'} ＋</summary>
+            <nav aria-label="Mobile navigation">
+              {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="main"><slot /></main>
+
+    <footer class="p-footer">
+      <div class="p-wrap">
+        <div class="p-footer-top">
+          <div class="p-footer-brand">
+            <a class="p-brand" href="https://dhee.studio/" target="_blank" rel="noreferrer" aria-label="DHEE Studio home">
+              <img class="p-logo-mark" src={publicAsset('/images/dhee-mark-white.png')} alt="" />
+              <span class="p-word">DHEE<b>.</b></span>
+            </a>
+            <p class="p-footer-disclosure">{page.footer.disclosure}</p>
+          </div>
+
+          <div class="p-footer-col">
+            <h4>Directory</h4>
+            <ul>
+              <li><a href={`${import.meta.env.BASE_URL}machinery/`}>Machinery</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}robotics/`}>Robotics</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}pharma/`}>Pharma &amp; Life Sciences</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}multiply-labs/`}>Multiply Labs</a></li>
+            </ul>
+          </div>
+
+          <div class="p-footer-col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href={page.cta.calendar.href} target="_blank" rel="noreferrer" data-analytics="calendar_click">{page.cta.calendar.label} ↗</a></li>
+              <li><a href={page.cta.email.href} data-analytics="email_click">{page.cta.email.label} ↗</a></li>
+              {privacyUrl && <li><a href={privacyUrl} target="_blank" rel="noreferrer">{page.ui?.privacyLabel ?? 'Privacy'}</a></li>}
+              {analyticsEnabled && <li><button type="button" data-analytics-settings>{page.ui?.settingsLabel ?? 'Cookie settings'}</button></li>}
+            </ul>
+          </div>
+        </div>
+
+        <div class="p-footer-bottom">
+          <span>© {new Date().getFullYear()} {page.footer.copyright}</span>
+          <span>{page.ui?.footerLine ?? 'DHEE STUDIO · PRECISION PRODUCT STORIES'}</span>
+        </div>
+      </div>
+    </footer>
+
+    {analyticsEnabled && (
+      <>
+        <div class="p-consent" data-analytics-consent hidden role="dialog" aria-modal="false" aria-labelledby="p-consent-title">
+          <div>
+            <strong id="p-consent-title">{page.ui?.analyticsTitle ?? 'Help us understand this page'}</strong>
+            <p>
+              {page.ui?.analyticsBody ?? 'Optional analytics measure page use and video engagement.'}{' '}
+              <a href={privacyUrl} target="_blank" rel="noreferrer">{page.ui?.privacyLabel ?? 'Privacy'}</a>.
+            </p>
+          </div>
+          <div class="p-consent-actions">
+            <button type="button" data-consent-reject>{page.ui?.rejectLabel ?? 'Reject'}</button>
+            <button type="button" data-consent-accept>{page.ui?.acceptLabel ?? 'Accept analytics'}</button>
+          </div>
+        </div>
+        <div data-analytics-config data-domain={plausibleDomain} hidden></div>
+        <script is:inline>
+          (() => {
+            const key = 'dhee-analytics-consent';
+            const banner = document.querySelector('[data-analytics-consent]');
+            const config = document.querySelector('[data-analytics-config]');
+            let loaded = false;
+            const loadAnalytics = () => {
+              if (loaded || !config?.dataset.domain) return;
+              loaded = true;
+              const script = document.createElement('script');
+              script.defer = true;
+              script.src = 'https://plausible.io/js/script.js';
+              script.dataset.domain = config.dataset.domain;
+              document.head.append(script);
+            };
+            const track = (event, props = {}) => {
+              if (localStorage.getItem(key) === 'accepted') window.plausible?.(event, { props });
+            };
+            const consent = localStorage.getItem(key);
+            if (consent === 'accepted') loadAnalytics();
+            else if (consent !== 'rejected' && banner) banner.hidden = false;
+            document.querySelector('[data-consent-accept]')?.addEventListener('click', () => {
+              localStorage.setItem(key, 'accepted'); if (banner) banner.hidden = true; loadAnalytics();
+            });
+            document.querySelector('[data-consent-reject]')?.addEventListener('click', () => {
+              localStorage.setItem(key, 'rejected'); if (banner) banner.hidden = true;
+            });
+            document.querySelector('[data-analytics-settings]')?.addEventListener('click', () => { if (banner) banner.hidden = false; });
+            document.querySelectorAll('[data-analytics]').forEach((el) =>
+              el.addEventListener('click', () => track(el.dataset.analytics))
+            );
+          })();
+        </script>
+      </>
+    )}
+
+    <script>
+      const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const header = document.querySelector<HTMLElement>('[data-p-header]');
+      const syncHeader = () => header?.classList.toggle('is-solid', window.scrollY > 12);
+      syncHeader();
+      window.addEventListener('scroll', syncHeader, { passive: true });
+
+      // Blur-to-focus scroll reveals
+      const reveals = document.querySelectorAll<HTMLElement>('[data-p-reveal]');
+      if (!isReduced && 'IntersectionObserver' in window && reveals.length) {
+        document.body.classList.add('p-motion');
+        const obs = new IntersectionObserver(
+          (entries, o) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-in');
+                o.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: '80px 0px -2% 0px', threshold: 0.02 }
+        );
+        reveals.forEach((el) => obs.observe(el));
+      }
+
+      // First-Response Tabs + Next-Arrow Cycle
+      const replyTabs = [...document.querySelectorAll<HTMLButtonElement>('[data-p-reply-tab]')];
+      const qView = document.querySelector<HTMLElement>('[data-p-reply-q]');
+      const aView = document.querySelector<HTMLElement>('[data-p-reply-a]');
+      const assetView = document.querySelector<HTMLElement>('[data-p-reply-asset]');
+      const nextBtn = document.querySelector<HTMLButtonElement>('[data-p-reply-next]');
+      let replyIdx = 0;
+
+      const selectReply = (idx: number) => {
+        const tab = replyTabs[idx];
+        if (!tab) return;
+        replyIdx = idx;
+        replyTabs.forEach((b, i) => {
+          const active = i === idx;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-selected', String(active));
+          b.tabIndex = active ? 0 : -1;
+        });
+        if (qView && tab.dataset.q) qView.textContent = tab.dataset.q;
+        if (aView && tab.dataset.a) aView.textContent = tab.dataset.a;
+        if (assetView && tab.dataset.asset) assetView.textContent = tab.dataset.asset;
+      };
+
+      replyTabs.forEach((tab, i) => tab.addEventListener('click', () => selectReply(i)));
+      nextBtn?.addEventListener('click', () => selectReply((replyIdx + 1) % replyTabs.length));
+
+      // 3-Step Journey Tabs
+      const jTabs = [...document.querySelectorAll<HTMLButtonElement>('[data-p-journey-tab]')];
+      const jScenes = [...document.querySelectorAll<HTMLElement>('[data-p-journey-scene]')];
+      const jNum = document.querySelector<HTMLElement>('[data-p-journey-num]');
+      const jTitle = document.querySelector<HTMLElement>('[data-p-journey-title]');
+      const jCopy = document.querySelector<HTMLElement>('[data-p-journey-copy]');
+
+      jTabs.forEach((tab, i) =>
+        tab.addEventListener('click', () => {
+          jTabs.forEach((b, bi) => {
+            const active = bi === i;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-selected', String(active));
+            b.tabIndex = active ? 0 : -1;
+          });
+          jScenes.forEach((s, si) => {
+            const active = si === i;
+            s.classList.toggle('is-active', active);
+            s.setAttribute('aria-hidden', String(!active));
+          });
+          if (jNum) jNum.textContent = `0${i + 1}.`;
+          if (jTitle && tab.dataset.title) jTitle.textContent = tab.dataset.title;
+          if (jCopy && tab.dataset.copy) jCopy.textContent = tab.dataset.copy;
+        })
+      );
+
+      // Mobile menu auto-close
+      document.querySelectorAll<HTMLAnchorElement>('.p-mobile-nav nav a').forEach((a) =>
+        a.addEventListener('click', () => {
+          const d = a.closest('details');
+          if (d) d.open = false;
+        })
+      );
+    </script>
+  </body>
+</html>

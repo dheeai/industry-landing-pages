@@ -1,21 +1,22 @@
 {
-  "slug": "ml-7f4q9c2",
+  "slug": "multiply-labs",
   "pageType": "B",
   "segment": "Multiply Labs · Robotic Biomanufacturing Story",
   "language": "en",
   "theme": {
-    "accent": "#2dd4bf",
+    "accent": "#0d9488",
     "accentBright": "#5eead4",
     "accentDark": "#0f766e",
-    "accentSecondary": "#3b82f6",
-    "accentRgb": "45, 212, 191",
+    "accentSecondary": "#2056ff",
+    "accentRgb": "13, 148, 136",
     "accentBrightRgb": "94, 234, 212",
-    "accentSecondaryRgb": "59, 130, 246",
-    "ember": "#ff5a2f"
+    "accentSecondaryRgb": "32, 86, 255",
+    "ember": "#0d9488"
   },
   "presentation": {
-    "layout": "account-showcase",
+    "layout": "protocol",
     "heroMedia": "image",
+    "blueprintArt": "/images/ml-blueprint-art.svg",
     "showFilmSection": true,
     "showDeliverables": true,
     "linkUseCasesToResponse": true,

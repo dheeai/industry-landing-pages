@@ -4,18 +4,19 @@
   "segment": "Robotics and physical-AI teams",
   "language": "en",
   "theme": {
-    "accent": "#38bdf8",
+    "accent": "#0284c7",
     "accentBright": "#7dd3fc",
     "accentDark": "#0369a1",
-    "accentSecondary": "#818cf8",
-    "accentRgb": "56, 189, 248",
+    "accentSecondary": "#2056ff",
+    "accentRgb": "2, 132, 199",
     "accentBrightRgb": "125, 211, 252",
-    "accentSecondaryRgb": "129, 140, 248",
-    "ember": "#ff5a2f"
+    "accentSecondaryRgb": "32, 86, 255",
+    "ember": "#0284c7"
   },
   "presentation": {
-    "layout": "standard",
+    "layout": "protocol",
     "heroMedia": "video",
+    "blueprintArt": "/images/robotics-blueprint-art.svg",
     "practiceKicker": "PHYSICAL AI FILMS",
     "practiceName": "ROBOTICS & AUTOMATION"
   },

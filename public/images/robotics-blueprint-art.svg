@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" width="920" height="440">
+  <defs>
+    <pattern id="rbFine" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(125,211,252,0.075)" stroke-width="0.75"/>
+    </pattern>
+    <pattern id="rbMajor" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(125,211,252,0.14)" stroke-width="1"/>
+    </pattern>
+    <pattern id="rbZone" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="rgba(56,189,248,0.32)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="920" height="440" fill="#06101F"/>
+  <rect width="920" height="440" fill="url(#rbFine)"/>
+  <rect width="920" height="440" fill="url(#rbMajor)"/>
+
+  <rect x="18" y="18" width="884" height="404" fill="none" stroke="rgba(125,211,252,0.28)" stroke-width="1"/>
+  <path d="M 18 38 V 18 H 38 M 882 18 H 902 V 38 M 18 402 V 422 H 38 M 882 422 H 902 V 402" fill="none" stroke="#0284C7" stroke-width="2.2"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" letter-spacing="1.6">
+    <text x="36" y="42" fill="#7DD3FC">DWG. DHEE-ROB-02 / CELL ELEVATION</text>
+    <text x="460" y="42" text-anchor="middle" fill="#FFFFFF">BOUNDED ROBOTIC TASK SEQUENCE</text>
+    <text x="884" y="42" text-anchor="end" fill="#38BDF8">CONCEPT LAYOUT</text>
+  </g>
+  <line x1="18" y1="56" x2="902" y2="56" stroke="rgba(125,211,252,0.22)" stroke-width="1"/>
+
+  <!-- Floor Datum -->
+  <line x1="56" y1="316" x2="864" y2="316" stroke="#38BDF8" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <!-- STAGE 01: AMR APPROACH & BOUNDED TASK ZONE -->
+  <g transform="translate(86,184)">
+    <text x="82" y="-36" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" letter-spacing="1.6" fill="#38BDF8">01 · TASK BOUNDARY</text>
+    <text x="82" y="-20" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" letter-spacing="1.2" fill="#7DD3FC">AMR APPROACH CORRIDOR</text>
+    <!-- Safety Zone Boundary -->
+    <rect x="0" y="10" width="164" height="122" fill="url(#rbZone)" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="6 4"/>
+    <!-- Mobile Robot Chassis -->
+    <rect x="30" y="84" width="104" height="32" fill="#0284C7" stroke="#BAE6FD" stroke-width="1.4"/>
+    <circle cx="52" cy="122" r="9" fill="#06101F" stroke="#7DD3FC" stroke-width="2"/>
+    <circle cx="112" cy="122" r="9" fill="#06101F" stroke="#7DD3FC" stroke-width="2"/>
+    <!-- Payload Tote -->
+    <rect x="48" y="46" width="68" height="38" fill="rgba(56,189,248,0.22)" stroke="#FFFFFF" stroke-width="1.4"/>
+    <!-- Lidar Sweep Arc -->
+    <path d="M 134 94 A 34 34 0 0 1 162 66" fill="none" stroke="#7DD3FC" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <text x="82" y="156" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" fill="#7DD3FC">MARKED HANDOFF ZONE</text>
+  </g>
+
+  <!-- Trajectory Flow Arrow 1 -> 2 -->
+  <g stroke="#7DD3FC" stroke-width="1.2" fill="none">
+    <line x1="264" y1="252" x2="334" y2="252"/>
+    <polyline points="326,246 334,252 326,258" stroke="#38BDF8" stroke-width="1.8"/>
+  </g>
+
+  <!-- STAGE 02: 6-AXIS ARTICULATED ARM WORK CELL -->
+  <g transform="translate(348,100)">
+    <text x="116" y="-8" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" letter-spacing="1.6" fill="#38BDF8">02 · ROBOT IN ACTION</text>
+    <!-- Kinematic Reach Envelope -->
+    <path d="M 18 216 A 104 104 0 0 1 214 216" fill="rgba(2,132,199,0.12)" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="5 5"/>
+    <!-- Pedestal -->
+    <rect x="86" y="172" width="60" height="44" fill="#0E2647" stroke="#7DD3FC" stroke-width="1.4"/>
+    <!-- Articulated Robotic Arm Linkages -->
+    <line x1="116" y1="172" x2="72" y2="108" stroke="#38BDF8" stroke-width="10" stroke-linecap="square"/>
+    <line x1="72" y1="108" x2="154" y2="86" stroke="#7DD3FC" stroke-width="8" stroke-linecap="square"/>
+    <line x1="154" y1="86" x2="180" y2="132" stroke="#FFFFFF" stroke-width="5" stroke-linecap="square"/>
+    <!-- Precision Joint Pivots -->
+    <circle cx="116" cy="172" r="9" fill="#06101F" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="72" cy="108" r="9" fill="#06101F" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="154" cy="86" r="7" fill="#06101F" stroke="#FFFFFF" stroke-width="2"/>
+    <!-- Gripper + Workpiece -->
+    <path d="M 172 132 H 188 M 172 132 V 144 M 188 132 V 144" stroke="#38BDF8" stroke-width="2"/>
+    <rect x="166" y="144" width="28" height="22" fill="#0284C7" stroke="#FFFFFF" stroke-width="1.2"/>
+    <text x="116" y="240" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" fill="#BAE6FD">REACH ENVELOPE · ILLUSTRATIVE</text>
+  </g>
+
+  <!-- Trajectory Flow Arrow 2 -> 3 -->
+  <g stroke="#7DD3FC" stroke-width="1.2" fill="none">
+    <line x1="590" y1="252" x2="660" y2="252"/>
+    <polyline points="652,246 660,252 652,258" stroke="#38BDF8" stroke-width="1.8"/>
+  </g>
+
+  <!-- STAGE 03: ENGINEERING VALIDATION GATE -->
+  <g transform="translate(674,158)">
+    <text x="86" y="-10" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" letter-spacing="1.6" fill="#38BDF8">03 · VALIDATE NEXT</text>
+    <rect x="0" y="10" width="172" height="148" fill="#0A1B33" stroke="#38BDF8" stroke-width="1.4"/>
+    <g font-family="ui-monospace, monospace" font-size="10" fill="#E0F2FE">
+      <rect x="16" y="30" width="10" height="10" fill="#0284C7" stroke="#7DD3FC"/>
+      <text x="34" y="39">SITE CONSTRAINTS</text>
+      <rect x="16" y="58" width="10" height="10" fill="#0284C7" stroke="#7DD3FC"/>
+      <text x="34" y="67">PAYLOAD &amp; CYCLE</text>
+      <rect x="16" y="86" width="10" height="10" fill="#0284C7" stroke="#7DD3FC"/>
+      <text x="34" y="95">SAFETY REVIEW</text>
+      <rect x="16" y="114" width="10" height="10" fill="#0284C7" stroke="#7DD3FC"/>
+      <text x="34" y="123">SIM &amp; HW TEST</text>
+    </g>
+    <text x="86" y="182" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" fill="#7DD3FC">ENGINEERING CHECKLIST</text>
+  </g>
+
+  <line x1="18" y1="388" x2="902" y2="388" stroke="rgba(125,211,252,0.22)" stroke-width="1"/>
+  <g transform="translate(36,408)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.4" fill="#7DD3FC">
+    <text x="0" y="0">DHEE STUDIO · ROBOTICS USE-CASE SCHEMATIC</text>
+    <text x="848" y="0" text-anchor="end" fill="#38BDF8">ILLUSTRATIVE CONCEPT — NOT A VALIDATED SIMULATION</text>
+  </g>
+</svg>

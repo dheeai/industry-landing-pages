@@ -1,5 +1,7 @@
 ---
 import LandingPage from '../layouts/LandingPage.astro';
+import ProtocolLayout from '../layouts/ProtocolLayout.astro';
+import ProtocolLanding from '../components/protocol/ProtocolLanding.astro';
 import StudioHero from '../components/StudioHero.astro';
 import KineticMarquee from '../components/KineticMarquee.astro';
 import ConceptBridge from '../components/ConceptBridge.astro';
@@ -97,19 +99,26 @@ const marqueeItems = page.marqueeItems ?? [
   'Reviewed claims & captions',
   'Managed studio production'
 ];
+const isProtocol = page.presentation?.layout === 'protocol';
 ---
-<LandingPage page={page}>
-  <StudioHero page={page} configuredVideoUrl={configuredVideoUrl} />
-  <KineticMarquee items={marqueeItems} />
-  <ConceptBridge page={page} />
-  <AccountShowcaseBands page={page} configuredVideoUrl={configuredVideoUrl} />
-  <TriggerAndMetrics page={page} />
-  <FirstResponseStudio page={page} />
-  <UseCasesGrid page={page} />
-  <InteractiveJourney page={page} />
-  <ComparisonSection page={page} />
-  <StoryLibrary page={page} />
-  <ProcessStack page={page} />
-  <FaqSection page={page} />
-  <ClosingCta page={page} />
-</LandingPage>
+{isProtocol ? (
+  <ProtocolLayout page={page}>
+    <ProtocolLanding page={page} configuredVideoUrl={configuredVideoUrl} />
+  </ProtocolLayout>
+) : (
+  <LandingPage page={page}>
+    <StudioHero page={page} configuredVideoUrl={configuredVideoUrl} />
+    <KineticMarquee items={marqueeItems} />
+    <ConceptBridge page={page} />
+    <AccountShowcaseBands page={page} configuredVideoUrl={configuredVideoUrl} />
+    <TriggerAndMetrics page={page} />
+    <FirstResponseStudio page={page} />
+    <UseCasesGrid page={page} />
+    <InteractiveJourney page={page} />
+    <ComparisonSection page={page} />
+    <StoryLibrary page={page} />
+    <ProcessStack page={page} />
+    <FaqSection page={page} />
+    <ClosingCta page={page} />
+  </LandingPage>
+)}
